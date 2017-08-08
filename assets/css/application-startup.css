@@ -12,6 +12,35 @@
   right: 0;
   bottom: -40px;
 }
+
+.app-header {
+  background-image: url(../img/network.svg), linear-gradient(to right, rgb(238, 39, 76), rgb(126, 52, 126) 70%, rgb(46, 49, 146));
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.sign-up input {
+  width: 100%;
+}
+
+.sign-up button {
+  width: 100%;
+  margin-top: 5px;
+}
+
+@media (min-width: 576px) {
+  .sign-up input{
+  width: 50%;
+  }
+  .sign-up button {
+   width: 40%;
+   margin-top: 0px;
+  }
+}
+
+
+
 @media (min-width: 768px) {
   .app-graph {
     width: 100%;
