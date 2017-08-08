@@ -105,14 +105,14 @@
         <div class="col-sm-10 col-lg-8">
           <h1 class="block-titleData frequency">Distributed marketplace for IoT sensor data</h1>
           <p class="lead mb-4">Enabling the monitisation of gathered IoT sensor data, turning sunk costs into perpetual revenue streams.</p>
-          <form action="https://website-databrokerdao-accept.herokuapp.com?signup=success" id=signup_form>
+          <form id=signup_form class="">
              <div class="form-group sign-up" style="width: 100%;">
               <label class="sr-only" for="EmailInput">Email address</label>
               <input type="email" name="email" class="form-control-lg" id="EmailInput" placeholder="Enter your email to receive updates">
               <button type="submit" class="btn btn-primary btn-lg" value="Receive updates">Subscribe</button>
             </div>
           </form>
-          <p><span id="signup_result"></span></p>
+          <p id="signup_result" class="collapse" style="font-size: 20px;">Thank you for signing up - <a href="https://slackin-databrokerdao.herokuapp.com/" target="_blank" style="color: #fff;">Come chat with us on <i class="fa fa-slack"></i> slack →</a></p>
           <!--  <p style="margin-top: 20px; font-size: 18px;">Or follow us: <i class="fa fa-slack"></i> <i class="fa fa-reddit"></i> </p> -->
           <!-- <a href="#beintheknow" class="btn btn-primary btn-lg">Keep up to date</a> -->
           <!-- <a href="https://beta.databrokerdao.com" class="btn btn-secondary btn-lg" target="_blank">Try v0.9-BETA1</a> -->
@@ -477,8 +477,8 @@
 
     <script>
     if (window.location.search.indexOf('signup=success') > -1) {
-        document.getElementById("signup_result").textContent="Thank you for signing up";
-        document.getElementById('signup_form').classList.add('hidden');
+        document.getElementById("signup_result").classList.remove('collapse');
+        document.getElementById("signup_form").classList.add('collapse');
     }
     </script>
 
