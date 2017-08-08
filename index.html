@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"> 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>DataBroker DAO</title>
@@ -28,6 +28,8 @@
     <meta property="og:description" content="Enabling the monitisation of gathered IoT sensor data, turning sunk costs into perpetual revenue streams.">
     <meta property="og:url" content="https://databrokerdao.com/" />
     <meta property="og:image" content="https://databrokerdao.com/assets/img/social.jpg">
+    <script type="text/javascript">(function(o){var b="https://api.autopilothq.com/anywhere/",t="9a5b519d024346528c0c756fb4cf7b13f99d2d4f823f40b0a8f6fa106483ace8",a=window.AutopilotAnywhere={_runQueue:[],run:function(){this._runQueue.push(arguments);}},c=encodeURIComponent,s="SCRIPT",d=document,l=d.getElementsByTagName(s)[0],p="t="+c(d.title||"")+"&u="+c(d.location.href||"")+"&r="+c(d.referrer||""),j="text/javascript",z,y;if(!window.Autopilot) window.Autopilot=a;if(o.app) p="devmode=true&"+p;z=function(src,asy){var e=d.createElement(s);e.src=src;e.type=j;e.async=asy;l.parentNode.insertBefore(e,l);};y=function(){z(b+t+'?'+p,true);};if(window.attachEvent){window.attachEvent("onload",y);}else{window.addEventListener("load",y,false);}})({});
+    </script>
   </head>
 <body>
 <div class="stage-shelf stage-shelf-right hidden" id="sidebar">
@@ -78,8 +80,19 @@
         <li class="nav-item px-1 ">
           <a class="nav-link" href="#solution">Solution</a>
         </li>
-        <li class="nav-item px-1 ">
+       <!--  <li class="nav-item px-1 ">
           <a class="nav-link" href="#tokensale">Tokensale</a>
+        </li> -->
+        <li class="nav-item px-1 ">
+          <a class="nav-link" href="https://medium.com/@DataBrokerDAO"><i class="fa fa-medium"></i> Updates</a>
+        </li>
+        <li class="nav-item px-1 ">
+          <a class="nav-link" href="https://slackin-databrokerdao.herokuapp.com/" target="_blank">
+            <i class="fa fa-slack"></i> Slack
+          </a>
+        </li>
+        <li class="nav-item px-1">
+          <a href="https://beta.databrokerdao.com" class="btn btn-beta" style="color:#444;" target="_blank">Try BETA</a>
         </li>
       </ul>
     </div>
@@ -93,8 +106,15 @@
         <div class="col-sm-10 col-lg-8">
           <h1 class="block-titleData frequency">Distributed marketplace for IoT sensor data</h1>
           <p class="lead mb-4">Enabling the monitisation of gathered IoT sensor data, turning sunk costs into perpetual revenue streams.</p>
-          <a href="#beintheknow" class="btn btn-primary btn-lg">Keep up to date</a>
-          <a href="https://beta.databrokerdao.com" class="btn btn-secondary btn-lg" target="_blank">Try v0.9-BETA1</a>
+          <form>
+             <div class="form-group" style="float: left; width: 100%;">
+              <label class="sr-only" for="EmailInput">Email address</label>
+              <input type="email" name="email" class="form-control-lg" style="width: 50%;" id="EmailInput" placeholder="Your Email">
+              <button type="submit" class="btn-primary btn-lg-submit" value="Receive updates">Receive updates</button>
+            </div>
+          </form>
+          <!-- <a href="#beintheknow" class="btn btn-primary btn-lg">Keep up to date</a> -->
+          <!-- <a href="https://beta.databrokerdao.com" class="btn btn-secondary btn-lg" target="_blank">Try v0.9-BETA1</a> -->
         </div>
       </div>
     </div>

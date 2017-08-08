@@ -130,6 +130,28 @@
 .btn-lg:not(.btn-block) {
   padding: 12px 50px;
 }
+
+.btn-lg-submit {
+ padding: 0.7rem 1.5rem;
+ font-size: 18px;
+}
+
+/* BETA BUTTON IN MENY */
+
+.btn-beta {
+  color: #333;
+  background-image: none;
+  background-color: #fff;
+  border-color: #fff;
+}
+.btn-beta:hover {
+  color: #fff !important;
+  background-color: #ee274c !important;
+  border-color: #ee274c;
+}
+
+/* MEDIA QUERIES */
+
 @media (min-width: 768px) {
   .btn-lg:not(.btn-block) {
     width: auto;
