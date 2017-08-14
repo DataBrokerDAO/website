@@ -1,0 +1,104 @@
+/*! Place your custom styles here */
+
+
+/* ====== HEADER ====== */
+[data-gradient-bg] > canvas + .background-image-holder {
+    opacity: .4 !important;
+}
+
+[data-overlay] *:not(.container):not(.background-image-holder) {
+    z-index: 0;
+}
+
+.bar .logo {
+    max-height: 3em;
+ }
+
+ .header-intro h1 {
+ 	font-family: "Titillium Web";
+ 	font-weight: 700;
+ }
+
+.bar-1 .menu-horizontal > li > .dropdown__trigger, .bar-1 .menu-horizontal > li > a {
+	font-size: 1em;
+}
+
+
+ #form-header {
+ 	margin-top: 0;
+ }
+
+ .token-sale {
+ 	margin-top: 2em;
+ }
+ 
+ .token-sale p {
+ 	font-size: 28px;
+ 	font-weight: 700;
+ 	color: #333333 !important;
+ }
+
+ .token-sale span {
+ 	padding-left: 20px;
+ 	padding-right: 20px;
+ }
+
+ .token-sale hr {
+ 	border-color: #333;
+ }
+
+ .channels span {
+ 	padding-left: 15px;
+ 	padding-right: 15px;
+ 	opacity: 0.7;
+	transition: opacity .25s ease-in-out;
+	-moz-transition: opacity .25s ease-in-out;
+	-webkit-transition: opacity .25s ease-in-out;
+ }
+
+ .channels span:hover {
+ 	opacity: 1;
+ }
+
+ .channels span:first {
+ 	padding-left: 0px;
+ }
+
+ .token-sale .btn--secondary {
+ 	background: #f4f4f4;
+ }
+
+ /* ====== GENERAL CLASSES ====== */
+
+ .padding-0 {
+ 	padding-left: 0px;
+ 	padding-right: 0px;
+ }
+
+  .padding-only-right {
+ 	padding-left: 0px;
+ 	padding-right: 15px;
+ }
+
+ .padding-only-left {
+ 	padding-left: 15px;
+ 	padding-right: 0px;
+ }
+
+ @media (max-width: 767px) {
+  	.padding-only-left {
+	 	padding-left: 0px;
+	 	padding-right: 0px;
+ 	}
+    .padding-only-right {
+	 	padding-left: 0px;
+	 	padding-right: 0px;
+	}
+ }
+
+@media (min-width: 767px) {
+  .align-center {
+    display: flex;
+    align-items: center;
+  }
+}
