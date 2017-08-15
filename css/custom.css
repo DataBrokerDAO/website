@@ -32,10 +32,14 @@
  	margin-top: 2em;
  }
  
- .token-sale p {
+ .token-sale .date {
  	font-size: 28px;
  	font-weight: 700;
  	color: #333333 !important;
+ }
+
+ .token-sale .modal-instance, .token-sale a.btn {
+ 	width: 100%;
  }
 
  .token-sale span {
