@@ -23,7 +23,6 @@
 	font-size: 1em;
 }
 
-
  #form-header {
  	margin-top: 0;
  }
@@ -51,6 +50,12 @@
  	border-color: #333;
  }
 
+ .token-sale a.token--button {
+  color: #333;
+  padding-left: 5px;
+  padding-right: 5px;
+ }
+
  .channels span {
  	padding-left: 15px;
  	padding-right: 15px;
@@ -70,6 +75,10 @@
 
  .token-sale .btn--secondary {
  	background: #f4f4f4;
+ }
+
+ .video-link {
+   cursor: pointer;
  }
 
  /* ====== GENERAL CLASSES ====== */
