@@ -73,12 +73,17 @@
  }
 
  .channels span {
+  cursor: pointer;
  	padding-left: 15px;
  	padding-right: 15px;
  	opacity: 0.7;
 	transition: opacity .25s ease-in-out;
 	-moz-transition: opacity .25s ease-in-out;
 	-webkit-transition: opacity .25s ease-in-out;
+ }
+
+ .channels a {
+  cursor: pointer;
  }
 
  .channels span:hover {
@@ -90,6 +95,7 @@
  }
 
  .footer-channels span {
+  cursor: pointer;
   padding-left: 35px;
   padding-right: 35px;
   opacity: 0.7;
@@ -98,14 +104,21 @@
   -webkit-transition: opacity .25s ease-in-out;
  }
 
+@media (max-width: 766px) {
+   .footer-channels span {
+    padding-left: 15px;
+    padding-right: 15px;
+   }
+}
  .footer-channels span > a {
   color: #666;
+  cursor: pointer;
  }
 
   .footer-channels span:hover {
     opacity: 1;
   }
-  
+
  .footer-channels span > a:hover {
   color: #333;
   /*opacity: 1;*/
@@ -121,10 +134,17 @@
 
  /* ====== TOKEN BOX EXPLANATION ====== */
 
+ .token-box {
+    background: #252525 !important;
+ }
+
  .token-box td {
   padding: 0;
   font-size: 16px;
  }
+
+ /* ====== TEAM SECTION ====== */
+
 
  /* ====== GENERAL CLASSES ====== */
 
