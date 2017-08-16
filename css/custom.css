@@ -3,7 +3,7 @@
 
 /* ====== HEADER ====== */
 [data-gradient-bg] > canvas + .background-image-holder {
-    /*opacity: .4 !important;*/
+    opacity: .4 !important;
 }
 
 [data-overlay] *:not(.container):not(.background-image-holder) {
