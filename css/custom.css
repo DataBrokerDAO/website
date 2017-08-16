@@ -20,11 +20,25 @@
  }
 
 .bar-1 .menu-horizontal > li > .dropdown__trigger, .bar-1 .menu-horizontal > li > a {
-	font-size: 1em;
+	font-size: 0.9em;
 }
 
   .cover .header-video {
     margin: 1.5em 0 !important;
+  }
+
+  nav span.dropdown__trigger {
+    color: #fff;
+    font-size: 0.9em;
+    font-weight: 600;
+    opacity: 0.5;
+    transition: opacity .25s ease-in-out;
+    -moz-transition: opacity .25s ease-in-out;
+    -webkit-transition: opacity .25s ease-in-out;
+  }
+
+  nav span.dropdown__trigger:hover {
+    opacity: 1;
   }
 
  #form-header {
@@ -125,7 +139,7 @@
  }
 
  .token-sale .btn--secondary {
- 	background: #f4f4f4;
+ 	background: #dedede;
  }
 
  .video-link {

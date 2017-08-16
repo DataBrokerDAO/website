@@ -86,7 +86,7 @@
                             </div>
                             <!--end module-->
                         </div>
-                        <div class="col-md-9 col-sm-12 text-right text-left-xs text-left-sm">
+                        <div class="col-md-9 col-sm-12 text-right text-left-xs text-left-sm" style="margin-top: 10px;">
                             <div class="bar__module">
                                 <ul class="menu-horizontal text-left">
                                     <li>
@@ -101,23 +101,48 @@
                                    <li>
                                         <a href="https://medium.com/@DataBrokerDAO" target="_blank">Updates</a>
                                     </li>
-                                    <li>
+<!--                                     <li>
                                         <a href="https://slackin-databrokerdao.herokuapp.com/" target="_blank"><i class="fa fa-slack"></i> Slack</a>
-                                    </li>
+                                    </li> -->
                                 </ul>
                             </div>
                             <!--end module-->
-                            <div class="bar__module">
+                            <div class="bar__module" style="margin-left: 5px;">
                                 <a class="btn btn--sm type--uppercase" href="https://beta.databrokerdao.com/" target="_blank">
                                     <span class="btn__text">
                                         Try Beta
                                     </span>
                                 </a>
-<!--                                 <a class="btn btn--sm btn--primary type--uppercase" href="#">
-                                    <span class="btn__text">
-                                        Buy Now
-                                    </span>
-                                </a> -->
+                            </div>
+                            <div class="bar__module" style="margin-left: 5px;">
+                                <div class="dropdown">
+                                    <span class="dropdown__trigger type--uppercase">English <i class="fa fa-angle-down"></i></span>
+                                    <div class="dropdown__container text-left">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-sm-2 col-md-2 dropdown__content">
+                                                    <ul class="menu-vertical">
+                                                        <!-- <li>
+                                                            <a href="#">English</a>
+                                                        </li> -->
+                                                        <li>
+                                                            <a href="#">简体中文</a> <!-- Simplified Chinese -->
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">한국어</a> <!-- Korean -->
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">عربى</a> <!-- Arabic -->
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">日本語</a> <!-- Japenese -->
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div><!--end row-->
+                                        </div><!--end container-->
+                                    </div><!--end dropdown container-->
+                                </div>
                             </div>
                             <!--end module-->
                         </div>
@@ -225,7 +250,7 @@
                                         </div>
                                     </div>
                                     </div || li > -->
-                                    <a href="../assets/whitepaper_databroker.pdf" class="btn btn-lg type--uppercase btn--secondary token--button">Whitepaper</a>
+                                    <a href="../assets/whitepaper_databroker.pdf" class="btn btn-lg type--uppercase btn--secondary token--button">Whitepaper V0.1</a>
                                 </div>
                                 <div class="col-md-6 padding-0">
                                     <a class="btn btn-lg type--uppercase btn--secondary token--button">One-pager</a>
@@ -556,7 +581,7 @@
             <!-- ===== END TEAM SECTION ===== -->
 
             <!-- ===== ADVISOR SECTION ===== -->
-            <section id="advisors" class="text-center bg--secondary space--xs">
+            <!-- <section id="advisors" class="text-center bg--secondary space--xs">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 text-center">
@@ -596,7 +621,7 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> -->
             <!-- ===== END ADVISOR SECTION ===== -->
 
             <!-- ===== TOKENSALE SECTION ===== -->
@@ -659,7 +684,7 @@
                                     </table>
                                 </div>
                                 <hr class="short">
-                                <a class="btn btn-lg btn--primary" href="" target="_blank">
+                                <a class="btn btn-lg btn--primary" href="#start">
                                     <span class="btn__text type--uppercase">Register for early token sale</span>
                                 </a>
                             </div>
@@ -803,7 +828,7 @@
     <script type="text/javascript">
      $('#clock').countdown('2017/08/15').on('update.countdown', function(event) {
       var $this = $(this).html(event.strftime(''
-        + '<div class=''><span>%-w</span><span>week%!w</span></div>'
+        + '<div><span>%-w</span><span>week%!w</span></div>'
         + '<span>%-d</span>'
         + '<span>%H</span>'
         + '<span>%M</span>'));
