@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+   
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- ==== META TAGS + OG - START ==== -->
+        <title>DataBrokerDAO - Distributed Marketplace for IoT Sensor Data</title>        
+        <meta name="description" content="Enabling the monetisation of IoT sensor data, turning sunk costs into perpetual revenue streams">
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@DataBrokerDAO" />
+        <meta name="twitter:creator" content="@SettleMintIO" />
+        <meta name="twitter:title" content="DataBroker DAO &middot; Distributed marketplace for IoT sensor data" />
+        <meta name="twitter:url" content="https://databrokerdao.com/" />
+        <meta name="twitter:description" content="Enabling the monetisation of IoT sensor data, turning sunk costs into perpetual revenue streams." />
+        <meta name="twitter:image" content="https://databrokerdao.com/assets/img/social.jpg" />
+        <meta name="twitter:image:alt" content="DataBroker DAO &middot; Distributed marketplace for IoT sensor data" />
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="DataBroker DAO &middot; Distributed marketplace for IoT sensor data">
+        <meta property="og:description" content="Enabling the monetisation of IoT sensor data, turning sunk costs into perpetual revenue streams.">
+        <meta property="og:url" content="https://databrokerdao.com/" />
+        <meta property="og:image" content="https://databrokerdao.com/assets/img/social.jpg">
+        <!-- ==== META TAGS + OG - END ==== -->
+
+        <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+        <link rel="manifest" href="../manifest.json">
+         <meta name="theme-color" content="#7E347E">
+        
+        <link href="../css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="../css/stack-interface.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="../css/socicon.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="../css/lightbox.min.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="../css/flickity.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="../css/iconsmind.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="../css/jquery.steps.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="../css/theme-red.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="../css/custom.css" rel="stylesheet" type="text/css" media="all" />
+        
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:200,300,400,400i,500,600,700%7CMerriweather:300,300i" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Titillium+Web:300,330i,400,400i,700&amp;subset=latin-ext" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script src="https://use.fontawesome.com/1d1f543cfa.js"></script>
+        
+        <script type="text/javascript">(function(o){var b="https://api.autopilothq.com/anywhere/",t="9a5b519d024346528c0c756fb4cf7b13f99d2d4f823f40b0a8f6fa106483ace8",a=window.AutopilotAnywhere={_runQueue:[],run:function(){this._runQueue.push(arguments);}},c=encodeURIComponent,s="SCRIPT",d=document,l=d.getElementsByTagName(s)[0],p="t="+c(d.title||"")+"&u="+c(d.location.href||"")+"&r="+c(d.referrer||""),j="text/javascript",z,y;if(!window.Autopilot) window.Autopilot=a;if(o.app) p="devmode=true&"+p;z=function(src,asy){var e=d.createElement(s);e.src=src;e.type=j;e.async=asy;l.parentNode.insertBefore(e,l);};y=function(){z(b+t+'?'+p,true);};if(window.attachEvent){window.attachEvent("onload",y);}else{window.addEventListener("load",y,false);}})({});
+        </script>
+    </head>
+    <body class=" ">
+        <a id="start"></a>
+        <div class="nav-container ">
+            <div class="bar bar--md visible-xs">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-3 col-sm-2">
+                            <a href="index.html">
+                                <img class="logo logo-dark" alt="logo" src="../img/dark-logo.svg" />
+                                <img class="logo logo-light" alt="logo" src="../img/white-logo.svg" />
+                            </a>
+                        </div>
+                        <div class="col-xs-9 col-sm-10 text-right">
+                            <a href="#" class="hamburger-toggle" data-toggle-class="#menu1;hidden-xs">
+                                <i class="icon icon--sm stack-interface stack-menu"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </div>
+            <!--end bar-->
+
+            <!-- ===== NAV SECTION ===== -->
+            <nav id="menu1" class="bar bar--md bar-1 hidden-xs bar--absolute bar--transparent pos-vertical-align-columns">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-2 hidden-xs">
+                            <div class="bar__module">
+                                <a href="index.html">
+                                    <img class="logo logo-dark" alt="logo" src="../img/dark-logo.svg" />
+                                    <img class="logo logo-light" alt="logo" src="../img/white-logo.svg" />
+                                </a>
+                            </div>
+                            <!--end module-->
+                        </div>
+                        <div class="col-md-9 col-sm-12 text-right text-left-xs text-left-sm" style="margin-top: 10px;">
+                            <div class="bar__module">
+                                <ul class="menu-horizontal text-left">
+                                    <li>
+                                        <a href="#databroker">What is Databroker?</a>
+                                    </li>
+                                    <li>
+                                        <a href="../assets/whitepaper_databroker_v01.pdf" target="_blank">Whitepaper</a>
+                                    </li>
+                                    <li>
+                                        <a href="#tokensale">Token sale</a>  <!-- haven't made that section yet -->
+                                    </li>
+                                   <li>
+                                        <a href="https://medium.com/@DataBrokerDAO" target="_blank">Updates</a>
+                                    </li>
+<!--                                     <li>
+                                        <a href="https://slackin-databrokerdao.herokuapp.com/" target="_blank"><i class="fa fa-slack"></i> Slack</a>
+                                    </li> -->
+                                </ul>
+                            </div>
+                            <!--end module-->
+                            <div class="bar__module" style="margin-left: 5px;">
+                                <a class="btn btn--sm type--uppercase" href="https://beta.databrokerdao.com/" target="_blank">
+                                    <span class="btn__text">
+                                        Try Beta
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="bar__module" style="margin-left: 5px;">
+                                <div class="dropdown">
+                                    <span class="dropdown__trigger type--uppercase">English <i class="fa fa-angle-down"></i></span>
+                                    <div class="dropdown__container text-left">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-sm-2 col-md-2 dropdown__content">
+                                                    <ul class="menu-vertical">
+                                                        <!-- <li>
+                                                            <a href="#">English</a>
+                                                        </li> -->
+                                                        <li>
+                                                            <a href="#">中文</a> <!-- Simplified Chinese -->
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">한국어</a> <!-- Korean -->
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">عربى</a> <!-- Arabic -->
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">日本語</a> <!-- Japenese -->
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div><!--end row-->
+                                        </div><!--end container-->
+                                    </div><!--end dropdown container-->
+                                </div>
+                            </div>
+                            <!--end module-->
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </nav>
+            <!--end bar-->
+            <!-- ===== END NAV SECTION ===== -->
+        </div>
+        <div class="main-container">
+
+            <!-- ===== COVER SECTION ===== -->
+            <section class="cover height-100 imagebg" data-gradient-bg="#EB274C,#7E347E,#2E3192">
+                <div class="background-image-holder">
+                    <img alt="background" src="../img/network.svg" />
+                </div>
+                <div class="container pos-vertical-center">
+                    <div class="row align-center">
+                        <div class="col-md-5 col-sm-5">
+                            <div class="header-intro">
+                                <h1>
+                                    Distributed Marketplace for IoT Sensor Data
+                                </h1>
+                                <p class="lead">
+                                    Enabling the monetisation of IoT sensor data, turning sunk costs into perpetual revenue streams.
+                                </p>
+
+                                <div class="modal-instance header-video block">
+                                    <div class="video-play-icon video-play-icon--xs modal-trigger bg--primary" data-modal-index="0"></div>
+                                    <span><strong>DataBrokerDAO in 30 seconds</strong></span>
+                                    <div class="modal-container">
+                                    <div class="modal-content bg-dark" data-width="55%" data-height="60%">
+                                        <iframe data-src="https://www.youtube.com/embed/Ic3AC2VPa94?autoplay=1" allowfullscreen="allowfullscreen"></iframe>
+                                    </div>
+                                    <!--end of modal-content-->
+                                </div>
+                                </div>
+
+                                <form id="form-header" class="unmarg--top">
+                                    <div class="col-sm-8 input-icon padding-0">
+                                        <i class="material-icons">email</i>
+                                        <input class="validate-required validate-email" type="text" name="EMAIL" placeholder="Enter email to receive updates">
+                                    </div>
+                                    <div class="col-sm-4 padding-only-left">
+                                        <button type="submit" class="btn btn--secondary">Subscribe</button>
+                                    </div>
+                                    <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                                        <input type="text" name="b_77142ece814d3cff52058a51f_f300c9cce8" tabindex="-1" value="">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 col-sm-7 col-xs-12 text-center col-md-offset-1">
+                            <div class="boxed boxed--lg border--round box-shadow-wide bg--white token-sale">
+                                <h2 class="sale-date">Early Token Sale starts:</h2>
+                                <p class="sale-date unmarg--bottom">18 September 2017 - 10:00am CET</p>
+                                
+                                <hr>
+                                <h3 class="unmarg--bottom">Register to get your referral link</h3>
+                                <p class="lead">Receive 5% of every contribution you refer</p>
+
+                                <div class="modal-instance">
+                                    <a class="btn btn-lg type--uppercase btn--primary modal-trigger">Register for the early token sale</a>
+                                    <div class="modal-container">
+                                            <div class="modal-content">
+                                                <div class="boxed boxed--lg">
+                                                    <h2>Here is a basic text modal</h2>
+                                                    <hr class="short">
+                                                    <p class="lead">
+                                                        Stack's visual style is simple yet distinct, making it an ideal starting point for your project whether it be a basic marketing site, or multi-page company presence.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <hr>
+        
+
+                                <div class="col-md-6 padding-only-right">
+                                    <!-- <div || li class="dropdown">
+                                    <button type="submit" class="btn btn-lg type--uppercase btn--secondary dropdown__trigger">Whitepaper&nbsp;<i class="fa fa-angle-down"></i></button>
+                                    <div class="dropdown__container">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-sm-3 col-md-2 dropdown__content">
+                                                    <ul class="menu-vertical">
+                                                        <li>
+                                                            English
+                                                        </li>
+                                                        <li>
+                                                            Simplified Chinese
+                                                        </li>
+                                                        <li>
+                                                            Arabic
+                                                        </li>
+                                                        <li>
+                                                            Korean
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div || li > -->
+                                    <a href="../assets/whitepaper_databroker.pdf" class="btn btn-lg type--uppercase btn--secondary token--button">Whitepaper V0.1</a>
+                                </div>
+                                <div class="col-md-6 padding-0">
+                                    <a class="btn btn-lg type--uppercase btn--secondary token--button">One-pager</a>
+                                </div>
+                            </div>
+                            <!--end video cover-->
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+                    <div class="container pos-absolute pos-bottom">
+                        <div class="row">
+                            <div class="col-sm-12 text-center">
+                                <!-- <hr> -->
+                                <div class="channels">
+                                    <span><a href="https://slack.databrokerdao.com" target="_blank"><i class="fa fa-slack fa-2x"></i></a></span>
+                                    <!-- <span><a href="#" target="_blank"><i class="fa fa-telegram fa-2x"></i></a></span> -->
+                                    <span><a href="https://www.facebook.com/DataBrokerDAO/" target="_blank"><i class="fa fa-facebook fa-2x"></i></a></span>
+                                    <span><a href="https://twitter.com/DataBrokerDAO" target="_blank"><i class="fa fa-twitter fa-2x"></i></a></span> 
+                                    <span><a href="https://medium.com/@DataBrokerDAO" target="_blank"><i class="fa fa-medium fa-2x"></i></a></span>
+                                    <span><a href="https://www.youtube.com/channel/UCGo8NhGJqtBo6y6GFWUB-rg" target="_blank"><i class="fa fa-youtube fa-2x"></i></a></span> 
+                                    <!-- <span><a href="#"><i class="fa fa-btc fa-2x"></i></a></span>  -->
+                                </div>
+                            </div>
+                        </div>
+                        <!--end of row-->
+                    </div>
+            </section>
+            <!-- ===== END COVER SECTION ===== -->
+
+            <!-- ===== VIDEO SECTION ===== -->
+            <section id="databroker" class="feature-large switchable space--sm">
+                <div class="container">
+                    <div class="row align-center">
+                        <div class="col-md-6 col-sm-6">
+                            <div class="video-cover border--round box-shadow-wide">
+                                <div class="background-image-holder" style="background: #000; opacity: 0.2;">
+                                    <img alt="image" src="../img/video-cover2.png">
+                                </div>
+                                <div class="video-play-icon"></div>
+                                <iframe data-src="https://www.youtube.com/embed/Ic3AC2VPa94?autoplay=1" allowfullscreen="allowfullscreen"></iframe>
+                            </div>
+                        </div>
+                        <div class="col-md-5 col-md-offset-1 col-sm-6">
+                            <h2>DatabrokerDAO in 30 seconds</h2>
+                            <hr class="short">
+                            <p class="lead">
+                                Are you curious to try out the platform after seeing the video? We already have a BETA version live for you to try out.
+                            </p>
+                            <a class="btn btn-lg btn--primary" href="https://beta.databrokerdao.com" target="_blank">
+                                <span class="btn__text type--uppercase">Try the BETA</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- ===== END VIDEO SECTION ===== -->
+            
+            <!-- ===== CHALLENGE SECTION ===== -->
+            <section id="challenge" class="switchable bg--secondary height-auto">
+                <div class="container pos-vertical-center">
+                    <div class="row align-center">
+                        <div class="col-sm-4">
+                            <img alt="Image" class="border--round" src="../img/problem.png" />
+                        </div>
+                        <div class="col-sm-8 col-md-6 col-md-offset-2">
+                            <div class="switchable__text">
+                                <span class="type--uppercase type--bold">The Challenge</span>
+                                <h2>Unlocking the potential &amp; monetization of IoT sensor data</h2>
+                                <p class="lead">
+                                    Individuals, companies, researchers &amp; governments are spending hundreds of billions each year on buying and maintaining IoT sensors. The growth of the investment and applications in IoT is truly staggering, and yet, all data captured by these devices is locked up in silos and walled gardens.
+                                </p>
+                            </div>
+                            <div class="col-sm-6">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>
+            <!-- ===== END CHALLENGE SECTION ===== -->
+
+            <!-- ===== SOLUTION SECTION ===== -->
+            <section id="solution" class="text-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+                            <span class="type--uppercase type--bold">The Solution</span>
+                            <h2>DataBroker DAO: a peer to peer marketplace for IoT sensor data.</h2>
+                        </div>
+                        <div class="col-sm-12 col-md-10 col-md-offset-1">
+                            <img alt="Image" class="border--round" src="../img/schematic.png" />
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>
+            <!-- ===== END SOLUTION SECTION ===== -->
+
+            <!-- ===== BENEFITS SECTION ===== -->
+            <section id="benefits" class="bg--secondary text-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+                            <span class="type--uppercase type--bold">The benefits</span>
+                            <h2>A wide range of parties will benefit greatly</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="feature feature-3 boxed boxed--lg boxed--border">
+                                <i class="fa fa-podcast fa-5x"></i>
+                                <h4>Sensor owners</h4>
+                                <p>
+                                    Are able to monetize their data and turn a sunk cost into a potential money maker and at least the opportunity to recoup some of their investments in IoT sensors.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="feature feature-3 boxed boxed--lg boxed--border">
+                                <i class="fa fa-wifi fa-5x"></i>
+                                <h4>Network operators</h4>
+                                <p>
+                                    Gain scale and speed in the adoption of their network as connected telcos can present a win-back to their enterprise accounts, a clear USP.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="feature feature-3 boxed boxed--lg boxed--border">
+                                <i class="fa fa-industry fa-5x"></i>
+                                <h4>Sensor manufacturers</h4>
+                                <p>
+                                    Can stop the "race to the bottom” for production and pull resources and capital out of manufacturing and allocate these to profitable SaaS offerings.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="clearfix visible-xs-block"></div>
+
+                        <div class="col-sm-4">
+                            <div class="feature feature-3 boxed boxed--lg boxed--border">
+                                <i class="fa fa-building-o fa-5x"></i>
+                                <h4>Smart city initiatives</h4>
+                                <p>
+                                   Can limit the upfront cost of populating the town with sufficient sensors and turn the expense into an investment with a 2-3 year payback period and a continuous income stream after that.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="feature feature-3 boxed boxed--lg boxed--border">
+                                <i class="fa fa-pagelines fa-5x"></i>
+                                <h4>Agricultar sector</h4>
+                                <p>
+                                    In the Agricultural sector in Belgium today, 10% of farmers are "techie". They deploy sensors include for wind, temperature, barometric pressure, humidity, PH level in the soil. The platform will provide the possibility to recoup some of this cost.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="feature feature-3 boxed boxed--lg boxed--border">
+                                <i class="fa fa-graduation-cap fa-5x"></i>
+                                <h4>Academics</h4>
+                                <p>
+                                    Can get access to thousands of sensors and can buy data directly and more cheap on the marketplace, cutting out established data providers.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- ===== BENEFITS SECTION ===== -->
+
+            <!-- ===== BETA SECTION ===== -->
+<!--             <section class="feature-large switchable bg--primary" data-gradient-bg="#EB274C,#7E347E,#2E3192">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                            <img alt="Image" class="border--round box-shadow-wide" src="../img/databroker-screenshot.png">
+                        </div>
+                        <div class="col-md-5 col-sm-6">
+                            <h2>Try the DataBroker BETA</h2>
+                            <hr class="short">
+                            <p class="lead">
+                                We already have a working platform live for you to try out. Curious to see how buying & selling data would work? Then give the BETA a try.
+                            </p>
+                            <a href="https://beta.databrokerdao.com" class="btn btn-lg type--uppercase btn--primary">Try our beta</a>
+                        </div>
+                    </div>
+                </div>
+            </section> -->
+            <!-- ===== END BETA SECTION ===== -->
+
+            <!-- ===== TEAM SECTION ===== -->
+            <section id="team" class="text-center space--xs">
+                <div class="container">
+                    <div class="row spacing--lg">
+                        <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+                            <h2 class="type--uppercase type--bold">The Team</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="masonry">
+                            <div class="masonry__container masonry--active" style="position: relative; height: 533.5px;">
+                                <div class="col-xs-6 col-sm-3 masonry__item" style="position: absolute; left: 0px; top: 0px;">
+                                    <div class="card card-2 text-center">
+                                        <div class="card__top">
+                                            <img alt="Image" src="../img/matthew.jpg">
+                                        </div>
+                                        <div class="card__body">
+                                            <h4>Matthew van Niekerk</h4>
+                                            <span class="type--fade">Co-Founder &amp; CEO</span>
+                                            <p class="text-left">
+                                               <!--  <strong>Founded and exited two companies</strong> in Japan <br /><br />
+                                                <strong>Got an MBA in Belgium</strong> after which he joined a large financial institution.<br /><br />
+                                                <strong>Perforfmed as COO &amp; Head of platform</strong> at KBC.<br /><br />
+                                                <strong>Founded Settlemint in 2016</strong><br /><br /> -->
+
+                                                 Founded and exited two companies in Japan, then got his MBA in Belgium after which he joined a large financial institution, performing a variety of roles ranging from COO of the consumer finance business line to head of platform innovation for the brokerage and crowdfunding platform. In 2016, he left the bank and co-founded SettleMint.
+                                            </p>
+                                        </div>
+                                        <div class="card__bottom text-center">
+                                            <div class="card__action">
+                                                <a href="https://www.linkedin.com/in/mattvanniekerk/" target="_blank">
+                                                    <i class="fa fa-linkedin fa-2x"></i>
+                                                </a>
+                                            </div>
+                                            <div class="card__action">
+                                                <a href="https://twitter.com/matt_vn" target="_blank">
+                                                    <i class="fa fa-twitter fa-2x"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-sm-3 masonry__item" style="position: absolute; left: 390px; top: 0px;">
+                                    <div class="card card-2 text-center">
+                                        <div class="card__top">
+                                            <img alt="Image" src="../img/roderik.jpg">
+                                        </div>
+                                        <div class="card__body">
+                                            <h4>Roderik van der Veer</h4>
+                                            <span class="type--fade">Co-Founder &amp; CTO</span>
+                                            <p>
+                                                After Roderik built one of the largest ecommerce computer store sites in Belgium in 1999, he worked in the IT development sector and as CTO grew a traditional marketing agency into a digital powerhouse. He exited this business to focus on blockchain technologies when he co-founded SettleMint in 2016.
+                                            </p>
+                                        </div>
+                                        <div class="card__bottom text-center">
+                                            <div class="card__action">
+                                                <a href="https://www.linkedin.com/in/roderik/" target="_blank">
+                                                    <i class="fa fa-linkedin fa-2x"></i>
+                                                </a>
+                                            </div>
+                                            <div class="card__action">
+                                                <a href="https://twitter.com/r0derik" target="_blank">
+                                                    <i class="fa fa-twitter fa-2x"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="clearfix visible-xs-block"></div>
+
+                                <div class="col-xs-6 col-sm-3 masonry__item" style="position: absolute; left: 780px; top: 0px;">
+                                    <div class="card card-2 text-center">
+                                        <div class="card__top">
+                                            <img alt="Image" src="../img/els.jpg">
+                                        </div>
+                                        <div class="card__body">
+                                            <h4>Els Meyvaert</h4>
+                                            <span class="type--fade">Communications Director</span>
+                                            <p>
+                                                Els worked as account manager in various financial institutions until she moved back to her first love, communication. As account director, she handled communication for the largest FMCG group in Belgium before joining SettleMint.
+                                            </p>
+                                        </div>
+                                         <div class="card__bottom text-center">
+                                            <div class="card__action">
+                                                <a href="https://www.linkedin.com/in/elsmeyvaert" target="_blank">
+                                                    <i class="fa fa-linkedin fa-2x"></i>
+                                                </a>
+                                            </div>
+                                            <div class="card__action">
+                                                <a href="https://twitter.com/els_meyvaert" target="_blank">
+                                                    <i class="fa fa-twitter fa-2x"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-sm-3 masonry__item" style="position: absolute; left: 780px; top: 0px;">
+                                    <div class="card card-2 text-center">
+                                        <div class="card__top">
+                                             <img alt="Image" src="../img/dylan.jpg">
+                                        </div>
+                                        <div class="card__body">
+                                            <h4>Dylan Damsma</h4>
+                                            <span class="type--fade">Head of Growth</span>
+                                            <p>
+                                                Dylan has built up extensive experience in digital marketing and growth marketing working as Marketing technologist at Mindvalley, Customer Success Manager at AutopilotHQ and besides that launching a successful crypto community named “Cryptominded”.
+                                            </p>
+                                        </div>
+                                        <div class="card__bottom text-center">
+                                            <div class="card__action">
+                                                <a href="https://www.linkedin.com/in/dylandamsma/" target="_blank">
+                                                    <i class="fa fa-linkedin fa-2x"></i>
+                                                </a>
+                                            </div>
+                                            <div class="card__action">
+                                                <a href="https://twitter.com/dylandamsma" target="_blank">
+                                                    <i class="fa fa-twitter fa-2x"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end of masonry__container-->
+                        </div>
+                        <!--end of masonry-->
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>
+            <!-- ===== END TEAM SECTION ===== -->
+
+            <!-- ===== ADVISOR SECTION ===== -->
+            <!-- <section id="advisors" class="text-center bg--secondary space--xs">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 text-center">
+                            <h2 class="type--uppercase type--bold">Our Advisors</h2>
+                        </div>
+                        <div class="col-xs-6 col-sm-3">
+                            <div class="feature feature-8">
+                                <img alt="Image" src="../img/avatar-round-3.png">
+                                <h5>Bernice Lucas</h5>
+                                <span>Co-Founder &amp; CTO</span><br />
+                                <span class="unpad--bottom"><i class="fa fa-linkedin fa-lg"></i><i class="padding-only-left fa fa-twitter fa-lg"></i></span>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-3">
+                            <div class="feature feature-8">
+                                <img alt="Image" src="../img/avatar-round-3.png">
+                                <h5>Bernice Lucas</h5>
+                                <span>Chief of Operations</span><br />
+                                <span class="unpad--bottom"><i class="fa fa-linkedin fa-lg"></i><i class="padding-only-left fa fa-twitter fa-lg"></i></span>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-3">
+                            <div class="feature feature-8">
+                                <img alt="Image" src="../img/avatar-round-3.png">
+                                <h5>Bernice Lucas</h5>
+                                <span>Lead Designer</span><br />
+                                <span class="unpad--bottom"><i class="fa fa-linkedin fa-lg"></i><i class="padding-only-left fa fa-twitter fa-lg"></i></span>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-3">
+                            <div class="feature feature-8">
+                                <img alt="Image" src="../img/avatar-round-3.png">
+                                <h5>Bernice Lucas</h5>
+                                <span>Head of Development</span><br />
+                                <span class="unpad--bottom"><i class="fa fa-linkedin fa-lg"></i><i class="padding-only-left fa fa-twitter fa-lg"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section> -->
+            <!-- ===== END ADVISOR SECTION ===== -->
+
+            <!-- ===== TOKENSALE SECTION ===== -->
+            <section id="tokensale" class="bg--dark imagebg space--sm" data-gradient-bg="#EB274C,#7E347E,#2E3192">
+            <div class="background-image-holder">
+                    <img alt="background" src="../img/network-1.jpg" />
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 text-center">
+                            <h2 class="type--uppercase type--bold">The Token Sale</h2>
+                        </div>
+
+                        <div class="col-sm-12 col-md-10 col-md-offset-1">
+                            <div class="boxed boxed--lg box-shadow-wide bg--secondary token-box">
+                                <h3 class="type--bold unmarg--bottom">1. EARLY TOKEN SALE</h3>
+                                <hr class="short">
+                                <div class="col-sm-6 padding-0">
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <td class="type--bold">Start date</td>
+                                                <td>18 september 2017 - 10AM CET</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="type--bold">End date</td>
+                                                <td>26 September 2017 - 10AM CET</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="type--bold">Tokens distributed</td>
+                                                <td>11.250.000</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="type--bold">Hard cap</td>
+                                                <td>$4.800.000</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-sm-6 padding-only-left">
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <td class="type--bold">Token rate</td>
+                                                <td>1 ETH = 1200 DATA</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="type--bold">Early discount</td>
+                                                <td>20% discount</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="type--bold">Referral Bonus</td>
+                                                <td>5% of sold tokens</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="type--bold">Currencies accepted</td>
+                                                <td>ETH &amp; BTC</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <hr class="short">
+                                <a class="btn btn-lg btn--primary" href="#start">
+                                    <span class="btn__text type--uppercase">Register for early token sale</span>
+                                </a>
+                            </div>
+                        </div>
+
+                          <div class="col-sm-12 col-md-10 col-md-offset-1">
+                            <div class="boxed boxed--lg box-shadow-wide bg--secondary token-box">
+                                <h3 class="type--bold unmarg--bottom">2. MAIN TOKEN SALE</h3>
+                                <hr class="short">
+                                <div class="col-sm-6 padding-0">
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <td class="type--bold">Start date</td>
+                                                <td>6 to 8 months after early sale</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="type--bold">Tokens distributed</td>
+                                                <td>60%</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-sm-6 padding-only-left">
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <td class="type--bold">Token rate</td>
+                                                <td>1 ETH = 1000 DATA</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="type--bold">Referral Bonus</td>
+                                                <td>5% of sold tokens</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <!-- ===== END TOKENSALE SECTION ===== -->
+
+
+            <!-- ===== CHANNELS SECTION ===== -->
+            <section id="channels" class="space--xs" style="background: #ececec;">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12 text-center">
+                                <div class="footer-channels">
+                                    <span><a href="https://slack.databrokerdao.com" target="_blank"><i class="fa fa-slack fa-3x"></i></a></span>
+                                    <!-- <span><a href="#" target="_blank"><i class="fa fa-telegram fa-2x"></i></a></span> -->
+                                    <span><a href="https://www.facebook.com/DataBrokerDAO/" target="_blank"><i class="fa fa-facebook fa-3x"></i></a></span>
+                                    <span><a href="https://twitter.com/DataBrokerDAO" target="_blank"><i class="fa fa-twitter fa-3x"></i></a></span> 
+                                    <span><a href="https://medium.com/@DataBrokerDAO" target="_blank"><i class="fa fa-medium fa-3x"></i></a></span>
+                                    <span><a href="https://www.youtube.com/channel/UCGo8NhGJqtBo6y6GFWUB-rg" target="_blank"><i class="fa fa-youtube fa-3x"></i></a></span> 
+                                    <!-- <span><a href="#"><i class="fa fa-btc fa-2x"></i></a></span>  -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </section>
+            <!-- ===== END CHANNELS SECTION ===== -->
+
+            <!-- ===== FOOTER ===== -->
+            <footer class="footer-6 space--xs bg--dark" style="padding-top: 50px">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <ul class="list-inline list--hover">
+                                                <li>
+                                                    <a href="#databroker">
+                                                        <span>About Databroker</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#team">
+                                                        <span>The Team</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#tokensale">
+                                                        <span>Token Sale</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-6 text-right text-center-xs">
+                                            <ul class="social-list list-inline list--hover">
+                                                <li>
+                                                    <!-- <span>We're always looking to have a chat with good people</span> -->
+                                                </li>
+                                            </ul>
+                                            <a href="mailto:hello@databrokerdao.com" class="btn type--uppercase">
+                                                <span class="btn__text">
+                                                    Contact Us
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                     <div class="row">
+                                            <div class="col-sm-6">
+                                                <img alt="Image" class="logo" src="../img/white-logo.svg">
+                                            </div>
+                                            <div class="col-sm-6 text-right text-center-xs">
+                                                 <span class="type--fine-print">©
+                                                    <span class="update-year">2017</span> DataBrokerDAO — All Rights Reserved</span>
+                                            </div>
+                                        </div>
+                                    <!--end of row-->
+                                </div>
+                                <!--end of container-->
+                            </footer>
+            <!-- ===== END FOOTER ===== -->
+
+        </div>
+        <!--<div class="loader"></div>-->
+        <a class="back-to-top inner-link" href="#start" data-scroll-class="100vh:active">
+            <i class="stack-interface stack-up-open-big"></i>
+        </a>
+
+    <script src="../js/jquery-3.1.1.min.js"></script>
+    <script src="../js/flickity.min.js"></script>
+    <script src="../js/easypiechart.min.js"></script>
+    <script src="../js/parallax.js"></script>
+    <script src="../js/typed.min.js"></script>
+    <script src="../js/datepicker.js"></script>
+    <script src="../js/isotope.min.js"></script>
+    <script src="../js/ytplayer.min.js"></script>
+    <script src="../js/lightbox.min.js"></script>
+    <script src="../js/granim.min.js"></script>
+    <script src="../js/jquery.steps.min.js"></script>
+    <script src="../js/countdown.min.js"></script>
+    <script src="../js/twitterfetcher.min.js"></script>
+    <script src="../js/spectragram.min.js"></script>
+    <script src="../js/smooth-scroll.min.js"></script>
+    <script src="../js/scripts.js"></script>
+    
+    <script type="text/javascript">
+     $('#clock').countdown('2017/08/15').on('update.countdown', function(event) {
+      var $this = $(this).html(event.strftime(''
+        + '<div><span>%-w</span><span>week%!w</span></div>'
+        + '<span>%-d</span>'
+        + '<span>%H</span>'
+        + '<span>%M</span>'));
+    });
+    </script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-102157336-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+    <!-- Start of HubSpot Embed Code -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/3328238.js"></script>
+    <!-- End of HubSpot Embed Code -->
+
+    <script>
+    if (window.location.search.indexOf('signup=success') > -1) {
+        document.getElementById("signup_result").classList.remove('collapse');
+        document.getElementById("signup_form").classList.add('collapse');
+    }
+    </script>
+
+    <script type="text/javascript"> _linkedin_data_partner_id = "54523"; </script><script type="text/javascript"> (function(){var s = document.getElementsByTagName("script")[0]; var b = document.createElement("script"); b.type = "text/javascript";b.async = true; b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js"; s.parentNode.insertBefore(b, s);})(); </script> <noscript> <img height="1" width="1" style="display:none;" alt="" src="https://dc.ads.linkedin.com/collect/?pid=54523&fmt=gif" /> </noscript>
+
+    </body>
+</html>

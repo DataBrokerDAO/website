@@ -1,0 +1,196 @@
+/*! Place your custom styles here */
+
+
+/* ====== HEADER ====== */
+[data-gradient-bg] > canvas + .background-image-holder {
+    opacity: .4 !important;
+}
+
+[data-overlay] *:not(.container):not(.background-image-holder) {
+    z-index: 0;
+}
+
+.bar .logo {
+    max-height: 3em;
+ }
+
+ .header-intro h1 {
+ 	font-family: "Titillium Web";
+ 	font-weight: 700;
+ }
+
+.bar-1 .menu-horizontal > li > .dropdown__trigger, .bar-1 .menu-horizontal > li > a {
+	font-size: 0.9em;
+}
+
+  .cover .header-video {
+    margin: 1.5em 0 !important;
+  }
+
+  nav span.dropdown__trigger {
+    color: #fff;
+    font-size: 0.9em;
+    font-weight: 600;
+    opacity: 0.5;
+    transition: opacity .25s ease-in-out;
+    -moz-transition: opacity .25s ease-in-out;
+    -webkit-transition: opacity .25s ease-in-out;
+  }
+
+  nav span.dropdown__trigger:hover {
+    opacity: 1;
+  }
+
+ #form-header {
+ 	margin-top: 0;
+ }
+
+ .token-sale {
+ 	margin-top: 2em;
+ }
+ 
+ .token-sale p.sale-date {
+ 	font-size: 24px;
+ 	font-weight: 700;
+ 	color: #333333 !important;
+ }
+
+ .token-sale h2.sale-date {
+  margin-bottom: 10px;
+ }
+
+ @media (max-width: 992px) {
+  .token-sale p.sale-date {
+    font-size: 20px;
+  }
+ }
+
+ .token-sale .modal-instance, .token-sale a.btn {
+ 	width: 100%;
+ }
+
+ .token-sale span {
+ 	padding-left: 20px;
+ 	padding-right: 20px;
+ }
+
+ .token-sale hr {
+ 	border-color: #333;
+  margin-top: 25px;
+  margin-bottom: 25px;
+ }
+
+ .token-sale a.token--button {
+  color: #333;
+  padding-left: 5px;
+  padding-right: 5px;
+ }
+
+ .channels span {
+  cursor: pointer;
+ 	padding-left: 15px;
+ 	padding-right: 15px;
+ 	opacity: 0.7;
+	transition: opacity .25s ease-in-out;
+	-moz-transition: opacity .25s ease-in-out;
+	-webkit-transition: opacity .25s ease-in-out;
+ }
+
+ .channels a {
+  cursor: pointer;
+ }
+
+ .channels span:hover {
+ 	opacity: 1;
+ }
+
+ .channels span:first, .footer-channels span:first {
+ 	padding-left: 0px;
+ }
+
+ .footer-channels span {
+  cursor: pointer;
+  padding-left: 35px;
+  padding-right: 35px;
+  opacity: 0.7;
+  transition: opacity .25s ease-in-out;
+  -moz-transition: opacity .25s ease-in-out;
+  -webkit-transition: opacity .25s ease-in-out;
+ }
+
+@media (max-width: 766px) {
+   .footer-channels span {
+    padding-left: 15px;
+    padding-right: 15px;
+   }
+}
+ .footer-channels span > a {
+  color: #666;
+  cursor: pointer;
+ }
+
+  .footer-channels span:hover {
+    opacity: 1;
+  }
+
+ .footer-channels span > a:hover {
+  color: #333;
+  /*opacity: 1;*/
+ }
+
+ .token-sale .btn--secondary {
+ 	background: #dedede;
+ }
+
+ .video-link {
+   cursor: pointer;
+ }
+
+ /* ====== TOKEN BOX EXPLANATION ====== */
+
+ .token-box {
+    background: #252525 !important;
+ }
+
+ .token-box td {
+  padding: 0;
+  font-size: 16px;
+ }
+
+ /* ====== TEAM SECTION ====== */
+
+
+ /* ====== GENERAL CLASSES ====== */
+
+ .padding-0 {
+ 	padding-left: 0px;
+ 	padding-right: 0px;
+ }
+
+  .padding-only-right {
+ 	padding-left: 0px;
+ 	padding-right: 15px;
+ }
+
+ .padding-only-left {
+ 	padding-left: 15px;
+ 	padding-right: 0px;
+ }
+
+ @media (max-width: 992px) {
+  	.padding-only-left {
+	 	padding-left: 0px;
+	 	padding-right: 0px;
+ 	}
+    .padding-only-right {
+	 	padding-left: 0px;
+	 	padding-right: 0px;
+	}
+ }
+
+@media (min-width: 767px) {
+  .align-center {
+    display: flex;
+    align-items: center;
+  }
+}
