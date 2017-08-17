@@ -1,8 +1,0 @@
-{
-  "ignore": {
-    "eslint-plugin-jsx-a11y": {
-      "versions": "6.0.2",
-      "reason": "does not work"
-    }
-  }
-}

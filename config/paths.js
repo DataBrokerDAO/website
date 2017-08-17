@@ -69,6 +69,7 @@ module.exports = {
     /libp2p-crypto/,
     /eth-sig-util/,
     /ethereumjs-tx/,
+    /ethereumjs-util/,
     /cids/,
     /multibase/,
     /peer-id/,
