@@ -3,11 +3,15 @@ import { Form, Field, reduxForm } from 'redux-form';
 import { isValidAddress } from 'ethereumjs-util';
 import database from '../utils/firebase';
 import ShortUniqueId from 'short-unique-id';
+import axios from 'axios';
 
 class PreRegisterForm extends Component {
   constructor(props) {
     super(props);
-    this.state = { formSubmitted: false, uuid: null };
+    this.state = {
+      formSubmitted: false,
+      uuid: null,
+    };
   }
 
   _submit = values => {
@@ -20,6 +24,30 @@ class PreRegisterForm extends Component {
       source: localStorage.getItem('code'),
       date: new Date(),
     });
+
+    axios
+      .post(
+        '/api/confirmation-email',
+        {
+          email: values.email,
+          uuid,
+        },
+        {
+          auth: {
+            username:
+              'sahCa8aiieD7ke9ovu3zeDieEitaza9uxuW6op2SSa0tohQubuiqu8uTtaiy8Aiw',
+            password:
+              'xaf6MeofRae1aiQuuLoz2EemAa0aiw7oLie1sheeaiS3ceo7chi4aiQuieGuo7ve',
+          },
+        }
+      )
+      .then(response => {
+        console.log(response.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+
     this.setState({
       formSubmitted: true,
       uuid,
