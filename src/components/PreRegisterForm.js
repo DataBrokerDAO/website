@@ -27,7 +27,7 @@ class PreRegisterForm extends Component {
 
     axios
       .post(
-        '/api/confirmation-email',
+        'https://databroker-crowdsale-api.herokuapp.com/api/confirmation-email',
         {
           email: values.email,
           uuid,
