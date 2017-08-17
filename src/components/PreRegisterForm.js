@@ -4,6 +4,7 @@ import { isValidAddress } from 'ethereumjs-util';
 import database from '../utils/firebase';
 import ShortUniqueId from 'short-unique-id';
 import axios from 'axios';
+import moment from 'moment';
 
 class PreRegisterForm extends Component {
   constructor(props) {
@@ -17,12 +18,13 @@ class PreRegisterForm extends Component {
   _submit = values => {
     const uid = new ShortUniqueId();
     const uuid = uid.randomUUID(6);
+
     const addr = database.ref(`referrers/${values.ethereumAddress}`).push().key;
     database.ref(`referrers/${values.ethereumAddress}/${addr}`).set({
       ...values,
       code: uuid,
       source: localStorage.getItem('code'),
-      date: new Date(),
+      timestamp: moment().unix(),
     });
 
     axios
