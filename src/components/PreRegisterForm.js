@@ -108,21 +108,19 @@ class PreRegisterForm extends Component {
           </div>}
         {formSubmitted &&
           <div>
-            <h2>Registration successful!</h2>
+            <h2>Registration successful! Here's your referral link.</h2>
             <hr className="short" />
             <p className="lead">
               Stack's visual style is simple yet distinct, making it an ideal
               starting point for your project whether it be a basic marketing
               site, or multi-page company presence.
             </p>
-            <a
-              className="btn btn-lg btn--primary"
-              href={`https://databrokerdao.com/?referrer=${uuid}`}
-              target="_blank"
-              style={{ color: 'white', display: 'block' }}
-            >
-              {`https://databrokerdao.com/?referrer=${uuid}`}
-            </a>
+            <input
+              className="text-center"
+              type="text"
+              value={`https://databrokerdao.com/?referrer=${uuid}`}
+              style={{ fontSize: '16px' }}
+            readonly/>
           </div>}
       </div>
     );

@@ -89,7 +89,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+  font-family: 'Titillium Web', 'Helvetica', 'Arial', sans-serif;
   color: #252525;
   font-weight: 300;
   font-variant-ligatures: common-ligatures;
@@ -2772,7 +2772,7 @@ a {
   background: #fafafa;
 }
 .bg--primary {
-  background: #ff4f4f;
+  background: #F90066;
 }
 .bg--primary p,
 .bg--primary span,

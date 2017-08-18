@@ -3,7 +3,7 @@
 
 /* ====== HEADER ====== */
 [data-gradient-bg] > canvas + .background-image-holder {
-    opacity: .4 !important;
+    opacity: .1 !important;
 }
 
 [data-overlay] *:not(.container):not(.background-image-holder) {
@@ -52,7 +52,7 @@
  .token-sale p.sale-date {
  	font-size: 24px;
  	font-weight: 700;
- 	color: #333333 !important;
+ 	color: #F90066 !important;
  }
 
  .token-sale h2.sale-date {
@@ -149,7 +149,7 @@
  /* ====== TOKEN BOX EXPLANATION ====== */
 
  .token-box {
-    background: #252525 !important;
+    background: #ffffff !important;
  }
 
  .token-box td {
@@ -157,10 +157,45 @@
   font-size: 16px;
  }
 
+ .token-box h3 {
+  color: #252525 !important;
+ }
+
+/* ====== DATABROKER SECTION ====== */
+#databroker .background-image-holder {
+  opacity: 0.5 !important;
+}
+
+/* ====== BENEFITS SECTION ====== */
+
+#benefits .fa {
+  color: #F90066;
+}
+
  /* ====== TEAM SECTION ====== */
+
+ #team h4 {
+  color: #F90066;
+ }
+
+ #team .card-2 .card__top img {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+ }
 
 
  /* ====== GENERAL CLASSES ====== */
+
+ .btn--primary, .btn--primary:visited {
+    background: #78B459;
+    border-color: #78B459;
+}
+
+ .btn--primary:hover {
+    background: #6aa54b;
+    border-color: #6aa54b;
+}
+
 
  .padding-0 {
  	padding-left: 0px;
