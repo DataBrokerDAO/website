@@ -6,8 +6,10 @@
     "node": "8.x"
   },
   "dependencies": {
+    "axios": "^0.16.2",
     "ethereumjs-util": "^5.1.2",
     "firebase": "^4.2.0",
+    "moment": "^2.18.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.6",

@@ -3,23 +3,53 @@ import { Form, Field, reduxForm } from 'redux-form';
 import { isValidAddress } from 'ethereumjs-util';
 import database from '../utils/firebase';
 import ShortUniqueId from 'short-unique-id';
+import axios from 'axios';
+import moment from 'moment';
 
 class PreRegisterForm extends Component {
   constructor(props) {
     super(props);
-    this.state = { formSubmitted: false, uuid: null };
+    this.state = {
+      formSubmitted: false,
+      uuid: null,
+    };
   }
 
   _submit = values => {
     const uid = new ShortUniqueId();
     const uuid = uid.randomUUID(6);
+
     const addr = database.ref(`referrers/${values.ethereumAddress}`).push().key;
     database.ref(`referrers/${values.ethereumAddress}/${addr}`).set({
       ...values,
       code: uuid,
       source: localStorage.getItem('code'),
-      date: new Date(),
+      timestamp: moment().unix(),
     });
+
+    axios
+      .post(
+        'https://databroker-crowdsale-api.herokuapp.com/api/confirmation-email',
+        {
+          email: values.email,
+          uuid,
+        },
+        {
+          auth: {
+            username:
+              'sahCa8aiieD7ke9ovu3zeDieEitaza9uxuW6op2SSa0tohQubuiqu8uTtaiy8Aiw',
+            password:
+              'xaf6MeofRae1aiQuuLoz2EemAa0aiw7oLie1sheeaiS3ceo7chi4aiQuieGuo7ve',
+          },
+        }
+      )
+      .then(response => {
+        console.log(response.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+
     this.setState({
       formSubmitted: true,
       uuid,
