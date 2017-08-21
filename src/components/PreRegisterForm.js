@@ -175,14 +175,14 @@ class PreRegisterForm extends Component {
               style={{ fontSize: '16px' }}
               readOnly
             />
-            <div class="modal_channels">
+            <div className="modal_channels">
               <h4>Share your referral link on social media</h4>
               <span>
                 <a
                   href={`https://twitter.com/intent/tweet?text=Check%20out%20DataBrokerDAO%20-%20A%20decentralized%20marketplace%20for%20IoT%20Sensor%20data.%20https%3A%2F%2Fdatabrokerdao.com%3Freferrer%3D${uuid}%20%23IoT%20%23tokensale`}
                   target="_blank"
                 >
-                  <i class="fa fa-twitter fa-1x" />Share on twitter
+                  <i className="fa fa-twitter fa-1x" />Share on twitter
                 </a>
               </span>
               <span>
@@ -190,7 +190,7 @@ class PreRegisterForm extends Component {
                   href={`https://www.facebook.com/sharer/sharer.php?u=https%3A//databrokerdao.com/?referrer=${uuid}`}
                   target="_blank"
                 >
-                  <i class="fa fa-facebook fa-1x" />Share on Facebook
+                  <i className="fa fa-facebook fa-1x" />Share on Facebook
                 </a>
               </span>
               <span>
@@ -198,7 +198,7 @@ class PreRegisterForm extends Component {
                   href={`https://www.linkedin.com/shareArticle?mini=true&url=https%3A//databrokerdao.com/?referrer=${uuid}&title=DataBrokerDAO%20-%20A%20Decentralized%20marketplace%20for%20IoT%20sensor%20Data`}
                   target="_blank"
                 >
-                  <i class="fa fa-linkedin fa-1x" />Share on Linkedin
+                  <i className="fa fa-linkedin fa-1x" />Share on Linkedin
                 </a>
               </span>
             </div>
