@@ -33,7 +33,8 @@ class PreRegisterForm extends Component {
         {
           email: values.email,
           uuid,
-          legalName: values.fullName,
+          firstName: values.firstName,
+          lastName: values.lastName,
         },
         {
           auth: {
