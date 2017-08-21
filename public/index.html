@@ -46,8 +46,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="https://use.fontawesome.com/1d1f543cfa.js"></script>
 
-  <script type="text/javascript">
-    (function (o) { var b = "https://api.autopilothq.com/anywhere/", t = "9a5b519d024346528c0c756fb4cf7b13f99d2d4f823f40b0a8f6fa106483ace8", a = window.AutopilotAnywhere = { _runQueue: [], run: function () { this._runQueue.push(arguments); } }, c = encodeURIComponent, s = "SCRIPT", d = document, l = d.getElementsByTagName(s)[0], p = "t=" + c(d.title || "") + "&u=" + c(d.location.href || "") + "&r=" + c(d.referrer || ""), j = "text/javascript", z, y; if (!window.Autopilot) window.Autopilot = a; if (o.app) p = "devmode=true&" + p; z = function (src, asy) { var e = d.createElement(s); e.src = src; e.type = j; e.async = asy; l.parentNode.insertBefore(e, l); }; y = function () { z(b + t + '?' + p, true); }; if (window.attachEvent) { window.attachEvent("onload", y); } else { window.addEventListener("load", y, false); } })({});
+  <script type="text/javascript">(function(o){var b="https://api.autopilothq.com/anywhere/",t="a85151178f1743f4bd478e34c3ffe8ba9bbe7f0c882d4de9934859383b3fe019",a=window.AutopilotAnywhere={_runQueue:[],run:function(){this._runQueue.push(arguments);}},c=encodeURIComponent,s="SCRIPT",d=document,l=d.getElementsByTagName(s)[0],p="t="+c(d.title||"")+"&u="+c(d.location.href||"")+"&r="+c(d.referrer||""),j="text/javascript",z,y;if(!window.Autopilot) window.Autopilot=a;if(o.app) p="devmode=true&"+p;z=function(src,asy){var e=d.createElement(s);e.src=src;e.type=j;e.async=asy;l.parentNode.insertBefore(e,l);};y=function(){z(b+t+'?'+p,true);};if(window.attachEvent){window.attachEvent("onload",y);}else{window.addEventListener("load",y,false);}})({});
   </script>
 </head>
 
@@ -328,7 +327,12 @@
       <div class="container pos-vertical-center">
         <div class="row align-center">
           <div class="col-sm-4">
-            <img alt="Image" class="border--round" src="./img/problem.png" />
+            <img srcset="
+            ./img/problem.png 1x,
+            ./img/problem.png@2x.png 2x,
+            ./img/problem.png@3x.png 3x,
+            ./img/problem.png@4x.png 4x
+          " class="app-translate-5" >
           </div>
           <div class="col-sm-8 col-md-6 col-md-offset-2">
             <div class="switchable__text">
@@ -360,8 +364,13 @@
             <h2>DataBroker DAO: a peer to peer marketplace for IoT sensor data.</h2>
           </div>
           <div class="col-sm-12 col-md-10 col-md-offset-1">
-            <img alt="Image" class="border--round" src="./img/schematic.png" />
-          </div>
+            <img srcset="
+            ./img/schematic.png 1x,
+            ./img/schematic.png@2x.png 2x,
+            ./img/schematic.png@3x.png 3x,
+            ./img/schematic.png@4x.png 4x
+          " class="app-translate-5" >
+            </div>
         </div>
         <!--end of row-->
       </div>
@@ -370,7 +379,7 @@
     <!-- ===== END SOLUTION SECTION ===== -->
 
     <!-- ===== BETA SECTION ===== -->
-    <section id="beta" class="cover feature-large switchable bg--primary unpad--bottom" data-gradient-bg="#EB274C, #2E3192">
+    <section id="beta" class="cover feature-large switchable bg--primary unpad--bottom" data-gradient-bg="#EB274C,#7E347E,#2E3192">
       <div class="container">
         <div class="row align-center">
           <div class="col-md-5 col-sm-6 mb--3">
@@ -813,7 +822,7 @@
 
 
     <!-- ===== CHANNELS SECTION ===== -->
-    <section id="channels" class="space--xs" style="background: #ececec;">
+    <section id="channels" class="space--xxs" style="background: #ececec;">
       <div class="container">
         <div class="row">
           <div class="col-sm-12 text-center">
@@ -828,6 +837,29 @@
             </div>
           </div>
         </div>
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-2 text-center space--xs">
+            <hr style="border-color: #dadada; margin-top: 20px;">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6 col-sm-offset-3 text-center space--xs">
+            <div class="">
+            <form id="form-header" class="">
+                <div class="col-sm-8 input-icon padding-0">
+                  <i class="material-icons">email</i>
+                  <input class="validate-required validate-email" type="text" name="EMAIL" placeholder="Enter email to receive updates">
+                </div>
+                <div class="col-sm-4 padding-only-left">
+                  <button type="submit" class="btn btn--secondary">Subscribe</button>
+                </div>
+                <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                  <input type="text" name="b_77142ece814d3cff52058a51f_f300c9cce8" tabindex="-1" value="">
+                </div>
+            </form>
+          </div>
+        </div>
+       </div>
       </div>
     </section>
     <!-- ===== END CHANNELS SECTION ===== -->
