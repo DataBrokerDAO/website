@@ -33,6 +33,7 @@ class PreRegisterForm extends Component {
         {
           email: values.email,
           uuid,
+          legalName: values.fullName,
         },
         {
           auth: {
@@ -148,7 +149,8 @@ class PreRegisterForm extends Component {
               type="text"
               value={`https://databrokerdao.com/?referrer=${uuid}`}
               style={{ fontSize: '16px' }}
-            readonly/>
+              readonly
+            />
           </div>}
       </div>
     );
