@@ -175,6 +175,7 @@ class PreRegisterForm extends Component {
               style={{ fontSize: '16px' }}
               readOnly
             />
+            <script>fbq('track', 'Lead');</script>
           </div>}
       </div>
     );
