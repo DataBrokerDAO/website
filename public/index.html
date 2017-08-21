@@ -46,7 +46,8 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="https://use.fontawesome.com/1d1f543cfa.js"></script>
 
-  <script type="text/javascript">(function(o){var b="https://api.autopilothq.com/anywhere/",t="a85151178f1743f4bd478e34c3ffe8ba9bbe7f0c882d4de9934859383b3fe019",a=window.AutopilotAnywhere={_runQueue:[],run:function(){this._runQueue.push(arguments);}},c=encodeURIComponent,s="SCRIPT",d=document,l=d.getElementsByTagName(s)[0],p="t="+c(d.title||"")+"&u="+c(d.location.href||"")+"&r="+c(d.referrer||""),j="text/javascript",z,y;if(!window.Autopilot) window.Autopilot=a;if(o.app) p="devmode=true&"+p;z=function(src,asy){var e=d.createElement(s);e.src=src;e.type=j;e.async=asy;l.parentNode.insertBefore(e,l);};y=function(){z(b+t+'?'+p,true);};if(window.attachEvent){window.attachEvent("onload",y);}else{window.addEventListener("load",y,false);}})({});
+  <script type="text/javascript">
+    (function (o) { var b = "https://api.autopilothq.com/anywhere/", t = "a85151178f1743f4bd478e34c3ffe8ba9bbe7f0c882d4de9934859383b3fe019", a = window.AutopilotAnywhere = { _runQueue: [], run: function () { this._runQueue.push(arguments); } }, c = encodeURIComponent, s = "SCRIPT", d = document, l = d.getElementsByTagName(s)[0], p = "t=" + c(d.title || "") + "&u=" + c(d.location.href || "") + "&r=" + c(d.referrer || ""), j = "text/javascript", z, y; if (!window.Autopilot) window.Autopilot = a; if (o.app) p = "devmode=true&" + p; z = function (src, asy) { var e = d.createElement(s); e.src = src; e.type = j; e.async = asy; l.parentNode.insertBefore(e, l); }; y = function () { z(b + t + '?' + p, true); }; if (window.attachEvent) { window.attachEvent("onload", y); } else { window.addEventListener("load", y, false); } })({});
   </script>
 </head>
 
@@ -328,11 +329,11 @@
         <div class="row align-center">
           <div class="col-sm-4">
             <img srcset="
-            ./img/problem.png 1x,
-            ./img/problem.png@2x.png 2x,
-            ./img/problem.png@3x.png 3x,
-            ./img/problem.png@4x.png 4x
-          " class="app-translate-5" >
+            ./img/problem/problem.png 1x,
+            ./img/problem/problem@2x.png 2x,
+            ./img/problem/problem@3x.png 3x,
+            ./img/problem/problem@4x.png 4x
+          " class="app-translate-5">
           </div>
           <div class="col-sm-8 col-md-6 col-md-offset-2">
             <div class="switchable__text">
@@ -365,12 +366,12 @@
           </div>
           <div class="col-sm-12 col-md-10 col-md-offset-1">
             <img srcset="
-            ./img/schematic.png 1x,
-            ./img/schematic.png@2x.png 2x,
-            ./img/schematic.png@3x.png 3x,
-            ./img/schematic.png@4x.png 4x
-          " class="app-translate-5" >
-            </div>
+            ./img/solution/solution.png 1x,
+            ./img/solution/solution@2x.png 2x,
+            ./img/solution/solution@3x.png 3x,
+            ./img/solution/solution@4x.png 4x
+          " class="app-translate-5">
+          </div>
         </div>
         <!--end of row-->
       </div>
@@ -387,7 +388,7 @@
             <h2>We've a fully functioning platform for you to try!</h2>
             <hr class="short">
             <p class="lead">
-              Want to know how selling or buying IoT sensor data would work on Databroker? Check out the BETA version of the platform. 
+              Want to know how selling or buying IoT sensor data would work on Databroker? Check out the BETA version of the platform.
             </p>
             <a class="btn btn-lg btn--primary" href="https://beta.databrokerdao.com" target="_blank">
                 <span class="btn__text type--uppercase">Try the BETA</span>
@@ -400,7 +401,7 @@
       </div>
     </section>
 
-<!--     <section id="beta" class="imageblock switchable feature-large space--sm bg--dark" data-gradient-bg="#EB274C, #2E3192">
+    <!--     <section id="beta" class="imageblock switchable feature-large space--sm bg--dark" data-gradient-bg="#EB274C, #2E3192">
         <div class="imageblock__content col-md-6 col-sm-4 pos-left">
             <div class="background-image-holder" style="background: url('./img/databroker_sensor.png'); opacity: 1; background-size: length;">
                 <img alt="image" src="./img/databroker_sensor.png">
@@ -728,7 +729,7 @@
                       <td class="type--bold">Start date</td>
                       <td>18 september 2017 - 10AM CET</td>
                     </tr>
-<!--                     <tr>
+                    <!--                     <tr>
                       <td class="type--bold">End date</td>
                       <td>26 September 2017 - 10AM CET</td>
                     </tr> -->
@@ -845,7 +846,7 @@
         <div class="row">
           <div class="col-sm-6 col-sm-offset-3 text-center space--xs">
             <div class="">
-            <form id="form-header" class="">
+              <form id="form-header" class="">
                 <div class="col-sm-8 input-icon padding-0">
                   <i class="material-icons">email</i>
                   <input class="validate-required validate-email" type="text" name="EMAIL" placeholder="Enter email to receive updates">
@@ -856,10 +857,10 @@
                 <div style="position: absolute; left: -5000px;" aria-hidden="true">
                   <input type="text" name="b_77142ece814d3cff52058a51f_f300c9cce8" tabindex="-1" value="">
                 </div>
-            </form>
+              </form>
+            </div>
           </div>
         </div>
-       </div>
       </div>
     </section>
     <!-- ===== END CHANNELS SECTION ===== -->

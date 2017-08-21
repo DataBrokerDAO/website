@@ -33,7 +33,8 @@ class PreRegisterForm extends Component {
         {
           email: values.email,
           uuid,
-          legalName: values.fullName,
+          firstName: values.firstName,
+          lastName: values.lastName,
         },
         {
           auth: {
@@ -91,48 +92,68 @@ class PreRegisterForm extends Component {
             <h2>Register for the early token sale</h2>
             <hr className="short" />
             <p className="lead">
-              Please register yourself to obtain an unique referral link and stay on top of important updates leading up to our early token sale. 
-              We will send any referral bonus to the address you specify below.
+              Please register yourself to obtain an unique referral link and
+              stay on top of important updates leading up to our early token
+              sale. We will send any referral bonus to the address you specify
+              below.
             </p>
 
             <Form onSubmit={handleSubmit(this._submit)}>
-              <Field
-                component={this._renderTextField}
-                name="fullName"
-                required
-                label="Your legal name"
-                type="text"
-                placeholder="Satoshi Nakamoto"
-                className="validate-required"
-              />
-              <Field
-                component={this._renderTextField}
-                name="email"
-                required
-                label="Your email address"
-                type="email"
-                placeholder="satoshi@nakamoto.com"
-                className="validate-required"
-              />
-              <Field
-                component={this._renderTextField}
-                name="ethereumAddress"
-                required
-                label="Your Ethereum address"
-                type="text"
-                placeholder="0x52b8398551bb1d0bdc022355897508f658ad42f8"
-                helptext="we will send the referral tokens to this address after the early token sale ends"
-                className="validate-required"
-              />
-
-              <div className="form-group">
-                <button
-                  className="btn btn-lg type--uppercase btn--primary"
-                  type="submit"
-                  disabled={pristine || submitting}
-                >
-                  Give me my referral link!
-                </button>
+              <div className="col-sm-6">
+                <Field
+                  component={this._renderTextField}
+                  name="firstName"
+                  required
+                  label="Your first name"
+                  type="text"
+                  placeholder="Satoshi"
+                  className="validate-required"
+                />
+              </div>
+              <div className="col-sm-6">
+                <Field
+                  component={this._renderTextField}
+                  name="lastName"
+                  required
+                  label="Your last name"
+                  type="text"
+                  placeholder="Nakamoto"
+                  className="validate-required"
+                />
+              </div>
+              <div className="col-sm-12">
+                <Field
+                  component={this._renderTextField}
+                  name="email"
+                  required
+                  label="Your email address"
+                  type="email"
+                  placeholder="satoshi@nakamoto.com"
+                  className="validate-required"
+                />
+              </div>
+              <div className="col-sm-12">
+                <Field
+                  component={this._renderTextField}
+                  name="ethereumAddress"
+                  required
+                  label="Your Ethereum address"
+                  type="text"
+                  placeholder="0x52b8398551bb1d0bdc022355897508f658ad42f8"
+                  helptext="we will send the referral tokens to this address after the early token sale ends"
+                  className="validate-required"
+                />
+              </div>
+              <div className="col-sm-12">
+                <div className="form-group">
+                  <button
+                    className="btn btn-lg type--uppercase btn--primary"
+                    type="submit"
+                    disabled={pristine || submitting}
+                  >
+                    Give me my referral link!
+                  </button>
+                </div>
               </div>
             </Form>
           </div>}
@@ -141,15 +162,18 @@ class PreRegisterForm extends Component {
             <h2>Registration successful! Here's your referral link.</h2>
             <hr className="short" />
             <p className="lead">
-              Thank you for your registration. Below you can find your unique referral link which you can use to share the DataBrokerDAO project. 
-              You'll receive 5% of every contribution which is made and attributed to your refferal link. All details about the token sale will also be send to you by mail.
+              Thank you for your registration. Below you can find your unique
+              referral link which you can use to share the DataBrokerDAO
+              project. You'll receive 5% of every contribution which is made and
+              attributed to your refferal link. All details about the token sale
+              will also be send to you by mail.
             </p>
             <input
               className="text-center"
               type="text"
               value={`https://databrokerdao.com/?referrer=${uuid}`}
               style={{ fontSize: '16px' }}
-              readonly
+              readOnly
             />
           </div>}
       </div>
