@@ -208,6 +208,43 @@
   color: #808080;
 }
 
+/* ====== REGISTER MODAL SECTION ====== */
+
+.modal_channels span {
+  cursor: pointer;
+  padding-right: 15px;
+  opacity: 0.7;
+  transition: opacity .25s ease-in-out;
+  -moz-transition: opacity .25s ease-in-out;
+  -webkit-transition: opacity .25s ease-in-out;
+ }
+
+.modal_channels span:hover {
+  opacity: 1;
+ }
+
+ .modal_channels span:hover > a {
+  color: #F90066;
+ }
+
+ .modal_channels h4 {
+  margin-bottom: 10px;
+  margin-top: 15px;
+ }
+
+  .modal_channels span i {
+  margin-right: 5px;
+ }
+
+ .modal_channels a {
+  font-size: 16px;
+  color: #252525;
+  text-decoration: none;
+  transition: color .25s ease-in-out;
+  -moz-transition: color .25s ease-in-out;
+  -webkit-transition: color .25s ease-in-out;
+ }
+
  /* ====== GENERAL CLASSES ====== */
 
  .btn--primary, .btn--primary:visited {
