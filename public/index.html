@@ -50,10 +50,10 @@
     (function (o) { var b = "https://api.autopilothq.com/anywhere/", t = "a85151178f1743f4bd478e34c3ffe8ba9bbe7f0c882d4de9934859383b3fe019", a = window.AutopilotAnywhere = { _runQueue: [], run: function () { this._runQueue.push(arguments); } }, c = encodeURIComponent, s = "SCRIPT", d = document, l = d.getElementsByTagName(s)[0], p = "t=" + c(d.title || "") + "&u=" + c(d.location.href || "") + "&r=" + c(d.referrer || ""), j = "text/javascript", z, y; if (!window.Autopilot) window.Autopilot = a; if (o.app) p = "devmode=true&" + p; z = function (src, asy) { var e = d.createElement(s); e.src = src; e.type = j; e.async = asy; l.parentNode.insertBefore(e, l); }; y = function () { z(b + t + '?' + p, true); }; if (window.attachEvent) { window.attachEvent("onload", y); } else { window.addEventListener("load", y, false); } })({});
   </script>
 </head>
-
+ 
 <body class=" ">
   <a id="start"></a>
-  <div class="nav-container ">
+  <div class="nav-container">
     <div class="bar bar--md visible-xs">
       <div class="container">
         <div class="row">
@@ -325,24 +325,24 @@
     <!-- ===== END VIDEO SECTION ===== -->
 
     <!-- ===== CHALLENGE SECTION ===== -->
-    <section id="challenge " class="switchable bg--secondary height-auto ">
-      <div class="container pos-vertical-center ">
-        <div class="row align-center ">
-          <div class="col-sm-4 ">
+    <section id="challenge" class="switchable bg--secondary height-auto">
+      <div class="container pos-vertical-center">
+        <div class="row align-center">
+          <div class="col-sm-4">
             <img srcset=" ./img/problem/problem.png 1x, ./img/problem/problem@2x.png 2x, ./img/problem/problem@3x.png 3x,
-                ./img/problem/problem@4x.png 4x " class="app-translate-5 ">
+                ./img/problem/problem@4x.png 4x" class="app-translate-5">
           </div>
-          <div class="col-sm-8 col-md-6 col-md-offset-2 ">
-            <div class="switchable__text ">
-              <span class="type--uppercase type--bold ">The Challenge</span>
+          <div class="col-sm-8 col-md-6 col-md-offset-2">
+            <div class="switchable__text">
+              <span class="type--uppercase type--bold">The Challenge</span>
               <h2>Unlocking the potential &amp; monetization of IoT sensor data</h2>
-              <p class="lead ">
+              <p class="lead">
                 Individuals, companies, researchers &amp; governments are spending hundreds of billions each year on buying and maintaining
                 IoT sensors. The growth of the investment and applications in IoT is truly staggering, and yet, all data
                 captured by these devices is locked up in silos and walled gardens.
               </p>
             </div>
-            <div class="col-sm-6 ">
+            <div class="col-sm-6">
 
             </div>
           </div>
@@ -354,16 +354,16 @@
     <!-- ===== END CHALLENGE SECTION ===== -->
 
     <!-- ===== SOLUTION SECTION ===== -->
-    <section id="solution " class="text-center ">
-      <div class="container ">
-        <div class="row ">
-          <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 ">
-            <span class="type--uppercase type--bold ">The Solution</span>
+    <section id="solution" class="text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+            <span class="type--uppercase type--bold">The Solution</span>
             <h2>DataBroker DAO: a peer to peer marketplace for IoT sensor data.</h2>
           </div>
-          <div class="col-sm-12 col-md-10 col-md-offset-1 ">
+          <div class="col-sm-12 col-md-10 col-md-offset-1">
             <img srcset=" ./img/solution/solution.png 1x, ./img/solution/solution@2x.png 2x, ./img/solution/solution@3x.png
-                3x, ./img/solution/solution@4x.png 4x " class="app-translate-5 ">
+                3x, ./img/solution/solution@4x.png 4x" class="app-translate-5">
           </div>
         </div>
         <!--end of row-->
@@ -373,64 +373,41 @@
     <!-- ===== END SOLUTION SECTION ===== -->
 
     <!-- ===== BETA SECTION ===== -->
-    <section id="beta " class="cover feature-large switchable bg--dark unpad--bottom " data-gradient-bg="#EB274C,#7E347E,#2E3192 ">
-      <div class="container ">
-        <div class="row align-center ">
-          <div class="col-md-5 col-sm-6 mb--3 ">
-            <span class="type--uppercase type--bold ">BETA Platform</span>
+    <section id="beta" class="cover feature-large switchable bg--dark unpad--bottom" data-gradient-bg="#EB274C,#7E347E,#2E3192">
+      <div class="container">
+        <div class="row align-center">
+          <div class="col-md-5 col-sm-6 mb--3">
+            <span class="type--uppercase type--bold">BETA Platform</span>
             <h2>We've a fully functioning platform for you to try!</h2>
-            <hr class="short ">
-            <p class="lead ">
+            <hr class="short">
+            <p class="lead">
               Want to know how selling or buying IoT sensor data would work on Databroker? Check out the BETA version of the platform.
             </p>
-            <a class="btn btn-lg btn--primary " href="https://beta.databrokerdao.com " target="_blank ">
-                <span class="btn__text type--uppercase ">Try the BETA</span>
+            <a class="btn btn-lg btn--primary" href="https://beta.databrokerdao.com" target="_blank">
+                <span class="btn__text type--uppercase">Try the BETA</span>
             </a>
           </div>
-          <div class="col-md-6 col-md-offset-1 col-sm-6 ">
-            <img alt="image " src="./img/imac_databroker.png " style="margin-bottom: -5px; ">
+          <div class="col-md-6 col-md-offset-1 col-sm-6">
+            <img alt="image " src="./img/imac_databroker.png" style="margin-bottom: -5px;">
           </div>
         </div>
       </div>
     </section>
-
-    <!--     <section id="beta " class="imageblock switchable feature-large space--sm bg--dark " data-gradient-bg="#EB274C,
-                #2E3192 ">
-        <div class="imageblock__content col-md-6 col-sm-4 pos-left ">
-            <div class="background-image-holder " style="background: url( './img/databroker_sensor.png'); opacity: 1; background-size:
-                length; ">
-                <img alt="image " src="./img/databroker_sensor.png ">
-            </div>
-        </div>
-        <div class="container ">
-            <div class="row ">
-                <div class="col-md-5 col-sm-7 ">
-                    <h2>We've a fully functioning platform for you to try!</h2>
-                    <p class="lead ">
-                        Curious how selling or buying IoT sensor data would work on Databroker? Check out the BETA version of the platform. 
-                    </p>
-                    <a class="btn btn-lg btn--primary " href="https://beta.databrokerdao.com " target="_blank ">
-                        <span class="btn__text type--uppercase ">Try the BETA</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section> -->
     <!-- ===== END BETA SECTION ===== -->
 
     <!-- ===== BENEFITS SECTION ===== -->
-    <section id="benefits " class="bg--secondary text-center ">
-      <div class="container ">
-        <div class="row ">
-          <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 ">
-            <span class="type--uppercase type--bold ">The benefits</span>
+    <section id="benefits" class="bg--secondary text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+            <span class="type--uppercase type--bold">The benefits</span>
             <h2>A wide range of parties will benefit greatly</h2>
           </div>
         </div>
-        <div class="row ">
-          <div class="col-sm-4 ">
-            <div class="feature feature-3 boxed boxed--lg boxed--border ">
-              <i class="fa fa-podcast fa-5x "></i>
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="feature feature-3 boxed boxed--lg boxed--border">
+              <i class="fa fa-podcast fa-5x"></i>
               <h4>Sensor owners</h4>
               <p>
                 Are able to monetize their data and turn a sunk cost into a potential money maker and at least the opportunity to recoup
@@ -438,9 +415,9 @@
               </p>
             </div>
           </div>
-          <div class="col-sm-4 ">
-            <div class="feature feature-3 boxed boxed--lg boxed--border ">
-              <i class="fa fa-wifi fa-5x "></i>
+          <div class="col-sm-4">
+            <div class="feature feature-3 boxed boxed--lg boxed--border">
+              <i class="fa fa-wifi fa-5x"></i>
               <h4>Network operators</h4>
               <p>
                 Gain scale and speed in the adoption of their network as connected telcos can present a win-back to their enterprise accounts,
@@ -448,9 +425,9 @@
               </p>
             </div>
           </div>
-          <div class="col-sm-4 ">
-            <div class="feature feature-3 boxed boxed--lg boxed--border ">
-              <i class="fa fa-industry fa-5x "></i>
+          <div class="col-sm-4">
+            <div class="feature feature-3 boxed boxed--lg boxed--border">
+              <i class="fa fa-industry fa-5x"></i>
               <h4>Sensor manufacturers</h4>
               <p>
                 Can stop the "race to the bottom” for production and pull resources and capital out of manufacturing and allocate these to
@@ -496,26 +473,6 @@
     </section>
     <!-- ===== BENEFITS SECTION ===== -->
 
-    <!-- ===== BETA SECTION ===== -->
-    <!--             <section class="feature-large switchable bg--primary" data-gradient-bg="#EB274C,#7E347E,#2E3192">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <img alt="Image" class="border--round box-shadow-wide" src="./img/databroker-screenshot.png">
-                        </div>
-                        <div class="col-md-5 col-sm-6">
-                            <h2>Try the DataBroker BETA</h2>
-                            <hr class="short">
-                            <p class="lead">
-                                We already have a working platform live for you to try out. Curious to see how buying & selling data would work? Then give the BETA a try.
-                            </p>
-                            <a href="https://beta.databrokerdao.com" class="btn btn-lg type--uppercase btn--primary">Try our beta</a>
-                        </div>
-                    </div>
-                </div>
-            </section> -->
-    <!-- ===== END BETA SECTION ===== -->
-
     <!-- ===== TEAM SECTION ===== -->
     <section id="team" class="text-center space--xs">
       <div class="container">
@@ -526,8 +483,8 @@
         </div>
         <div class="row">
           <div class="masonry">
-            <div class="masonry__container masonry--active" style="position: relative; height: 533.5px;">
-              <div class="col-xs-6 col-sm-3 masonry__item" style="position: absolute; left: 0px; top: 0px;">
+            <div class="masonry__container masonry--active">
+              <div class="col-xs-6 col-sm-3 masonry__item">
                 <div class="card card-2 text-center">
                   <div class="card__top">
                     <img alt="Image" src="./img/matthew.jpg">
@@ -536,11 +493,6 @@
                     <h4>Matthew van Niekerk</h4>
                     <span class="type--fade">Co-Founder &amp; CEO</span>
                     <p class="text-left">
-                      <!--  <strong>Founded and exited two companies</strong> in Japan <br /><br />
-                                                <strong>Got an MBA in Belgium</strong> after which he joined a large financial institution.<br /><br />
-                                                <strong>Perforfmed as COO &amp; Head of platform</strong> at KBC.<br /><br />
-                                                <strong>Founded Settlemint in 2016</strong><br /><br /> -->
-
                       Founded and exited two companies in Japan, then got his MBA in Belgium after which he joined a large financial institution,
                       performing a variety of roles ranging from COO of the consumer finance business line to head of platform
                       innovation for the brokerage and crowdfunding platform. In 2016, he left the bank and co-founded SettleMint.
@@ -560,7 +512,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-xs-6 col-sm-3 masonry__item" style="position: absolute; left: 390px; top: 0px;">
+              <div class="col-xs-6 col-sm-3 masonry__item">
                 <div class="card card-2 text-center">
                   <div class="card__top">
                     <img alt="Image" src="./img/roderik.jpg">
@@ -591,7 +543,7 @@
 
               <div class="clearfix visible-xs-block"></div>
 
-              <div class="col-xs-6 col-sm-3 masonry__item" style="position: absolute; left: 780px; top: 0px;">
+              <div class="col-xs-6 col-sm-3 masonry__item">
                 <div class="card card-2 text-center">
                   <div class="card__top">
                     <img alt="Image" src="./img/els.jpg">
@@ -618,7 +570,8 @@
                   </div>
                 </div>
               </div>
-              <div class="col-xs-6 col-sm-3 masonry__item" style="position: absolute; left: 780px; top: 0px;">
+
+              <div class="col-xs-6 col-sm-3 masonry__item">
                 <div class="card card-2 text-center">
                   <div class="card__top">
                     <img alt="Image" src="./img/dylan.jpg">
@@ -646,6 +599,7 @@
                   </div>
                 </div>
               </div>
+
             </div>
             <!--end of masonry__container-->
           </div>
@@ -694,7 +648,6 @@
                         <h4>Lawrence Pluym</h4>
                         <span>Investment Banker &amp; Crypto trader</span><br />
                         <span class="unpad--bottom">
-                        <!-- <a href="https://twitter.com/jjohnsonnow/"><i class="padding-only-left fa fa-twitter fa-lg"></i></a> -->
                         </span>
                     </div>
                 </div>

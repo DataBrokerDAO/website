@@ -204,6 +204,10 @@
     filter: grayscale(100%);
   }
 
+#advisors a {
+  color: #808080;
+}
+
  /* ====== GENERAL CLASSES ====== */
 
  .btn--primary, .btn--primary:visited {
