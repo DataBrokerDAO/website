@@ -90,9 +90,8 @@ class PreRegisterForm extends Component {
             <h2>Register for the early token sale</h2>
             <hr className="short" />
             <p className="lead">
-              Stack's visual style is simple yet distinct, making it an ideal
-              starting point for your project whether it be a basic marketing
-              site, or multi-page company presence.
+              Please register yourself to obtain an unique referral link and stay on top of important updates leading up to our early token sale. 
+              We will send any referral bonus to the address you specify below.
             </p>
 
             <Form onSubmit={handleSubmit(this._submit)}>
@@ -141,9 +140,8 @@ class PreRegisterForm extends Component {
             <h2>Registration successful! Here's your referral link.</h2>
             <hr className="short" />
             <p className="lead">
-              Stack's visual style is simple yet distinct, making it an ideal
-              starting point for your project whether it be a basic marketing
-              site, or multi-page company presence.
+              Thank you for your registration. Below you can find your unique referral link which you can use to share the DataBrokerDAO project. 
+              You'll receive 5% of every contribution which is made and attributed to your refferal link. All details about the token sale will also be send to you by mail.
             </p>
             <input
               className="text-center"
