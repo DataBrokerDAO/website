@@ -170,6 +170,12 @@
   color: #F90066;
 }
 
+@media (min-width: 767px) {
+#benefits .feature-3 {
+  height: 350px;
+}
+}
+
  /* ====== TEAM SECTION ====== */
 
  #team h4 {
@@ -180,6 +186,12 @@
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
  }
+
+@media (min-width: 767px) {
+ #team .card-2 .card__body {
+  height: 425px;
+ }
+}
 
 
  /* ====== GENERAL CLASSES ====== */
