@@ -182,7 +182,7 @@ class PreRegisterForm extends Component {
                   href={`https://twitter.com/intent/tweet?text=Check%20out%20DataBrokerDAO%20-%20A%20decentralized%20marketplace%20for%20IoT%20Sensor%20data.%20https%3A%2F%2Fdatabrokerdao.com%3Freferrer%3D${uuid}%20%23IoT%20%23tokensale`}
                   target="_blank"
                 >
-                  <i className="fa fa-twitter fa-1x" />Share on twitter
+                  <i className="fa fa-twitter fa-1x" />Share on Twitter
                 </a>
               </span>
               <span>
