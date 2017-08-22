@@ -24,6 +24,7 @@ class PreRegisterForm extends Component {
       ...values,
       code: uuid,
       source: localStorage.getItem('code'),
+      ref: localStorage.getItem('ref'),
       timestamp: moment().unix(),
     });
 
