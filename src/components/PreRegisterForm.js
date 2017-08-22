@@ -140,7 +140,7 @@ class PreRegisterForm extends Component {
                   label="Your Ethereum address"
                   type="text"
                   placeholder="0x52b8398551bb1d0bdc022355897508f658ad42f8"
-                  helptext="we will send the referral tokens to this address after the early token sale ends"
+                  helptext="we will send the referral tokens to this address after the early token sale ends. Please do not use an exchange address!"
                   className="validate-required"
                 />
               </div>
