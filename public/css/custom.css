@@ -145,7 +145,7 @@
  	background: #dedede;
  }
 
- .video-link {
+ .video-link { 
    cursor: pointer;
  }
 
@@ -288,5 +288,11 @@
   .align-center {
     display: flex;
     align-items: center;
+  }
+}
+
+@media (min-width: 767px) {
+  .modal-container {
+    position: fixed;
   }
 }

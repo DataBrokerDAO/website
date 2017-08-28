@@ -2097,11 +2097,12 @@ section.slider .flickity-page-dots {
   -webkit-transition: 0.3s linear;
   -moz-transition: 0.3s linear;
   padding: 0;
-  visibility: hidden;
+  /*visibility: hidden;*/
+  display: none;
   opacity: 0;
   z-index: 999;
   pointer-events: none;
-  position: fixed;
+  position: absolute;
   width: 100%;
   height: 100%;
   top: 0;
@@ -2109,7 +2110,8 @@ section.slider .flickity-page-dots {
 }
 .modal-container.modal-active {
   opacity: 1;
-  visibility: visible;
+  /*visibility: visible;*/
+  display: block;
   pointer-events: all;
 }
 .modal-container:before {
