@@ -52,6 +52,8 @@ class PreRegisterForm extends Component {
       .catch(error => {
         console.log(error);
       });
+    
+        fbq('track', 'CompleteRegistration'); // eslint-disable-line
 
     this.setState({
       formSubmitted: true,
