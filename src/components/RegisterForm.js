@@ -36,7 +36,10 @@ class RegisterForm extends Component {
       .then(response => {
         this.setState({
           formSubmitted: true,
-          addressOrError: response,
+          error: response.data.failure || false,
+          address: response.data.address || false,
+          extra: response.data.extra || false,
+          uuid: response.data.uuid || false,
         });
       })
       .catch(error => {
