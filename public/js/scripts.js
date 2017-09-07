@@ -910,7 +910,9 @@ mr = (function (mr, $, window, document){
     };
 
     mr.forms.documentReady = documentReady;
-
+    window.checkboxes = function ($) {
+        documentReady($)
+    }
    
 
     
@@ -1659,7 +1661,9 @@ mr = (function (mr, $, window, document){
     
     mr.modals = {};
 
-    var documentReady = function($){
+    var documentReady = function($, skip=false){
+
+        if (!skip){
         var allPageModals = "<div class=\"all-page-modals\"></div>",
             mainContainer = $('div.main-container');
 
@@ -1671,6 +1675,7 @@ mr = (function (mr, $, window, document){
             jQuery('body').append(allPageModals);
             mr.modals.allModalsContainer = jQuery('body div.all-page-modals');
         }
+    }
 
         $('.modal-container').each(function(){
 
@@ -1835,7 +1840,7 @@ mr = (function (mr, $, window, document){
 
     mr.modals.documentReady = documentReady;
     window.modals = function ($) {
-        documentReady($)
+        documentReady($, true)
     }
 
     mr.modals.showModal = function(modal, millisecondsDelay){
