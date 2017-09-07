@@ -4,8 +4,7 @@ import registerServiceWorker from './registerServiceWorker';
 import createStore from './utils/create-store';
 import createHistory from 'history/createBrowserHistory';
 import { Provider } from 'react-redux';
-// import ProgressBar from './components/ProgressBar';
-import PreRegisterForm from './components/PreRegisterForm';
+import TokenSale from './components/TokenSale';
 
 // ========================================================
 // Store Instantiation
@@ -27,21 +26,12 @@ if (code) {
 // ========================================================
 // Render Setup
 // ========================================================
+
 ReactDOM.render(
   <Provider store={store}>
-    <PreRegisterForm />
+    <TokenSale />
   </Provider>,
-  document.getElementById('rootpopup')
+  document.getElementById('root')
 );
 
-// const progress = url.searchParams.get('progress');
-
-// if (progress) {
-//   ReactDOM.render(
-//     <Provider store={store}>
-//       <ProgressBar />
-//     </Provider>,
-//     document.getElementById('rootprogress')
-//   );
-// }
 registerServiceWorker();

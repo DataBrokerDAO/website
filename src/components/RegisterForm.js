@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import { Form, Field, reduxForm } from 'redux-form';
 import { isValidAddress } from 'ethereumjs-util';
-import database from '../utils/firebase';
-import ShortUniqueId from 'short-unique-id';
 import axios from 'axios';
-import moment from 'moment';
 
-class PreRegisterForm extends Component {
+class RegisterForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -16,27 +13,14 @@ class PreRegisterForm extends Component {
   }
 
   _submit = values => {
-    const uid = new ShortUniqueId();
-    const uuid = uid.randomUUID(6);
-
-    const addr = database.ref(`referrers/${values.ethereumAddress}`).push().key;
-    database.ref(`referrers/${values.ethereumAddress}/${addr}`).set({
-      ...values,
-      code: uuid,
-      source: localStorage.getItem('code'),
-      ref: localStorage.getItem('ref'),
-      timestamp: moment().unix(),
-      augur: localStorage.getItem('dfp'),
-    });
-
     axios
       .post(
-        'https://databroker-crowdsale-api.herokuapp.com/api/confirmation-email',
+        `${process.env.REACT_APP_API_URI}/api/kyc`,
         {
-          email: values.email,
-          uuid,
-          firstName: values.firstName,
-          lastName: values.lastName,
+          ...values,
+          source: localStorage.getItem('code'),
+          ref: localStorage.getItem('ref'),
+          augur: localStorage.getItem('dfp'),
         },
         {
           auth: {
@@ -48,18 +32,14 @@ class PreRegisterForm extends Component {
         }
       )
       .then(response => {
-        // console.log(response.data);
+        this.setState({
+          formSubmitted: true,
+          addressOrError: response,
+        });
       })
       .catch(error => {
         console.log(error);
       });
-    
-        fbq('track', 'CompleteRegistration'); // eslint-disable-line
-
-    this.setState({
-      formSubmitted: true,
-      uuid,
-    });
   };
 
   _renderTextField = ({
@@ -93,7 +73,7 @@ class PreRegisterForm extends Component {
       <div>
         {!formSubmitted &&
           <div>
-            <h2>Register for the early token sale</h2>
+            <h2>Join the early token sale</h2>
             <hr className="short" />
             <p className="lead">
               Please register yourself to obtain an unique referral link and
@@ -144,7 +124,7 @@ class PreRegisterForm extends Component {
                   label="Your Ethereum address"
                   type="text"
                   placeholder="0x52b8398551bb1d0bdc022355897508f658ad42f8"
-                  helptext="we will send the referral tokens to this address after the early token sale ends. Please do not use an exchange address!"
+                  helptext="we will send the referral tokens to this address after the early token sale ends"
                   className="validate-required"
                 />
               </div>
@@ -246,6 +226,4 @@ const validate = values => {
   return errors;
 };
 
-export default reduxForm({ form: 'preregistration', validate })(
-  PreRegisterForm
-);
+export default reduxForm({ form: 'preregistration', validate })(RegisterForm);

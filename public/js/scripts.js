@@ -1675,7 +1675,6 @@ mr = (function (mr, $, window, document){
         $('.modal-container').each(function(){
 
             // Add modal close if none exists
-
             var modal        = $(this),
                 $window      = $(window),
                 modalContent = modal.find('.modal-content');
@@ -1828,12 +1827,16 @@ mr = (function (mr, $, window, document){
             if(evt.stopPropagation){evt.stopPropagation();}
             this.scrollTop += (evt.originalEvent.deltaY); 
         });
+
     };
     ////////////////
     //////////////// End documentReady
     ////////////////
 
     mr.modals.documentReady = documentReady;
+    window.modals = function ($) {
+        documentReady($)
+    }
 
     mr.modals.showModal = function(modal, millisecondsDelay){
         
