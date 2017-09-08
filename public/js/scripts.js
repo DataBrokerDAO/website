@@ -2329,7 +2329,7 @@ mr = (function (mr, $, window, document){
 				  var pieObject  = {},
 					  currentPie = jQuery(this);
 
-					  pieObject.element = currentPie;
+                      pieObject.element = currentPie;
 					  pieObject.value = parseInt(currentPie.attr('data-value'),10);
 					  pieObject.top = currentPie.offset().top;
 					  pieObject.height = currentPie.height()/2;
@@ -2342,11 +2342,10 @@ mr = (function (mr, $, window, document){
 				mr.easypiecharts.pies.forEach(function(pie){
 					if(Math.round((mr.scroll.y + mr.window.height)) >= Math.round(pie.top+pie.height)){
 						if(pie.active === false){
-							
 		                	pie.element.data('easyPieChart').enableAnimation();
 		                	pie.element.data('easyPieChart').update(pie.value);
 		                	pie.element.addClass('radial--active');
-		                	pie.active = true;
+                            pie.active = true;
 						}
 		            }
 	        	});
@@ -2392,7 +2391,10 @@ mr = (function (mr, $, window, document){
 
 	  };
 
-	  mr.easypiecharts.documentReady = documentReady;
+      mr.easypiecharts.documentReady = documentReady;
+      window.radial = function ($) {
+        documentReady($)
+    }
 
 	  mr.components.documentReadyDeferred.push(documentReady);
 	  return mr;

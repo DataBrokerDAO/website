@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Form, Field, reduxForm } from 'redux-form';
 import { isValidAddress } from 'ethereumjs-util';
 import axios from 'axios';
+import SuccessResponse from './SuccessResponse';
+import ErrorResponse from './ErrorResponse';
 
 class RegisterForm extends Component {
   constructor(props) {
@@ -10,7 +12,10 @@ class RegisterForm extends Component {
       formSubmitted: false,
       uuid: null,
     };
-    setTimeout(() => window.checkboxes(jQuery), 1000); //eslint-disable-line
+  }
+
+  componentDidMount() {
+    window.checkboxes(jQuery); //eslint-disable-line
   }
 
   _submit = values => {
@@ -34,9 +39,11 @@ class RegisterForm extends Component {
         }
       )
       .then(response => {
+        console.log(response.data);
         this.setState({
           formSubmitted: true,
           error: response.data.failure || false,
+          errorReason: response.data.response.ednaScoreCard.er || false,
           address: response.data.address || false,
           extra: response.data.extra || false,
           uuid: response.data.uuid || false,
@@ -350,15 +357,59 @@ class RegisterForm extends Component {
 
   render() {
     const { handleSubmit, submitting, pristine } = this.props;
-    const { uuid, formSubmitted } = this.state;
+    const {
+      uuid,
+      formSubmitted,
+      error,
+      address,
+      extra,
+      errorReason,
+    } = this.state;
+
     return (
       <div>
         {!formSubmitted &&
           <div>
             <h2>Join the early token sale</h2>
             <hr className="short" />
-            <p className="lead">something on KYC procedures and not sharing</p>
-            <Form onSubmit={handleSubmit(this._submit)}>
+            <div>
+              <a
+                href="https://blckc.hn/databrokerdao-registration"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i className="fa fa-info-circle" aria-hidden="true" />
+              </a>{' '}
+              <a
+                href="https://blckc.hn/databrokerdao-registration"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ textDecoration: 'underline' }}
+              >
+                Learn more about this registration process
+              </a>
+              <br />
+              <a
+                href="https://blckc.hn/databrokerdao-sale"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i className="fa fa-info-circle" aria-hidden="true" />
+              </a>{' '}
+              <a
+                href="https://blckc.hn/databrokerdao-sale"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ textDecoration: 'underline' }}
+              >
+                How to participate via MyEtherWallet, Ethereum Wallet or
+                MetaMask
+              </a>
+            </div>
+            <Form
+              onSubmit={handleSubmit(this._submit)}
+              style={{ marginTop: '1em' }}
+            >
               <div className="col-sm-6">
                 <Field
                   component={this._renderTextField}
@@ -450,7 +501,6 @@ class RegisterForm extends Component {
                   label="The Ethereum address that will send the transaction"
                   type="text"
                   placeholder="0x52b8398551bb1d0bdc022355897508f658ad42f8"
-                  helptext="This should not be an address at an exchange!"
                   className="validate-required"
                 />
               </div>
@@ -466,7 +516,9 @@ class RegisterForm extends Component {
                 </div>
                 <span>
                   I have read and agree to the{' '}
-                  <a href="/">terms and conditions</a>
+                  <a href="https://blckc.hn/databrokerdao-termsandconditions">
+                    terms and conditions
+                  </a>
                 </span>
               </div>
               <div className="col-sm-12">
@@ -483,51 +535,11 @@ class RegisterForm extends Component {
             </Form>
           </div>}
         {formSubmitted &&
-          <div>
-            <h2>Registration successful! Here's your referral link.</h2>
-            <hr className="short" />
-            <p className="lead">
-              Thank you for your registration. Below you can find your unique
-              referral link which you can use to share the DataBrokerDAO
-              project. You'll receive 5% of every contribution which is made and
-              attributed to your refferal link. All details about the token sale
-              will also be send to you by mail.
-            </p>
-            <input
-              className="text-center"
-              type="text"
-              value={`https://databrokerdao.com/?referrer=${uuid}`}
-              style={{ fontSize: '16px' }}
-              readOnly
-            />
-            <div className="modal_channels">
-              <h4>Share your referral link on social media</h4>
-              <span>
-                <a
-                  href={`https://twitter.com/intent/tweet?text=Check%20out%20DataBrokerDAO%20-%20A%20decentralized%20marketplace%20for%20IoT%20Sensor%20data.%20https%3A%2F%2Fdatabrokerdao.com%3Freferrer%3D${uuid}%20%23IoT%20%23tokensale`}
-                  target="_blank"
-                >
-                  <i className="fa fa-twitter fa-1x" />Share on Twitter
-                </a>
-              </span>
-              <span>
-                <a
-                  href={`https://www.facebook.com/sharer/sharer.php?u=https%3A//databrokerdao.com/?referrer=${uuid}`}
-                  target="_blank"
-                >
-                  <i className="fa fa-facebook fa-1x" />Share on Facebook
-                </a>
-              </span>
-              <span>
-                <a
-                  href={`https://www.linkedin.com/shareArticle?mini=true&url=https%3A//databrokerdao.com/?referrer=${uuid}&title=DataBrokerDAO%20-%20A%20Decentralized%20marketplace%20for%20IoT%20sensor%20Data`}
-                  target="_blank"
-                >
-                  <i className="fa fa-linkedin fa-1x" />Share on Linkedin
-                </a>
-              </span>
-            </div>
-          </div>}
+          address !== false &&
+          <SuccessResponse address={address} uuid={uuid} />}
+        {formSubmitted &&
+          error !== false &&
+          <ErrorResponse error={errorReason} />}
       </div>
     );
   }

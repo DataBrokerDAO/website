@@ -14,8 +14,10 @@ class TokenSale extends Component {
       percentage: 0,
       tokens: 0,
       eth: 0,
-      MAX_ETH: 11250000 / 1200,
-      MAX_ETH_OVER: 33750000 / 1200,
+      MAX_ETH: 9375,
+      MAX_ETH_OVER: 28125,
+      // MAX_ETH: 1,
+      // MAX_ETH_OVER: 3,
     };
   }
 
@@ -41,7 +43,7 @@ class TokenSale extends Component {
 
   longPoller() {
     setTimeout(() => {
-      this.instantiateContract().then(() => {
+      this.instantiateContract(true).then(() => {
         if (this.polling) {
           this.longPoller();
         }
@@ -53,25 +55,28 @@ class TokenSale extends Component {
     this.polling = false;
   }
 
-  async instantiateContract() {
+  async instantiateContract(update = false) {
     const { sale, MAX_ETH, MAX_ETH_OVER, web3 } = this.state;
     const DeployedSale = await sale.deployed();
     const totalCollected = await DeployedSale.totalCollected();
+    const eth = web3.fromWei(totalCollected.toNumber(), 'ether');
     let totalSupply = MAX_ETH;
-    if (totalCollected >= MAX_ETH) {
+
+    if (eth >= MAX_ETH) {
       totalSupply = MAX_ETH_OVER;
     }
-    const endFundingTime = await DeployedSale.endFundingTime();
-    const startFundingTime = await DeployedSale.startFundingTime();
-
+    if (!update) {
+      const endFundingTime = await DeployedSale.endFundingTime();
+      const startFundingTime = await DeployedSale.startFundingTime();
+      this.setState({
+        startFundingTime: moment.unix(startFundingTime.toNumber()),
+        endFundingTime: moment.unix(endFundingTime.toNumber()),
+      });
+    }
     const newState = {
-      eth: web3.fromWei(totalCollected.toNumber(), 'ether'),
+      eth,
       tokens: web3.fromWei(totalCollected.toNumber() * 1200, 'ether'),
-      percentage: Math.round(
-        web3.fromWei(totalCollected, 'ether') / totalSupply * 100
-      ),
-      startFundingTime: moment.unix(startFundingTime.toNumber()),
-      endFundingTime: moment.unix(endFundingTime.toNumber()),
+      percentage: eth / totalSupply * 100,
     };
     // console.log(newState);
     this.setState(newState);
@@ -105,8 +110,9 @@ class TokenSale extends Component {
     const { percentage } = this.state;
     return (
       <div>
-        <h2 className="sale-date padding-2">Join the Early Token Sale!</h2>
-        <hr />
+        <h2 className="sale-date padding-2" style={{ marginBottom: '1em' }}>
+          Join the Early Token Sale!
+        </h2>
         <ProgressBar percentage={percentage} />
         {this.numberTable()}
         <div className="modal-instance">
@@ -168,13 +174,13 @@ class TokenSale extends Component {
               <tr>
                 <td style={{ textAlign: 'left' }}>Completed:</td>
                 <td style={{ textAlign: 'right' }} className="type--bold">
-                  {percentage}%
+                  {percentage.toFixed(2)}%
                 </td>
               </tr>
               <tr>
-                <td style={{ textAlign: 'left' }}>Sale closing:</td>
+                <td style={{ textAlign: 'left' }}>Time left:</td>
                 <td style={{ textAlign: 'right' }} className="type--bold">
-                  {endFundingTime.fromNow()}
+                  {endFundingTime.diff(moment(), 'days')}d
                 </td>
               </tr>
             </tbody>
