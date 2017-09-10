@@ -32,7 +32,6 @@ class DocumentResponse extends Component {
   };
 
   _submit = values => {
-    console.log(this.state.files);
     axios
       .post(
         `${process.env.REACT_APP_API_URI}api/kycstage3`,
@@ -51,7 +50,6 @@ class DocumentResponse extends Component {
         }
       )
       .then(response => {
-        console.log(response.data);
         this.setState({
           formSubmitted: true,
           error: response.data.failure || false,
