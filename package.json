@@ -82,7 +82,7 @@
     "lint": "eslint src",
     "start-js": "node scripts/start.js",
     "start": "npm-run-all -p watch-css start-js",
-    "build": "npm run build-css && npm run contracts && node scripts/build.js",
+    "build": "npm run build-css && node scripts/build.js",
     "pretest": "npm run lint",
     "test":
       "node scripts/test.js --env=jsdom --coverage --collectCoverageFrom='src/**/*.{js,jsx}'",
