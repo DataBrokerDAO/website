@@ -47,7 +47,7 @@ class RegisterForm extends Component {
           errorReason: response.data.response.ednaScoreCard.er || false,
           address: response.data.address || false,
           extra: response.data.extra || false,
-          extraId: response.data.response.mtid || false,
+          extraInitialData: response.data.initialData || false,
           uuid: response.data.uuid || false,
         });
       })
@@ -62,23 +62,19 @@ class RegisterForm extends Component {
     helptext,
     type,
     meta: { touched, error, warning },
-  }) =>
+  }) => (
     <div
       className={`form-group ${touched &&
         ((error && 'has-danger') || (warning && 'has-warning'))}`}
     >
-      <label className="type--uppercase ">
-        {label}
-      </label>
+      <label className="type--uppercase ">{label}</label>
       <input {...input} type={type} />
-      {helptext &&
-        <small className="form-text text-muted">
-          {helptext}
-        </small>}
+      {helptext && <small className="form-text text-muted">{helptext}</small>}
       <div className="color--error">
         {touched && ((error && error) || (warning && warning))}
       </div>
-    </div>;
+    </div>
+  );
 
   _renderSelectField = ({
     input,
@@ -86,14 +82,12 @@ class RegisterForm extends Component {
     helptext,
     type,
     meta: { touched, error, warning },
-  }) =>
+  }) => (
     <div
       className={`form-group ${touched &&
         ((error && 'has-danger') || (warning && 'has-warning'))}`}
     >
-      <label className="type--uppercase ">
-        {label}
-      </label>
+      <label className="type--uppercase ">{label}</label>
       <div className="input-select">
         <select {...input}>
           <option value="default" />
@@ -355,7 +349,8 @@ class RegisterForm extends Component {
       <div className="color--error">
         {touched && ((error && error) || (warning && warning))}
       </div>
-    </div>;
+    </div>
+  );
 
   render() {
     const { handleSubmit, submitting, pristine } = this.props;
@@ -365,13 +360,13 @@ class RegisterForm extends Component {
       error,
       address,
       extra,
-      extraId,
+      extraInitialData,
       errorReason,
     } = this.state;
 
     return (
       <div>
-        {!formSubmitted &&
+        {!formSubmitted && (
           <div>
             <h2>Join the early token sale</h2>
             <hr className="short" />
@@ -536,16 +531,16 @@ class RegisterForm extends Component {
                 </div>
               </div>
             </Form>
-          </div>}
+          </div>
+        )}
         {formSubmitted &&
-          address !== false &&
-          <SuccessResponse address={address} uuid={uuid} />}
+        address !== false && <SuccessResponse address={address} uuid={uuid} />}
         {formSubmitted &&
-          error !== false &&
-          <ErrorResponse error={errorReason} />}
+        error !== false && <ErrorResponse error={errorReason} />}
         {formSubmitted &&
-          extra !== false &&
-          <DocumentResponse extraId={extraId} />}
+        extra !== false && (
+          <DocumentResponse extraInitialData={extraInitialData} />
+        )}
       </div>
     );
   }
