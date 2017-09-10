@@ -82,11 +82,16 @@
     "lint": "eslint src",
     "start-js": "node scripts/start.js",
     "start": "npm-run-all -p watch-css start-js",
-    "build": "npm run build-css && node scripts/build.js",
+    "build": "npm run build-css && npm run contracts && node scripts/build.js",
     "pretest": "npm run lint",
-    "test": "node scripts/test.js --env=jsdom --coverage --collectCoverageFrom='src/**/*.{js,jsx}'",
-    "build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
-    "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive"
+    "test":
+      "node scripts/test.js --env=jsdom --coverage --collectCoverageFrom='src/**/*.{js,jsx}'",
+    "build-css":
+      "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
+    "watch-css":
+      "npm run build-css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
+    "contracts":
+      "rm -Rf src/contracts && cp -R ../crowdsale-contracts/build/contracts src/"
   },
   "proxy": {
     "/api": {
@@ -107,12 +112,8 @@
     }
   },
   "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx}"
-    ],
-    "setupFiles": [
-      "<rootDir>/config/polyfills.js"
-    ],
+    "collectCoverageFrom": ["src/**/*.{js,jsx}"],
+    "setupFiles": ["<rootDir>/config/polyfills.js"],
     "testMatch": [
       "<rootDir>/tests/**/*.js?(x)",
       "<rootDir>/src/**/__tests__/**/*.js?(x)",
@@ -125,33 +126,17 @@
       "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
       "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
     },
-    "transformIgnorePatterns": [
-      "node_modules/(?!@settlemint)"
-    ],
+    "transformIgnorePatterns": ["node_modules/(?!@settlemint)"],
     "moduleNameMapper": {
       "^react-native$": "react-native-web"
     },
-    "moduleFileExtensions": [
-      "web.js",
-      "js",
-      "json",
-      "web.jsx",
-      "jsx",
-      "node"
-    ]
+    "moduleFileExtensions": ["web.js", "js", "json", "web.jsx", "jsx", "node"]
   },
   "babel": {
-    "presets": [
-      "react-app"
-    ]
+    "presets": ["react-app"]
   },
   "eslintConfig": {
-    "extends": [
-      "prettier",
-      "react-app"
-    ],
-    "plugins": [
-      "prettier"
-    ]
+    "extends": ["prettier", "react-app"],
+    "plugins": ["prettier"]
   }
 }
