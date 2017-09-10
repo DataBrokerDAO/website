@@ -400,8 +400,7 @@ class RegisterForm extends Component {
                 rel="noopener noreferrer"
                 style={{ textDecoration: 'underline' }}
               >
-                How to participate via MyEtherWallet, Ethereum Wallet or
-                MetaMask
+                Guide on how to participate
               </a>
             </div>
             <Form

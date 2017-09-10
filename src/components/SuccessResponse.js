@@ -54,12 +54,12 @@ class SuccessResponse extends Component {
           <i className="fa fa-info-circle" aria-hidden="true" />
         </a>
         <a
-          href="https://blckc.hn/databrokerdao-myetherwallet"
+          href="https://blckc.hn/databrokerdao-sale"
           target="_blank"
           rel="noopener noreferrer"
           style={{ textDecoration: 'underline' }}
         >
-          {' '}How to participate via MyEtherWallet.com
+          Guide on how to participate
         </a>
         <hr className="short" />
         <div className="modal_channels">
