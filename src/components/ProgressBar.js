@@ -26,26 +26,10 @@ class ProgressBar extends Component {
         data-size="200"
         data-bar-width="10"
       >
-        <span className="h3 radial__label">
-          {percentage.toFixed(0)}%
-        </span>
+        <span className="h3 radial__label">{percentage.toFixed(0)}%</span>
       </div>
     );
   }
 }
 
 export default ProgressBar;
-
-/*
-      <div className="progress-horizontal progress-horizontal--lg">
-        <div
-          className="progress-horizontal__bar"
-          data-value={percentage.toFixed(0)}
-        >
-          <div
-            className="progress-horizontal__progress"
-            style={{ width: `${percentage.toFixed(0)}%` }}
-          />
-        </div>
-      </div>
-      */

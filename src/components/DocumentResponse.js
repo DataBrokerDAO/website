@@ -50,6 +50,7 @@ class DocumentResponse extends Component {
         }
       )
       .then(response => {
+        console.log(response.data);
         this.setState({
           formSubmitted: true,
           error: response.data.failure || false,
