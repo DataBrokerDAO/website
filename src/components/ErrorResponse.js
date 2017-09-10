@@ -11,8 +11,10 @@ class ErrorResponse extends Component {
           Our external "know your customer" provider has notified us that your
           information does not allow us to include you in this sale. This is the
           reason we have been given:
-          <pre>${JSON.stringify(error, null, 2)}</pre>
         </p>
+        <pre>
+          ${JSON.stringify(error, null, 2)}
+        </pre>
       </div>
     );
   }

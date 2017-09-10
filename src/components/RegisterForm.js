@@ -4,6 +4,7 @@ import { isValidAddress } from 'ethereumjs-util';
 import axios from 'axios';
 import SuccessResponse from './SuccessResponse';
 import ErrorResponse from './ErrorResponse';
+import DocumentResponse from './DocumentResponse';
 
 class RegisterForm extends Component {
   constructor(props) {
@@ -46,6 +47,7 @@ class RegisterForm extends Component {
           errorReason: response.data.response.ednaScoreCard.er || false,
           address: response.data.address || false,
           extra: response.data.extra || false,
+          extraId: response.data.response.mtid || false,
           uuid: response.data.uuid || false,
         });
       })
@@ -363,6 +365,7 @@ class RegisterForm extends Component {
       error,
       address,
       extra,
+      extraId,
       errorReason,
     } = this.state;
 
@@ -540,6 +543,9 @@ class RegisterForm extends Component {
         {formSubmitted &&
           error !== false &&
           <ErrorResponse error={errorReason} />}
+        {formSubmitted &&
+          extra !== false &&
+          <DocumentResponse extraId={extraId} />}
       </div>
     );
   }
