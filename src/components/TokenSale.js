@@ -22,23 +22,25 @@ class TokenSale extends Component {
   }
 
   componentWillMount() {
-    getWeb3
-      .then(results => {
-        this.setState({
-          ...results,
-        });
-        this.instantiateContract()
-          .then(() => {
-            this.polling = true;
-            this.longPoller();
-          })
-          .catch(error => {
-            console.log('longPoller error', error);
+    if (process.env.REACT_APP_SALE_ACTIVE) {
+      getWeb3
+        .then(results => {
+          this.setState({
+            ...results,
           });
-      })
-      .catch(e => {
-        console.log('Error finding web3.', e);
-      });
+          this.instantiateContract()
+            .then(() => {
+              this.polling = true;
+              this.longPoller();
+            })
+            .catch(error => {
+              console.log('longPoller error', error);
+            });
+        })
+        .catch(e => {
+          console.log('Error finding web3.', e);
+        });
+    }
   }
 
   longPoller() {
@@ -48,7 +50,7 @@ class TokenSale extends Component {
           this.longPoller();
         }
       });
-    }, 2000);
+    }, 10000);
   }
 
   componentWillUnmount() {
@@ -58,6 +60,7 @@ class TokenSale extends Component {
   async instantiateContract(update = false) {
     const { sale, MAX_ETH, MAX_ETH_OVER, web3 } = this.state;
     const DeployedSale = await sale.deployed();
+
     const totalCollected = await DeployedSale.totalCollected();
     const eth = web3.fromWei(totalCollected.toNumber(), 'ether');
     let totalSupply = MAX_ETH;
