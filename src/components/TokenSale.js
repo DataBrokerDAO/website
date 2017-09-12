@@ -22,7 +22,7 @@ class TokenSale extends Component {
   }
 
   componentWillMount() {
-    if (process.env.REACT_APP_SALE_ACTIVE) {
+    if (process.env.REACT_APP_SALE_ACTIVE === 'true') {
       getWeb3
         .then(results => {
           this.setState({
@@ -40,6 +40,14 @@ class TokenSale extends Component {
         .catch(e => {
           console.log('Error finding web3.', e);
         });
+    } else {
+      this.setState({
+        startFundingTime: 0,
+        endFundingTime: 0,
+        eth: 0,
+        tokens: 0,
+        percentage: 0,
+      });
     }
   }
 
