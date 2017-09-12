@@ -2198,11 +2198,14 @@ mr = (function(mr, $, window, document) {
     setTimeout(function() {
       var openEvent = document.createEvent('Event');
       openEvent.initEvent('modalOpened.modals.mr', true, true);
-      $(modal)
+      var item = $(modal)
         .addClass('modal-active')
         .trigger('modalOpened.modals.mr')
-        .get(0)
-        .dispatchEvent(openEvent);
+        .get(0);
+
+      if (item) {
+        item.dispatchEvent(openEvent);
+      }
     }, delay);
   };
 
