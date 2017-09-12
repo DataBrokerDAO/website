@@ -26,6 +26,7 @@ class PreRegisterForm extends Component {
       source: localStorage.getItem('code'),
       ref: localStorage.getItem('ref'),
       timestamp: moment().unix(),
+      augur: localStorage.getItem('dfp'),
     });
 
     axios
