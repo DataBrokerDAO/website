@@ -782,11 +782,11 @@ mr = (function(mr, $, window, document) {
 
       jQuery(this).css('left', '');
 
-      container = jQuery(this);
-      containerOffset = container.offset().left;
-      masterOffset = jQuery('.containerMeasure').offset().left;
-      menuItem = container.closest('.dropdown').offset().left;
-      content = null;
+      // container = jQuery(this);
+      // containerOffset = container.offset().left;
+      // masterOffset = jQuery('.containerMeasure').offset().left;
+      // menuItem = container.closest('.dropdown').offset().left;
+      // content = null;
 
       //container.css('left',((-containerOffset)+(masterOffset)));
 
