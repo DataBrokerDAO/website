@@ -60,6 +60,11 @@
   </script>
   <script id="augur.js" async src="https://cdn.augur.io/augur.min.js" data-e2ee="1" data-fastcallback="augurFastCallback" data-cb="augurModernCallback"
     data-warpspeed="truk" data-schema="v4" data-noci="1" data-nopi="1" data-silent="1"></script>
+
+  <script type="text/javascript">
+    (function (o) { var b = "https://api.autopilothq.com/anywhere/", t = "a85151178f1743f4bd478e34c3ffe8ba9bbe7f0c882d4de9934859383b3fe019", a = window.AutopilotAnywhere = { _runQueue: [], run: function () { this._runQueue.push(arguments); } }, c = encodeURIComponent, s = "LINK", d = document, l = d.getElementsByTagName(s)[0], p = "t=" + c(d.title || "") + "&u=" + c(d.location.href || "") + "&r=" + c(d.referrer || ""), j = "text/javascript", z, y; if (!window.Autopilot) window.Autopilot = a; if (o.app) p = "devmode=true&" + p; z = function (src, asy) { var e = d.createElement(s); e.src = src; e.type = j; e.async = asy; l.parentNode.insertBefore(e, l); }; y = function () { z(b + t + '?' + p, true); }; if (window.attachEvent) { window.attachEvent("onload", y); } else { window.addEventListener("load", y, false); } })({});
+  </script>
+
 </head>
 
 <body class=" ">
