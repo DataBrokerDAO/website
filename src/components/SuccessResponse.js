@@ -31,7 +31,7 @@ class SuccessResponse extends Component {
           <input
             className="text-center"
             type="text"
-            value="200000"
+            value="300000"
             style={{ fontSize: '16px' }}
             readOnly
           />

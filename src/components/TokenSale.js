@@ -199,12 +199,14 @@ class TokenSale extends Component {
       endFundingTime,
     } = this.state;
 
-    let upcoming = false;
-    let done = false;
-    if (startFundingTime && endFundingTime) {
-      upcoming = startFundingTime.isAfter(moment());
-      done = endFundingTime.isBefore(moment());
-    }
+    let upcoming = process.env.REACT_APP_SALE_UPCOMING === 'true';
+    let done = process.env.REACT_APP_SALE_DONE === 'true';
+    let active = process.env.REACT_APP_SALE_ACTIVE === 'true';
+
+    // if (startFundingTime && endFundingTime) {
+    //   upcoming = startFundingTime.isAfter(moment());
+    //   done = endFundingTime.isBefore(moment());
+    // }
 
     const doneLoading =
       percentage >= 0 &&
@@ -213,13 +215,15 @@ class TokenSale extends Component {
       eth >= 0 &&
       tokens >= 0;
 
+    // console.log({ upcoming, done, active, doneLoading });
+
     setTimeout(() => window.modals(jQuery, window, document), 1000); //eslint-disable-line
 
     return (
       <div className="boxed boxed--lg border--round box-shadow-wide bg--white token-sale">
         {!doneLoading && <div className="ldr">Loading...</div>}
         {doneLoading && upcoming && this.saleUpcoming()}
-        {doneLoading && !done && !upcoming && this.saleRunning()}
+        {doneLoading && active && this.saleRunning()}
         {doneLoading && done && this.saleDone()}
       </div>
     );
