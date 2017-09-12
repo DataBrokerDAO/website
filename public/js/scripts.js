@@ -1990,7 +1990,7 @@ mr = (function(mr, $, window, document) {
 
   mr.modals = {};
 
-  var documentReady = function($, skip = false) {
+  var documentReady = function($, skip) {
     if (!skip) {
       var allPageModals = '<div class="all-page-modals"></div>',
         mainContainer = $('div.main-container');
@@ -2056,7 +2056,8 @@ mr = (function(mr, $, window, document) {
 
       // Attach the modal to the body
       modal = modal.detach();
-      mr.modals.allModalsContainer.append(modal);
+      if (mr.modals.allModalsContainer)
+        mr.modals.allModalsContainer.append(modal);
     });
 
     $('.modal-trigger').on('click', function() {

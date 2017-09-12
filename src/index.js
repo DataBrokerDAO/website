@@ -14,13 +14,15 @@ const history = createHistory();
 const store = createStore(initialState, history);
 
 const url = new URL(window.location.href);
-const ref = url.searchParams.get('ref');
-if (ref) {
-  localStorage.setItem('ref', ref);
-}
-const code = url.searchParams.get('referrer');
-if (code) {
-  localStorage.setItem('code', code);
+if (url.searchParams) {
+  const ref = url.searchParams && url.searchParams.get('ref');
+  if (ref) {
+    localStorage.setItem('ref', ref);
+  }
+  const code = url.searchParams.get('referrer');
+  if (code) {
+    localStorage.setItem('code', code);
+  }
 }
 
 // ========================================================
