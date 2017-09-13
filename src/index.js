@@ -36,4 +36,10 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-registerServiceWorker();
+//registerServiceWorker();
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.ready.then(registration => {
+    registration.unregister();
+  });
+}
