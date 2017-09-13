@@ -372,14 +372,14 @@ class RegisterForm extends Component {
             <hr className="short" />
             <div>
               <a
-                href="https://blckc.hn/databrokerdao-registration"
+                href="/registration-guide.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <i className="fa fa-info-circle" aria-hidden="true" />
               </a>{' '}
               <a
-                href="https://blckc.hn/databrokerdao-registration"
+                href="/registration-guide.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ textDecoration: 'underline' }}
@@ -388,14 +388,14 @@ class RegisterForm extends Component {
               </a>
               <br />
               <a
-                href="https://blckc.hn/databrokerdao-sale"
+                href="/wallet-guide.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <i className="fa fa-info-circle" aria-hidden="true" />
               </a>{' '}
               <a
-                href="https://blckc.hn/databrokerdao-sale"
+                href="/wallet-guide.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ textDecoration: 'underline' }}
@@ -513,9 +513,7 @@ class RegisterForm extends Component {
                 </div>
                 <span>
                   I have read and agree to the{' '}
-                  <a href="https://blckc.hn/databrokerdao-termsandconditions">
-                    terms and conditions
-                  </a>
+                  <a href="/termsandconditions.pdf">terms and conditions</a>
                 </span>
               </div>
               <div className="col-sm-12">

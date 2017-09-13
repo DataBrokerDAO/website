@@ -105,6 +105,39 @@ class TokenSale extends Component {
           <a className="btn btn-lg type--uppercase btn--primary modal-trigger">
             Register for the early token sale
           </a>
+          <div style={{ marginTop: '15px' }}>
+            <a
+              href="/registration-guide.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i className="fa fa-info-circle" aria-hidden="true" />
+            </a>{' '}
+            <a
+              href="/registration-guide.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: 'underline' }}
+            >
+              Learn more about the registration process
+            </a>
+            <br />
+            <a
+              href="/wallet-guide.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i className="fa fa-info-circle" aria-hidden="true" />
+            </a>{' '}
+            <a
+              href="/wallet-guide.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: 'underline' }}
+            >
+              Guide on how to participate
+            </a>
+          </div>
           <div className="modal-container">
             <div className="modal-content">
               <div className="boxed boxed--lg">
@@ -130,6 +163,39 @@ class TokenSale extends Component {
           <a className="btn btn-lg type--uppercase btn--primary modal-trigger">
             Buy tokens
           </a>
+          <div style={{ marginTop: '15px' }}>
+            <a
+              href="/registration-guide.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i className="fa fa-info-circle" aria-hidden="true" />
+            </a>{' '}
+            <a
+              href="/registration-guide.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: 'underline' }}
+            >
+              Learn more about the registration process
+            </a>
+            <br />
+            <a
+              href="/wallet-guide.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i className="fa fa-info-circle" aria-hidden="true" />
+            </a>{' '}
+            <a
+              href="/wallet-guide.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: 'underline' }}
+            >
+              Guide on how to participate
+            </a>
+          </div>
           <div className="modal-container">
             <div className="modal-content">
               <div className="boxed boxed--lg">

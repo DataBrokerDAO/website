@@ -46,15 +46,11 @@ class SuccessResponse extends Component {
             readOnly
           />
         </div>
-        <a
-          href="https://blckc.hn/databrokerdao-myetherwallet"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href="/wallet-guide.pdf" target="_blank" rel="noopener noreferrer">
           <i className="fa fa-info-circle" aria-hidden="true" />
         </a>
         <a
-          href="https://blckc.hn/databrokerdao-sale"
+          href="/wallet-guide.pdf"
           target="_blank"
           rel="noopener noreferrer"
           style={{ textDecoration: 'underline' }}
