@@ -52,7 +52,7 @@ class DocumentResponse extends Component {
         }
       )
       .then(response => {
-        console.log(response.data);
+        console.log({ response: response.data });
         this.setState({
           formSubmitted: true,
           waitingForDocumentValidation: true,
