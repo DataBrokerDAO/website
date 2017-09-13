@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Dropzone from 'react-dropzone';
 import { Form, Field, reduxForm } from 'redux-form';
 import axios from 'axios';
+import SuccessResponse from './SuccessResponse';
+import ErrorResponse from './ErrorResponse';
 
 class DocumentResponse extends Component {
   constructor(props) {
@@ -53,6 +55,7 @@ class DocumentResponse extends Component {
         console.log(response.data);
         this.setState({
           formSubmitted: true,
+          waitingForDocumentValidation: true,
           error: response.data.failure || false,
           errorReason: response.data.response.ednaScoreCard.er || false,
           address: response.data.address || false,
@@ -60,10 +63,45 @@ class DocumentResponse extends Component {
           extraId: response.data.response.mtid || false,
           uuid: response.data.uuid || false,
         });
+        this._checkDocumentStatus(response.data.response.mtid);
       })
       .catch(error => {
         console.log(error);
       });
+  };
+
+  _checkDocumentStatus = mtid => {
+    setTimeout(() => {
+      axios
+        .get(`${process.env.REACT_APP_API_URI}api/kycstatus/${mtid}`, {
+          auth: {
+            username:
+              'sahCa8aiieD7ke9ovu3zeDieEitaza9uxuW6op2SSa0tohQubuiqu8uTtaiy8Aiw',
+            password:
+              'xaf6MeofRae1aiQuuLoz2EemAa0aiw7oLie1sheeaiS3ceo7chi4aiQuieGuo7ve',
+          },
+        })
+        .then(response => {
+          console.log(response.data);
+
+          const { state } = response.data.response;
+          if (state === 'R') {
+            this._checkDocumentStatus(mtid);
+          } else {
+            this.setState({
+              waitingForDocumentValidation: false,
+              error: response.data.failure || false,
+              errorReason: response.data.response.ednaScoreCard.er || false,
+              address: response.data.address || false,
+              uuid: response.data.uuid || false,
+            });
+          }
+        })
+        .catch(error => {
+          console.log(error);
+          this._checkDocumentStatus(mtid);
+        });
+    }, 1000);
   };
 
   _renderCountrySelectField = ({
@@ -371,12 +409,19 @@ class DocumentResponse extends Component {
 
   render() {
     const { handleSubmit, submitting, pristine } = this.props;
-    const { formSubmitted } = this.state;
+    const {
+      formSubmitted,
+      address,
+      error,
+      waitingForDocumentValidation,
+      uuid,
+      errorReason,
+    } = this.state;
     return (
       <div>
         {!formSubmitted && <h2>We need some extra information</h2>}
-        {formSubmitted && <h2>Checking...</h2>}
-        <hr className="short" />
+        {formSubmitted && waitingForDocumentValidation && <h2>Checking...</h2>}
+        {!waitingForDocumentValidation && <hr className="short" />}
         {!formSubmitted && (
           <Form
             onSubmit={handleSubmit(this._submit)}
@@ -451,7 +496,8 @@ class DocumentResponse extends Component {
             </div>
           </Form>
         )}
-        {formSubmitted && (
+        {formSubmitted &&
+        waitingForDocumentValidation && (
           <div className="col-sm-12">
             <div className="ldr">Checking...</div>
             <div
@@ -464,6 +510,12 @@ class DocumentResponse extends Component {
             </div>
           </div>
         )}
+        {formSubmitted &&
+        !waitingForDocumentValidation &&
+        address !== false && <SuccessResponse address={address} uuid={uuid} />}
+        {formSubmitted &&
+        !waitingForDocumentValidation &&
+        error !== false && <ErrorResponse error={errorReason} />}
       </div>
     );
   }
