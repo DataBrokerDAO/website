@@ -372,35 +372,19 @@ class RegisterForm extends Component {
             <hr className="short" />
             <div>
               <a
-                href="/registration-guide.pdf"
+                href="/how-to-participate.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <i className="fa fa-info-circle" aria-hidden="true" />
               </a>{' '}
               <a
-                href="/registration-guide.pdf"
+                href="/how-to-participate.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ textDecoration: 'underline' }}
               >
-                Learn more about this registration process
-              </a>
-              <br />
-              <a
-                href="/wallet-guide.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <i className="fa fa-info-circle" aria-hidden="true" />
-              </a>{' '}
-              <a
-                href="/wallet-guide.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ textDecoration: 'underline' }}
-              >
-                Guide on how to participate
+                How to participate in the Early Token Sale
               </a>
             </div>
             <Form

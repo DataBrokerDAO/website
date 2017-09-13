@@ -107,35 +107,19 @@ class TokenSale extends Component {
           </a>
           <div style={{ marginTop: '15px' }}>
             <a
-              href="/registration-guide.pdf"
+              href="/how-to-participate.pdf"
               target="_blank"
               rel="noopener noreferrer"
             >
               <i className="fa fa-info-circle" aria-hidden="true" />
             </a>{' '}
             <a
-              href="/registration-guide.pdf"
+              href="/how-to-participate.pdf"
               target="_blank"
               rel="noopener noreferrer"
               style={{ textDecoration: 'underline' }}
             >
-              Learn more about the registration process
-            </a>
-            <br />
-            <a
-              href="/wallet-guide.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i className="fa fa-info-circle" aria-hidden="true" />
-            </a>{' '}
-            <a
-              href="/wallet-guide.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ textDecoration: 'underline' }}
-            >
-              Guide on how to participate
+              How to participate in the Early Token Sale
             </a>
           </div>
           <div className="modal-container">
@@ -165,35 +149,19 @@ class TokenSale extends Component {
           </a>
           <div style={{ marginTop: '15px' }}>
             <a
-              href="/registration-guide.pdf"
+              href="/how-to-participate.pdf"
               target="_blank"
               rel="noopener noreferrer"
             >
               <i className="fa fa-info-circle" aria-hidden="true" />
             </a>{' '}
             <a
-              href="/registration-guide.pdf"
+              href="/how-to-participate.pdf"
               target="_blank"
               rel="noopener noreferrer"
               style={{ textDecoration: 'underline' }}
             >
-              Learn more about the registration process
-            </a>
-            <br />
-            <a
-              href="/wallet-guide.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i className="fa fa-info-circle" aria-hidden="true" />
-            </a>{' '}
-            <a
-              href="/wallet-guide.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ textDecoration: 'underline' }}
-            >
-              Guide on how to participate
+              How to participate in the Early Token Sale
             </a>
           </div>
           <div className="modal-container">
