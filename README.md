@@ -1,4 +1,4 @@
-# Rinkeby
+# Rinkeby Network
 
   * Migrations: 0x601705ab53593457ecb9ad947a2c84ba4edf0642
   * MiniMeTokenFactory: 0x585eee16e08b6445471a6c2eb561387b309dfbff
