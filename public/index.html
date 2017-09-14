@@ -923,10 +923,10 @@
 
   <script>
     if (window.location.search.indexOf('signup=success') > -1) {
-      if (document.getElementById("success").classList) document.getElementById("success").classList.remove('hide');
-      if (document.getElementById("form-header").classList) document.getElementById("form-header").classList.add('hide');
-      if (document.getElementById("success_footer").classList) document.getElementById("success_footer").classList.remove('hide');
-      if (document.getElementById("form-footer").classList) document.getElementById("form-footer").classList.add('hide');
+      if (document.getElementById("success") && document.getElementById("success").classList) document.getElementById("success").classList.remove('hide');
+      if (document.getElementById("form-header") && document.getElementById("form-header").classList) document.getElementById("form-header").classList.add('hide');
+      if (document.getElementById("success_footer") && document.getElementById("success_footer").classList) document.getElementById("success_footer").classList.remove('hide');
+      if (document.getElementById("form-footer") && document.getElementById("form-footer").classList) document.getElementById("form-footer").classList.add('hide');
     }
   </script>
 
