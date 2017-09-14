@@ -12,7 +12,7 @@ class ErrorResponse extends Component {
           information does not allow us to include you in this sale. This is the
           reason we have been given:
         </p>
-        <strong>${error.reportedRule.details}</strong>
+        <strong>{error.reportedRule.details}</strong>
       </div>
     );
   }
