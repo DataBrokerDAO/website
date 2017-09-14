@@ -12,9 +12,11 @@ class ErrorResponse extends Component {
           information does not allow us to include you in this sale. This is the
           reason we have been given:
         </p>
-        <pre>
-          ${JSON.stringify(error, null, 2)}
-        </pre>
+        <ul>
+          ${error.testResults.map(test => {
+            return <li>${test.details}</li>;
+          })}
+        </ul>
       </div>
     );
   }
