@@ -417,6 +417,7 @@ class DocumentResponse extends Component {
       uuid,
       errorReason,
     } = this.state;
+    let dropzoneRef;
     return (
       <div>
         {!formSubmitted && <h2>We need some extra information</h2>}
@@ -452,6 +453,9 @@ class DocumentResponse extends Component {
               </label>
               <Dropzone
                 onDrop={this.onDrop}
+                ref={node => {
+                  dropzoneRef = node;
+                }}
                 multiple={false}
                 accept="image/jpeg, image/png"
                 maxSize={5000000}
@@ -464,6 +468,21 @@ class DocumentResponse extends Component {
                   borderRadius: 5,
                 }}
               >
+                {this.state.files.length === 0 && (
+                  <button
+                    type="button"
+                    className="btn btn--secondary"
+                    onClick={() => {
+                      dropzoneRef.open();
+                    }}
+                    style={{
+                      margin: '0 auto',
+                      display: 'block',
+                    }}
+                  >
+                    Select file
+                  </button>
+                )}
                 {this.state.files.map(file => {
                   return (
                     <img
