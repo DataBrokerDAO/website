@@ -12,11 +12,7 @@ class ErrorResponse extends Component {
           information does not allow us to include you in this sale. This is the
           reason we have been given:
         </p>
-        <ul>
-          ${error.testResults.map(test => {
-            return <li>${test.details}</li>;
-          })}
-        </ul>
+        <strong>${error.reportedRule.details}</strong>
       </div>
     );
   }
