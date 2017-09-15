@@ -73,14 +73,20 @@ class DocumentResponse extends Component {
   _checkDocumentStatus = mtid => {
     setTimeout(() => {
       axios
-        .get(`${process.env.REACT_APP_API_URI}api/kycstatus/${mtid}`, {
-          auth: {
-            username:
-              'sahCa8aiieD7ke9ovu3zeDieEitaza9uxuW6op2SSa0tohQubuiqu8uTtaiy8Aiw',
-            password:
-              'xaf6MeofRae1aiQuuLoz2EemAa0aiw7oLie1sheeaiS3ceo7chi4aiQuieGuo7ve',
+        .post(
+          `${process.env.REACT_APP_API_URI}api/kycstatus/${mtid}`,
+          {
+            ...this.props.extraInitialData,
           },
-        })
+          {
+            auth: {
+              username:
+                'sahCa8aiieD7ke9ovu3zeDieEitaza9uxuW6op2SSa0tohQubuiqu8uTtaiy8Aiw',
+              password:
+                'xaf6MeofRae1aiQuuLoz2EemAa0aiw7oLie1sheeaiS3ceo7chi4aiQuieGuo7ve',
+            },
+          }
+        )
         .then(response => {
           console.log(response.data);
 
@@ -468,21 +474,6 @@ class DocumentResponse extends Component {
                   borderRadius: 5,
                 }}
               >
-                {this.state.files.length === 0 && (
-                  <button
-                    type="button"
-                    className="btn btn--secondary"
-                    onClick={() => {
-                      dropzoneRef.open();
-                    }}
-                    style={{
-                      margin: '0 auto',
-                      display: 'block',
-                    }}
-                  >
-                    Select file
-                  </button>
-                )}
                 {this.state.files.map(file => {
                   return (
                     <img
@@ -498,6 +489,17 @@ class DocumentResponse extends Component {
                   );
                 })}
               </Dropzone>
+              {this.state.files.length === 0 && (
+                <button
+                  type="button"
+                  className="btn btn--primary-2"
+                  onClick={() => {
+                    dropzoneRef.open();
+                  }}
+                >
+                  Select file
+                </button>
+              )}
             </div>
 
             <div className="col-sm-12">
