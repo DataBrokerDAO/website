@@ -353,7 +353,7 @@ class RegisterForm extends Component {
   );
 
   render() {
-    const { handleSubmit, submitting, pristine } = this.props;
+    const { handleSubmit, submitting, pristine, upcoming } = this.props;
     const {
       uuid,
       formSubmitted,
@@ -515,7 +515,9 @@ class RegisterForm extends Component {
           </div>
         )}
         {formSubmitted &&
-        address !== false && <SuccessResponse address={address} uuid={uuid} />}
+        address !== false && (
+          <SuccessResponse address={address} uuid={uuid} upcoming={upcoming} />
+        )}
         {formSubmitted &&
         error !== false && <ErrorResponse error={errorReason} />}
         {formSubmitted &&

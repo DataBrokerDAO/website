@@ -2,17 +2,20 @@ import React, { Component } from 'react';
 
 class ErrorResponse extends Component {
   render() {
-    const { error } = this.props;
+    // const { error } = this.props;
     return (
       <div>
         <h2>Registration failed! </h2>
         <hr className="short" />
         <p className="lead">
           Our external "know your customer" provider has notified us that your
-          information does not allow us to include you in this sale. This is the
-          reason we have been given:
+          information does not allow us to include you in this sale.
         </p>
-        <strong>{error.reportedRule.details}</strong>
+        <p className="lead">
+          We will review your submission manually (might take a few days) and
+          will notify you by email with the sale information if your information
+          is deemed correct.
+        </p>
       </div>
     );
   }

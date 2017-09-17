@@ -429,7 +429,8 @@ class DocumentResponse extends Component {
         {!formSubmitted && <h2>We need some extra information</h2>}
         {formSubmitted && waitingForDocumentValidation && <h2>Checking...</h2>}
         {!waitingForDocumentValidation && <hr className="short" />}
-        {!formSubmitted && (
+        {!formSubmitted &&
+        !submitting && (
           <Form
             onSubmit={handleSubmit(this._submit)}
             style={{ marginTop: '1em' }}
@@ -492,9 +493,15 @@ class DocumentResponse extends Component {
               {this.state.files.length === 0 && (
                 <button
                   type="button"
-                  className="btn btn--primary-2"
+                  className="btn btn--primary"
                   onClick={() => {
                     dropzoneRef.open();
+                  }}
+                  style={{
+                    padding: '0 10px',
+                    marginTop: '10px',
+                    backgroundColor: '#666',
+                    borderColor: '#666',
                   }}
                 >
                   Select file
@@ -517,7 +524,7 @@ class DocumentResponse extends Component {
             </div>
           </Form>
         )}
-        {formSubmitted &&
+        {(submitting || formSubmitted) &&
         waitingForDocumentValidation && (
           <div className="col-sm-12">
             <div className="ldr">Checking...</div>
