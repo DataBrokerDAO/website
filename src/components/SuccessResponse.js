@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class SuccessResponse extends Component {
   render() {
-    const { address, uuid } = this.props;
+    const { address, uuid, upcoming } = this.props;
 
     return (
       <div>
@@ -10,14 +10,24 @@ class SuccessResponse extends Component {
         <hr className="short" />
         <div style={{ fontWeight: 'bold' }}>
           <i className="fa fa-exclamation-triangle" aria-hidden="true" /> Do not
-          share this address on social media or websites!<br />
-          <i className="fa fa-exclamation-triangle" aria-hidden="true" /> Do not
           send Ether from an exchange, you will lose your tokens and funds!<br />
-          <i className="fa fa-exclamation-triangle" aria-hidden="true" /> Never
-          click a link to wallets or exchanges, keep safe!<br />
         </div>
+        {upcoming && (
+          <div className="form-group" style={{ marginTop: '1em' }}>
+            <label className="type--uppercase ">
+              Do <b>not</b> send ETH to the tokensale address before:
+            </label>
+            <input
+              className="text-center"
+              type="text"
+              value={`18 SEPTEMBER 2017 - 5PM CET`}
+              style={{ fontSize: '16px' }}
+              readOnly
+            />
+          </div>
+        )}
         <div className="form-group" style={{ marginTop: '1em' }}>
-          <label className="type--uppercase ">TokenSale address</label>
+          <label className="type--uppercase ">Token sale address</label>
           <input
             className="text-center"
             type="text"
@@ -31,7 +41,7 @@ class SuccessResponse extends Component {
           <input
             className="text-center"
             type="text"
-            value="300000"
+            value="200000"
             style={{ fontSize: '16px' }}
             readOnly
           />
@@ -46,11 +56,15 @@ class SuccessResponse extends Component {
             readOnly
           />
         </div>
-        <a href="/wallet-guide.pdf" target="_blank" rel="noopener noreferrer">
-          <i className="fa fa-info-circle" aria-hidden="true" />
-        </a>
         <a
-          href="/wallet-guide.pdf"
+          href="/how-to-participate.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i className="fa fa-info-circle" aria-hidden="true" />
+        </a>{' '}
+        <a
+          href="/how-to-participate.pdf"
           target="_blank"
           rel="noopener noreferrer"
           style={{ textDecoration: 'underline' }}

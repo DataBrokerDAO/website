@@ -52,7 +52,7 @@ class DocumentResponse extends Component {
         }
       )
       .then(response => {
-        console.log(response.data);
+        console.log({ response: response.data });
         this.setState({
           formSubmitted: true,
           waitingForDocumentValidation: true,
@@ -73,14 +73,20 @@ class DocumentResponse extends Component {
   _checkDocumentStatus = mtid => {
     setTimeout(() => {
       axios
-        .get(`${process.env.REACT_APP_API_URI}api/kycstatus/${mtid}`, {
-          auth: {
-            username:
-              'sahCa8aiieD7ke9ovu3zeDieEitaza9uxuW6op2SSa0tohQubuiqu8uTtaiy8Aiw',
-            password:
-              'xaf6MeofRae1aiQuuLoz2EemAa0aiw7oLie1sheeaiS3ceo7chi4aiQuieGuo7ve',
+        .post(
+          `${process.env.REACT_APP_API_URI}api/kycstatus/${mtid}`,
+          {
+            ...this.props.extraInitialData,
           },
-        })
+          {
+            auth: {
+              username:
+                'sahCa8aiieD7ke9ovu3zeDieEitaza9uxuW6op2SSa0tohQubuiqu8uTtaiy8Aiw',
+              password:
+                'xaf6MeofRae1aiQuuLoz2EemAa0aiw7oLie1sheeaiS3ceo7chi4aiQuieGuo7ve',
+            },
+          }
+        )
         .then(response => {
           console.log(response.data);
 
@@ -417,12 +423,14 @@ class DocumentResponse extends Component {
       uuid,
       errorReason,
     } = this.state;
+    let dropzoneRef;
     return (
       <div>
         {!formSubmitted && <h2>We need some extra information</h2>}
         {formSubmitted && waitingForDocumentValidation && <h2>Checking...</h2>}
         {!waitingForDocumentValidation && <hr className="short" />}
-        {!formSubmitted && (
+        {!formSubmitted &&
+        !submitting && (
           <Form
             onSubmit={handleSubmit(this._submit)}
             style={{ marginTop: '1em' }}
@@ -452,6 +460,9 @@ class DocumentResponse extends Component {
               </label>
               <Dropzone
                 onDrop={this.onDrop}
+                ref={node => {
+                  dropzoneRef = node;
+                }}
                 multiple={false}
                 accept="image/jpeg, image/png"
                 maxSize={5000000}
@@ -479,6 +490,23 @@ class DocumentResponse extends Component {
                   );
                 })}
               </Dropzone>
+              {this.state.files.length === 0 && (
+                <button
+                  type="button"
+                  className="btn btn--primary"
+                  onClick={() => {
+                    dropzoneRef.open();
+                  }}
+                  style={{
+                    padding: '0 10px',
+                    marginTop: '10px',
+                    backgroundColor: '#666',
+                    borderColor: '#666',
+                  }}
+                >
+                  Select file
+                </button>
+              )}
             </div>
 
             <div className="col-sm-12">
@@ -496,7 +524,7 @@ class DocumentResponse extends Component {
             </div>
           </Form>
         )}
-        {formSubmitted &&
+        {(submitting || formSubmitted) &&
         waitingForDocumentValidation && (
           <div className="col-sm-12">
             <div className="ldr">Checking...</div>

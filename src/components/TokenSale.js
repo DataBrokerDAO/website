@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { getWeb3 } from '../utils/getWeb3';
 import moment from 'moment';
 import ProgressBar from './ProgressBar';
-import PreRegisterForm from './PreRegisterForm';
+// import PreRegisterForm from './PreRegisterForm';
 import RegisterForm from './RegisterForm';
 
 class TokenSale extends Component {
@@ -99,11 +99,17 @@ class TokenSale extends Component {
         <h2 className="sale-date">Early Token Sale starts:</h2>
         <p className="sale-date unmarg--bottom">18 SEPTEMBER 2017 - 5PM CET</p>
         <hr />
-        <h3 className="unmarg--bottom">Register to get your referral link</h3>
-        <p className="lead">Receive 5% of every contribution you refer</p>
+        <h3 className="unmarg--bottom">
+          Register now to access the sale address before the start!
+        </h3>
+        <br />
+        <p className="lead">
+          You will also receive a unique referral link that earns you 5% of
+          every contribution you refer
+        </p>
         <div className="modal-instance">
           <a className="btn btn-lg type--uppercase btn--primary modal-trigger">
-            Register for the early token sale
+            Register now for the early token sale
           </a>
           <div style={{ marginTop: '15px' }}>
             <a
@@ -125,7 +131,7 @@ class TokenSale extends Component {
           <div className="modal-container">
             <div className="modal-content">
               <div className="boxed boxed--lg">
-                <PreRegisterForm />
+                <RegisterForm upcoming={true} />
               </div>
             </div>
           </div>
@@ -248,10 +254,12 @@ class TokenSale extends Component {
     let done = process.env.REACT_APP_SALE_DONE === 'true';
     let active = process.env.REACT_APP_SALE_ACTIVE === 'true';
 
-    // if (startFundingTime && endFundingTime) {
-    //   upcoming = startFundingTime.isAfter(moment());
-    //   done = endFundingTime.isBefore(moment());
-    // }
+    if (startFundingTime && endFundingTime) {
+      upcoming = startFundingTime.isAfter(moment());
+      active =
+        startFundingTime.isBefore(moment()) && endFundingTime.isAfter(moment());
+      done = endFundingTime.isBefore(moment());
+    }
 
     const doneLoading =
       percentage >= 0 &&
