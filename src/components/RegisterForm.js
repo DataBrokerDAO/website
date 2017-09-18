@@ -496,8 +496,10 @@ class RegisterForm extends Component {
                   <label htmlFor="agree" />
                 </div>
                 <span>
-                  I have read and agree to the{' '}
-                  <a href="/termsandconditions.pdf">terms and conditions</a>
+                  I have downloaded, read, understood and agree to the{' '}
+                  <a href="/termsandconditions.pdf" target="_blank">
+                    terms and conditions
+                  </a>
                 </span>
               </div>
               <div className="col-sm-12">
