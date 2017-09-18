@@ -207,13 +207,13 @@ class TokenSale extends Component {
               <tr>
                 <td style={{ textAlign: 'left' }}>Tokens sold:</td>
                 <td style={{ textAlign: 'right' }} className="type--bold">
-                  {tokens.toNumber().toFixed(2)}
+                  {parseInt(tokens, 10).toFixed(2)}
                 </td>
               </tr>
               <tr>
                 <td style={{ textAlign: 'left' }}>ETH collected:</td>
                 <td style={{ textAlign: 'right' }} className="type--bold">
-                  Ξ {eth.toNumber().toFixed(2)}
+                  Ξ {parseInt(eth, 10).toFixed(2)}
                 </td>
               </tr>
             </tbody>
