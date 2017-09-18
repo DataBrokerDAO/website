@@ -272,7 +272,12 @@ class TokenSale extends Component {
 
     return (
       <div className="boxed boxed--lg border--round box-shadow-wide bg--white token-sale">
-        {!doneLoading && <div className="ldr">Loading...</div>}
+        {!doneLoading && (
+          <div>
+            <div className="ldr">Loading...</div>
+            <p>Sometimes this does not work with Safari or IE, use Chrome!</p>
+          </div>
+        )}
         {doneLoading && upcoming && this.saleUpcoming()}
         {doneLoading && active && this.saleRunning()}
         {doneLoading && done && this.saleDone()}
