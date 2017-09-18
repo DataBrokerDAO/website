@@ -254,12 +254,12 @@ class TokenSale extends Component {
     let done = process.env.REACT_APP_SALE_DONE === 'true';
     let active = process.env.REACT_APP_SALE_ACTIVE === 'true';
 
-    if (startFundingTime && endFundingTime) {
-      upcoming = startFundingTime.isAfter(moment());
-      active =
-        startFundingTime.isBefore(moment()) && endFundingTime.isAfter(moment());
-      done = endFundingTime.isBefore(moment());
-    }
+    // if (startFundingTime && endFundingTime) {
+    //   upcoming = startFundingTime.isAfter(moment());
+    //   active =
+    //     startFundingTime.isBefore(moment()) && endFundingTime.isAfter(moment());
+    //   done = endFundingTime.isBefore(moment());
+    // }
 
     const doneLoading =
       percentage >= 0 &&
