@@ -77,11 +77,9 @@ class TokenSale extends Component {
       totalSupply = MAX_ETH_OVER;
     }
     if (!update) {
-      const endFundingTime = await DeployedSale.endFundingTime();
-      const startFundingTime = await DeployedSale.startFundingTime();
       this.setState({
-        startFundingTime: moment.unix(startFundingTime.toNumber()),
-        endFundingTime: moment.unix(endFundingTime.toNumber()),
+        startFundingTime: moment.unix(1505746800),
+        endFundingTime: moment.unix(1508166000),
       });
     }
     const newState = {
