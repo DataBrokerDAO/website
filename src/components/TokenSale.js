@@ -165,7 +165,7 @@ class TokenSale extends Component {
         {doneLoading && this.numberTable()}
         <div className="modal-instance">
           <a className="btn btn-lg type--uppercase btn--primary modal-trigger">
-            Buy tokens
+            Buy your DATA tokens now!
           </a>
           <div style={{ marginTop: '15px' }}>
             <a
