@@ -66,11 +66,11 @@ class TokenSale extends Component {
   }
 
   async instantiateContract(update = false) {
-    const { sale, MAX_ETH, MAX_ETH_OVER, web3 } = this.state;
+    const { sale, MAX_ETH, MAX_ETH_OVER } = this.state;
     const DeployedSale = await sale.deployed();
 
     const totalCollected = await DeployedSale.totalCollected();
-    const eth = web3.fromWei(totalCollected.toNumber(), 'ether');
+    const eth = totalCollected.toNumber() / 10 ** 18;
     let totalSupply = MAX_ETH;
 
     if (eth >= MAX_ETH) {
@@ -84,7 +84,7 @@ class TokenSale extends Component {
     }
     const newState = {
       eth,
-      tokens: web3.fromWei(totalCollected.toNumber() * 1200, 'ether'),
+      tokens: eth * 1200,
       percentage: eth / totalSupply * 100,
     };
     // console.log(newState);
@@ -138,15 +138,31 @@ class TokenSale extends Component {
     );
   };
 
-  saleRunning = () => {
+  saleRunning = doneLoading => {
     const { percentage } = this.state;
     return (
       <div>
         <h2 className="sale-date padding-2" style={{ marginBottom: '1em' }}>
           Join the Early Token Sale!
         </h2>
-        <ProgressBar percentage={percentage} />
-        {this.numberTable()}
+        {!doneLoading && (
+          <div>
+            <div className="ldr">Loading...</div>
+            <p>
+              Sometimes this does not work with Safari or IE, use Chrome or{' '}
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://etherscan.io/token/0x1b5f21ee98eed48d292e8e2d3ed82b40a9728a22"
+              >
+                visit Etherscan
+              </a>{' '}
+              to follow the progress!
+            </p>
+          </div>
+        )}
+        {doneLoading && <ProgressBar percentage={percentage} />}
+        {doneLoading && this.numberTable()}
         <div className="modal-instance">
           <a className="btn btn-lg type--uppercase btn--primary modal-trigger">
             Buy tokens
@@ -272,14 +288,8 @@ class TokenSale extends Component {
 
     return (
       <div className="boxed boxed--lg border--round box-shadow-wide bg--white token-sale">
-        {!doneLoading && (
-          <div>
-            <div className="ldr">Loading...</div>
-            <p>Sometimes this does not work with Safari or IE, use Chrome!</p>
-          </div>
-        )}
         {doneLoading && upcoming && this.saleUpcoming()}
-        {doneLoading && active && this.saleRunning()}
+        {active && this.saleRunning(doneLoading)}
         {doneLoading && done && this.saleDone()}
       </div>
     );
