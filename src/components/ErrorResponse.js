@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 class ErrorResponse extends Component {
   render() {
+    fbq('track', 'CompleteRegistration'); // eslint-disable-line
     // const { error } = this.props;
     return (
       <div>

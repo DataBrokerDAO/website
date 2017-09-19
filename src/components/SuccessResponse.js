@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class SuccessResponse extends Component {
   render() {
     const { address, uuid, upcoming } = this.props;
-
+    fbq('track', 'CompleteRegistration'); // eslint-disable-line
     return (
       <div>
         <h2>Registration successful! </h2>
