@@ -88,8 +88,7 @@ mr = (function(mr, $, window, document) {
       decodeURIComponent(
         (new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(
           location.search
-        ) || [undefined, ''])[1]
-          .replace(/\+/g, '%20')
+        ) || [undefined, ''])[1].replace(/\+/g, '%20')
       ) || null
     );
   };
@@ -2081,6 +2080,13 @@ mr = (function(mr, $, window, document) {
       mr.modals.autoplayVideo(targetModal);
 
       mr.modals.showModal(targetModal);
+
+      window.ga('send', {
+        hitType: 'event',
+        eventCategory: 'Funnel',
+        eventAction: 'Buy',
+        eventLabel: 'EarlyTokenSale',
+      });
 
       return false;
     });

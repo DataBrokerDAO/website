@@ -424,6 +424,12 @@ class DocumentResponse extends Component {
       errorReason,
     } = this.state;
     let dropzoneRef;
+    window.ga('send', {
+      hitType: 'event',
+      eventCategory: 'Funnel',
+      eventAction: 'Stage3',
+      eventLabel: 'EarlyTokenSale',
+    });
     return (
       <div>
         {!formSubmitted && <h2>We need some extra information</h2>}

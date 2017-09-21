@@ -4,6 +4,12 @@ class SuccessResponse extends Component {
   render() {
     const { address, uuid, upcoming } = this.props;
     fbq('track', 'CompleteRegistration'); // eslint-disable-line
+    window.ga('send', {
+      hitType: 'event',
+      eventCategory: 'Funnel',
+      eventAction: 'Success',
+      eventLabel: 'EarlyTokenSale',
+    });
     return (
       <div>
         <h2>Registration successful! </h2>

@@ -4,6 +4,12 @@ class ErrorResponse extends Component {
   render() {
     fbq('track', 'CompleteRegistration'); // eslint-disable-line
     // const { error } = this.props;
+    window.ga('send', {
+      hitType: 'event',
+      eventCategory: 'Funnel',
+      eventAction: 'Error',
+      eventLabel: 'EarlyTokenSale',
+    });
     return (
       <div>
         <h2>Registration failed! </h2>
