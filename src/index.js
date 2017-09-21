@@ -25,6 +25,8 @@ if (url.searchParams) {
   }
 }
 
+localStorage.setItem('referrer', document.referrer);
+
 // ========================================================
 // Render Setup
 // ========================================================

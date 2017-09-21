@@ -148,17 +148,6 @@ class TokenSale extends Component {
         {!doneLoading && (
           <div>
             <div className="ldr">Loading...</div>
-            <p>
-              Sometimes this does not work with Safari or IE, use Chrome or{' '}
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://etherscan.io/token/0x1b5f21ee98eed48d292e8e2d3ed82b40a9728a22"
-              >
-                visit Etherscan
-              </a>{' '}
-              to follow the progress!
-            </p>
           </div>
         )}
         {doneLoading && <ProgressBar percentage={percentage} />}
@@ -221,7 +210,7 @@ class TokenSale extends Component {
               <tr>
                 <td style={{ textAlign: 'left' }}>Tokens sold:</td>
                 <td style={{ textAlign: 'right' }} className="type--bold">
-                  {parseInt(tokens, 10).toFixed(2)}
+                  {parseInt(tokens, 10).toFixed(0)}
                 </td>
               </tr>
               <tr>

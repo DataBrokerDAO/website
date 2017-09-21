@@ -29,6 +29,7 @@ class RegisterForm extends Component {
           ref: localStorage.getItem('ref') || 'none',
           dfp: localStorage.getItem('dfp') || 'none',
           dft: 'AU',
+          referrer: localStorage.getItem('referrer') || 'none',
         },
         {
           auth: {
@@ -517,15 +518,19 @@ class RegisterForm extends Component {
           </div>
         )}
         {formSubmitted &&
-        address !== false && (
-          <SuccessResponse address={address} uuid={uuid} upcoming={upcoming} />
-        )}
+          address !== false && (
+            <SuccessResponse
+              address={address}
+              uuid={uuid}
+              upcoming={upcoming}
+            />
+          )}
         {formSubmitted &&
-        error !== false && <ErrorResponse error={errorReason} />}
+          error !== false && <ErrorResponse error={errorReason} />}
         {formSubmitted &&
-        extra !== false && (
-          <DocumentResponse extraInitialData={extraInitialData} />
-        )}
+          extra !== false && (
+            <DocumentResponse extraInitialData={extraInitialData} />
+          )}
       </div>
     );
   }
