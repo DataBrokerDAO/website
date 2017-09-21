@@ -106,7 +106,12 @@ class TokenSale extends Component {
           every contribution you refer
         </p>
         <div className="modal-instance">
-          <a className="btn btn-lg type--uppercase btn--primary modal-trigger">
+          <a
+            className="btn btn-lg type--uppercase btn--primary modal-trigger"
+            ga-on="click"
+            ga-event-category="BuyFunnel"
+            ga-event-action="FormOpen"
+          >
             Register now for the early token sale
           </a>
           <div style={{ marginTop: '15px' }}>

@@ -430,120 +430,125 @@ class DocumentResponse extends Component {
         {formSubmitted && waitingForDocumentValidation && <h2>Checking...</h2>}
         {!waitingForDocumentValidation && <hr className="short" />}
         {!formSubmitted &&
-        !submitting && (
-          <Form
-            onSubmit={handleSubmit(this._submit)}
-            style={{ marginTop: '1em' }}
-          >
-            <div className="col-sm-6">
-              <Field
-                component={this._renderSelectField}
-                name="doctype"
-                required
-                label="Document type"
-                className="validate-required"
-              />
-            </div>
-            <div className="col-sm-6">
-              <Field
-                component={this._renderCountrySelectField}
-                name="doccountry"
-                required
-                label="Issuing country"
-                type="text"
-                className="validate-required"
-              />
-            </div>
+          !submitting && (
+            <Form
+              onSubmit={handleSubmit(this._submit)}
+              style={{ marginTop: '1em' }}
+            >
+              <div className="col-sm-6">
+                <Field
+                  component={this._renderSelectField}
+                  name="doctype"
+                  required
+                  label="Document type"
+                  className="validate-required"
+                />
+              </div>
+              <div className="col-sm-6">
+                <Field
+                  component={this._renderCountrySelectField}
+                  name="doccountry"
+                  required
+                  label="Issuing country"
+                  type="text"
+                  className="validate-required"
+                />
+              </div>
+              <div className="col-sm-12">
+                <label className="type--uppercase ">
+                  Scan: (JPG or PNG format, maximum 5MB)
+                </label>
+                <Dropzone
+                  onDrop={this.onDrop}
+                  ref={node => {
+                    dropzoneRef = node;
+                  }}
+                  multiple={false}
+                  accept="image/jpeg, image/png"
+                  maxSize={5000000}
+                  style={{
+                    width: '100%',
+                    height: 200,
+                    borderWidth: 2,
+                    borderColor: '#666',
+                    borderStyle: 'dashed',
+                    borderRadius: 5,
+                  }}
+                >
+                  {this.state.files.map(file => {
+                    return (
+                      <img
+                        key={file.name}
+                        src={file.preview}
+                        alt={file.name}
+                        style={{
+                          maxHeight: '100%',
+                          margin: '0 auto',
+                          display: 'block',
+                        }}
+                      />
+                    );
+                  })}
+                </Dropzone>
+                {this.state.files.length === 0 && (
+                  <button
+                    type="button"
+                    className="btn btn--primary"
+                    onClick={() => {
+                      dropzoneRef.open();
+                    }}
+                    style={{
+                      padding: '0 10px',
+                      marginTop: '10px',
+                      backgroundColor: '#666',
+                      borderColor: '#666',
+                    }}
+                  >
+                    Select file
+                  </button>
+                )}
+              </div>
+
+              <div className="col-sm-12">
+                <div className="form-group">
+                  <button
+                    className="btn btn-lg type--uppercase btn--primary"
+                    type="submit"
+                    disabled={
+                      pristine || submitting || !(this.state.files.length > 0)
+                    }
+                    ga-on="click"
+                    ga-event-category="BuyFunnel"
+                    ga-event-action="StageThreeSend"
+                  >
+                    Show me the early token sale address
+                  </button>
+                </div>
+              </div>
+            </Form>
+          )}
+        {(submitting || formSubmitted) &&
+          waitingForDocumentValidation && (
             <div className="col-sm-12">
-              <label className="type--uppercase ">
-                Scan: (JPG or PNG format, maximum 5MB)
-              </label>
-              <Dropzone
-                onDrop={this.onDrop}
-                ref={node => {
-                  dropzoneRef = node;
-                }}
-                multiple={false}
-                accept="image/jpeg, image/png"
-                maxSize={5000000}
+              <div className="ldr">Checking...</div>
+              <div
+                className="btn btn-lg type--uppercase btn--secondary"
                 style={{
-                  width: '100%',
-                  height: 200,
-                  borderWidth: 2,
-                  borderColor: '#666',
-                  borderStyle: 'dashed',
-                  borderRadius: 5,
+                  textAlign: 'center',
                 }}
               >
-                {this.state.files.map(file => {
-                  return (
-                    <img
-                      key={file.name}
-                      src={file.preview}
-                      alt={file.name}
-                      style={{
-                        maxHeight: '100%',
-                        margin: '0 auto',
-                        display: 'block',
-                      }}
-                    />
-                  );
-                })}
-              </Dropzone>
-              {this.state.files.length === 0 && (
-                <button
-                  type="button"
-                  className="btn btn--primary"
-                  onClick={() => {
-                    dropzoneRef.open();
-                  }}
-                  style={{
-                    padding: '0 10px',
-                    marginTop: '10px',
-                    backgroundColor: '#666',
-                    borderColor: '#666',
-                  }}
-                >
-                  Select file
-                </button>
-              )}
-            </div>
-
-            <div className="col-sm-12">
-              <div className="form-group">
-                <button
-                  className="btn btn-lg type--uppercase btn--primary"
-                  type="submit"
-                  disabled={
-                    pristine || submitting || !(this.state.files.length > 0)
-                  }
-                >
-                  Show me the early token sale address
-                </button>
+                Wait while your document is being verified...
               </div>
             </div>
-          </Form>
-        )}
-        {(submitting || formSubmitted) &&
-        waitingForDocumentValidation && (
-          <div className="col-sm-12">
-            <div className="ldr">Checking...</div>
-            <div
-              className="btn btn-lg type--uppercase btn--secondary"
-              style={{
-                textAlign: 'center',
-              }}
-            >
-              Wait while your document is being verified...
-            </div>
-          </div>
-        )}
+          )}
         {formSubmitted &&
-        !waitingForDocumentValidation &&
-        address !== false && <SuccessResponse address={address} uuid={uuid} />}
+          !waitingForDocumentValidation &&
+          address !== false && (
+            <SuccessResponse address={address} uuid={uuid} />
+          )}
         {formSubmitted &&
-        !waitingForDocumentValidation &&
-        error !== false && <ErrorResponse error={errorReason} />}
+          !waitingForDocumentValidation &&
+          error !== false && <ErrorResponse error={errorReason} />}
       </div>
     );
   }

@@ -509,6 +509,9 @@ class RegisterForm extends Component {
                     className="btn btn-lg type--uppercase btn--primary"
                     type="submit"
                     disabled={pristine || submitting}
+                    ga-on="click"
+                    ga-event-category="BuyFunnel"
+                    ga-event-action="StageOneSend"
                   >
                     Show me the early token sale address
                   </button>
