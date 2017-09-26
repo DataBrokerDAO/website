@@ -123,7 +123,7 @@ class TokenSale extends Component {
               rel="noopener noreferrer"
               style={{ textDecoration: 'underline' }}
             >
-              How to participate in the Presale
+              How to participate in the presale
             </a>
           </div>
           <div className="modal-container">
