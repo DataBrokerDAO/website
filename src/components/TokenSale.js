@@ -176,18 +176,9 @@ class TokenSale extends Component {
           <div style={{ marginTop: '15px' }}>
             <a
               href="mailto:hello@databrokerdao.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i className="fa fa-email" aria-hidden="true" />
-            </a>{' '}
-            <a
-              href="mailto:hello@databrokerdao.com"
-              target="_blank"
-              rel="noopener noreferrer"
               style={{ textDecoration: 'underline' }}
             >
-              Contact us for extra volume discounts
+              Contact us for extra volume discounts.
             </a>
           </div>
           <div className="modal-container">
