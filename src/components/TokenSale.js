@@ -94,7 +94,7 @@ class TokenSale extends Component {
   saleUpcoming = () => {
     return (
       <div>
-        <h2 className="sale-date">Early Token Sale starts:</h2>
+        <h2 className="sale-date">Presale starts:</h2>
         <p className="sale-date unmarg--bottom">18 SEPTEMBER 2017 - 5PM CET</p>
         <hr />
         <h3 className="unmarg--bottom">
@@ -107,7 +107,7 @@ class TokenSale extends Component {
         </p>
         <div className="modal-instance">
           <a className="btn btn-lg type--uppercase btn--primary modal-trigger">
-            Register now for the early token sale
+            Register now for the presale
           </a>
           <div style={{ marginTop: '15px' }}>
             <a
@@ -123,7 +123,7 @@ class TokenSale extends Component {
               rel="noopener noreferrer"
               style={{ textDecoration: 'underline' }}
             >
-              How to participate in the Early Token Sale
+              How to participate in the presale
             </a>
           </div>
           <div className="modal-container">
@@ -143,7 +143,7 @@ class TokenSale extends Component {
     return (
       <div>
         <h2 className="sale-date padding-2" style={{ marginBottom: '1em' }}>
-          Join the Early Token Sale!
+          Join the presale!
         </h2>
         {!doneLoading && (
           <div>
@@ -170,7 +170,15 @@ class TokenSale extends Component {
               rel="noopener noreferrer"
               style={{ textDecoration: 'underline' }}
             >
-              How to participate in the Early Token Sale
+              How to participate in the Presale
+            </a>
+          </div>
+          <div style={{ marginTop: '15px' }}>
+            <a
+              href="mailto:hello@databrokerdao.com"
+              style={{ textDecoration: 'underline' }}
+            >
+              Contact us for extra volume discounts.
             </a>
           </div>
           <div className="modal-container">
@@ -189,7 +197,7 @@ class TokenSale extends Component {
     const { percentage } = this.state;
     return (
       <div>
-        <h2 className="sale-date">Early Token Sale is concluded</h2>
+        <h2 className="sale-date">Presale is concluded</h2>
         <hr />
         <ProgressBar percentage={percentage} />
         {this.numberTable()}
