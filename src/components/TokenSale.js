@@ -140,7 +140,10 @@ class TokenSale extends Component {
   }
 
   saleRunning = doneLoading => {
-    const { percentage } = this.state
+    const { endFundingTime, startFundingTime } = this.state
+    const togo = endFundingTime.diff(moment(), 'days')
+    const total = endFundingTime.diff(startFundingTime, 'days')
+    const percentage = togo / total * 100
     return (
       <div>
         <h2 className="sale-date padding-2" style={{ marginBottom: '1em' }}>
@@ -151,7 +154,9 @@ class TokenSale extends Component {
             <div className="ldr">Loading...</div>
           </div>
         )}
-        {doneLoading && <ProgressBar percentage={percentage} />}
+        {doneLoading && (
+          <ProgressBar percentage={percentage} label={`${togo} days left`} />
+        )}
         {doneLoading && this.numberTable()}
         <div className="modal-instance">
           <a className="btn btn-lg type--uppercase btn--primary modal-trigger">
