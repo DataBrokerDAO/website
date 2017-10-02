@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
-import { getWeb3 } from '../utils/getWeb3';
-import moment from 'moment';
-import ProgressBar from './ProgressBar';
+import React, { Component } from 'react'
+import { getWeb3 } from '../utils/getWeb3'
+import moment from 'moment'
+import ProgressBar from './ProgressBar'
 // import PreRegisterForm from './PreRegisterForm';
-import RegisterForm from './RegisterForm';
+import RegisterForm from './RegisterForm'
 
 class TokenSale extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       web3: null,
       sale: null,
@@ -18,7 +18,9 @@ class TokenSale extends Component {
       MAX_ETH_OVER: 28125,
       // MAX_ETH: 1,
       // MAX_ETH_OVER: 3,
-    };
+      startFundingTime: moment.unix(1505746800),
+      endFundingTime: moment.unix(1508166000),
+    }
   }
 
   componentWillMount() {
@@ -27,27 +29,27 @@ class TokenSale extends Component {
         .then(results => {
           this.setState({
             ...results,
-          });
+          })
           this.instantiateContract()
             .then(() => {
-              this.polling = true;
-              this.longPoller();
+              this.polling = true
+              this.longPoller()
             })
             .catch(error => {
-              console.log('longPoller error', error);
-            });
+              console.log('longPoller error', error)
+            })
         })
         .catch(e => {
-          console.log('Error finding web3.', e);
-        });
+          console.log('Error finding web3.', e)
+        })
     } else {
       this.setState({
-        startFundingTime: 0,
-        endFundingTime: 0,
+        startFundingTime: moment.unix(1505746800),
+        endFundingTime: moment.unix(1508166000),
         eth: 0,
         tokens: 0,
         percentage: 0,
-      });
+      })
     }
   }
 
@@ -55,40 +57,39 @@ class TokenSale extends Component {
     setTimeout(() => {
       this.instantiateContract(true).then(() => {
         if (this.polling) {
-          this.longPoller();
+          this.longPoller()
         }
-      });
-    }, 10000);
+      })
+    }, 10000)
   }
 
   componentWillUnmount() {
-    this.polling = false;
+    this.polling = false
   }
 
   async instantiateContract(update = false) {
-    const { sale, MAX_ETH, MAX_ETH_OVER } = this.state;
-    const DeployedSale = await sale.deployed();
+    try {
+      const { sale, MAX_ETH, MAX_ETH_OVER } = this.state
+      const DeployedSale = await sale.deployed()
 
-    const totalCollected = await DeployedSale.totalCollected();
-    const eth = totalCollected.toNumber() / 10 ** 18;
-    let totalSupply = MAX_ETH;
+      const totalCollected = await DeployedSale.totalCollected()
+      const eth = totalCollected.toNumber() / 10 ** 18
+      let totalSupply = MAX_ETH
 
-    if (eth >= MAX_ETH) {
-      totalSupply = MAX_ETH_OVER;
+      if (eth >= MAX_ETH) {
+        totalSupply = MAX_ETH_OVER
+      }
+
+      const newState = {
+        eth,
+        tokens: eth * 1200,
+        percentage: eth / totalSupply * 100,
+      }
+      // console.log(newState);
+      this.setState(newState)
+    } catch (error) {
+      console.log(error)
     }
-    if (!update) {
-      this.setState({
-        startFundingTime: moment.unix(1505746800),
-        endFundingTime: moment.unix(1508166000),
-      });
-    }
-    const newState = {
-      eth,
-      tokens: eth * 1200,
-      percentage: eth / totalSupply * 100,
-    };
-    // console.log(newState);
-    this.setState(newState);
   }
 
   saleUpcoming = () => {
@@ -135,11 +136,11 @@ class TokenSale extends Component {
           </div>
         </div>
       </div>
-    );
-  };
+    )
+  }
 
   saleRunning = doneLoading => {
-    const { percentage } = this.state;
+    const { percentage } = this.state
     return (
       <div>
         <h2 className="sale-date padding-2" style={{ marginBottom: '1em' }}>
@@ -190,11 +191,11 @@ class TokenSale extends Component {
           </div>
         </div>
       </div>
-    );
-  };
+    )
+  }
 
   saleDone = () => {
-    const { percentage } = this.state;
+    const { percentage } = this.state
     return (
       <div>
         <h2 className="sale-date">early sale is concluded</h2>
@@ -204,11 +205,11 @@ class TokenSale extends Component {
         <hr />
         <p className="sale-date unmarg--bottom">Thank you for your support!</p>
       </div>
-    );
-  };
+    )
+  }
 
   numberTable = () => {
-    const { tokens, eth, percentage, endFundingTime } = this.state;
+    const { tokens, eth, percentage, endFundingTime } = this.state
 
     return (
       <div>
@@ -224,7 +225,7 @@ class TokenSale extends Component {
               <tr>
                 <td style={{ textAlign: 'left' }}>ETH collected:</td>
                 <td style={{ textAlign: 'right' }} className="type--bold">
-                  Ξ {parseInt(eth, 10).toFixed(2)}
+                  Ξ {parseInt(eth, 10).toFixed(0)}
                 </td>
               </tr>
             </tbody>
@@ -249,21 +250,15 @@ class TokenSale extends Component {
           </table>
         </div>
       </div>
-    );
-  };
+    )
+  }
 
   render() {
-    const {
-      tokens,
-      eth,
-      percentage,
-      startFundingTime,
-      endFundingTime,
-    } = this.state;
+    const { tokens, eth, percentage } = this.state
 
-    let upcoming = process.env.REACT_APP_SALE_UPCOMING === 'true';
-    let done = process.env.REACT_APP_SALE_DONE === 'true';
-    let active = process.env.REACT_APP_SALE_ACTIVE === 'true';
+    let upcoming = process.env.REACT_APP_SALE_UPCOMING === 'true'
+    let done = process.env.REACT_APP_SALE_DONE === 'true'
+    let active = process.env.REACT_APP_SALE_ACTIVE === 'true'
 
     // if (startFundingTime && endFundingTime) {
     //   upcoming = startFundingTime.isAfter(moment());
@@ -272,16 +267,9 @@ class TokenSale extends Component {
     //   done = endFundingTime.isBefore(moment());
     // }
 
-    const doneLoading =
-      percentage >= 0 &&
-      startFundingTime >= 0 &&
-      endFundingTime >= 0 &&
-      eth >= 0 &&
-      tokens >= 0;
+    const doneLoading = percentage >= 0 && eth >= 0 && tokens >= 0
 
-    // console.log({ upcoming, done, active, doneLoading });
-
-    setTimeout(() => window.modals(jQuery, window, document), 1000); //eslint-disable-line
+    setTimeout(() => window.modals(jQuery, window, document), 1000) //eslint-disable-line
 
     return (
       <div className="boxed boxed--lg border--round box-shadow-wide bg--white token-sale">
@@ -289,8 +277,8 @@ class TokenSale extends Component {
         {active && this.saleRunning(doneLoading)}
         {doneLoading && done && this.saleDone()}
       </div>
-    );
+    )
   }
 }
 
-export default TokenSale;
+export default TokenSale
