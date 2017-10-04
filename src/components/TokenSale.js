@@ -227,30 +227,19 @@ class TokenSale extends Component {
                   {parseInt(tokens, 10).toFixed(0)}
                 </td>
               </tr>
-              <tr>
-                <td style={{ textAlign: 'left' }}>ETH collected:</td>
-                <td style={{ textAlign: 'right' }} className="type--bold">
-                  Ξ {parseInt(eth, 10).toFixed(0)}
-                </td>
-              </tr>
+
             </tbody>
           </table>
         </div>
         <div className="col-sm-6 padding-only-left">
           <table>
             <tbody>
-              <tr>
-                <td style={{ textAlign: 'left' }}>Completed:</td>
-                <td style={{ textAlign: 'right' }} className="type--bold">
-                  {percentage.toFixed(2)}%
-                </td>
-              </tr>
-              <tr>
-                <td style={{ textAlign: 'left' }}>Time left:</td>
-                <td style={{ textAlign: 'right' }} className="type--bold">
-                  {endFundingTime.diff(moment(), 'days')}d
-                </td>
-              </tr>
+            <tr>
+            <td style={{ textAlign: 'left' }}>ETH collected:</td>
+            <td style={{ textAlign: 'right' }} className="type--bold">
+              Ξ {parseInt(eth, 10).toFixed(0)}
+            </td>
+          </tr>
             </tbody>
           </table>
         </div>
