@@ -159,7 +159,8 @@ class TokenSale extends Component {
         )}
         {doneLoading && this.numberTable()}
         <div className="modal-instance">
-          <a className="btn btn-lg type--uppercase btn--primary modal-trigger">
+          <a className="btn btn-lg type--uppercase btn--primary modal-trigger" style={{fontWeight: 'bold', fontSize: '20px'}}>
+            <i className="icon-Shopping-Cart" aria-hidden="true" />
             Buy your DATA tokens now!
           </a>
           <div style={{ marginTop: '15px' }}>
