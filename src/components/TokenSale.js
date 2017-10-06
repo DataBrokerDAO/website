@@ -143,7 +143,7 @@ class TokenSale extends Component {
     const { endFundingTime, startFundingTime } = this.state
     const togo = endFundingTime.diff(moment(), 'days')
     const total = endFundingTime.diff(startFundingTime, 'days')
-    const percentage = togo / total * 100
+    const percentage = 100 - (togo / total * 100)
     return (
       <div>
         <h2 className="sale-date padding-2" style={{ marginBottom: '1em' }}>
