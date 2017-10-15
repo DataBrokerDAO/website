@@ -141,8 +141,8 @@ class TokenSale extends Component {
 
   saleRunning = doneLoading => {
     const { endFundingTime, startFundingTime } = this.state
-    const togo = endFundingTime.diff(moment(), 'days')
-    const total = endFundingTime.diff(startFundingTime, 'days')
+    const togo = endFundingTime.diff(moment(), 'hours')
+    const total = endFundingTime.diff(startFundingTime, 'hours')
     const percentage = 100 - (togo / total * 100)
     return (
       <div>
@@ -155,7 +155,7 @@ class TokenSale extends Component {
           </div>
         )}
         {doneLoading && (
-          <ProgressBar percentage={percentage} label={`${togo} days left`} />
+          <ProgressBar percentage={percentage} label={`${togo} hours left`} />
         )}
         {doneLoading && this.numberTable()}
         <div className="modal-instance">
