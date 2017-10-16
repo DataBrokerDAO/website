@@ -6,7 +6,7 @@
   * DataBrokerDaoToken: 0x16cde414ffe9fe5ab34af0fe0870b449605c09ae
   * EarlyTokenSale: 0x25f1f05341f79c84b2c9af9e591d77243f633179
 
-# Mainnet
+# Main net
 
   * Migrations: 
       * 0xac54dc43743411beba70a2547f9ef44e541e2e05
