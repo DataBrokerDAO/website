@@ -141,8 +141,8 @@ class TokenSale extends Component {
 
   saleRunning = doneLoading => {
     const { endFundingTime, startFundingTime } = this.state
-    const togo = endFundingTime.diff(moment(), 'hours')
-    const total = endFundingTime.diff(startFundingTime, 'hours')
+    const togo = endFundingTime.diff(moment(), 'minutes')
+    const total = endFundingTime.diff(startFundingTime, 'minutes')
     const percentage = 100 - (togo / total * 100)
     return (
       <div>
@@ -155,7 +155,7 @@ class TokenSale extends Component {
           </div>
         )}
         {doneLoading && (
-          <ProgressBar percentage={percentage} label={`${togo} hours left`} />
+          <ProgressBar percentage={percentage} label={`${togo} minutes left`} />
         )}
         {doneLoading && this.numberTable()}
         <div className="modal-instance">
@@ -203,12 +203,18 @@ class TokenSale extends Component {
     const { percentage } = this.state
     return (
       <div>
-        <h2 className="sale-date">early sale is concluded</h2>
-        <hr />
-        <ProgressBar percentage={percentage} />
-        {this.numberTable()}
+        <h2 className="sale-date">The early token sale is concluded!</h2>
         <hr />
         <p className="sale-date unmarg--bottom">Thank you for your support!</p>
+        <hr />
+        <div style={{ marginTop: '15px' }}>
+        <a
+          href="mailto:hello@databrokerdao.com"
+          style={{ textDecoration: 'underline' }}
+        >
+          We are still accepting larger volume purchases at reduced rates.<br /> Get in touch to discuss.
+        </a>
+      </div>
       </div>
     )
   }
