@@ -50,7 +50,7 @@ class RegisterForm extends Component {
         this.setState({
           formSubmitted: true,
           error: response.data.failure || false,
-          errorReason: response.data.response.ednaScoreCard.er || false,
+          errorReason: (response.data.response.ednaScoreCard && response.data.response.ednaScoreCard.er) || false,
           address: response.data.address || false,
           extra: response.data.extra || false,
           extraInitialData: response.data.initialData || false,
