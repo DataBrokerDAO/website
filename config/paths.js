@@ -75,5 +75,8 @@ module.exports = {
     /peer-id/,
     /ipfs-block/,
     /ipfs-unixfs/,
-  ],
+    /tr46/,
+    /webidl-conversions/,
+    /whatwg-url/
+  ]
 };

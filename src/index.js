@@ -31,12 +31,16 @@ localStorage.setItem('referrer', document.referrer);
 // Render Setup
 // ========================================================
 
-ReactDOM.render(
-  <Provider store={store}>
-    <TokenSale />
-  </Provider>,
-  document.getElementById('root')
-);
+try {
+  ReactDOM.render(
+    <Provider store={store}>
+      <TokenSale />
+    </Provider>,
+    document.getElementById('root')
+  );
+} catch (e) {
+  console.error(e);
+}
 
 //registerServiceWorker();
 
