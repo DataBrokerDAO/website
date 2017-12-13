@@ -100,8 +100,9 @@ class TokenSale extends Component {
         </h2>
         <hr />
         <p className="sale-date unmarg--bottom">
-          The date of the main token sale will be announced shortly. You’ll hear
-          from us soon.
+          The date of the main token sale will be announced shortly.
+          <br />
+          You’ll hear from us soon.
         </p>
         <hr />
         <div style={{ marginTop: '15px' }}>
