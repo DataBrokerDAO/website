@@ -460,3 +460,7 @@ nav span.dropdown__trigger:hover {
     box-shadow: 0 2.5em 0 0;
   }
 }
+
+.call-to-action {
+  text-align: center;
+}
