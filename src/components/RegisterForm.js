@@ -11,7 +11,7 @@ class RegisterForm extends Component {
     super(props);
     this.state = {
       formSubmitted: false,
-      uuid: null,
+      uuid: null
     };
   }
 
@@ -20,10 +20,10 @@ class RegisterForm extends Component {
   }
 
   _submit = values => {
-    window.Intercom('update', {
-      name: `${values.firstName} ${values.lastName}`, // Full name
-      email: `${values.email}`, // Email address
-    });
+    // window.Intercom('update', {
+    //   name: `${values.firstName} ${values.lastName}`, // Full name
+    //   email: `${values.email}` // Email address
+    // });
 
     axios
       .post(
@@ -34,15 +34,15 @@ class RegisterForm extends Component {
           ref: localStorage.getItem('ref') || 'none',
           dfp: localStorage.getItem('dfp') || 'none',
           dft: 'AU',
-          referrer: localStorage.getItem('referrer') || 'none',
+          referrer: localStorage.getItem('referrer') || 'none'
         },
         {
           auth: {
             username:
               'sahCa8aiieD7ke9ovu3zeDieEitaza9uxuW6op2SSa0tohQubuiqu8uTtaiy8Aiw',
             password:
-              'xaf6MeofRae1aiQuuLoz2EemAa0aiw7oLie1sheeaiS3ceo7chi4aiQuieGuo7ve',
-          },
+              'xaf6MeofRae1aiQuuLoz2EemAa0aiw7oLie1sheeaiS3ceo7chi4aiQuieGuo7ve'
+          }
         }
       )
       .then(response => {
@@ -50,11 +50,14 @@ class RegisterForm extends Component {
         this.setState({
           formSubmitted: true,
           error: response.data.failure || false,
-          errorReason: (response.data.response.ednaScoreCard && response.data.response.ednaScoreCard.er) || false,
+          errorReason:
+            (response.data.response.ednaScoreCard &&
+              response.data.response.ednaScoreCard.er) ||
+            false,
           address: response.data.address || false,
           extra: response.data.extra || false,
           extraInitialData: response.data.initialData || false,
-          uuid: response.data.uuid || false,
+          uuid: response.data.uuid || false
         });
       })
       .catch(error => {
@@ -67,7 +70,7 @@ class RegisterForm extends Component {
     label,
     helptext,
     type,
-    meta: { touched, error, warning },
+    meta: { touched, error, warning }
   }) => (
     <div
       className={`form-group ${touched &&
@@ -87,7 +90,7 @@ class RegisterForm extends Component {
     label,
     helptext,
     type,
-    meta: { touched, error, warning },
+    meta: { touched, error, warning }
   }) => (
     <div
       className={`form-group ${touched &&
@@ -367,7 +370,7 @@ class RegisterForm extends Component {
       address,
       extra,
       extraInitialData,
-      errorReason,
+      errorReason
     } = this.state;
 
     return (
@@ -492,6 +495,17 @@ class RegisterForm extends Component {
                 />
               </div>
               <div className="col-sm-12">
+                <Field
+                  component={this._renderTextField}
+                  name="estimatedContribution"
+                  required
+                  label="Estimated contribution in ETH"
+                  type="number"
+                  placeholder="100"
+                  className="validate-required"
+                />
+              </div>
+              <div className="col-sm-12">
                 <div className="input-checkbox">
                   <Field
                     component="input"
@@ -556,6 +570,7 @@ const validate = values => {
     'country',
     'ethereumAddress',
     'agree',
+    'estimatedContribution'
   ];
   requiredFields.forEach(field => {
     if (!values[field]) {

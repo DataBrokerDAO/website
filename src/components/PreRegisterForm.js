@@ -11,11 +11,12 @@ class PreRegisterForm extends Component {
     super(props);
     this.state = {
       formSubmitted: false,
-      uuid: null,
+      uuid: null
     };
   }
 
   _submit = values => {
+    debugger;
     const uid = new ShortUniqueId();
     const uuid = uid.randomUUID(6);
 
@@ -26,7 +27,7 @@ class PreRegisterForm extends Component {
       source: localStorage.getItem('code'),
       ref: localStorage.getItem('ref'),
       timestamp: moment().unix(),
-      augur: localStorage.getItem('dfp'),
+      augur: localStorage.getItem('dfp')
     });
 
     axios
@@ -36,29 +37,29 @@ class PreRegisterForm extends Component {
           email: values.email,
           uuid,
           firstName: values.firstName,
-          lastName: values.lastName,
+          lastName: values.lastName
         },
         {
           auth: {
             username:
               'sahCa8aiieD7ke9ovu3zeDieEitaza9uxuW6op2SSa0tohQubuiqu8uTtaiy8Aiw',
             password:
-              'xaf6MeofRae1aiQuuLoz2EemAa0aiw7oLie1sheeaiS3ceo7chi4aiQuieGuo7ve',
-          },
+              'xaf6MeofRae1aiQuuLoz2EemAa0aiw7oLie1sheeaiS3ceo7chi4aiQuieGuo7ve'
+          }
         }
       )
       .then(response => {
-        // console.log(response.data);
+        console.log(response.data);
       })
       .catch(error => {
         console.log(error);
       });
-    
-        fbq('track', 'CompleteRegistration'); // eslint-disable-line
+
+    fbq('track', 'CompleteRegistration'); // eslint-disable-line
 
     this.setState({
       formSubmitted: true,
-      uuid,
+      uuid
     });
   };
 
@@ -67,31 +68,27 @@ class PreRegisterForm extends Component {
     label,
     helptext,
     type,
-    meta: { touched, error, warning },
-  }) =>
+    meta: { touched, error, warning }
+  }) => (
     <div
       className={`form-group ${touched &&
         ((error && 'has-danger') || (warning && 'has-warning'))}`}
     >
-      <label className="type--uppercase ">
-        {label}
-      </label>
+      <label className="type--uppercase ">{label}</label>
       <input {...input} type={type} />
-      {helptext &&
-        <small className="form-text text-muted">
-          {helptext}
-        </small>}
+      {helptext && <small className="form-text text-muted">{helptext}</small>}
       <div className="color--error">
         {touched && ((error && error) || (warning && warning))}
       </div>
-    </div>;
+    </div>
+  );
 
   render() {
     const { handleSubmit, submitting, pristine } = this.props;
     const { uuid, formSubmitted } = this.state;
     return (
       <div>
-        {!formSubmitted &&
+        {!formSubmitted && (
           <div>
             <h2>Register for the early token sale</h2>
             <hr className="short" />
@@ -149,6 +146,17 @@ class PreRegisterForm extends Component {
                 />
               </div>
               <div className="col-sm-12">
+                <Field
+                  component={this._renderTextField}
+                  name="estimatedContribution"
+                  required
+                  label="Estimated contribution in ETH"
+                  type="number"
+                  placeholder="100"
+                  className="validate-required"
+                />
+              </div>
+              <div className="col-sm-12">
                 <div className="form-group">
                   <button
                     className="btn btn-lg type--uppercase btn--primary"
@@ -160,8 +168,9 @@ class PreRegisterForm extends Component {
                 </div>
               </div>
             </Form>
-          </div>}
-        {formSubmitted &&
+          </div>
+        )}
+        {formSubmitted && (
           <div>
             <h2>Registration successful! Here's your referral link.</h2>
             <hr className="short" />
@@ -206,7 +215,8 @@ class PreRegisterForm extends Component {
                 </a>
               </span>
             </div>
-          </div>}
+          </div>
+        )}
       </div>
     );
   }
@@ -232,7 +242,13 @@ class PreRegisterForm extends Component {
 
 const validate = values => {
   const errors = {};
-  const requiredFields = ['fullName', 'email', 'ethereumAddress', 'agree'];
+  const requiredFields = [
+    'fullName',
+    'email',
+    'ethereumAddress',
+    'estimatedContribution',
+    'agree'
+  ];
   requiredFields.forEach(field => {
     if (!values[field]) {
       errors[field] = `this is a required field`;
