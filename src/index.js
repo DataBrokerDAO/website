@@ -5,6 +5,7 @@ import createStore from './utils/create-store';
 import createHistory from 'history/createBrowserHistory';
 import { Provider } from 'react-redux';
 import TokenSale from './components/TokenSale';
+// import { URL } from 'whatwg-url';
 
 // ========================================================
 // Store Instantiation
@@ -13,17 +14,38 @@ const initialState = window.__INITIAL_STATE__;
 const history = createHistory();
 const store = createStore(initialState, history);
 
-const url = new URL(window.location.href);
-if (url.searchParams) {
-  const ref = url.searchParams && url.searchParams.get('ref');
+// Using this old school way, because even with a whatwg-url polyfill I couldn't get it to work on IE.
+const url = {};
+const location = window.location.href.split('#');
+const parts = location[0].replace(/[?&]+([^=&]+)=([^&]*)/gi, function(
+  m,
+  key,
+  value
+) {
+  url[key] = value;
+});
+if (parts) {
+  const ref = parts.ref;
   if (ref) {
     localStorage.setItem('ref', ref);
   }
-  const code = url.searchParams.get('referrer');
+  const code = parts.referrer;
   if (code) {
     localStorage.setItem('code', code);
   }
 }
+
+// const url = new URL(window.location.href);
+// if (url.searchParams) {
+//   const ref = url.searchParams && url.searchParams.get('ref');
+//   if (ref) {
+//     localStorage.setItem('ref', ref);
+//   }
+//   const code = url.searchParams.get('referrer');
+//   if (code) {
+//     localStorage.setItem('code', code);
+//   }
+// }
 
 localStorage.setItem('referrer', document.referrer);
 
@@ -31,16 +53,12 @@ localStorage.setItem('referrer', document.referrer);
 // Render Setup
 // ========================================================
 
-try {
-  ReactDOM.render(
-    <Provider store={store}>
-      <TokenSale />
-    </Provider>,
-    document.getElementById('root')
-  );
-} catch (e) {
-  console.error(e);
-}
+ReactDOM.render(
+  <Provider store={store}>
+    <TokenSale />
+  </Provider>,
+  document.getElementById('root')
+);
 
 //registerServiceWorker();
 
