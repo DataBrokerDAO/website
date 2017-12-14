@@ -17,19 +17,15 @@ const store = createStore(initialState, history);
 // Using this old school way, because even with a whatwg-url polyfill I couldn't get it to work on IE.
 const url = {};
 const location = window.location.href.split('#');
-const parts = location[0].replace(/[?&]+([^=&]+)=([^&]*)/gi, function(
-  m,
-  key,
-  value
-) {
+location[0].replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m, key, value) {
   url[key] = value;
 });
-if (parts) {
-  const ref = parts.ref;
+if (url) {
+  const ref = url.ref;
   if (ref) {
     localStorage.setItem('ref', ref);
   }
-  const code = parts.referrer;
+  const code = url.referrer;
   if (code) {
     localStorage.setItem('code', code);
   }

@@ -16,19 +16,21 @@ class PreRegisterForm extends Component {
   }
 
   _submit = values => {
-    debugger;
     const uid = new ShortUniqueId();
     const uuid = uid.randomUUID(6);
 
     const addr = database.ref(`referrers/${values.ethereumAddress}`).push().key;
-    database.ref(`referrers/${values.ethereumAddress}/${addr}`).set({
-      ...values,
-      code: uuid,
-      source: localStorage.getItem('code'),
-      ref: localStorage.getItem('ref'),
-      timestamp: moment().unix(),
-      augur: localStorage.getItem('dfp')
-    });
+    database
+      .ref(`mainsaleregistrations/${values.ethereumAddress}/${addr}`)
+      .set({
+        ...values,
+        code: uuid,
+        source: localStorage.getItem('code'),
+        ref: localStorage.getItem('ref'),
+        timestamp: moment().unix(),
+        augur: localStorage.getItem('dfp'),
+        referrer: localStorage.getItem('code')
+      });
 
     axios
       .post(

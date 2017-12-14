@@ -20,10 +20,10 @@ class RegisterForm extends Component {
   }
 
   _submit = values => {
-    // window.Intercom('update', {
-    //   name: `${values.firstName} ${values.lastName}`, // Full name
-    //   email: `${values.email}` // Email address
-    // });
+    window.Intercom('update', {
+      name: `${values.firstName} ${values.lastName}`, // Full name
+      email: `${values.email}` // Email address
+    });
 
     axios
       .post(
