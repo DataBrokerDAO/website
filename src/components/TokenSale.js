@@ -105,6 +105,35 @@ class TokenSale extends Component {
           You’ll hear from us soon.
         </p>
         <hr />
+        <div className="modal-instance">
+          <a className="btn btn-lg type--uppercase btn--primary modal-trigger">
+            Preregister now for the main sale
+          </a>
+          <div style={{ marginTop: '15px' }}>
+            <a
+              href="/how-to-participate.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i className="fa fa-info-circle" aria-hidden="true" />
+            </a>{' '}
+            <a
+              href="/how-to-participate.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: 'underline' }}
+            >
+              How to participate in the main sale
+            </a>
+          </div>
+          <div className="modal-container">
+            <div className="modal-content">
+              <div className="boxed boxed--lg">
+                <RegisterForm upcoming={true} />
+              </div>
+            </div>
+          </div>
+        </div>
         <div style={{ marginTop: '15px' }}>
           <p>
             In the meanwhile we are still accepting larger volume purchases at
