@@ -5,6 +5,7 @@ import axios from 'axios';
 import SuccessResponse from './SuccessResponse';
 import ErrorResponse from './ErrorResponse';
 import DocumentResponse from './DocumentResponse';
+// import { IntercomAPI } from 'react-intercom';
 
 class RegisterForm extends Component {
   constructor(props) {
@@ -17,13 +18,18 @@ class RegisterForm extends Component {
 
   componentDidMount() {
     window.checkboxes(jQuery); //eslint-disable-line
+
+    // Load Intercom.
+    // IntercomAPI('boot', {
+    //   app_id: 'abc12345'
+    // });
   }
 
   _submit = values => {
-    window.Intercom('update', {
-      name: `${values.firstName} ${values.lastName}`, // Full name
-      email: `${values.email}` // Email address
-    });
+    // IntercomAPI('update', {
+    //   name: `${values.firstName} ${values.lastName}`, // Full name
+    //   email: `${values.email}` // Email address
+    // });
 
     axios
       .post(

@@ -8,60 +8,71 @@ class SuccessResponse extends Component {
       hitType: 'event',
       eventCategory: 'Funnel',
       eventAction: 'Success',
-      eventLabel: 'EarlyTokenSale',
+      eventLabel: 'EarlyTokenSale'
     });
     return (
       <div>
-        <h2>Registration successful! </h2>
+        <h2>You've been preregistered! </h2>
         <hr className="short" />
-        <div style={{ fontWeight: 'bold' }}>
-          <i className="fa fa-exclamation-triangle" aria-hidden="true" /> Do not
-          send Ether from an exchange, you will lose your tokens and funds!<br />
-        </div>
-        {upcoming && (
-          <div className="form-group" style={{ marginTop: '1em' }}>
-            <label className="type--uppercase ">
-              Do <b>not</b> send ETH to the tokensale address before:
-            </label>
-            <input
-              className="text-center"
-              type="text"
-              value={`18 SEPTEMBER 2017 - 5PM CET`}
-              style={{ fontSize: '16px' }}
-              readOnly
-            />
+        {!upcoming && (
+          <div style={{ fontWeight: 'bold' }}>
+            <i className="fa fa-exclamation-triangle" aria-hidden="true" /> Do
+            not send Ether from an exchange, you will lose your tokens and
+            funds!<br />
           </div>
         )}
-        <div className="form-group" style={{ marginTop: '1em' }}>
-          <label className="type--uppercase ">Token sale address</label>
-          <input
-            className="text-center"
-            type="text"
-            value={`${address}`}
-            style={{ fontSize: '16px' }}
-            readOnly
-          />
-        </div>
-        <div className="form-group">
-          <label className="type--uppercase ">Gas</label>
-          <input
-            className="text-center"
-            type="text"
-            value="200000"
-            style={{ fontSize: '16px' }}
-            readOnly
-          />
-        </div>
-        <div className="form-group">
-          <label className="type--uppercase ">Maximum Gas Price</label>
-          <input
-            className="text-center"
-            type="text"
-            value="50 Gwei"
-            style={{ fontSize: '16px' }}
-            readOnly
-          />
-        </div>
+        {upcoming ? (
+          <p className="lead">
+            Thank you for preregistering for the main token sale, once the token
+            sale starts, you will be the first to know. We will send you an
+            email with all the necessary information.
+          </p>
+        ) : (
+          // <div className="form-group" style={{ marginTop: '1em' }}>
+          //   <label className="type--uppercase ">
+          //     Do <b>not</b> send ETH to the tokensale address before:
+          //   </label>
+          //   <input
+          //     className="text-center"
+          //     type="text"
+          //     value={`18 SEPTEMBER 2017 - 5PM CET`}
+          //     style={{ fontSize: '16px' }}
+          //     readOnly
+          //   />
+          // </div>
+          <div>
+            <div className="form-group" style={{ marginTop: '1em' }}>
+              <label className="type--uppercase ">Token sale address</label>
+              <input
+                className="text-center"
+                type="text"
+                value={`${address}`}
+                style={{ fontSize: '16px' }}
+                readOnly
+              />
+            </div>
+            <div className="form-group">
+              <label className="type--uppercase ">Gas</label>
+              <input
+                className="text-center"
+                type="text"
+                value="200000"
+                style={{ fontSize: '16px' }}
+                readOnly
+              />
+            </div>
+            <div className="form-group">
+              <label className="type--uppercase ">Maximum Gas Price</label>
+              <input
+                className="text-center"
+                type="text"
+                value="50 Gwei"
+                style={{ fontSize: '16px' }}
+                readOnly
+              />
+            </div>
+          </div>
+        )}
         <a
           href="/how-to-participate.pdf"
           target="_blank"
