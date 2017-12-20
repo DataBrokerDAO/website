@@ -512,7 +512,7 @@ class RegisterForm extends Component {
                   className="validate-required"
                 />
               </div>
-              <div className="col-sm-12">
+              {/*<div className="col-sm-12">
                 <div className="input-checkbox">
                   <Field
                     component="input"
@@ -522,13 +522,13 @@ class RegisterForm extends Component {
                   />
                   <label htmlFor="agree" />
                 </div>
-                <span>
+                {/*<span>
                   I have downloaded, read, understood and agree to the{' '}
                   <a href="/termsandconditions.pdf" target="_blank">
                     terms and conditions
                   </a>
                 </span>
-              </div>
+              </div>*/}
               <div className="col-sm-12">
                 <div className="form-group">
                   <button
@@ -576,7 +576,6 @@ const validate = values => {
     'city',
     'country',
     'ethereumAddress',
-    'agree',
     'estimatedContribution'
   ];
   requiredFields.forEach(field => {
