@@ -24,8 +24,8 @@ class SuccessResponse extends Component {
         {upcoming ? (
           <p className="lead">
             Thank you for preregistering for the main token sale, once the token
-            sale starts, you will be the first to know. We will send you an
-            email with all the necessary information.
+            sale starts you will be the first to know. We will send you an email
+            with all the necessary information.
           </p>
         ) : (
           // <div className="form-group" style={{ marginTop: '1em' }}>
@@ -73,7 +73,7 @@ class SuccessResponse extends Component {
             </div>
           </div>
         )}
-        <a
+        {/*<a
           href="/how-to-participate.pdf"
           target="_blank"
           rel="noopener noreferrer"
@@ -87,7 +87,7 @@ class SuccessResponse extends Component {
           style={{ textDecoration: 'underline' }}
         >
           Guide on how to participate
-        </a>
+      </a>*/}
         <hr className="short" />
         <div className="modal_channels">
           <h3>Earn 5% via your referral link!</h3>

@@ -36,6 +36,7 @@ class RegisterForm extends Component {
         `${process.env.REACT_APP_API_URI}api/kyc`,
         {
           ...values,
+          agree: true,
           source: localStorage.getItem('code') || 'none',
           ref: localStorage.getItem('ref') || 'none',
           dfp: localStorage.getItem('dfp') || 'none',
