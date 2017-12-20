@@ -385,7 +385,7 @@ class RegisterForm extends Component {
           <div>
             <h2>Join the early token sale</h2>
             <hr className="short" />
-            <div>
+            {/*<div>
               <a
                 href="/how-to-participate.pdf"
                 target="_blank"
@@ -393,7 +393,7 @@ class RegisterForm extends Component {
               >
                 <i className="fa fa-info-circle" aria-hidden="true" />
               </a>{' '}
-              <a
+              {/*<a
                 href="/how-to-participate.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -402,6 +402,7 @@ class RegisterForm extends Component {
                 How to participate in the Early Token Sale
               </a>
             </div>
+              */}
             <Form
               onSubmit={handleSubmit(this._submit)}
               style={{ marginTop: '1em' }}
@@ -538,7 +539,7 @@ class RegisterForm extends Component {
                     ga-event-category="BuyFunnel"
                     ga-event-action="StageOneSend"
                   >
-                    Show me the early token sale address
+                    Preregister
                   </button>
                 </div>
               </div>

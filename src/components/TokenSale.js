@@ -95,21 +95,36 @@ class TokenSale extends Component {
   saleUpcoming = () => {
     return (
       <div>
-        <h2 className="sale-date">
-          The early token sale is concluded. Thank you for your support!
+        <h2 className="sale-date" style={{ fontWeight: 'bold' }}>
+          Token sale
         </h2>
-        <hr />
-        <p className="sale-date unmarg--bottom">
+        {/*<p className="sale-date unmarg--bottom">
+          The date of the main token sale will be announced shortly.
+        </p>
+    <hr />*/}
+        <hr style={{ border: 0 }} />
+        <p
+          style={{ textAlign: 'center', fontSize: '15pt', lineHeight: '22pt' }}
+        >
+          Want to be the first to be informed about the main token sale? Do not
+          hesitate and preregister now!
+        </p>
+        <hr style={{ border: 0 }} />
+
+        {/*<p className="sale-date unmarg--bottom">
           The date of the main token sale will be announced shortly.
           <br />
           You’ll hear from us soon.
         </p>
-        <hr />
+    <hr />*/}
         <div className="modal-instance">
-          <a className="btn btn-lg type--uppercase btn--primary modal-trigger">
-            Preregister now for the main sale
+          <a
+            className="btn btn-lg type--uppercase btn--primary modal-trigger"
+            style={{ fontSize: '18pt', fontWeight: 'bold' }}
+          >
+            Preregister now
           </a>
-          <div style={{ marginTop: '15px' }}>
+          {/*<div style={{ marginTop: '15px' }}>
             <a
               href="/how-to-participate.pdf"
               target="_blank"
@@ -117,7 +132,7 @@ class TokenSale extends Component {
             >
               <i className="fa fa-info-circle" aria-hidden="true" />
             </a>{' '}
-            <a
+            {/*<a
               href="/how-to-participate.pdf"
               target="_blank"
               rel="noopener noreferrer"
@@ -125,7 +140,7 @@ class TokenSale extends Component {
             >
               How to participate in the main sale
             </a>
-          </div>
+            </div>*/}
           <div className="modal-container">
             <div className="modal-content">
               <div className="boxed boxed--lg">
@@ -134,7 +149,7 @@ class TokenSale extends Component {
             </div>
           </div>
         </div>
-        <div style={{ marginTop: '15px' }}>
+        {/*<div style={{ marginTop: '15px' }}>
           <p>
             In the meanwhile we are still accepting larger volume purchases at
             reduced rates.<br />{' '}
@@ -145,7 +160,7 @@ class TokenSale extends Component {
               Get in touch to discuss.
             </a>
           </p>
-        </div>
+          </div>*/}
       </div>
     );
     // OLD
@@ -331,7 +346,10 @@ class TokenSale extends Component {
     setTimeout(() => window.modals(jQuery, window, document), 1000); //eslint-disable-line
 
     return (
-      <div className="boxed boxed--lg border--round box-shadow-wide bg--white token-sale">
+      <div
+        className="boxed boxed--lg border--round box-shadow-wide bg--white token-sale"
+        style={{ marginTop: 0 }}
+      >
         {doneLoading && upcoming && this.saleUpcoming()}
         {active && this.saleRunning(doneLoading)}
         {doneLoading && done && this.saleDone()}
