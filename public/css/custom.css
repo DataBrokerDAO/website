@@ -464,3 +464,13 @@ nav span.dropdown__trigger:hover {
 .call-to-action {
   text-align: center;
 }
+
+.call-to-action .container .btn {
+  background-color: #78b459 !important; /* SORRY SORRY SORRY */
+  border-color: #78b459 !important; /* SORRY SORRY SORRY */
+}
+
+.call-to-action .container .btn:hover {
+  background-color: #6aa54b !important; /* SORRY SORRY SORRY */
+  border-color: #6aa54b !important; /* SORRY SORRY SORRY */
+}
