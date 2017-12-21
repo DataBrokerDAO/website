@@ -384,7 +384,7 @@ class RegisterForm extends Component {
       <div>
         {!formSubmitted && (
           <div>
-            <h2>Join the early token sale</h2>
+            <h2>Preregister for the main token sale</h2>
             <hr className="short" />
             {/*<div>
               <a
