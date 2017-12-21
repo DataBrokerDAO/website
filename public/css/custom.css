@@ -465,12 +465,12 @@ nav span.dropdown__trigger:hover {
   text-align: center;
 }
 
-.call-to-action .container .btn {
-  background-color: #78b459 !important; /* SORRY SORRY SORRY */
-  border-color: #78b459 !important; /* SORRY SORRY SORRY */
+.call-to-action .container .btn.btn--primary {
+  background-color: #78b459;
+  border-color: #78b459;
 }
 
-.call-to-action .container .btn:hover {
-  background-color: #6aa54b !important; /* SORRY SORRY SORRY */
-  border-color: #6aa54b !important; /* SORRY SORRY SORRY */
+.call-to-action .container .btn.btn--primary:hover {
+  background-color: #6aa54b;
+  border-color: #6aa54b;
 }
