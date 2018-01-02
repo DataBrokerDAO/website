@@ -124,14 +124,14 @@ class TokenSale extends Component {
           >
             Preregister now
           </a>
-          {/*<div style={{ marginTop: '15px' }}>
-            <a
+          <div style={{ marginTop: '15px' }}>
+            {/*<a
               href="/how-to-participate.pdf"
               target="_blank"
               rel="noopener noreferrer"
             >
               <i className="fa fa-info-circle" aria-hidden="true" />
-            </a>{' '}
+            </a>{' '}*/}
             {/*<a
               href="/how-to-participate.pdf"
               target="_blank"
@@ -139,8 +139,11 @@ class TokenSale extends Component {
               style={{ textDecoration: 'underline' }}
             >
               How to participate in the main sale
+            </a>*/}
+            <a href="#roadmap" style={{ textDecoration: 'underline' }}>
+              Check out the roadmap
             </a>
-            </div>*/}
+          </div>
           <div className="modal-container">
             <div className="modal-content">
               <div className="boxed boxed--lg">
