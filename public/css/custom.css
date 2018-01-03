@@ -474,3 +474,8 @@ nav span.dropdown__trigger:hover {
   background-color: #6aa54b;
   border-color: #6aa54b;
 }
+
+.accordion .accordion__title .h5,
+.accordion .accordion__title::before {
+  color: #ff4f4f;
+}
