@@ -2,7 +2,7 @@
 
 /* ====== HEADER ====== */
 [data-gradient-bg] > canvas + .background-image-holder {
-  opacity: 0.1 !important;
+  opacity: 0.15 !important;
 }
 
 [data-overlay] *:not(.container):not(.background-image-holder) {
@@ -464,7 +464,7 @@ nav span.dropdown__trigger:hover {
 .call-to-action {
   text-align: center;
 }
-/* 
+
 .call-to-action .container .btn.btn--primary {
   background-color: #78b459;
   border-color: #78b459;
@@ -473,4 +473,4 @@ nav span.dropdown__trigger:hover {
 .call-to-action .container .btn.btn--primary:hover {
   background-color: #6aa54b;
   border-color: #6aa54b;
-} */
+}
