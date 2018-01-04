@@ -483,7 +483,8 @@ nav span.dropdown__trigger:hover {
 .zooming-logo img {
   cursor: pointer;
   filter: grayscale();
-  padding: 15px;
+  width: 80%;
+  padding: 10px;
 
   -webkit-transition: all 0.2s ease;
   -moz-transition: all 0.2s ease;
@@ -493,12 +494,14 @@ nav span.dropdown__trigger:hover {
 }
 
 .zooming-logo img:hover {
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  -ms-transform: scale(1.1);
   filter: none;
-  padding: 10px;
 }
 
 .masonry__container .card {
-  margin: 2.5px;
   cursor: pointer;
 
   -webkit-transition: all 0.2s ease;
@@ -509,5 +512,8 @@ nav span.dropdown__trigger:hover {
 }
 
 .masonry__container .card:hover {
-  margin: 0;
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  -o-transform: scale(1.05);
+  -ms-transform: scale(1.05);
 }
