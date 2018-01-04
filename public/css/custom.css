@@ -190,11 +190,11 @@ nav span.dropdown__trigger:hover {
   filter: grayscale(100%);
 }
 
-@media (min-width: 767px) {
+/* @media (min-width: 767px) {
   #team .card-2 .card__body {
     height: 425px;
   }
-}
+} */
 
 /* ====== ADVISOR SECTION ====== */
 
@@ -495,4 +495,19 @@ nav span.dropdown__trigger:hover {
 .zooming-logo img:hover {
   filter: none;
   padding: 10px;
+}
+
+.masonry__container .card {
+  margin: 2.5px;
+  cursor: pointer;
+
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.masonry__container .card:hover {
+  margin: 0;
 }
