@@ -479,3 +479,20 @@ nav span.dropdown__trigger:hover {
 .accordion .accordion__title::before {
   color: #ff4f4f;
 }
+
+.zooming-logo img {
+  cursor: pointer;
+  filter: grayscale();
+  padding: 15px;
+
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.zooming-logo img:hover {
+  filter: none;
+  padding: 10px;
+}
