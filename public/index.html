@@ -90,12 +90,12 @@
 <body class=" ">
   <a id="start"></a>
   <div class="nav-container">
-    <div class="bar bar--md visible-xs">
+    <div class="bar bar--md visible-xs bar--mobile-sticky" data-scroll-class="250px:pos-fixed">
       <div class="container">
         <div class="row">
           <div class="col-xs-3 col-sm-2">
             <a href="/">
-              <img class="logo logo-dark" alt="logo" src="./img/dark-logo.svg" />
+              <img class="logo logo-dark" alt="logo" src="./img/color-logo.svg" />
               <img class="logo logo-light" alt="logo" src="./img/white-logo.svg" />
             </a>
           </div>
@@ -112,13 +112,13 @@
     <!--end bar-->
 
     <!-- ===== NAV SECTION ===== -->
-    <nav id="menu1" class="bar bar--md bar-1 hidden-xs bar--absolute bar--transparent pos-vertical-align-columns">
+    <nav id="menu1" class="bar bar--md bar-1 bar--absolute bar--transparent pos-vertical-align-columns " data-scroll-class="250px:pos-fixed">
       <div class="container">
         <div class="row">
           <div class="col-md-3 col-sm-2 hidden-xs">
             <div class="bar__module">
               <a href="/">
-                <img class="logo logo-dark" alt="logo" src="./img/dark-logo.svg" />
+                <img class="logo logo-dark" alt="logo" src="./img/color-logo.svg" />
                 <img class="logo logo-light" alt="logo" src="./img/white-logo.svg" />
               </a>
             </div>
@@ -128,20 +128,19 @@
             <div class="bar__module">
               <ul class="menu-horizontal text-left">
                 <li>
-                  <a href="#databroker">What is Databroker?</a>
+                  <a href="#databroker">What is Databroker DAO?</a>
                 </li>
                 <li>
                   <a href="/whitepaper/WHITEPAPER_DataBrokerDAO_ENG.pdf" target="_blank">Whitepaper</a>
                 </li>
                 <li>
-                  <a href="#tokensale">Token sale</a>
+                  <a href="#start">Token sale</a>
+                </li>
+                <li>
+                  <a href="#team"> Team</a>
                 </li>
                 <li>
                   <a href="https://medium.com/DataBrokerDAO" target="_blank">Updates</a>
-                </li>
-                <li>
-                  <a href="https://goo.gl/forms/mSrWn3aiWX2Ik5rH3" target="_blank">
-                    <i class="fa fa-slack"></i> Slack</a>
                 </li>
               </ul>
             </div>
@@ -149,7 +148,7 @@
             <div class="bar__module" style="margin-left: 5px;">
               <a class="btn btn--sm btn--secondary type--uppercase" href="https://beta.databrokerdao.com/" target="_blank">
                 <span class="btn__text" style="color: #333;">
-                  Try Marketplace
+                  Try our Marketplace
                 </span>
               </a>
             </div>
@@ -474,26 +473,30 @@
     <!-- ===== CHALLENGE SECTION ===== -->
     <section id=" challenge " class="switchable bg--secondary height-auto ">
       <div class="container pos-vertical-center ">
-        <div class="row align-center ">
+        <div class="row text-center">
+          <span class="type--uppercase type--bold ">The Challenge</span>
+          <h2>Unlocking the potential &amp; monetization of IoT sensor data</h2>
+        </div>
+        <div class="row">
 
-          <div class="col-sm-8 col-md-6 ">
+          <div class="col-md-2"></div>
+
+          <div class="col-md-4">
+            <img srcset=" ./img/problem/problem.png 1x, ./img/problem/problem@2x.png 2x, ./img/problem/problem@3x.png 3x,
+                ./img/problem/problem@4x.png 4x " class="app-translate-5 " style="margin-top: 20px">
+          </div>
+
+          <div class="col-md-4">
             <div class="switchable__text ">
-              <span class="type--uppercase type--bold ">The Challenge</span>
-              <h2>Unlocking the potential &amp; monetization of IoT sensor data</h2>
               <p class="lead ">
                 Individuals, companies, researchers &amp; governments are spending hundreds of billions each year on buying and maintaining
                 IoT sensors. The growth of the investment and applications in IoT is truly staggering, and yet, all data
                 captured by these devices is locked up in silos and walled gardens.
               </p>
             </div>
-            <div class="col-sm-6 ">
+          </div>
 
-            </div>
-          </div>
-          <div class="col-sm-4 col-md-offset-2 ">
-            <img srcset=" ./img/problem/problem.png 1x, ./img/problem/problem@2x.png 2x, ./img/problem/problem@3x.png 3x,
-                ./img/problem/problem@4x.png 4x " class="app-translate-5 ">
-          </div>
+          <div class="col-md-2"></div>
 
         </div>
         <!--end of row-->
@@ -549,7 +552,7 @@
               Want to know how selling or buying IoT sensor data would work on Databroker? Check out the BETA version of the platform.
             </p>
             <a class="btn btn-lg btn--primary " href="https://beta.databrokerdao.com " target="_blank ">
-              <span class="btn__text type--uppercase ">Try the marketplace</span>
+              <span class="btn__text type--uppercase ">Try our marketplace</span>
             </a>
           </div>
           <div class="col-md-6 col-md-offset-1 col-sm-6 ">
@@ -1764,24 +1767,28 @@
         <div class="col-sm-6 ">
           <ul class="list-inline list--hover ">
             <li>
+              <a href="#databroker ">
+                <span>What is DataBroker DAO?</span>
+              </a>
+            </li>
+
+            <li>
               <a href="/whitepaper/WHITEPAPER_DataBrokerDAO_ENG.pdf " target="_blank ">
                 <span>Whitepaper</span>
               </a>
             </li>
             <li>
-              <a href="#databroker ">
-                <span>About Databroker</span>
+              <a href="#start ">
+                <span>Token Sale</span>
               </a>
             </li>
             <li>
               <a href="#team ">
-                <span>The Team</span>
+                <span>Team</span>
               </a>
             </li>
             <li>
-              <a href="#tokensale ">
-                <span>Token Sale</span>
-              </a>
+              <a href="https://medium.com/DataBrokerDAO" target="_blank">Updates</a>
             </li>
           </ul>
         </div>
