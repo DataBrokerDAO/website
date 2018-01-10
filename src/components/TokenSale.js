@@ -140,9 +140,9 @@ class TokenSale extends Component {
             >
               How to participate in the main sale
             </a>*/}
-            <a href="#roadmap" style={{ textDecoration: 'underline' }}>
+            {/*<a href="#roadmap" style={{ textDecoration: 'underline' }}>
               Check out the roadmap
-            </a>
+          </a>*/}
           </div>
           <div className="modal-container">
             <div className="modal-content">
