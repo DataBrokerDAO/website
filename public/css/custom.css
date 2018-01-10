@@ -525,7 +525,7 @@ nav span.dropdown__trigger:hover {
   -ms-transform: scale(1.05);
 }
 
-.feature {
+.job {
   cursor: pointer;
 
   -webkit-transition: all 0.2s ease;
@@ -535,7 +535,7 @@ nav span.dropdown__trigger:hover {
   transition: all 0.2s ease;
 }
 
-.feature:hover {
+.job:hover {
   -webkit-transform: scale(1.05);
   -moz-transform: scale(1.05);
   -o-transform: scale(1.05);
