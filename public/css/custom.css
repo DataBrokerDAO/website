@@ -541,3 +541,24 @@ nav span.dropdown__trigger:hover {
   -o-transform: scale(1.05);
   -ms-transform: scale(1.05);
 }
+
+.events a {
+  text-decoration: none;
+}
+
+.event {
+  cursor: pointer;
+
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.event:hover {
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  -o-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+}
