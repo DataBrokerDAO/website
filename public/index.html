@@ -2383,8 +2383,34 @@
   <script src="./js/smooth-scroll.min.js "></script>
   <script src="./js/scripts.js "></script>
 
+  <!-- MAILCHIMP -->
   <script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script>
   <script type="text/javascript">require(["mojo/signup-forms/Loader"], function (L) { L.start({ "baseUrl": "mc.us16.list-manage.com", "uuid": "4bbe86fce2123a710cf3386a6", "lid": "dff9bee8b3" }) })</script>
+  <script>
+    // Beware, all ye who enter here. Gross stuff ahead.
+
+    // First, set the cookie as if we've already seen the popup.
+    var date = new Date()
+    document.cookie = "MCPopupClosed=yes; expires=" + date.setTime(date.getTime() + (10 * 24 * 60 * 60 * 1000)) + "; path=/";
+
+    // After 20 seconds, remove cookie so that the popup may be shown again.
+    setTimeout(() => {
+      document.cookie = "MCPopupClosed=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+    }, 1000 * 20);
+
+    function showMailingPopUp() {
+      document.cookie = "MCPopupClosed=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+      require(["mojo/signup-forms/Loader"], function (L) { L.start({ "baseUrl": "mc.us16.list-manage.com", "uuid": "4bbe86fce2123a710cf3386a6", "lid": "dff9bee8b3" }) })
+      document.cookie = "MCPopupClosed=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+    };
+
+    // React has to load before we can attach the handler.
+    setTimeout(() => {
+      document.getElementById("open-popup").onclick = function () { showMailingPopUp() };
+    }, 2000)
+  </script>
+  <!-- END MAILCHIMP -->
+
 
   <script>
     window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) }; ga.l = +new Date;
@@ -2414,9 +2440,6 @@
     />
   </noscript>
   <!-- End Facebook Pixel Code -->
-
-  <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
-  <script type='text/javascript'>(function ($) { window.fnames = new Array(); window.ftypes = new Array(); fnames[0] = 'EMAIL'; ftypes[0] = 'email'; fnames[1] = 'FNAME'; ftypes[1] = 'text'; fnames[2] = 'LNAME'; ftypes[2] = 'text'; }(jQuery)); var $mcj = jQuery.noConflict(true);</script>
 
 </body>
 
