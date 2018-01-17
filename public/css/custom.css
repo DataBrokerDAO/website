@@ -547,6 +547,7 @@ nav span.dropdown__trigger:hover {
 }
 
 .event {
+  height: 170px;
   cursor: pointer;
 
   -webkit-transition: all 0.2s ease;
