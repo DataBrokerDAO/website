@@ -4,6 +4,20 @@ import moment from 'moment';
 import ProgressBar from './ProgressBar';
 // import PreRegisterForm from './PreRegisterForm';
 import RegisterForm from './RegisterForm';
+import WorldSVG from '../assets/world.svg';
+import VideoSection from './sections/video';
+import ChallengeSection from './sections/challenge';
+import JobsSection from './sections/jobs';
+import ChannelsSection from './sections/channels';
+import Footer from './sections/footer';
+import CTASection from './sections/cta';
+import SolutionSection from './sections/solutions';
+import TeamSection from './sections/team';
+import PressSection from './sections/press';
+import EventsSection from './sections/events';
+import AllianceSection from './sections/alliance';
+import BenefitsSection from './sections/benefits';
+import BetaSection from './sections/beta';
 
 class TokenSale extends Component {
   constructor(props) {
@@ -352,13 +366,365 @@ class TokenSale extends Component {
     setTimeout(() => window.modals(jQuery, window, document), 1000); //eslint-disable-line
 
     return (
-      <div
-        className="boxed boxed--lg border--round box-shadow-wide bg--white token-sale"
-        style={{ marginTop: 0 }}
-      >
-        {doneLoading && upcoming && this.saleUpcoming()}
-        {active && this.saleRunning(doneLoading)}
-        {doneLoading && done && this.saleDone()}
+      <div>
+        <div className="nav-container">
+          <div
+            className="bar bar--md visible-xs bar--mobile-sticky"
+            data-scroll-class="250px:pos-fixed"
+          >
+            <div className="container">
+              <div className="row">
+                <div className="col-xs-3 col-sm-2">
+                  <a href="/">
+                    <img
+                      className="logo logo-dark"
+                      alt="logo"
+                      src="./img/gradient-logo.svg"
+                    />
+                    <img
+                      className="logo logo-light"
+                      alt="logo"
+                      src="./img/white-logo.svg"
+                    />
+                  </a>
+                </div>
+                <div className="col-xs-9 col-sm-10 text-right">
+                  <a
+                    href="#"
+                    className="hamburger-toggle"
+                    data-toggle-class="#menu1;hidden-xs"
+                  >
+                    <i className="icon icon--sm stack-interface stack-menu" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <nav
+            id="menu1"
+            className="bar bar--md bar-1 bar--absolute bar--transparent pos-vertical-align-columns"
+            data-scroll-class="250px:pos-fixed"
+          >
+            <div className="container">
+              <div className="row">
+                <div className="col-md-3 col-sm-2 hidden-xs">
+                  <div className="bar__module">
+                    <a href="/">
+                      <img
+                        className="logo logo-dark"
+                        alt="logo"
+                        src="./img/gradient-logo.svg"
+                      />
+                      <img
+                        className="logo logo-light"
+                        alt="logo"
+                        src="./img/white-logo.svg"
+                      />
+                    </a>
+                  </div>
+                </div>
+                <div
+                  className="col-md-9 col-sm-12 text-right text-left-xs text-left-sm"
+                  style={{ marginTop: '10px' }}
+                >
+                  <div className="bar__module">
+                    <ul className="menu-horizontal text-left">
+                      <li>
+                        <a href="#databroker">What is Databroker DAO?</a>
+                      </li>
+                      <li>
+                        <a
+                          href="/whitepaper/WHITEPAPER_DataBrokerDAO_ENG.pdf"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Whitepaper
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#alliance">Alliance</a>
+                      </li>
+                      <li>
+                        <a href="#team"> Team</a>
+                      </li>
+                      <li>
+                        <a href="#jobs"> Jobs</a>
+                      </li>
+                      <li>
+                        <a
+                          href="https://medium.com/DataBrokerDAO"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Updates
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="bar__module" style={{ marginLeft: '5px' }}>
+                    <a
+                      className="btn btn--sm btn--secondary type--uppercase"
+                      href="https://beta.databrokerdao.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <span className="btn__text" style={{ color: '#333' }}>
+                        Try our Marketplace
+                      </span>
+                    </a>
+                  </div>
+                  <div className="bar__module" style={{ marginLeft: '5px' }}>
+                    <div className="dropdown">
+                      <span className="dropdown__trigger type--uppercase">
+                        English <i className="fa fa-angle-down" />
+                      </span>
+                      <div className="dropdown__container text-left">
+                        <div className="container">
+                          <div className="row">
+                            <div className="col-sm-2 col-md-2 dropdown__content">
+                              <ul className="menu-vertical">
+                                <li>
+                                  <a href="/ch">中文</a>
+                                </li>
+                                <li>
+                                  <a href="/ko">한국어</a>
+                                </li>
+                                <li>
+                                  <a href="/ar">عربى</a>
+                                </li>
+                                <li>
+                                  <a href="/dd">日本語</a>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+        <div className="main-container">
+          <section
+            className="cover imagebg"
+            data-gradient-bg="#EB274C,#7E347E,#2E3192"
+          >
+            <div className="background-image-holder">
+              <img alt="background" src={WorldSVG} />
+            </div>
+            <div className="container" style={{ marginTop: '20px' }}>
+              <div className="row">
+                <div className="col-md-5 col-sm-5 col-xs-12">
+                  <div className="header-intro">
+                    <h1 style={{ lineHeight: '40pt' }}>
+                      Global market
+                      <br /> for local data
+                    </h1>
+                    <p
+                      style={{
+                        fontSize: '13pt',
+                        lineHeight: '22pt',
+                        marginTop: '10px'
+                      }}
+                    >
+                      <b style={{ fontWeight: 'bold' }}>
+                        DataBroker DAO is the first marketplace to sell &amp;
+                        buy sensor data.
+                      </b>{' '}
+                      As a decentralised marketplace for IoT sensor data using
+                      Blockchain technology, Databroker DAO enables sensor
+                      owners to turn generated data into revenue streams. This
+                      will open up a wealth of opportunities for various
+                      industries. Data will be used and become more effective.
+                    </p>
+                    <div className="modal-instance header-video block">
+                      <div
+                        className="video-play-icon video-play-icon--xs modal-trigger bg--primary"
+                        data-modal-index="0"
+                      />
+                      <span>
+                        <strong>DataBroker DAO in 30 seconds</strong>
+                      </span>
+                      <div className="modal-container">
+                        <div
+                          className="modal-content bg-dark"
+                          data-width="55%"
+                          data-height="60%"
+                        >
+                          <iframe
+                            title="DataBrokerDAO movie"
+                            data-src="https://www.youtube.com/embed/hZLr5O7y71c?autoplay=1&amp;rel=0"
+                            allowFullScreen="allowfullscreen"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      className="col-md-12"
+                      style={{
+                        marginBottom: '10px',
+                        paddingRight: '5px',
+                        paddingLeft: '5px'
+                      }}
+                    >
+                      <a
+                        href="/whitepaper/WHITEPAPER_DataBrokerDAO_ENG.pdf"
+                        className="btn btn-lg btn--secondary"
+                        style={{
+                          width: '100%',
+                          color: 'black',
+                          fontWeight: 'bold'
+                        }}
+                        target="_blank"
+                      >
+                        Read the whitepaper
+                      </a>
+                    </div>
+                    <div
+                      className="col-md-12"
+                      style={{
+                        marginBottom: '10px',
+                        paddingRight: '5px',
+                        paddingLeft: '5px'
+                      }}
+                    >
+                      <a
+                        href="/whitepaper/flyer.pdf"
+                        className="btn btn-lg btn--secondary"
+                        style={{
+                          width: '100%',
+                          color: 'black',
+                          fontWeight: 'bold'
+                        }}
+                        target="_blank"
+                      >
+                        Read the onepager
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-md-6 col-sm-7 col-xs-12 text-center col-md-offset-1">
+                  <div
+                    className="boxed boxed--lg border--round box-shadow-wide bg--white token-sale"
+                    style={{ marginTop: 0 }}
+                  >
+                    {doneLoading && upcoming && this.saleUpcoming()}
+                    {active && this.saleRunning(doneLoading)}
+                    {doneLoading && done && this.saleDone()}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="container pos-absolute pos-bottom">
+              <div className="row">
+                <div className="col-sm-12 text-center">
+                  <div className="channels">
+                    <span>
+                      <a
+                        style={{ textDecoration: 'none' }}
+                        href="https://t.me/databrokerdao"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <i className="fa fa-telegram fa-2x" />
+                      </a>
+                    </span>
+                    <span>
+                      <a
+                        style={{ textDecoration: 'none' }}
+                        href="https://www.facebook.com/DataBrokerDAO/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <i className="fa fa-facebook fa-2x" />
+                      </a>
+                    </span>
+                    <span>
+                      <a
+                        style={{ textDecoration: 'none' }}
+                        href="https://twitter.com/DataBrokerDAO"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <i className="fa fa-twitter fa-2x" />
+                      </a>
+                    </span>
+                    <span>
+                      <a
+                        style={{ textDecoration: 'none' }}
+                        href="https://medium.com/DataBrokerDAO"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <i className="fa fa-medium fa-2x" />
+                      </a>
+                    </span>
+                    <span>
+                      <a
+                        href="https://www.youtube.com/channel/UCGo8NhGJqtBo6y6GFWUB-rg"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <i className="fa fa-youtube fa-2x" />
+                      </a>
+                    </span>
+                    <span>
+                      <a
+                        style={{ textDecoration: 'none' }}
+                        href="https://bitcointalk.org/index.php?topic=2113309.0"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <i className="fa fa-btc fa-2x" />
+                      </a>
+                    </span>
+                    <span>
+                      <a
+                        style={{ textDecoration: 'none' }}
+                        href="https://github.com/DataBrokerDAO"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <i className="fa fa-github fa-2x" />
+                      </a>
+                    </span>
+                    <span>
+                      <a
+                        style={{ textDecoration: 'none' }}
+                        href="https://www.reddit.com/r/DatabrokerDAO/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <i className="fa fa-reddit fa-2x" />
+                      </a>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <VideoSection />
+          <ChallengeSection />
+          <CTASection />
+          <SolutionSection />
+          <BetaSection />
+          <BenefitsSection />
+          <CTASection />
+          <AllianceSection />
+          <CTASection />
+          <EventsSection />
+          <CTASection />
+          <PressSection />
+          <CTASection />
+          <TeamSection />
+          <CTASection />
+          <JobsSection />
+          <ChannelsSection />
+          <Footer />
+        </div>
       </div>
     );
   }
