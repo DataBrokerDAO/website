@@ -49,17 +49,34 @@ localStorage.setItem('referrer', document.referrer);
 // Render Setup
 // ========================================================
 
-ReactDOM.render(
-  <Provider store={store}>
-    <TokenSale />
-  </Provider>,
-  document.getElementById('root')
-);
+if (!window.intl) {
+  require.ensure(
+    ['intl', 'intl/locale-data/jsonp/en.js', 'intl/locale-data/jsonp/ar.js'],
+    require => {
+      require('intl');
+      require('intl/locale-data/jsonp/en.js');
+      require('intl/locale-data/jsonp/ar.js');
+      ReactDOM.render(
+        <Provider store={store}>
+          <TokenSale />
+        </Provider>,
+        document.getElementById('root')
+      );
+    }
+  );
+} else {
+  ReactDOM.render(
+    <Provider store={store}>
+      <TokenSale />
+    </Provider>,
+    document.getElementById('root')
+  );
+}
 
 //registerServiceWorker();
 
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.ready.then(registration => {
-    registration.unregister();
-  });
-}
+// if ('serviceWorker' in navigator) {
+//   navigator.serviceWorker.ready.then(registration => {
+//     registration.unregister();
+//   });
+// }

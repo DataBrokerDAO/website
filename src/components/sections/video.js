@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { FormattedMessage } from 'react-intl';
 
 class VideoSection extends PureComponent {
   render() {
@@ -7,15 +8,12 @@ class VideoSection extends PureComponent {
         <div className="container">
           <div className="row align-center">
             <div className="col-md-5  col-sm-6">
-              <h2>Databroker DAO in 30 seconds</h2>
+              <h2>
+                <FormattedMessage id="video_title" />
+              </h2>
               <hr className="short" />
               <p className="lead">
-                Today companies make use of sensor data to optimize and monitor
-                their operations. The result is a single purpose data landscape.
-                DataBroker DAO drives the evolution towards truly ‘smart living’
-                by making this data easily accessible to cities, organizations
-                and entrepreneurs at an affordable price. Check out our video to
-                learn more.
+                <FormattedMessage id="video_lead" />
               </p>
             </div>
             <div className="col-md-6 col-sm-6 col-md-offset-1">

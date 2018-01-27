@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { FormattedMessage } from 'react-intl';
 
 class AllianceSection extends PureComponent {
   render() {
@@ -8,7 +9,7 @@ class AllianceSection extends PureComponent {
           <div className="row">
             <div className="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
               <h2 style={{ marginBottom: '5px' }}>
-                The DataBroker DAO Alliance
+                <FormattedMessage id="alliance_title" />
               </h2>
               <p
                 className="type--uppercase type--bold"
