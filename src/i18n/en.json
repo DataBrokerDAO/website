@@ -62,6 +62,16 @@
   "jobs_text_two":
     "Got what it takes to work with us? Great! Send us a link to your resumé or portfolio to become part of our talent pool. We always have limited intern positions throughout the year, connect with us via hello@databrokerdao.com to see what's possible.",
   "jobs_button": "Drop your resumé here",
+  "press_title": "Press",
+  "press_subtitle": "The media about DataBroker DAO",
+  "press_text":
+    "DataBroker DAO has been reviewed by media &amp; industry experts worldwide. Click on any of the logos to read the stories.",
+  "solution_title": "The Solution",
+  "solution_subtitle":
+    "DataBroker DAO: a peer to peer marketplace for IoT sensor data",
+  "team_title": "Team",
+  "team_title_two": "Advisors",
+  "team_title_three": "Partners",
   "video_lead":
     "Today companies make use of sensor data to optimize and monitor their operations. The result is a single purpose data landscape. DataBroker DAO drives the evolution towards truly ‘smart living’ by making this data easily accessible to cities, organizations and entrepreneurs at an affordable price. Check out our video to learn more."
 }

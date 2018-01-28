@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { FormattedMessage } from 'react-intl';
 
 class SolutionSection extends PureComponent {
   render() {
@@ -7,12 +8,14 @@ class SolutionSection extends PureComponent {
         <div className="container">
           <div className="row">
             <div className="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-              <h2 style={{ marginBottom: '5px' }}>The Solution</h2>
+              <h2 style={{ marginBottom: '5px' }}>
+                <FormattedMessage id="solution_title" />
+              </h2>
               <p
                 className="type--uppercase type--bold"
                 style={{ marginBottom: '40px' }}
               >
-                DataBroker DAO: a peer to peer marketplace for IoT sensor data
+                <FormattedMessage id="solution_subtitle" />
               </p>
             </div>
             <div className="col-sm-12 col-md-10 col-md-offset-1">

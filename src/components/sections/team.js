@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { FormattedMessage } from 'react-intl';
 
 class TeamSection extends PureComponent {
   render() {
@@ -8,7 +9,9 @@ class TeamSection extends PureComponent {
           <div className="container">
             <div className="row">
               <div className="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-                <h2 className="">Team</h2>
+                <h2>
+                  <FormattedMessage id="team_title" />
+                </h2>
               </div>
             </div>
             <div className="row">
@@ -18,7 +21,7 @@ class TeamSection extends PureComponent {
                     <div className="card card-2 text-center">
                       <div className="card__top modal-trigger">
                         <img
-                          alt="Image"
+                          alt="Matthew"
                           src="./img/matthew.jpg"
                           style={{ filter: 'grayscale(100%)' }}
                         />
@@ -75,7 +78,7 @@ class TeamSection extends PureComponent {
                     <div className="card card-2 text-center">
                       <div className="card__top modal-trigger">
                         <img
-                          alt="Image"
+                          alt="Roderik"
                           src="./img/roderik.jpg"
                           style={{ filter: 'grayscale(100%)' }}
                         />
@@ -132,7 +135,7 @@ class TeamSection extends PureComponent {
                     <div className="card card-2 text-center">
                       <div className="card__top modal-trigger">
                         <img
-                          alt="Image"
+                          alt="Frank"
                           src="./img/frank.jpg"
                           style={{ filter: 'grayscale(100%)' }}
                         />
@@ -182,7 +185,7 @@ class TeamSection extends PureComponent {
                     <div className="card card-2 text-center">
                       <div className="card__top modal-trigger">
                         <img
-                          alt="Image"
+                          alt="Els"
                           src="./img/els.jpg"
                           style={{ filter: 'grayscale(100%)' }}
                         />
@@ -236,7 +239,7 @@ class TeamSection extends PureComponent {
                     <div className="card card-2 text-center">
                       <div className="card__top modal-trigger">
                         <img
-                          alt="Image"
+                          alt="Cassandre"
                           src="./img/cassandre.jpg"
                           style={{ filter: 'grayscale(100%)' }}
                         />
@@ -287,7 +290,7 @@ class TeamSection extends PureComponent {
                     <div className="card card-2 text-center">
                       <div className="card__top modal-trigger">
                         <img
-                          alt="Image"
+                          alt="Tom"
                           src="./img/tom.jpg"
                           style={{ filter: 'grayscale(100%)' }}
                         />
@@ -334,7 +337,7 @@ class TeamSection extends PureComponent {
                     <div className="card card-2 text-center">
                       <div className="card__top modal-trigger">
                         <img
-                          alt="Image"
+                          alt="Silke"
                           src="./img/silke.jpg"
                           style={{ filter: 'grayscale(100%)' }}
                         />
@@ -384,7 +387,7 @@ class TeamSection extends PureComponent {
                     <div className="card card-2 text-center">
                       <div className="card__top modal-trigger">
                         <img
-                          alt="Image"
+                          alt="Veronica"
                           src="./img/Veronica.png"
                           style={{ filter: 'grayscale(100%)' }}
                         />
@@ -436,7 +439,7 @@ class TeamSection extends PureComponent {
                     <div className="card card-2 text-center">
                       <div className="card__top modal-trigger">
                         <img
-                          alt="Image"
+                          alt="Mago"
                           src="./img/Mago.jpg"
                           style={{ filter: 'grayscale(100%)' }}
                         />
@@ -479,7 +482,7 @@ class TeamSection extends PureComponent {
                     <div className="card card-2 text-center">
                       <div className="card__top modal-trigger">
                         <img
-                          alt="Image"
+                          alt="Ricardo"
                           src="./img/Ricardo.jpg"
                           style={{ filter: 'grayscale(100%)' }}
                         />
@@ -530,7 +533,9 @@ class TeamSection extends PureComponent {
             </div>
             <div className="row">
               <div className="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-                <h2 className="">Advisors</h2>
+                <h2>
+                  <FormattedMessage id="team_title_two" />
+                </h2>
               </div>
             </div>
             <div className="row">
@@ -540,7 +545,7 @@ class TeamSection extends PureComponent {
                     <div className="card card-2 text-center">
                       <div className="card__top modal-trigger">
                         <img
-                          alt="Image"
+                          alt="Jonathan"
                           src="./img/jonathan_johnson.png"
                           style={{ filter: 'grayscale(100%)' }}
                         />
@@ -554,6 +559,7 @@ class TeamSection extends PureComponent {
                           <a
                             href="https://www.linkedin.com/in/jonathanjohnson3/"
                             target="_blank"
+                            rel="noopener noreferrer"
                           >
                             <i className="color--primary fa fa-linkedin fa-2x" />
                           </a>
@@ -589,7 +595,7 @@ class TeamSection extends PureComponent {
                     <div className="card card-2 text-center">
                       <div className="card__top modal-trigger">
                         <img
-                          alt="Image"
+                          alt="Richard"
                           src="./img/richard_kastelein.png"
                           style={{ filter: 'grayscale(100%)' }}
                         />
@@ -603,6 +609,7 @@ class TeamSection extends PureComponent {
                           <a
                             href="https://www.linkedin.com/in/expathos/"
                             target="_blank"
+                            rel="noopener noreferrer"
                           >
                             <i className="color--primary fa fa-linkedin fa-2x" />
                           </a>
@@ -643,7 +650,7 @@ class TeamSection extends PureComponent {
                     <div className="card card-2 text-center">
                       <div className="card__top modal-trigger">
                         <img
-                          alt="Image"
+                          alt="Patrick"
                           src="./img/patrick_byrne.png"
                           style={{ filter: 'grayscale(100%)' }}
                         />
@@ -684,7 +691,7 @@ class TeamSection extends PureComponent {
                     <div className="card card-2 text-center">
                       <div className="card__top modal-trigger">
                         <img
-                          alt="Image"
+                          alt="Julien"
                           src="./img/julien_marlair.png"
                           style={{ filter: 'grayscale(100%)' }}
                         />
@@ -698,6 +705,7 @@ class TeamSection extends PureComponent {
                           <a
                             href="https://www.linkedin.com/in/julienmarlair/"
                             target="_blank"
+                            rel="noopener noreferrer"
                           >
                             <i className="color--primary fa fa-linkedin fa-2x" />
                           </a>
@@ -736,7 +744,9 @@ class TeamSection extends PureComponent {
             </div>
             <div className="row">
               <div className="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-                <h2 className="">Partners</h2>
+                <h2>
+                  <FormattedMessage id="team_title_three" />
+                </h2>
               </div>
             </div>
 
@@ -748,7 +758,10 @@ class TeamSection extends PureComponent {
                   rel="noopener noreferrer"
                   href="https://www.settlemint.com"
                 >
-                  <img src="./img/Logos partners/logo-settlemint.png" />
+                  <img
+                    alt="SettleMint"
+                    src="./img/Logos partners/logo-settlemint.png"
+                  />
                 </a>
               </div>
               <div className="col-sm-3 zooming-logo">
@@ -758,7 +771,10 @@ class TeamSection extends PureComponent {
                   rel="noopener noreferrer"
                   href="https://www.amazix.com"
                 >
-                  <img src="./img/Logos partners/logo-amazix.png" />
+                  <img
+                    alt="Amazix"
+                    src="./img/Logos partners/logo-amazix.png"
+                  />
                 </a>
               </div>
               <div className="col-sm-3 zooming-logo">
@@ -768,7 +784,10 @@ class TeamSection extends PureComponent {
                   rel="noopener noreferrer"
                   href="https://entethalliance.org/"
                 >
-                  <img src="./img/Logos partners/eea-logo.png" />
+                  <img
+                    alt="Ethereum Enterprice Alliance"
+                    src="./img/Logos partners/eea-logo.png"
+                  />
                 </a>
               </div>
               <div className="col-sm-3 zooming-logo">
@@ -778,7 +797,10 @@ class TeamSection extends PureComponent {
                   rel="noopener noreferrer"
                   href="https://www.sigfox.com"
                 >
-                  <img src="./img/Logos partners/Sigfox_Logo.png" />
+                  <img
+                    alt="Sigfox"
+                    src="./img/Logos partners/Sigfox_Logo.png"
+                  />
                 </a>
               </div>
             </div>
