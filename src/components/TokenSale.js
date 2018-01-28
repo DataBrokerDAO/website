@@ -21,13 +21,43 @@ import BetaSection from './sections/beta';
 import { IntlProvider, addLocaleData } from 'react-intl';
 import en from 'react-intl/locale-data/en';
 import ar from 'react-intl/locale-data/ar';
-import usTranslations from '../i18n/en.json';
+import tr from 'react-intl/locale-data/tr';
+import es from 'react-intl/locale-data/es';
+import ru from 'react-intl/locale-data/ru';
+import pt from 'react-intl/locale-data/pt';
+import ko from 'react-intl/locale-data/ko';
+import ja from 'react-intl/locale-data/ja';
+import it from 'react-intl/locale-data/it';
+import de from 'react-intl/locale-data/de';
+import fr from 'react-intl/locale-data/fr';
+import zh from 'react-intl/locale-data/zh';
+import enTranslations from '../i18n/en.json';
 import arTranslations from '../i18n/ar.json';
+import trTranslations from '../i18n/tr.json';
+import esTranslations from '../i18n/es.json';
+import ruTranslations from '../i18n/ru.json';
+import ptTranslations from '../i18n/pt.json';
+import koTranslations from '../i18n/ko.json';
+import jaTranslations from '../i18n/ja.json';
+import itTranslations from '../i18n/it.json';
+import deTranslations from '../i18n/de.json';
+import frTranslations from '../i18n/fr.json';
+import zhTranslations from '../i18n/zh.json';
 import { setTimeout } from 'timers';
 
 const languages = {
   en: 'English',
-  ar: 'عربى'
+  ar: 'عربى',
+  tr: 'Türk',
+  es: 'Español',
+  ru: 'русский',
+  pt: 'Português',
+  ko: '한국어',
+  ja: '日本語',
+  it: 'italiano',
+  de: 'Deutsche',
+  fr: 'français',
+  zh: '中文'
 };
 
 class TokenSale extends Component {
@@ -76,7 +106,20 @@ class TokenSale extends Component {
         percentage: 0
       });
     }
-    addLocaleData([...en, ...ar]);
+    addLocaleData([
+      ...en,
+      ...ar,
+      ...tr,
+      ...es,
+      ...ru,
+      ...pt,
+      ...ko,
+      ...ja,
+      ...it,
+      ...de,
+      ...fr,
+      ...zh
+    ]);
     let language = 'en';
     if (!localStorage.getItem('dbdaolang')) {
       const language =
@@ -105,9 +148,44 @@ class TokenSale extends Component {
   }
 
   setMessages(language) {
-    let messages = usTranslations;
-    if (language === 'ar') {
-      messages = arTranslations;
+    let messages;
+    switch (language) {
+      case ar:
+        messages = arTranslations;
+        break;
+      case tr:
+        messages = trTranslations;
+        break;
+      case es:
+        messages = esTranslations;
+        break;
+      case ru:
+        messages = ruTranslations;
+        break;
+      case pt:
+        messages = ptTranslations;
+        break;
+      case ko:
+        messages = koTranslations;
+        break;
+      case ja:
+        messages = jaTranslations;
+        break;
+      case it:
+        messages = itTranslations;
+        break;
+      case de:
+        messages = deTranslations;
+        break;
+      case fr:
+        messages = frTranslations;
+        break;
+      case zh:
+        messages = zhTranslations;
+        break;
+      default:
+        messages = enTranslations;
+        break;
     }
     this.setState({ language, messages });
   }
@@ -346,7 +424,7 @@ class TokenSale extends Component {
   };
 
   saleDone = () => {
-    const { percentage } = this.state;
+    // const { percentage } = this.state;
     return (
       <div>
         <h2 className="sale-date">The early token sale is concluded!</h2>
@@ -367,7 +445,7 @@ class TokenSale extends Component {
   };
 
   numberTable = () => {
-    const { tokens, eth, percentage, endFundingTime } = this.state;
+    const { tokens, eth } = this.state;
 
     return (
       <div>
@@ -529,10 +607,38 @@ class TokenSale extends Component {
                                   </li>
                                   <li
                                     onClick={() =>
-                                      this.toggleChangeLanguage('ch')
+                                      this.toggleChangeLanguage('ar')
                                     }
                                   >
-                                    中文
+                                    عربى
+                                  </li>
+                                  <li
+                                    onClick={() =>
+                                      this.toggleChangeLanguage('tr')
+                                    }
+                                  >
+                                    Türk
+                                  </li>
+                                  <li
+                                    onClick={() =>
+                                      this.toggleChangeLanguage('es')
+                                    }
+                                  >
+                                    Español
+                                  </li>
+                                  <li
+                                    onClick={() =>
+                                      this.toggleChangeLanguage('ru')
+                                    }
+                                  >
+                                    русский
+                                  </li>
+                                  <li
+                                    onClick={() =>
+                                      this.toggleChangeLanguage('pt')
+                                    }
+                                  >
+                                    Português
                                   </li>
                                   <li
                                     onClick={() =>
@@ -543,17 +649,38 @@ class TokenSale extends Component {
                                   </li>
                                   <li
                                     onClick={() =>
-                                      this.toggleChangeLanguage('ar')
-                                    }
-                                  >
-                                    عربى
-                                  </li>
-                                  <li
-                                    onClick={() =>
-                                      this.toggleChangeLanguage('jp')
+                                      this.toggleChangeLanguage('ja')
                                     }
                                   >
                                     日本語
+                                  </li>
+                                  <li
+                                    onClick={() =>
+                                      this.toggleChangeLanguage('it')
+                                    }
+                                  >
+                                    italiano
+                                  </li>
+                                  <li
+                                    onClick={() =>
+                                      this.toggleChangeLanguage('de')
+                                    }
+                                  >
+                                    Deutsche
+                                  </li>
+                                  <li
+                                    onClick={() =>
+                                      this.toggleChangeLanguage('fr')
+                                    }
+                                  >
+                                    français
+                                  </li>
+                                  <li
+                                    onClick={() =>
+                                      this.toggleChangeLanguage('zh')
+                                    }
+                                  >
+                                    中文
                                   </li>
                                 </ul>
                               </div>

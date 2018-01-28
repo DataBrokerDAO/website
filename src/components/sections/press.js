@@ -27,6 +27,7 @@ class PressSection extends PureComponent {
               <a
                 style={{ cursor: 'pointer' }}
                 target="_blank"
+                rel="noopener noreferrer"
                 href="http://www.the-blockchain.com/2017/09/08/databroker-dao-decentralised-marketplace-iot-sensor-data-announces-beta-upcoming-token-sale/"
               >
                 <img

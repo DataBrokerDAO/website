@@ -41,7 +41,11 @@ class TeamSection extends PureComponent {
                           </a>
                         </div>
                         <div className="card__action">
-                          <a href="https://twitter.com/matt_vn" target="_blank">
+                          <a
+                            href="https://twitter.com/matt_vn"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
                             <i className="color--primary fa fa-twitter fa-2x" />
                           </a>
                         </div>
@@ -98,7 +102,11 @@ class TeamSection extends PureComponent {
                           </a>
                         </div>
                         <div className="card__action">
-                          <a href="https://twitter.com/r0derik" target="_blank">
+                          <a
+                            href="https://twitter.com/r0derik"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
                             <i className="color--primary fa fa-twitter fa-2x" />
                           </a>
                         </div>
@@ -199,6 +207,7 @@ class TeamSection extends PureComponent {
                           <a
                             href="https://www.linkedin.com/in/elsmeyvaert"
                             target="_blank"
+                            rel="noopener noreferrer"
                           >
                             <i className="color--primary fa fa-linkedin fa-2x" />
                           </a>
@@ -259,7 +268,11 @@ class TeamSection extends PureComponent {
                           </a>
                         </div>
                         <div className="card__action">
-                          <a href="https://twitter.com/cassvdp" target="_blank">
+                          <a
+                            href="https://twitter.com/cassvdp"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
                             <i className="color--primary fa fa-twitter fa-2x" />
                           </a>
                         </div>
