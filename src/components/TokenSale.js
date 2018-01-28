@@ -23,6 +23,12 @@ import en from 'react-intl/locale-data/en';
 import ar from 'react-intl/locale-data/ar';
 import usTranslations from '../i18n/en.json';
 import arTranslations from '../i18n/ar.json';
+import { setTimeout } from 'timers';
+
+const languages = {
+  en: 'English',
+  ar: 'عربى'
+};
 
 class TokenSale extends Component {
   constructor(props) {
@@ -87,8 +93,15 @@ class TokenSale extends Component {
   }
 
   componentDidMount() {
-    mr.documentReady(jQuery); //eslint-disable-line
-    mr.windowLoad(jQuery); //eslint-disable-line
+    setTimeout(() => {
+      mr.documentReady(jQuery); //eslint-disable-line
+    }, 250);
+  }
+
+  componentDidUpdate() {
+    setTimeout(() => {
+      mr.documentReady(jQuery); //eslint-disable-line
+    }, 250);
   }
 
   setMessages(language) {
@@ -102,6 +115,8 @@ class TokenSale extends Component {
   toggleChangeLanguage(newlang) {
     this.setMessages(newlang);
     localStorage.setItem('dbdaolang', newlang);
+    // mr.documentReady(jQuery); //eslint-disable-line
+    // mr.windowLoad(jQuery); //eslint-disable-line
   }
 
   longPoller() {
@@ -401,7 +416,7 @@ class TokenSale extends Component {
 
     const doneLoading = percentage >= 0 && eth >= 0 && tokens >= 0;
 
-    setTimeout(() => window.modals(jQuery, window, document), 1000); //eslint-disable-line
+    // setTimeout(() => window.modals(jQuery, window, document), 1000); //eslint-disable-line
 
     return (
       <IntlProvider key={language} locale={language} messages={messages}>
@@ -469,9 +484,6 @@ class TokenSale extends Component {
                     <div className="bar__module">
                       <ul className="menu-horizontal text-left">
                         <li>
-                          <a href="#databroker">What is Databroker DAO?</a>
-                        </li>
-                        <li>
                           <a
                             href="/whitepaper/WHITEPAPER_DataBrokerDAO_ENG.pdf"
                             target="_blank"
@@ -484,10 +496,7 @@ class TokenSale extends Component {
                           <a href="#alliance">Alliance</a>
                         </li>
                         <li>
-                          <a href="#team"> Team</a>
-                        </li>
-                        <li>
-                          <a href="#jobs"> Jobs</a>
+                          <a href="#team">Team</a>
                         </li>
                         <li>
                           <a
@@ -501,6 +510,59 @@ class TokenSale extends Component {
                       </ul>
                     </div>
                     <div className="bar__module" style={{ marginLeft: '5px' }}>
+                      <div className="dropdown">
+                        <span className="dropdown__trigger type--uppercase">
+                          {languages[language]}{' '}
+                          <i className="fa fa-angle-down" />
+                        </span>
+                        <div className="dropdown__container text-left">
+                          <div className="container">
+                            <div className="row">
+                              <div className="col-sm-2 col-md-2 dropdown__content">
+                                <ul className="menu-vertical">
+                                  <li
+                                    onClick={() =>
+                                      this.toggleChangeLanguage('en')
+                                    }
+                                  >
+                                    English
+                                  </li>
+                                  <li
+                                    onClick={() =>
+                                      this.toggleChangeLanguage('ch')
+                                    }
+                                  >
+                                    中文
+                                  </li>
+                                  <li
+                                    onClick={() =>
+                                      this.toggleChangeLanguage('ko')
+                                    }
+                                  >
+                                    한국어
+                                  </li>
+                                  <li
+                                    onClick={() =>
+                                      this.toggleChangeLanguage('ar')
+                                    }
+                                  >
+                                    عربى
+                                  </li>
+                                  <li
+                                    onClick={() =>
+                                      this.toggleChangeLanguage('jp')
+                                    }
+                                  >
+                                    日本語
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="bar__module" style={{ marginLeft: '5px' }}>
                       <a
                         className="btn btn--sm btn--secondary type--uppercase"
                         href="https://beta.databrokerdao.com/"
@@ -511,35 +573,6 @@ class TokenSale extends Component {
                           Try our Marketplace
                         </span>
                       </a>
-                    </div>
-                    <div className="bar__module" style={{ marginLeft: '5px' }}>
-                      <div className="dropdown">
-                        <span className="dropdown__trigger type--uppercase">
-                          English <i className="fa fa-angle-down" />
-                        </span>
-                        <div className="dropdown__container text-left">
-                          <div className="container">
-                            <div className="row">
-                              <div className="col-sm-2 col-md-2 dropdown__content">
-                                <ul className="menu-vertical">
-                                  <li>
-                                    <a href="/ch">中文</a>
-                                  </li>
-                                  <li>
-                                    <a href="/ko">한국어</a>
-                                  </li>
-                                  <li>
-                                    <a href="/ar">عربى</a>
-                                  </li>
-                                  <li>
-                                    <a href="/dd">日本語</a>
-                                  </li>
-                                </ul>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
                     </div>
                   </div>
                 </div>

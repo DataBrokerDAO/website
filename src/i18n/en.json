@@ -14,6 +14,26 @@
   "benefits_sensor_title": "Sensor owners",
   "benefits_sensor_text":
     "Are able to monetize their data and turn a sunk cost into a potential money maker and at least the opportunity to recoup some of their investments in IoT sensors.",
+  "benefits_network_title": "Network operators",
+  "benefits_network_text":
+    "Gain scale and speed in the adoption of their network as connected telcos can present a win-back to their enterprise accounts, a clear USP.",
+  "benefits_manufacturers_title": "Sensor manufacturers",
+  "benefits_manufacturers_text":
+    "Can stop the 'race to the bottom' for production and pull resources and capital out of manufacturing and allocate these to profitable SaaS offerings.",
+  "benefits_smartcity_title": "Smart city initiatives",
+  "benefits_smartcity_text":
+    "Can limit the upfront cost of populating the town with sufficient sensors and turn the expense into an investment with a 2-3 year payback period and a continuous income stream after that.",
+  "benefits_agriculture_title": "Agricultural sector",
+  "benefits_agriculture_text":
+    "In the Agricultural sector in Belgium today, 10% of farmers are 'techie'. They deploy sensors include for wind, temperature, barometric pressure, humidity, PH level in the soil. The platform will provide the possibility to recoup some of this cost.",
+  "benefits_academics_title": "Academics",
+  "benefits_academics_text":
+    "Can get access to thousands of sensors and can buy data directly and more cheap on the marketplace, cutting out established data providers.",
+  "beta_title": "Beta Platform",
+  "beta_intro": "We have a fully functioning platform for you to try",
+  "beta_text":
+    "Want to know how selling or buying IoT sensor data would work on Databroker? Check out the BETA version of the platform.",
+  "beta_button": "Try our marketplace",
   "video_title": "Databroker DAO in 30 seconds",
   "video_lead":
     "Today companies make use of sensor data to optimize and monitor their operations. The result is a single purpose data landscape. DataBroker DAO drives the evolution towards truly ‘smart living’ by making this data easily accessible to cities, organizations and entrepreneurs at an affordable price. Check out our video to learn more."
