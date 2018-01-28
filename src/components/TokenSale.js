@@ -150,37 +150,37 @@ class TokenSale extends Component {
   setMessages(language) {
     let messages;
     switch (language) {
-      case ar:
+      case 'ar':
         messages = arTranslations;
         break;
-      case tr:
+      case 'tr':
         messages = trTranslations;
         break;
-      case es:
+      case 'es':
         messages = esTranslations;
         break;
-      case ru:
+      case 'ru':
         messages = ruTranslations;
         break;
-      case pt:
+      case 'pt':
         messages = ptTranslations;
         break;
-      case ko:
+      case 'ko':
         messages = koTranslations;
         break;
-      case ja:
+      case 'ja':
         messages = jaTranslations;
         break;
-      case it:
+      case 'it':
         messages = itTranslations;
         break;
-      case de:
+      case 'de':
         messages = deTranslations;
         break;
-      case fr:
+      case 'fr':
         messages = frTranslations;
         break;
-      case zh:
+      case 'zh':
         messages = zhTranslations;
         break;
       default:
