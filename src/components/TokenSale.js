@@ -86,6 +86,11 @@ class TokenSale extends Component {
     this.setMessages(language);
   }
 
+  componentDidMount() {
+    mr.documentReady(jQuery); //eslint-disable-line
+    mr.windowLoad(jQuery); //eslint-disable-line
+  }
+
   setMessages(language) {
     let messages = usTranslations;
     if (language === 'ar') {
