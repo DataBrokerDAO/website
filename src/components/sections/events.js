@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { FormattedMessage } from 'react-intl';
 
 class EventsSection extends PureComponent {
   render() {
@@ -7,12 +8,14 @@ class EventsSection extends PureComponent {
         <div className="container">
           <div className="row">
             <div className="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 text-center">
-              <h2 style={{ marginBottom: '5px' }}>Events</h2>
+              <h2 style={{ marginBottom: '5px' }}>
+                <FormattedMessage id="events_title" />
+              </h2>
               <p
                 className="type--uppercase type--bold"
                 style={{ marginBottom: '5px' }}
               >
-                Events we will be attending this year
+                <FormattedMessage id="events_subtitle" />
               </p>
             </div>
           </div>
@@ -28,13 +31,17 @@ class EventsSection extends PureComponent {
 
             <div className="col-sm-4">
               <div className="event feature feature-1 boxed boxed--border">
-                <h4>Or join us at one of our free webinars</h4>
+                <h4>
+                  <FormattedMessage id="events_webinar" />
+                </h4>
                 <a
                   className="btn btn-lg btn--primary"
                   href="https://register.gotowebinar.com/rt/3131333637637198083"
                   style={{ display: 'block', marginTop: '40px' }}
                 >
-                  <span className="btn__text type--uppercase">Register</span>
+                  <span className="btn__text type--uppercase">
+                    <FormattedMessage id="events_webinar_button" />
+                  </span>
                 </a>
               </div>
             </div>
@@ -46,7 +53,7 @@ class EventsSection extends PureComponent {
                 className="type--uppercase type--bold"
                 style={{ marginBottom: '5px' }}
               >
-                Events we've attended lately
+                <FormattedMessage id="events_subtitle_two" />
               </p>
             </div>
           </div>
@@ -58,7 +65,8 @@ class EventsSection extends PureComponent {
                 onClick={() =>
                   window.open(
                     'https://www.meetup.com/Bitcoin-CryptoCurrency-Invest-ICO-by-Cryptario-Stockholm/events/246383446/'
-                  )}
+                  )
+                }
               >
                 <p className="color--primary">January 16</p>
                 <h4>
@@ -72,7 +80,8 @@ class EventsSection extends PureComponent {
               <div
                 className="event feature feature-1 boxed boxed--border"
                 onClick={() =>
-                  window.open('https://www.unlock-bc.com/events/unlock/2018')}
+                  window.open('https://www.unlock-bc.com/events/unlock/2018')
+                }
               >
                 <p className="color--primary">January 14 - 15</p>
                 <h4>UNLOCK</h4>

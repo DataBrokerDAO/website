@@ -34,7 +34,18 @@
   "beta_text":
     "Want to know how selling or buying IoT sensor data would work on Databroker? Check out the BETA version of the platform.",
   "beta_button": "Try our marketplace",
+  "challenge_title": "The Challenge",
+  "challenge_intro":
+    "Unlocking the potential & monetization of IoT sensor data",
+  "challenge_text":
+    " Individuals, companies, researchers & governments are spending hundreds of billions each year on buying and maintaining IoT sensors. The growth of the investment and applications in IoT is truly staggering, and yet, all data captured by these devices is locked up in silos and walled gardens.",
+  "cta": "Preregister now for the DTX token sale",
   "video_title": "Databroker DAO in 30 seconds",
+  "events_title": "Events",
+  "events_subtitle": "Events we will be attending this year",
+  "events_subtitle_two": "Events we've attended lately",
+  "events_webinar": "Or join us at one of our free webinars",
+  "events_webinar_button": "Register",
   "video_lead":
     "Today companies make use of sensor data to optimize and monitor their operations. The result is a single purpose data landscape. DataBroker DAO drives the evolution towards truly ‘smart living’ by making this data easily accessible to cities, organizations and entrepreneurs at an affordable price. Check out our video to learn more."
 }

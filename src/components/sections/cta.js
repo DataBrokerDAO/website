@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import WorldSVG from '../../assets/world.svg';
+import { FormattedMessage } from 'react-intl';
 
 class CTASection extends PureComponent {
   render() {
@@ -23,7 +24,7 @@ class CTASection extends PureComponent {
                 className="btn__text type--uppercase"
                 style={{ color: 'white' }}
               >
-                Preregister now for the DTX token sale
+                <FormattedMessage id="cta" />
               </span>
             </a>
           </div>

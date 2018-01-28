@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { FormattedMessage } from 'react-intl';
 
 class ChallengeSection extends PureComponent {
   render() {
@@ -6,12 +7,14 @@ class ChallengeSection extends PureComponent {
       <section id=" challenge" className="switchable bg--secondary height-auto">
         <div className="container pos-vertical-center">
           <div className="row text-center">
-            <h2 style={{ marginBottom: '5px' }}>The Challenge</h2>
+            <h2 style={{ marginBottom: '5px' }}>
+              <FormattedMessage id="challenge_title" />
+            </h2>
             <p
               className="type--uppercase type--bold"
               style={{ marginBottom: '10px' }}
             >
-              Unlocking the potential &amp; monetization of IoT sensor data
+              <FormattedMessage id="challenge_intro" />
             </p>
           </div>
           <div className="row">
@@ -28,12 +31,7 @@ class ChallengeSection extends PureComponent {
             <div className="col-md-4">
               <div className="switchable__text">
                 <p className="lead">
-                  Individuals, companies, researchers &amp; governments are
-                  spending hundreds of billions each year on buying and
-                  maintaining IoT sensors. The growth of the investment and
-                  applications in IoT is truly staggering, and yet, all data
-                  captured by these devices is locked up in silos and walled
-                  gardens.
+                  <FormattedMessage id="challenge_text" />
                 </p>
               </div>
             </div>
