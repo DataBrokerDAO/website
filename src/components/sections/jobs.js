@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { FormattedMessage } from 'react-intl';
 
 class JobsSection extends PureComponent {
   render() {
@@ -8,17 +9,17 @@ class JobsSection extends PureComponent {
           <div className="container">
             <div className="row">
               <div className="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 text-center">
-                <h2 style={{ marginBottom: '5px' }}>Jobs</h2>
+                <h2 style={{ marginBottom: '5px' }}>
+                  <FormattedMessage id="jobs_title" />
+                </h2>
                 <p
                   className="type--uppercase type--bold"
                   style={{ marginBottom: '5px' }}
                 >
-                  DataBroker DAO is growing
+                  <FormattedMessage id="jobs_subtitle" />
                 </p>
                 <p style={{ marginBottom: '20px' }}>
-                  And you can be part of its decentralised future. We are
-                  looking for motivated and experienced team members that can
-                  think outside of the box.
+                  <FormattedMessage id="jobs_intro" />
                 </p>
               </div>
             </div>
@@ -246,32 +247,24 @@ class JobsSection extends PureComponent {
                                 As a Business developer at DataBroker DAO, you
                                 are great at:
                               </b>
-                              <li>
-                                {' '}
-                                Building an understanding of client needs
-                              </li>
+                              <li>Building an understanding of client needs</li>
                               <li> Guiding workshops with clients</li>
                               <li>
-                                {' '}
                                 Analyzing processes to identify improvement
                                 opportunities
                               </li>
                               <li>
-                                {' '}
                                 Mapping processes and solution architecture
                               </li>
                               <li>
-                                {' '}
                                 Translating needs into functional requirements
                                 and user stories
                               </li>
                               <li>
-                                {' '}
                                 Organizing yourself effectively so you can work
                                 quickly under pressure to meet deadlines
                               </li>
                               <li>
-                                {' '}
                                 Rolling up your sleeves to do what it takes in
                                 the team to get the job done
                               </li>
@@ -297,11 +290,9 @@ class JobsSection extends PureComponent {
                             <p>
                               <b>Skills</b>
                               <li>
-                                {' '}
                                 Software development project management skills
                               </li>
                               <li>
-                                {' '}
                                 Client facing experience as a consultant,
                                 analyst or in a sales role
                               </li>
@@ -309,7 +300,6 @@ class JobsSection extends PureComponent {
                                 75 Proven track record of successful delivery
                               </li>
                               <li>
-                                {' '}
                                 Strong communication skills both in spoken and
                                 written forms
                               </li>
@@ -318,45 +308,34 @@ class JobsSection extends PureComponent {
                             <p>
                               <b>Responsibilities</b>
                               <li>
-                                {' '}
                                 Planning and defining scope for engagements
                               </li>
                               <li>
-                                {' '}
                                 Creating delivery timelines including resource,
                                 cost and time estimates
                               </li>
                               <li>
-                                {' '}
-                                Monitoring and reporting on progress vs. plan{' '}
+                                Monitoring and reporting on progress vs. plan
                               </li>
+                              <li>Joining client sales meetings and events</li>
                               <li>
-                                {' '}
-                                Joining client sales meetings and events{' '}
-                              </li>
-                              <li>
-                                {' '}
                                 Scalability, Interoperability and Portability
-                                Analysis{' '}
+                                Analysis
                               </li>
                               <li> Learning, growing and developing </li>
                             </p>
                             <p>
                               <b>Our offer</b>
                               <li>
-                                {' '}
                                 A beautiful working spot in our Leuven offices
                               </li>
                               <li>
-                                {' '}
                                 A salary and benefits competitive in the market
                               </li>
                               <li>
-                                {' '}
                                 A lot of autonomy and a flexible way of working
                               </li>
                               <li>
-                                {' '}
                                 An international team where you can make your
                                 mark
                               </li>
@@ -376,22 +355,19 @@ class JobsSection extends PureComponent {
             <div className="row">
               <div className="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                 <div className="cta">
-                  <h2>We're always looking for talent</h2>
+                  <h2>
+                    <FormattedMessage id="jobs_title_two" />
+                  </h2>
                   <p>
-                    Got what it takes to work with us? Great! Send us a link to
-                    your resumé or portfolio to become part of our talent pool.
-                    We always have limited intern positions throughout the year,
-                    connect with us via
-                    <a href="mailto:hello@databrokerdao.com">
-                      hello@databrokerdao.com
-                    </a>{' '}
-                    to see what's possible.
+                    <FormattedMessage id="jobs_text_two" />
                   </p>
                   <a
                     className="btn btn--primary type--uppercase"
                     href="mailto:hello@databrokerdao.com"
                   >
-                    <span className="btn__text">Drop your resumé here</span>
+                    <span className="btn__text">
+                      <FormattedMessage id="jobs_button" />
+                    </span>
                   </a>
                 </div>
               </div>

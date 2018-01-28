@@ -360,7 +360,15 @@
 
     // React has to load before we can attach the handler.
     setTimeout(() => {
-      document.getElementById("open-popup").onclick = function () { showMailingPopUp() };
+      if (document.getElementById("open-popup")) {
+        document.getElementById("open-popup").onclick = function () { showMailingPopUp() };
+      } else {
+        setTimeout(() => {
+          if (document.getElementById("open-popup")) {
+            document.getElementById("open-popup").onclick = function () { showMailingPopUp() };
+          }
+        }, 2000)
+      }
     }, 2000)
   </script>
   <!-- END MAILCHIMP -->

@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { FormattedMessage } from 'react-intl';
 
 class Footer extends PureComponent {
   render() {
@@ -17,36 +18,39 @@ class Footer extends PureComponent {
               <ul className="list-inline list--hover">
                 <li>
                   <a href="#databroker">
-                    <span>What is DataBroker DAO?</span>
+                    <FormattedMessage id="footer_whatis" />
                   </a>
                 </li>
-
                 <li>
                   <a
                     href="/whitepaper/WHITEPAPER_DataBrokerDAO_ENG.pdf"
                     target="_blank"
                   >
-                    <span>Whitepaper</span>
+                    <FormattedMessage id="footer_whitepaper" />
                   </a>
                 </li>
                 <li>
                   <a href="#alliance">
-                    <span>Alliance</span>
+                    <FormattedMessage id="footer_alliance" />
                   </a>
                 </li>
                 <li>
                   <a href="#team">
-                    <span>Team</span>
+                    <FormattedMessage id="footer_team" />
                   </a>
                 </li>
                 <li>
                   <a href="#jobs">
-                    <span>Jobs</span>
+                    <FormattedMessage id="footer_jobs" />
                   </a>
                 </li>
                 <li>
-                  <a href="https://medium.com/DataBrokerDAO" target="_blank">
-                    Updates
+                  <a
+                    href="https://medium.com/DataBrokerDAO"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FormattedMessage id="footer_updates" />
                   </a>
                 </li>
               </ul>
@@ -59,7 +63,8 @@ class Footer extends PureComponent {
                       <i
                         className="fa fa-download mr--3"
                         style={{ marginRight: '5px' }}
-                      />Press Kit
+                      />
+                      <FormattedMessage id="footer_presskit" />
                     </span>
                   </a>
                 </li>
@@ -68,13 +73,19 @@ class Footer extends PureComponent {
                 href="mailto:hello@databrokerdao.com"
                 className="btn type--uppercase"
               >
-                <span className="btn__text">Contact Us</span>
+                <span className="btn__text">
+                  <FormattedMessage id="footer_contactus" />
+                </span>
               </a>
             </div>
           </div>
           <div className="row">
             <div className="col-sm-6">
-              <img alt="Image" className="logo" src="./img/white-logo.svg" />
+              <img
+                alt="DataBrokerDAO"
+                className="logo"
+                src="./img/white-logo.svg"
+              />
             </div>
             <div className="col-sm-6 text-right text-center-xs">
               <span className="type--fine-print">
