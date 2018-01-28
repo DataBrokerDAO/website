@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { FormattedMessage } from 'react-intl';
 
 class BenefitsSection extends PureComponent {
   render() {
@@ -7,9 +8,13 @@ class BenefitsSection extends PureComponent {
         <div className="container">
           <div className="row">
             <div className="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-              <span className="type--uppercase type--bold">The benefits</span>
+              <span className="type--uppercase type--bold">
+                <FormattedMessage id="benefits_title" />
+              </span>
               <div className="typed-headline text-left">
-                <span className="h2 inline-block">You can</span>
+                <span className="h2 inline-block">
+                  <FormattedMessage id="benefits_pretitle" />
+                </span>
                 <span
                   className="h2 inline-block typed-text typed-text--cursor color--primary"
                   data-typed-strings="monetize your data, recoup sensor costs, gain access to thousands of sensors, turn expenses into investments"
@@ -21,11 +26,11 @@ class BenefitsSection extends PureComponent {
             <div className="col-sm-4">
               <div className="feature feature-3 boxed boxed--lg boxed--border">
                 <i className="fa fa-podcast fa-5x color--primary" />
-                <h4 className="color--primary">Sensor owners</h4>
+                <h4 className="color--primary">
+                  <FormattedMessage id="benefits_sensor_title" />
+                </h4>
                 <p>
-                  Are able to monetize their data and turn a sunk cost into a
-                  potential money maker and at least the opportunity to recoup
-                  some of their investments in IoT sensors.
+                  <FormattedMessage id="benefits_sensor_text" />
                 </p>
               </div>
             </div>

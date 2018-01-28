@@ -8,6 +8,12 @@
     "On the buyer side of things we find the SENTHUS consortium from our homeland Belgium. The SENTHUS consortium is, supported by the Brussels regions minister of economy, working to make the capital city of Brussels (both of the country and of the entire European Union) a smarter city.",
   "alliance_yuktix":
     "YUKTIX is an IoT sensor manufacturer, based in Bangalore, India. The company creates next generation information systems for agriculture and environmental Monitoring. YUKTIX solutions can be used by farmers, growers, cooperatives and contractors or in Smart Cities to drive best practices, conserve resources and improve operation efficiency. YUKTIX provides a complete end-to-end solution. Meaning, just turn “ON” the sensor nodes and collect data on the YUKTIX SensorDB. Data distribution is also made possible via webhooks and REST API’s.\n\nWhich is how they tie in to the DataBroker DAO marketplace, offering their customers an easy path to recoup some or even all of the costs of their purchases.",
+  "alliance_join": "join the alliance",
+  "benefits_title": "The benefits",
+  "benefits_pretitle": "You can",
+  "benefits_sensor_title": "Sensor owners",
+  "benefits_sensor_text":
+    "Are able to monetize their data and turn a sunk cost into a potential money maker and at least the opportunity to recoup some of their investments in IoT sensors.",
   "video_title": "Databroker DAO in 30 seconds",
   "video_lead":
     "Today companies make use of sensor data to optimize and monitor their operations. The result is a single purpose data landscape. DataBroker DAO drives the evolution towards truly ‘smart living’ by making this data easily accessible to cities, organizations and entrepreneurs at an affordable price. Check out our video to learn more."
