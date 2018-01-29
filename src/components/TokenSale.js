@@ -264,10 +264,11 @@ class TokenSale extends Component {
     <hr />*/}
         <div className="modal-instance">
           <a
+          id="preregister_button"
             className="btn btn-lg type--uppercase btn--primary modal-trigger"
             style={{ fontSize: '18pt', fontWeight: 'bold' }}
           >
-            <FormattedMessage id="sale_button" />
+              <FormattedMessage id="sale_button" />
           </a>
           <div style={{ marginTop: '15px' }}>
             {/*<a

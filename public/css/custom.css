@@ -567,3 +567,7 @@ nav span.dropdown__trigger:hover {
 .force-black span {
   color: black !important;
 }
+
+#preregister_button span {
+  color: white !important;
+}
