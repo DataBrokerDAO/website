@@ -44,6 +44,8 @@ import deTranslations from '../i18n/de.json';
 import frTranslations from '../i18n/fr.json';
 import zhTranslations from '../i18n/zh.json';
 import { setTimeout } from 'timers';
+import TokenSaleSection from '../components/sections/tokensale';
+import RoadmapSection from '../components/sections/roadmap';
 
 const languages = {
   en: 'English',
@@ -918,6 +920,7 @@ class TokenSale extends Component {
               </div>
             </section>
             <VideoSection />
+            <TokenSaleSection />
             <ChallengeSection />
             <CTASection />
             <SolutionSection />
@@ -925,6 +928,8 @@ class TokenSale extends Component {
             <BenefitsSection />
             <CTASection />
             <AllianceSection />
+            <CTASection />
+            <RoadmapSection />
             <CTASection />
             <EventsSection />
             <CTASection />

@@ -491,56 +491,6 @@ class TeamSection extends PureComponent {
                       </div>
                     </div>
                   </div>
-                  <div className="col-xs-6 col-sm-3 masonry__item modal-instance">
-                    <div className="card card-2 text-center">
-                      <div className="card__top modal-trigger">
-                        <img
-                          alt="Ricardo"
-                          src="./img/Ricardo.jpg"
-                          style={{ filter: 'grayscale(100%)' }}
-                        />
-                      </div>
-                      <div className="card__body modal-trigger">
-                        <h4 className="color--primary">Ricardo Pires</h4>
-                        <span className="type--fade">Content Creator</span>
-                      </div>
-                      <div className="card__bottom text-center">
-                        <div className="card__action">
-                          <a
-                            href="https://www.linkedin.com/in/ricardo-pires-3b062659/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <i className="color--primary fa fa-linkedin fa-2x" />
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="modal-container">
-                      <div className="modal-content">
-                        <div className="boxed card card-1">
-                          <div className="card__body">
-                            <h4 className="color--primary">Ricardo Pires</h4>
-                            <span className="type--fade">Content Creator</span>
-                          </div>
-                          <div className="card__bottom">
-                            <p>
-                              Ricardo Pires has more than 15 years media and
-                              communication experience, first working as a
-                              journalist in Brazil, then in India, and finally
-                              for 10 years with the United Nations as a
-                              Communication Specialist in humanitarian efforts,
-                              crisis communication, and development. His work
-                              included stints in South Sudan, Peru, Ghana,
-                              Nigeria, Zambia, Central African Republic,
-                              Switzerland, Italy and Kenya.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
