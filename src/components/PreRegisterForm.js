@@ -5,6 +5,7 @@ import database from '../utils/firebase';
 import ShortUniqueId from 'short-unique-id';
 import axios from 'axios';
 import moment from 'moment';
+import { FormattedMessage, injectIntl } from 'react-intl';
 
 class PreRegisterForm extends Component {
   constructor(props) {

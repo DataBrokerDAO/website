@@ -1,9 +1,9 @@
 {
-  "alliance_title": "DataBroker DAO Birliği",
+  "alliance_title": "The DataBroker DAO Alliance",
   "alliance_intro":
-    "DataBroker DAO gibi bir platform ve işletmenin kurulması , gerçek IoT sensör verisi ve alıcıları gerektirir. Son bir kaç aydır bu kişileri birliğe sokmak için çok çalıştık. Bir kaç aç önce, DataBroker DAO birliğinin ilk iki resmi üyesi olan YUKTIX ve SENTHUS'u açıklamıştık. Bugün, DESIDEDATUM, IQUADRAT, SKYLARK ve TECHNILOG'un katılımını açıklamaktan gurur duyuyoruz.",
+    "Building a platform and business like DataBroker DAO requires real sellers and buyers of IoT sensor data. Over the past couple of months we have been hard at work integrating these parties into an alliance. A few months ago, we already announced the first two official members of this DataBroker DAO alliance, YUKTIX and SENTHUS. Today we are proud to announce DESIDEDATUM, IQUADRAT, SKYLARK and TECHNILOG have joined.",
   "alliance_quote":
-    "Yuktix CEO’su Rajeev Jha \"SettleMint ile yollarımızın kesişmesinde ve DataBroker DAO üzerinde blockchain teknolojisinde bir araya gelmekten mutluluk duyuyoruz. Entegrasyon, teknik harikalıktan dolayı sorunsuz ve başarılıydı. Yol haritamızdaki bir sonraki adımda, portföyümüze DataBroker DATO “verimi sat” seçeneğini eklemeyi düşünüyoruz. Bunun, hem sensör sahipleri, veri tüketicileri için hem de satıcılar için yeni bir parasallaştırma fırsatı olduğunun farkındayız.” demiştir",
+    "\"We are happy to cross paths with SettleMint and to engage with blockchain technology over DataBroker DAO. The integration was smooth and successful due to technical excellence. In a next step on our roadmap we intend to include a DataBrokerDAO “sell my data” option into our portfolio, as we realise this is a new monetisation opportunity for both sensor owners, data consumers and vendors\", said mr. Rajeev Jha - CEO of Yuktix",
   "alliance_senthus":
     "On the buyer side of things we find the SENTHUS consortium from our homeland Belgium. The SENTHUS consortium is, supported by the Brussels regions minister of economy, working to make the capital city of Brussels (both of the country and of the entire European Union) a smarter city.",
   "alliance_yuktix":
@@ -14,6 +14,8 @@
   "benefits_sensor_title": "Sensor owners",
   "benefits_sensor_text":
     "Are able to monetize their data and turn a sunk cost into a potential money maker and at least the opportunity to recoup some of their investments in IoT sensors.",
+  "benefits_ticker":
+    "monetize your data, recoup sensor costs, gain access to thousands of sensors, turn expenses into investments",
   "benefits_network_title": "Network operators",
   "benefits_network_text":
     "Gain scale and speed in the adoption of their network as connected telcos can present a win-back to their enterprise accounts, a clear USP.",
@@ -73,5 +75,51 @@
   "team_title_two": "Advisors",
   "team_title_three": "Partners",
   "video_lead":
-    "Today companies make use of sensor data to optimize and monitor their operations. The result is a single purpose data landscape. DataBroker DAO drives the evolution towards truly ‘smart living’ by making this data easily accessible to cities, organizations and entrepreneurs at an affordable price. Check out our video to learn more."
+    "Today companies make use of sensor data to optimize and monitor their operations. The result is a single purpose data landscape. DataBroker DAO drives the evolution towards truly ‘smart living’ by making this data easily accessible to cities, organizations and entrepreneurs at an affordable price. Check out our video to learn more.",
+  "splash_globalmarket": "Global market",
+  "splash_forlocaldata": "for local data",
+  "splash_boldintro":
+    "DataBroker DAO is the first marketplace to sell & buy sensor data.",
+  "splash_intro":
+    "As a decentralised marketplace for IoT sensor data using Blockchain technology, Databroker DAO enables sensor owners to turn generated data into revenue streams. This will open up a wealth of opportunities for various industries. Data will be used and become more effective.",
+  "splash_videolink": "DataBroker DAO in 30 seconds",
+  "splash_readwhitepaper": "Read the whitepaper",
+  "splash_readonepaper": "Read the onepager",
+  "navigation_whitepaper": "Whitepaper",
+  "navigation_alliance": "Alliance",
+  "navigation_team": "Team",
+  "navigation_updates": "Updates",
+  "navigation_beta": "Try it!",
+  "sale_title": "Token sale",
+  "sale_intro":
+    "Want to be the first to be informed about the main token sale? Do not hesitate and preregister now!",
+  "sale_button": "Preregister now",
+  "sale_alternate_button": "Just want to stay informed? Subscribe.",
+  "form_title": "Preregister for the main token sale",
+  "form_firstname": "Your first name",
+  "form_lastname": "Your last name",
+  "form_email": "Your email address",
+  "form_address": "Your address",
+  "form_zipcode": "Your zipcode",
+  "form_city": "Your city",
+  "form_state": "Your state",
+  "form_country": "Your country",
+  "form_ethereumaddress": "The Ethereum address that will send the transaction",
+  "form_estimatedcontribution": "Estimated contribution in ETH",
+  "form_button": "Submit KYC information",
+  "form_doctype": "Document type",
+  "form_doccountry": "Issuing country",
+  "form_scan": "Scan: (JPG or PNG format, maximum 5MB)",
+  "form_docbutton": "Submit additional information",
+  "form_checking": "Checking...",
+  "form_checking_two": "Wait while your document is being verified...",
+  "form_success_title": "You've been preregistered!",
+  "form_success_upcoming_thanks":
+    "Thank you for preregistering for the main token sale, once the token sale starts you will be the first to know. We will send you an email with all the necessary information.",
+  "form_success_exchangewarning":
+    "Do not send Ether from an exchange, you will lose your tokens and funds!",
+  "form_success_ethaddress": "Ethereum token sale address",
+  "form_success_gas": "Minimum Gas amount",
+  "form_success_btc": "Your personal Bitcoin sale address",
+  "form_success_referral_title": "Earn 5% via your referral link!"
 }

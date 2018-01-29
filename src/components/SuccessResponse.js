@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { FormattedMessage, injectIntl } from 'react-intl';
 
 class SuccessResponse extends Component {
   render() {
@@ -12,20 +13,20 @@ class SuccessResponse extends Component {
     });
     return (
       <div>
-        <h2>You've been preregistered! </h2>
+        <h2>
+          <FormattedMessage id="form_success_title" />
+        </h2>
         <hr className="short" />
         {!upcoming && (
           <div style={{ fontWeight: 'bold' }}>
-            <i className="fa fa-exclamation-triangle" aria-hidden="true" /> Do
-            not send Ether from an exchange, you will lose your tokens and
-            funds!<br />
+            <i className="fa fa-exclamation-triangle" aria-hidden="true" />{' '}
+            <FormattedMessage id="form_success_exchangewarning" />
+            <br />
           </div>
         )}
         {upcoming ? (
           <p className="lead">
-            Thank you for preregistering for the main token sale, once the token
-            sale starts you will be the first to know. We will send you an email
-            with all the necessary information.
+            <FormattedMessage id="form_success_upcoming_thanks" />
           </p>
         ) : (
           // <div className="form-group" style={{ marginTop: '1em' }}>
@@ -40,9 +41,12 @@ class SuccessResponse extends Component {
           //     readOnly
           //   />
           // </div>
+
           <div>
             <div className="form-group" style={{ marginTop: '1em' }}>
-              <label className="type--uppercase ">Token sale address</label>
+              <label className="type--uppercase ">
+                <FormattedMessage id="form_success_ethaddress" />
+              </label>
               <input
                 className="text-center"
                 type="text"
@@ -52,7 +56,9 @@ class SuccessResponse extends Component {
               />
             </div>
             <div className="form-group">
-              <label className="type--uppercase ">Gas</label>
+              <label className="type--uppercase ">
+                <FormattedMessage id="form_success_gas" />
+              </label>
               <input
                 className="text-center"
                 type="text"
@@ -61,12 +67,15 @@ class SuccessResponse extends Component {
                 readOnly
               />
             </div>
-            <div className="form-group">
-              <label className="type--uppercase ">Maximum Gas Price</label>
+            <hr />
+            <div className="form-group" style={{ marginTop: '1em' }}>
+              <label className="type--uppercase ">
+                <FormattedMessage id="form_success_btc" />
+              </label>
               <input
                 className="text-center"
                 type="text"
-                value="50 Gwei"
+                value={`${address}`}
                 style={{ fontSize: '16px' }}
                 readOnly
               />
@@ -90,7 +99,9 @@ class SuccessResponse extends Component {
       </a>*/}
         <hr className="short" />
         <div className="modal_channels">
-          <h3>Earn 5% via your referral link!</h3>
+          <h3>
+            <FormattedMessage id="form_success_referral_title" />
+          </h3>
           <input
             className="text-center"
             type="text"
@@ -131,4 +142,4 @@ class SuccessResponse extends Component {
   }
 }
 
-export default SuccessResponse;
+export default injectIntl(SuccessResponse);

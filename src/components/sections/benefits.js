@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, injectIntl } from 'react-intl';
 
 class BenefitsSection extends PureComponent {
   render() {
@@ -17,7 +17,9 @@ class BenefitsSection extends PureComponent {
                 </span>
                 <span
                   className="h2 inline-block typed-text typed-text--cursor color--primary"
-                  data-typed-strings="monetize your data, recoup sensor costs, gain access to thousands of sensors, turn expenses into investments"
+                  data-typed-strings={this.props.intl.formatMessage({
+                    id: 'benefits_ticker'
+                  })}
                 />
               </div>
             </div>
@@ -99,4 +101,4 @@ class BenefitsSection extends PureComponent {
   }
 }
 
-export default BenefitsSection;
+export default injectIntl(BenefitsSection);

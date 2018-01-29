@@ -14,6 +14,8 @@
   "benefits_sensor_title": "Sensor owners",
   "benefits_sensor_text":
     "Are able to monetize their data and turn a sunk cost into a potential money maker and at least the opportunity to recoup some of their investments in IoT sensors.",
+  "benefits_ticker":
+    "monetize your data, recoup sensor costs, gain access to thousands of sensors, turn expenses into investments",
   "benefits_network_title": "Network operators",
   "benefits_network_text":
     "Gain scale and speed in the adoption of their network as connected telcos can present a win-back to their enterprise accounts, a clear USP.",
@@ -73,5 +75,51 @@
   "team_title_two": "Advisors",
   "team_title_three": "Partners",
   "video_lead":
-    "Today companies make use of sensor data to optimize and monitor their operations. The result is a single purpose data landscape. DataBroker DAO drives the evolution towards truly ‘smart living’ by making this data easily accessible to cities, organizations and entrepreneurs at an affordable price. Check out our video to learn more."
+    "Today companies make use of sensor data to optimize and monitor their operations. The result is a single purpose data landscape. DataBroker DAO drives the evolution towards truly ‘smart living’ by making this data easily accessible to cities, organizations and entrepreneurs at an affordable price. Check out our video to learn more.",
+  "splash_globalmarket": "Global market",
+  "splash_forlocaldata": "for local data",
+  "splash_boldintro":
+    "DataBroker DAO is the first marketplace to sell & buy sensor data.",
+  "splash_intro":
+    "As a decentralised marketplace for IoT sensor data using Blockchain technology, Databroker DAO enables sensor owners to turn generated data into revenue streams. This will open up a wealth of opportunities for various industries. Data will be used and become more effective.",
+  "splash_videolink": "DataBroker DAO in 30 seconds",
+  "splash_readwhitepaper": "Read the whitepaper",
+  "splash_readonepaper": "Read the onepager",
+  "navigation_whitepaper": "Whitepaper",
+  "navigation_alliance": "Alliance",
+  "navigation_team": "Team",
+  "navigation_updates": "Updates",
+  "navigation_beta": "Try it!",
+  "sale_title": "Token sale",
+  "sale_intro":
+    "Want to be the first to be informed about the main token sale? Do not hesitate and preregister now!",
+  "sale_button": "Preregister now",
+  "sale_alternate_button": "Just want to stay informed? Subscribe.",
+  "form_title": "Preregister for the main token sale",
+  "form_firstname": "Your first name",
+  "form_lastname": "Your last name",
+  "form_email": "Your email address",
+  "form_address": "Your address",
+  "form_zipcode": "Your zipcode",
+  "form_city": "Your city",
+  "form_state": "Your state",
+  "form_country": "Your country",
+  "form_ethereumaddress": "The Ethereum address that will send the transaction",
+  "form_estimatedcontribution": "Estimated contribution in ETH",
+  "form_button": "Submit KYC information",
+  "form_doctype": "Document type",
+  "form_doccountry": "Issuing country",
+  "form_scan": "Scan: (JPG or PNG format, maximum 5MB)",
+  "form_docbutton": "Submit additional information",
+  "form_checking": "Checking...",
+  "form_checking_two": "Wait while your document is being verified...",
+  "form_success_title": "You've been preregistered!",
+  "form_success_upcoming_thanks":
+    "Thank you for preregistering for the main token sale, once the token sale starts you will be the first to know. We will send you an email with all the necessary information.",
+  "form_success_exchangewarning":
+    "Do not send Ether from an exchange, you will lose your tokens and funds!",
+  "form_success_ethaddress": "Ethereum token sale address",
+  "form_success_gas": "Minimum Gas amount",
+  "form_success_btc": "Your personal Bitcoin sale address",
+  "form_success_referral_title": "Earn 5% via your referral link!"
 }

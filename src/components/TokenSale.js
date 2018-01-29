@@ -18,7 +18,7 @@ import EventsSection from './sections/events';
 import AllianceSection from './sections/alliance';
 import BenefitsSection from './sections/benefits';
 import BetaSection from './sections/beta';
-import { IntlProvider, addLocaleData } from 'react-intl';
+import { IntlProvider, addLocaleData, FormattedMessage } from 'react-intl';
 import en from 'react-intl/locale-data/en';
 import ar from 'react-intl/locale-data/ar';
 import tr from 'react-intl/locale-data/tr';
@@ -240,7 +240,7 @@ class TokenSale extends Component {
     return (
       <div>
         <h2 className="sale-date" style={{ fontWeight: 'bold' }}>
-          Token sale
+          <FormattedMessage id="sale_title" />
         </h2>
         {/*<p className="sale-date unmarg--bottom">
           The date of the main token sale will be announced shortly.
@@ -250,8 +250,7 @@ class TokenSale extends Component {
         <p
           style={{ textAlign: 'center', fontSize: '15pt', lineHeight: '22pt' }}
         >
-          Want to be the first to be informed about the main token sale? Do not
-          hesitate and preregister now!
+          <FormattedMessage id="sale_intro" />
         </p>
         <hr style={{ border: 0 }} />
 
@@ -266,7 +265,7 @@ class TokenSale extends Component {
             className="btn btn-lg type--uppercase btn--primary modal-trigger"
             style={{ fontSize: '18pt', fontWeight: 'bold' }}
           >
-            Preregister now
+            <FormattedMessage id="sale_button" />
           </a>
           <div style={{ marginTop: '15px' }}>
             {/*<a
@@ -288,7 +287,7 @@ class TokenSale extends Component {
               id="open-popup"
               style={{ textDecoration: 'underline', cursor: 'pointer' }}
             >
-              Just want to stay informed? Subscribe.
+              <FormattedMessage id="sale_alternate_button" />
             </p>
           </div>
           <div className="modal-container">
@@ -563,18 +562,22 @@ class TokenSale extends Component {
                       <ul className="menu-horizontal text-left">
                         <li>
                           <a
-                            href="/whitepaper/WHITEPAPER_DataBrokerDAO_ENG.pdf"
+                            href={`/whitepaper/WHITEPAPER_DataBrokerDAO_${language}.pdf`}
                             target="_blank"
                             rel="noopener noreferrer"
                           >
-                            Whitepaper
+                            <FormattedMessage id="navigation_whitepaper" />
                           </a>
                         </li>
                         <li>
-                          <a href="#alliance">Alliance</a>
+                          <a href="#alliance">
+                            <FormattedMessage id="navigation_alliance" />
+                          </a>
                         </li>
                         <li>
-                          <a href="#team">Team</a>
+                          <a href="#team">
+                            <FormattedMessage id="navigation_team" />
+                          </a>
                         </li>
                         <li>
                           <a
@@ -582,7 +585,7 @@ class TokenSale extends Component {
                             target="_blank"
                             rel="noopener noreferrer"
                           >
-                            Updates
+                            <FormattedMessage id="navigation_updates" />
                           </a>
                         </li>
                       </ul>
@@ -697,7 +700,7 @@ class TokenSale extends Component {
                         rel="noopener noreferrer"
                       >
                         <span className="btn__text" style={{ color: '#333' }}>
-                          Try our Marketplace
+                          <FormattedMessage id="navigation_beta" />
                         </span>
                       </a>
                     </div>
@@ -719,8 +722,8 @@ class TokenSale extends Component {
                   <div className="col-md-5 col-sm-5 col-xs-12">
                     <div className="header-intro">
                       <h1 style={{ lineHeight: '40pt' }}>
-                        Global market
-                        <br /> for local data
+                        <FormattedMessage id="splash_globalmarket" />
+                        <br /> <FormattedMessage id="splash_forlocaldata" />
                       </h1>
                       <p
                         style={{
@@ -730,14 +733,9 @@ class TokenSale extends Component {
                         }}
                       >
                         <b style={{ fontWeight: 'bold' }}>
-                          DataBroker DAO is the first marketplace to sell &amp;
-                          buy sensor data.
+                          <FormattedMessage id="splash_boldintro" />
                         </b>{' '}
-                        As a decentralised marketplace for IoT sensor data using
-                        Blockchain technology, Databroker DAO enables sensor
-                        owners to turn generated data into revenue streams. This
-                        will open up a wealth of opportunities for various
-                        industries. Data will be used and become more effective.
+                        <FormattedMessage id="splash_intro" />
                       </p>
                       <div className="modal-instance header-video block">
                         <div
@@ -745,7 +743,9 @@ class TokenSale extends Component {
                           data-modal-index="0"
                         />
                         <span>
-                          <strong>DataBroker DAO in 30 seconds</strong>
+                          <strong>
+                            <FormattedMessage id="splash_videolink" />
+                          </strong>
                         </span>
                         <div className="modal-container">
                           <div
@@ -770,16 +770,22 @@ class TokenSale extends Component {
                         }}
                       >
                         <a
-                          href="/whitepaper/WHITEPAPER_DataBrokerDAO_ENG.pdf"
-                          className="btn btn-lg btn--secondary"
+                          href={`/whitepaper/WHITEPAPER_DataBrokerDAO_${language}.pdf`}
+                          className="btn btn-lg btn--secondary force-black"
+                          target="_blank"
                           style={{
                             width: '100%',
                             color: 'black',
                             fontWeight: 'bold'
                           }}
-                          target="_blank"
                         >
-                          Read the whitepaper
+                          <FormattedMessage
+                            id="splash_readwhitepaper"
+                            style={{
+                              color: 'black',
+                              fontWeight: 'bold'
+                            }}
+                          />
                         </a>
                       </div>
                       <div
@@ -791,16 +797,22 @@ class TokenSale extends Component {
                         }}
                       >
                         <a
-                          href="/whitepaper/flyer.pdf"
-                          className="btn btn-lg btn--secondary"
+                          href={`/whitepaper/ONEPAGER_DataBrokerDAO_${language}.pdf`}
+                          className="btn btn-lg btn--secondary force-black"
+                          target="_blank"
                           style={{
                             width: '100%',
                             color: 'black',
                             fontWeight: 'bold'
                           }}
-                          target="_blank"
                         >
-                          Read the onepager
+                          <FormattedMessage
+                            id="splash_readonepaper"
+                            style={{
+                              color: 'black',
+                              fontWeight: 'bold'
+                            }}
+                          />
                         </a>
                       </div>
                     </div>

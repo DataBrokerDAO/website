@@ -6,6 +6,7 @@ import SuccessResponse from './SuccessResponse';
 import ErrorResponse from './ErrorResponse';
 import DocumentResponse from './DocumentResponse';
 // import { IntercomAPI } from 'react-intercom';
+import { FormattedMessage, injectIntl } from 'react-intl';
 
 class RegisterForm extends Component {
   constructor(props) {
@@ -384,7 +385,9 @@ class RegisterForm extends Component {
       <div>
         {!formSubmitted && (
           <div>
-            <h2>Preregister for the main token sale</h2>
+            <h2>
+              <FormattedMessage id="form_title" />
+            </h2>
             <hr className="short" />
             {/*<div>
               <a
@@ -413,7 +416,9 @@ class RegisterForm extends Component {
                   component={this._renderTextField}
                   name="firstName"
                   required
-                  label="Your first name"
+                  label={this.props.intl.formatMessage({
+                    id: 'form_firstname'
+                  })}
                   type="text"
                   placeholder="Satoshi"
                   className="validate-required"
@@ -424,7 +429,9 @@ class RegisterForm extends Component {
                   component={this._renderTextField}
                   name="lastName"
                   required
-                  label="Your last name"
+                  label={this.props.intl.formatMessage({
+                    id: 'form_lastname'
+                  })}
                   type="text"
                   placeholder="Nakamoto"
                   className="validate-required"
@@ -435,7 +442,9 @@ class RegisterForm extends Component {
                   component={this._renderTextField}
                   name="email"
                   required
-                  label="Your email address"
+                  label={this.props.intl.formatMessage({
+                    id: 'form_email'
+                  })}
                   type="email"
                   placeholder="satoshi@nakamoto.com"
                   className="validate-required"
@@ -446,7 +455,9 @@ class RegisterForm extends Component {
                   component={this._renderTextField}
                   name="addressLine1"
                   required
-                  label="Your address"
+                  label={this.props.intl.formatMessage({
+                    id: 'form_address'
+                  })}
                   type="text"
                   className="validate-required"
                 />
@@ -456,7 +467,9 @@ class RegisterForm extends Component {
                   component={this._renderTextField}
                   name="zipcode"
                   required
-                  label="Your zipcode"
+                  label={this.props.intl.formatMessage({
+                    id: 'form_address'
+                  })}
                   type="text"
                   className="validate-required"
                 />
@@ -466,7 +479,9 @@ class RegisterForm extends Component {
                   component={this._renderTextField}
                   name="city"
                   required
-                  label="Your city"
+                  label={this.props.intl.formatMessage({
+                    id: 'form_city'
+                  })}
                   type="text"
                   className="validate-required"
                 />
@@ -476,7 +491,9 @@ class RegisterForm extends Component {
                   component={this._renderTextField}
                   name="state"
                   required
-                  label="Your state"
+                  label={this.props.intl.formatMessage({
+                    id: 'form_state'
+                  })}
                   type="text"
                 />
               </div>
@@ -485,7 +502,9 @@ class RegisterForm extends Component {
                   component={this._renderSelectField}
                   name="country"
                   required
-                  label="Your country"
+                  label={this.props.intl.formatMessage({
+                    id: 'form_country'
+                  })}
                   type="text"
                   className="validate-required"
                 />
@@ -496,7 +515,9 @@ class RegisterForm extends Component {
                   component={this._renderTextField}
                   name="ethereumAddress"
                   required
-                  label="The Ethereum address that will send the transaction"
+                  label={this.props.intl.formatMessage({
+                    id: 'form_ethereumaddress'
+                  })}
                   type="text"
                   placeholder="0x52b8398551bb1d0bdc022355897508f658ad42f8"
                   className="validate-required"
@@ -507,7 +528,9 @@ class RegisterForm extends Component {
                   component={this._renderTextField}
                   name="estimatedContribution"
                   required
-                  label="Estimated contribution in ETH"
+                  label={this.props.intl.formatMessage({
+                    id: 'form_estimatedcontribution'
+                  })}
                   type="number"
                   placeholder="100"
                   className="validate-required"
@@ -540,7 +563,7 @@ class RegisterForm extends Component {
                     ga-event-category="BuyFunnel"
                     ga-event-action="StageOneSend"
                   >
-                    Preregister
+                    <FormattedMessage id="form_button" />
                   </button>
                 </div>
               </div>
@@ -592,4 +615,6 @@ const validate = values => {
   return errors;
 };
 
-export default reduxForm({ form: 'registration', validate })(RegisterForm);
+export default injectIntl(
+  reduxForm({ form: 'registration', validate })(RegisterForm)
+);

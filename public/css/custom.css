@@ -563,3 +563,7 @@ nav span.dropdown__trigger:hover {
   -o-transform: scale(1.05);
   -ms-transform: scale(1.05);
 }
+
+.force-black span {
+  color: black !important;
+}
