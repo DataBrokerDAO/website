@@ -90,8 +90,8 @@ class Footer extends PureComponent {
             <div className="col-sm-6 text-right text-center-xs">
               <span className="type--fine-print">
                 &copy;
-                <span className="update-year">2017</span> DataBrokerDAO — All
-                Rights Reserved
+                <span className="update-year">2017</span>{' '}
+                <FormattedMessage id="copyright" />
               </span>
             </div>
           </div>

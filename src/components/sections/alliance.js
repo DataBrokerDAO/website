@@ -15,7 +15,7 @@ class AllianceSection extends PureComponent {
         <div className="container">
           <div className="row">
             <div className="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-              <h2 style={{ marginBottom: '5px' }}>
+              <h2 style={{ marginBottom: '20px' }}>
                 <FormattedMessage id="alliance_title" />
               </h2>
               <p>
@@ -84,7 +84,8 @@ class AllianceSection extends PureComponent {
           </div>
           <div className="row align-center" style={{ marginTop: '50px' }}>
             <a
-              className="btn btn-lg btn--secondary"
+              id="join-alliance-btn"
+              className="btn btn-lg btn--secondary "
               href="mailto:hello@databrokerdao.com"
               style={{ display: 'block', margin: '0 auto' }}
             >

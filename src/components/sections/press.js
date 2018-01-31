@@ -264,11 +264,15 @@ class PressSection extends PureComponent {
 
           <div className="row align-center" style={{ marginTop: '50px' }}>
             <a
+            id="press-inquiries-btn"
               className="btn btn-lg btn--secondary"
               href="mailto:hello@databrokerdao.com"
               style={{ display: 'block', margin: '0 auto' }}
             >
-              <span className="btn__text type--uppercase">Press inquiries</span>
+              <FormattedMessage
+                id="press_inquiries"
+                className="btn__text type--uppercase"
+              />
             </a>
           </div>
         </div>

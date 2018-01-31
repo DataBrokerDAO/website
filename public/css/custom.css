@@ -571,3 +571,8 @@ nav span.dropdown__trigger:hover {
 #preregister_button span {
   color: white !important;
 }
+
+#join-alliance-btn span,
+#press-inquiries-btn span {
+  text-transform: uppercase;
+}
