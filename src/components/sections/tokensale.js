@@ -60,7 +60,7 @@ class TokenSaleSection extends PureComponent {
                         <td valign="top" className="force-black">
                           <FormattedMessage id="tokensale_end" />:
                         </td>
-                        <td className="type--bold">March 11th 4PM CET</td>
+                        <td className="type--bold">March 11th, 2018 4PM CET</td>
                       </tr>
                       <tr>
                         <td valign="top" className="force-black">
@@ -124,7 +124,7 @@ class TokenSaleSection extends PureComponent {
                         <td valign="top" className="force-black">
                           <FormattedMessage id="tokensale_end" />:
                         </td>
-                        <td className="type--bold">March 11th 4PM CET</td>
+                        <td className="type--bold">April 8th, 2018 4PM CET</td>
                       </tr>
                       <tr>
                         <td valign="top" className="force-black">
