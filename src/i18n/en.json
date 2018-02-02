@@ -136,13 +136,13 @@
   "roadmap_title": "Roadmap",
   "roadmap_presale": "PRESALE",
   "roadmap_presale_text":
-    "The presale phase of this token sale event starts on March 5th, 2018 at 4PM CET. During this presale a 50% token bonus applies (6000 DTX/ETH) and the minimum purchase amount during this period is 25 ETH or 2 BTC. It ends on March 11th, at 4PM CET.",
+    "The presale phase of this token sale event starts on March 5th, 2018 at 4PM CET. During this presale a 50% token bonus applies (6000 DTX/ETH) and the minimum purchase amount during this period is 25 ETH.",
   "roadmap_tokensale": "TOKEN SALE",
   "roadmap_tokensale_text":
-    "The main sale will start March 12th, 2018 at 4PM CET. The sale will run for 4 weeks with an ever decreasing bonus structure. First week, 30%, second week 20%, third week 10% and the last week at 0%. This last week, the tokens will be distributed at a rate of 4000 DTX per ETH. Week one at 5200, week two at 4800 and week three at 4400.",
+    "The main sale will start March 26th, 2018 at 4PM CET. The sale will run for 4 week. The first day a 10% bonus will be awarded.",
   "roadmap_trading": "TRADING OPENS",
   "roadmap_trading_text":
-    "The tokens will not be tradeable until 1 week after the sale ends (April 16th, 2018). At this point in time we have a commitment to list the DTX token on Chankura.com at that time and are identifying one or two more exchanges to list it on, by that time",
+    "The tokens will not be tradeable until 1 week after the sale ends (April 30th, 2018). At this point in time we have a commitment to list the DTX token on Chankura.com at that time and are identifying one or two more exchanges to list it on, by that time",
   "roadmap_mainnet": "MAINNET RELEASE",
   "roadmap_mainnet_text":
     "With the availability and the ability to trade the DTX token, the platform can move to the mainnet.",
@@ -151,5 +151,11 @@
     "One of the larger challenges for DataBroker DAO will be scaling the team fast enough to cope with market demands. Onboarding a new sales team and additional developers is a daunting task. Since September this has been an active focus and this will be the case for the years to come.",
   "roadmap_gateway": "Gateway operator integrations",
   "roadmap_gateway_text":
-    "The main road to mass adoption is integrating with gateway operators that enable the onboarding of millions of sensors in one go. The DataBroker DAO platform will be integrated with the gateways of these gateway operators. We will be working on both common standards and libraries to ease integration, and perform the initial integrations for the first operators in the DataBroker DAO Alliance."
+    "The main road to mass adoption is integrating with gateway operators that enable the onboarding of millions of sensors in one go. The DataBroker DAO platform will be integrated with the gateways of these gateway operators. We will be working on both common standards and libraries to ease integration, and perform the initial integrations for the first operators in the DataBroker DAO Alliance.",
+  "press_inquiries": "Press Inquiries",
+  "copyright": "Copyright",
+  "tokensale_referral":
+    "Before and during the token sale, a referral system is in effect. Contributions via a referral link will result in a bonus of 5% of the tokens sold via a referral link.",
+  "sale_presalestarts": "DTX PRESALE STARTS",
+  "sale_salestarts": "DTX PUBLIC SALE STARTS"
 }

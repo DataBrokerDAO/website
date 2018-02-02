@@ -13,6 +13,7 @@
     "intl": "^1.2.5",
     "moment": "^2.20.1",
     "react": "^16.2.0",
+    "react-awesome-countdowntimer": "^1.1.1",
     "react-dom": "^16.2.0",
     "react-dropzone": "^4.2.7",
     "react-intercom": "^1.0.14",

@@ -241,7 +241,10 @@ class TokenSale extends Component {
   saleUpcoming = () => {
     return (
       <div>
-        <h2 className="sale-date" style={{ fontWeight: 'bold' }}>
+        <h2
+          className="sale-date type--uppercase"
+          style={{ fontWeight: 'bold' }}
+        >
           <FormattedMessage id="sale_title" />
         </h2>
         {/*<p className="sale-date unmarg--bottom">
@@ -249,11 +252,10 @@ class TokenSale extends Component {
         </p>
     <hr />*/}
         <hr style={{ border: 0 }} />
-        <p
-          style={{ textAlign: 'center', fontSize: '15pt', lineHeight: '22pt' }}
-        >
-          <FormattedMessage id="sale_intro" />
-        </p>
+        <FormattedMessage id="sale_presalestarts" />
+        <p className="sale-date">MARCH 19TH, 2018 - 4PM CET</p>
+        <FormattedMessage id="sale_salestarts" />
+        <p className="sale-date">MARCH 26TH, 2018 - 4PM CET</p>
         <hr style={{ border: 0 }} />
 
         {/*<p className="sale-date unmarg--bottom">
@@ -264,11 +266,11 @@ class TokenSale extends Component {
     <hr />*/}
         <div className="modal-instance">
           <a
-          id="preregister_button"
+            id="preregister_button"
             className="btn btn-lg type--uppercase btn--primary modal-trigger"
             style={{ fontSize: '18pt', fontWeight: 'bold' }}
           >
-              <FormattedMessage id="sale_button" />
+            <FormattedMessage id="sale_button" />
           </a>
           <div style={{ marginTop: '15px' }}>
             {/*<a
@@ -593,7 +595,7 @@ class TokenSale extends Component {
                         </li>
                       </ul>
                     </div>
-                    <div className="bar__module" style={{ marginLeft: '5px' }}>
+                    {/* <div className="bar__module" style={{ marginLeft: '5px' }}>
                       <div className="dropdown">
                         <span className="dropdown__trigger type--uppercase">
                           {languages[language]}{' '}
@@ -694,7 +696,7 @@ class TokenSale extends Component {
                           </div>
                         </div>
                       </div>
-                    </div>
+                                  </div>*/}
                     <div className="bar__module" style={{ marginLeft: '5px' }}>
                       <a
                         className="btn btn--sm btn--secondary type--uppercase"
