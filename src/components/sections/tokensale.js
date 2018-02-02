@@ -157,12 +157,15 @@ class TokenSaleSection extends PureComponent {
                           <FormattedMessage id="tokensale_exchanges" />:
                         </td>
                         <td className="type--bold">
+                          -{' '}
                           <a
                             href="https://chankura.com/"
                             style={{ color: '#666' }}
                           >
                             Chankura.com
                           </a>
+                          <br />
+                          - ...
                         </td>
                       </tr>
                     </tbody>
