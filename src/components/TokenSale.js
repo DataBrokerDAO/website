@@ -289,12 +289,6 @@ class TokenSale extends Component {
             >
               How to participate in the main sale
             </a>*/}
-            <p
-              id="open-popup"
-              style={{ textDecoration: 'underline', cursor: 'pointer' }}
-            >
-              <FormattedMessage id="sale_alternate_button" />
-            </p>
           </div>
           <div className="modal-container">
             <div className="modal-content">

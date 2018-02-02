@@ -50,7 +50,7 @@ class TokenSaleSection extends PureComponent {
                         <td valign="top" className="force-black">
                           <FormattedMessage id="tokensale_minimum" />:
                         </td>
-                        <td className="type--bold">25 ETH</td>
+                        <td className="type--bold">10 ETH</td>
                       </tr>
                     </tbody>
                   </table>
