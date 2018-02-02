@@ -269,7 +269,7 @@ class TokenSale extends Component {
           <a
             id="preregister_button"
             className="btn btn-lg type--uppercase btn--primary modal-trigger"
-            style={{ fontSize: '18pt', fontWeight: 'bold' }}
+            style={{ fontSize: '18pt', fontWeight: 'bold', color: 'white' }}
           >
             <FormattedMessage id="sale_button" />
           </a>
