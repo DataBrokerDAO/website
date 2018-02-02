@@ -114,7 +114,7 @@ class TokenSaleSection extends PureComponent {
                         <td valign="top" className="force-black">
                           <FormattedMessage id="tokensale_end" />:
                         </td>
-                        <td className="type--bold">April 8th, 2018 4PM CET</td>
+                        <td className="type--bold">April 23rd, 2018 4PM CET</td>
                       </tr>
                       <tr>
                         <td valign="top" className="force-black">
