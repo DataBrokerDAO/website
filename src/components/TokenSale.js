@@ -128,12 +128,13 @@ class TokenSale extends Component {
         (navigator.languages && navigator.languages[0]) ||
         navigator.language ||
         navigator.userLanguage;
-      const languageWithoutRegionCode = language
-        .toLowerCase()
-        .split(/[_-]+/)[0];
+      let languageWithoutRegionCode = language.toLowerCase().split(/[_-]+/)[0];
       localStorage.setItem('dbdaolang', languageWithoutRegionCode);
     }
     language = localStorage.getItem('dbdaolang');
+    if (!Object.keys(languages).includes(language)) {
+      language = 'en';
+    }
     this.setMessages(language);
   }
 
