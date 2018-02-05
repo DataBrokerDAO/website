@@ -3164,20 +3164,20 @@ form[action*='list-manage.com'] .small-meta {
   }
 }
 /**! 33. Gradient BG **/
-[data-gradient-bg] {
-  position: relative;
-  background: #252525;
-}
-[data-gradient-bg] > canvas {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-}
-[data-gradient-bg] > canvas + .background-image-holder {
-  opacity: .2 !important;
-}
+/*[data-gradient-bg] {*/
+  /*position: relative;*/
+  /*background: #252525;*/
+/*}*/
+/*[data-gradient-bg] > canvas {*/
+  /*position: absolute;*/
+  /*width: 100%;*/
+  /*height: 100%;*/
+  /*top: 0;*/
+  /*left: 0;*/
+/*}*/
+/*[data-gradient-bg] > canvas + .background-image-holder {*/
+  /*opacity: .2 !important;*/
+/*}*/
 /**! 34. Bars **/
 .bar {
   padding: 1.85714286em 0;

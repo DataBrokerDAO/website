@@ -47,6 +47,8 @@ import { setTimeout } from 'timers';
 import TokenSaleSection from '../components/sections/tokensale';
 import RoadmapSection from '../components/sections/roadmap';
 
+import Granim from 'granim'
+
 const languages = {
   en: 'English',
   ar: 'عربى',
@@ -142,12 +144,50 @@ class TokenSale extends Component {
     setTimeout(() => {
       mr.documentReady(jQuery); //eslint-disable-line
     }, 250);
+
+    // let colours = '#EB274C,#7E347E,#2E3192'
+    // let pairs = []
+    // let tempPair = []
+    //
+    // const passes = /^(#[0-9|a-f|A-F]{6}){1}([ ]*,[ ]*#[0-9|a-f|A-F]{6})*$/.test(colours);
+    //
+    // if (passes === true) {
+    //   colours = colours.replace(' ', '');
+    //   colours = colours.split(',');
+    //   const count = colours.length;
+    //   // If number of colours is odd - duplicate last colour to make even array
+    //   if (count % 2 !== 0) {
+    //     colours.push(colours[count - 1]);
+    //   }
+    //   for (let i = 0; i < count / 2; i++) {
+    //     let tempPair = [];
+    //     tempPair.push(colours.shift());
+    //     tempPair.push(colours.shift());
+    //     pairs.push(tempPair);
+    //   }
+    // }
+    //
+    // this.granimInstance = new Granim({
+    //   element: '#canvas-basic',
+    //   name: 'basic-gradient',
+    //   direction: 'left-right', // 'diagonal', 'top-bottom', 'radial'
+    //   opacity: [1, 1],
+    //   isPausedWhenNotInView: true,
+    //   states : {
+    //     "default-state": {
+    //       gradients: pairs
+    //     }
+    //   }
+    // });
+
   }
 
   componentDidUpdate() {
     setTimeout(() => {
       mr.documentReady(jQuery); //eslint-disable-line
     }, 250);
+
+
   }
 
   setMessages(language) {
@@ -497,7 +537,24 @@ class TokenSale extends Component {
 
     return (
       <IntlProvider key={language} locale={language} messages={messages}>
-        <div>
+        <div
+        >
+          <div
+            style={{
+              position: 'absolute',
+              display: 'block',
+              width: '100%',
+              height: '1900%', // don't ask
+              top: 0,
+              right: 0,
+              bottom: 0,
+              left: 0,
+              background: 'linear-gradient(to right, #EB274C, #7E347E, #2E3192)',
+              zIndex: '-1',
+
+            }}
+            // id="canvas-basic"
+          />
           <div className="nav-container">
             <div
               className="bar bar--md visible-xs bar--mobile-sticky"

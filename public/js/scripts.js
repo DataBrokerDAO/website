@@ -1415,10 +1415,11 @@ mr = (function(mr, $, window, document) {
   'use strict';
 
   var documentReady = function($) {
-    $('[data-gradient-bg]').each(function(index, element) {
+    $('[data-gradient-bg-new]').each(function(index, element) {
+      console.log('creating gradient')
       var granimParent = $(this),
         granimID = 'granim-' + index + '',
-        colours = granimParent.attr('data-gradient-bg'),
+        colours = granimParent.attr('data-gradient-bg-new'),
         pairs = [],
         tempPair = [],
         count,
