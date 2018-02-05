@@ -7,6 +7,9 @@ import { Provider } from 'react-redux';
 import TokenSale from './components/TokenSale';
 // import { URL } from 'whatwg-url';
 
+// activate raven
+import './utils/raven'
+
 // ========================================================
 // Store Instantiation
 // ========================================================

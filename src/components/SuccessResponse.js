@@ -3,7 +3,7 @@ import { FormattedMessage, injectIntl } from 'react-intl';
 
 class SuccessResponse extends Component {
   render() {
-    const { address, uuid, upcoming } = this.props;
+    const { address, uuid, upcoming, btcAddress } = this.props;
     fbq('track', 'CompleteRegistration'); // eslint-disable-line
     window.ga('send', {
       hitType: 'event',
@@ -75,7 +75,7 @@ class SuccessResponse extends Component {
               <input
                 className="text-center"
                 type="text"
-                value={`${address}`}
+                value={`${btcAddress}`}
                 style={{ fontSize: '16px' }}
                 readOnly
               />

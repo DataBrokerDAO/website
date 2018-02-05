@@ -62,7 +62,8 @@ class DocumentResponse extends Component {
           address: response.data.address || false,
           extra: response.data.extra || false,
           extraId: response.data.response.mtid || false,
-          uuid: response.data.uuid || false
+          uuid: response.data.uuid || false,
+          btcAddress: response.data.response.btcReceivingAddress || 'invalid address'
         });
         this._checkDocumentStatus(response.data.response.mtid);
       })
@@ -431,6 +432,7 @@ class DocumentResponse extends Component {
       eventAction: 'Stage3',
       eventLabel: 'EarlyTokenSale'
     });
+
     return (
       <div>
         {!formSubmitted && <h2>We need some extra information</h2>}
@@ -557,7 +559,7 @@ class DocumentResponse extends Component {
         {formSubmitted &&
           !waitingForDocumentValidation &&
           address !== false && (
-            <SuccessResponse address={address} uuid={uuid} />
+            <SuccessResponse address={address} uuid={uuid} btcAddress={this.state.btcAddress} />
           )}
         {formSubmitted &&
           !waitingForDocumentValidation &&

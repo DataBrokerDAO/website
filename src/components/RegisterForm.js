@@ -65,7 +65,8 @@ class RegisterForm extends Component {
           address: response.data.address || false,
           extra: response.data.extra || false,
           extraInitialData: response.data.initialData || false,
-          uuid: response.data.uuid || false
+          uuid: response.data.uuid || false,
+          btcAddress: response.data.response.btcReceivingAddress || 'invalid address'
         });
       })
       .catch(error => {
@@ -576,6 +577,7 @@ class RegisterForm extends Component {
               address={address}
               uuid={uuid}
               upcoming={upcoming}
+              btcAddress={this.state.btcAddress}
             />
           )}
         {formSubmitted &&
