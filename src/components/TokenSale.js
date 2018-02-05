@@ -538,13 +538,14 @@ class TokenSale extends Component {
     return (
       <IntlProvider key={language} locale={language} messages={messages}>
         <div
+          style={{ position: 'relative' }}
         >
           <div
             style={{
               position: 'absolute',
               display: 'block',
               width: '100%',
-              height: '1900%', // don't ask
+              height: '100%', // don't ask
               top: 0,
               right: 0,
               bottom: 0,
