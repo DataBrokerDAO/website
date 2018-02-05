@@ -547,6 +547,7 @@ nav span.dropdown__trigger:hover {
 }
 
 .event {
+  height: 170px;
   cursor: pointer;
 
   -webkit-transition: all 0.2s ease;
@@ -561,4 +562,17 @@ nav span.dropdown__trigger:hover {
   -moz-transform: scale(1.05);
   -o-transform: scale(1.05);
   -ms-transform: scale(1.05);
+}
+
+.force-black span {
+  color: black !important;
+}
+
+#preregister_button span {
+  color: white !important;
+}
+
+#join-alliance-btn span,
+#press-inquiries-btn span {
+  text-transform: uppercase;
 }

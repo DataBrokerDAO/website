@@ -4,6 +4,63 @@ import moment from 'moment';
 import ProgressBar from './ProgressBar';
 // import PreRegisterForm from './PreRegisterForm';
 import RegisterForm from './RegisterForm';
+import WorldSVG from '../assets/world.svg';
+import VideoSection from './sections/video';
+import ChallengeSection from './sections/challenge';
+import JobsSection from './sections/jobs';
+import ChannelsSection from './sections/channels';
+import Footer from './sections/footer';
+import CTASection from './sections/cta';
+import SolutionSection from './sections/solutions';
+import TeamSection from './sections/team';
+import PressSection from './sections/press';
+import EventsSection from './sections/events';
+import AllianceSection from './sections/alliance';
+import BenefitsSection from './sections/benefits';
+import BetaSection from './sections/beta';
+import { IntlProvider, addLocaleData, FormattedMessage } from 'react-intl';
+import en from 'react-intl/locale-data/en';
+import ar from 'react-intl/locale-data/ar';
+import tr from 'react-intl/locale-data/tr';
+import es from 'react-intl/locale-data/es';
+import ru from 'react-intl/locale-data/ru';
+import pt from 'react-intl/locale-data/pt';
+import ko from 'react-intl/locale-data/ko';
+import ja from 'react-intl/locale-data/ja';
+import it from 'react-intl/locale-data/it';
+import de from 'react-intl/locale-data/de';
+import fr from 'react-intl/locale-data/fr';
+import zh from 'react-intl/locale-data/zh';
+import enTranslations from '../i18n/en.json';
+import arTranslations from '../i18n/ar.json';
+import trTranslations from '../i18n/tr.json';
+import esTranslations from '../i18n/es.json';
+import ruTranslations from '../i18n/ru.json';
+import ptTranslations from '../i18n/pt.json';
+import koTranslations from '../i18n/ko.json';
+import jaTranslations from '../i18n/ja.json';
+import itTranslations from '../i18n/it.json';
+import deTranslations from '../i18n/de.json';
+import frTranslations from '../i18n/fr.json';
+import zhTranslations from '../i18n/zh.json';
+import { setTimeout } from 'timers';
+import TokenSaleSection from '../components/sections/tokensale';
+import RoadmapSection from '../components/sections/roadmap';
+
+const languages = {
+  en: 'English',
+  ar: 'عربى',
+  tr: 'Türk',
+  es: 'Español',
+  ru: 'русский',
+  pt: 'Português',
+  ko: '한국어',
+  ja: '日本語',
+  it: 'italiano',
+  de: 'Deutsche',
+  fr: 'français',
+  zh: '中文'
+};
 
 class TokenSale extends Component {
   constructor(props) {
@@ -51,6 +108,96 @@ class TokenSale extends Component {
         percentage: 0
       });
     }
+    addLocaleData([
+      ...en,
+      ...ar,
+      ...tr,
+      ...es,
+      ...ru,
+      ...pt,
+      ...ko,
+      ...ja,
+      ...it,
+      ...de,
+      ...fr,
+      ...zh
+    ]);
+    let language = 'en';
+    if (!localStorage.getItem('dbdaolang')) {
+      const language =
+        (navigator.languages && navigator.languages[0]) ||
+        navigator.language ||
+        navigator.userLanguage;
+      let languageWithoutRegionCode = language.toLowerCase().split(/[_-]+/)[0];
+      localStorage.setItem('dbdaolang', languageWithoutRegionCode);
+    }
+    language = localStorage.getItem('dbdaolang');
+    if (!Object.keys(languages).includes(language)) {
+      language = 'en';
+    }
+    this.setMessages(language);
+  }
+
+  componentDidMount() {
+    setTimeout(() => {
+      mr.documentReady(jQuery); //eslint-disable-line
+    }, 250);
+  }
+
+  componentDidUpdate() {
+    setTimeout(() => {
+      mr.documentReady(jQuery); //eslint-disable-line
+    }, 250);
+  }
+
+  setMessages(language) {
+    let messages;
+    switch (language) {
+      case 'ar':
+        messages = arTranslations;
+        break;
+      case 'tr':
+        messages = trTranslations;
+        break;
+      case 'es':
+        messages = esTranslations;
+        break;
+      case 'ru':
+        messages = ruTranslations;
+        break;
+      case 'pt':
+        messages = ptTranslations;
+        break;
+      case 'ko':
+        messages = koTranslations;
+        break;
+      case 'ja':
+        messages = jaTranslations;
+        break;
+      case 'it':
+        messages = itTranslations;
+        break;
+      case 'de':
+        messages = deTranslations;
+        break;
+      case 'fr':
+        messages = frTranslations;
+        break;
+      case 'zh':
+        messages = zhTranslations;
+        break;
+      default:
+        messages = enTranslations;
+        break;
+    }
+    this.setState({ language, messages });
+  }
+
+  toggleChangeLanguage(newlang) {
+    this.setMessages(newlang);
+    localStorage.setItem('dbdaolang', newlang);
+    // mr.documentReady(jQuery); //eslint-disable-line
+    // mr.windowLoad(jQuery); //eslint-disable-line
   }
 
   longPoller() {
@@ -95,20 +242,21 @@ class TokenSale extends Component {
   saleUpcoming = () => {
     return (
       <div>
-        <h2 className="sale-date" style={{ fontWeight: 'bold' }}>
-          Token sale
+        <h2
+          className="sale-date type--uppercase"
+          style={{ fontWeight: 'bold' }}
+        >
+          <FormattedMessage id="sale_title" />
         </h2>
         {/*<p className="sale-date unmarg--bottom">
           The date of the main token sale will be announced shortly.
         </p>
     <hr />*/}
         <hr style={{ border: 0 }} />
-        <p
-          style={{ textAlign: 'center', fontSize: '15pt', lineHeight: '22pt' }}
-        >
-          Want to be the first to be informed about the main token sale? Do not
-          hesitate and preregister now!
-        </p>
+        <FormattedMessage id="sale_presalestarts" />
+        <p className="sale-date">MARCH 19TH, 2018 - 4PM CET</p>
+        <FormattedMessage id="sale_salestarts" />
+        <p className="sale-date">MARCH 26TH, 2018 - 4PM CET</p>
         <hr style={{ border: 0 }} />
 
         {/*<p className="sale-date unmarg--bottom">
@@ -119,10 +267,11 @@ class TokenSale extends Component {
     <hr />*/}
         <div className="modal-instance">
           <a
+            id="preregister_button"
             className="btn btn-lg type--uppercase btn--primary modal-trigger"
-            style={{ fontSize: '18pt', fontWeight: 'bold' }}
+            style={{ fontSize: '18pt', fontWeight: 'bold', color: 'white' }}
           >
-            Preregister now
+            <FormattedMessage id="sale_button" />
           </a>
           <div style={{ marginTop: '15px' }}>
             {/*<a
@@ -140,12 +289,6 @@ class TokenSale extends Component {
             >
               How to participate in the main sale
             </a>*/}
-            <p
-              id="open-popup"
-              style={{ textDecoration: 'underline', cursor: 'pointer' }}
-            >
-              Just want to stay informed? Subscribe.
-            </p>
           </div>
           <div className="modal-container">
             <div className="modal-content">
@@ -280,7 +423,7 @@ class TokenSale extends Component {
   };
 
   saleDone = () => {
-    const { percentage } = this.state;
+    // const { percentage } = this.state;
     return (
       <div>
         <h2 className="sale-date">The early token sale is concluded!</h2>
@@ -301,7 +444,7 @@ class TokenSale extends Component {
   };
 
   numberTable = () => {
-    const { tokens, eth, percentage, endFundingTime } = this.state;
+    const { tokens, eth } = this.state;
 
     return (
       <div>
@@ -335,6 +478,7 @@ class TokenSale extends Component {
 
   render() {
     const { tokens, eth, percentage } = this.state;
+    const { language, messages } = this.state;
 
     let upcoming = process.env.REACT_APP_SALE_UPCOMING === 'true';
     let done = process.env.REACT_APP_SALE_DONE === 'true';
@@ -349,17 +493,454 @@ class TokenSale extends Component {
 
     const doneLoading = percentage >= 0 && eth >= 0 && tokens >= 0;
 
-    setTimeout(() => window.modals(jQuery, window, document), 1000); //eslint-disable-line
+    // setTimeout(() => window.modals(jQuery, window, document), 1000); //eslint-disable-line
 
     return (
-      <div
-        className="boxed boxed--lg border--round box-shadow-wide bg--white token-sale"
-        style={{ marginTop: 0 }}
-      >
-        {doneLoading && upcoming && this.saleUpcoming()}
-        {active && this.saleRunning(doneLoading)}
-        {doneLoading && done && this.saleDone()}
-      </div>
+      <IntlProvider key={language} locale={language} messages={messages}>
+        <div>
+          <div className="nav-container">
+            <div
+              className="bar bar--md visible-xs bar--mobile-sticky"
+              data-scroll-class="250px:pos-fixed"
+            >
+              <div className="container">
+                <div className="row">
+                  <div className="col-xs-3 col-sm-2">
+                    <a href="/">
+                      <img
+                        className="logo logo-dark"
+                        alt="logo"
+                        src="./img/gradient-logo.svg"
+                      />
+                      <img
+                        className="logo logo-light"
+                        alt="logo"
+                        src="./img/white-logo.svg"
+                      />
+                    </a>
+                  </div>
+                  <div className="col-xs-9 col-sm-10 text-right">
+                    <a
+                      href="#"
+                      className="hamburger-toggle"
+                      data-toggle-class="#menu1;hidden-xs"
+                    >
+                      <i className="icon icon--sm stack-interface stack-menu" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <nav
+              id="menu1"
+              className="bar bar--md bar-1 bar--absolute bar--transparent pos-vertical-align-columns"
+              data-scroll-class="250px:pos-fixed"
+            >
+              <div className="container">
+                <div className="row">
+                  <div className="col-md-3 col-sm-2 hidden-xs">
+                    <div className="bar__module">
+                      <a href="/">
+                        <img
+                          className="logo logo-dark"
+                          alt="logo"
+                          src="./img/gradient-logo.svg"
+                        />
+                        <img
+                          className="logo logo-light"
+                          alt="logo"
+                          src="./img/white-logo.svg"
+                        />
+                      </a>
+                    </div>
+                  </div>
+                  <div
+                    className="col-md-9 col-sm-12 text-right text-left-xs text-left-sm"
+                    style={{ marginTop: '10px' }}
+                  >
+                    <div className="bar__module">
+                      <ul className="menu-horizontal text-left">
+                        <li>
+                          <a
+                            href={`/whitepaper/WHITEPAPER_DataBrokerDAO_${language}.pdf`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <FormattedMessage id="navigation_whitepaper" />
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#alliance">
+                            <FormattedMessage id="navigation_alliance" />
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#team">
+                            <FormattedMessage id="navigation_team" />
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="https://medium.com/DataBrokerDAO"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <FormattedMessage id="navigation_updates" />
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                    {/* <div className="bar__module" style={{ marginLeft: '5px' }}>
+                      <div className="dropdown">
+                        <span className="dropdown__trigger type--uppercase">
+                          {languages[language]}{' '}
+                          <i className="fa fa-angle-down" />
+                        </span>
+                        <div className="dropdown__container text-left">
+                          <div className="container">
+                            <div className="row">
+                              <div className="col-sm-2 col-md-2 dropdown__content">
+                                <ul className="menu-vertical">
+                                  <li
+                                    onClick={() =>
+                                      this.toggleChangeLanguage('en')
+                                    }
+                                  >
+                                    English
+                                  </li>
+                                  <li
+                                    onClick={() =>
+                                      this.toggleChangeLanguage('ar')
+                                    }
+                                  >
+                                    عربى
+                                  </li>
+                                  <li
+                                    onClick={() =>
+                                      this.toggleChangeLanguage('tr')
+                                    }
+                                  >
+                                    Türk
+                                  </li>
+                                  <li
+                                    onClick={() =>
+                                      this.toggleChangeLanguage('es')
+                                    }
+                                  >
+                                    Español
+                                  </li>
+                                  <li
+                                    onClick={() =>
+                                      this.toggleChangeLanguage('ru')
+                                    }
+                                  >
+                                    русский
+                                  </li>
+                                  <li
+                                    onClick={() =>
+                                      this.toggleChangeLanguage('pt')
+                                    }
+                                  >
+                                    Português
+                                  </li>
+                                  <li
+                                    onClick={() =>
+                                      this.toggleChangeLanguage('ko')
+                                    }
+                                  >
+                                    한국어
+                                  </li>
+                                  <li
+                                    onClick={() =>
+                                      this.toggleChangeLanguage('ja')
+                                    }
+                                  >
+                                    日本語
+                                  </li>
+                                  <li
+                                    onClick={() =>
+                                      this.toggleChangeLanguage('it')
+                                    }
+                                  >
+                                    italiano
+                                  </li>
+                                  <li
+                                    onClick={() =>
+                                      this.toggleChangeLanguage('de')
+                                    }
+                                  >
+                                    Deutsche
+                                  </li>
+                                  <li
+                                    onClick={() =>
+                                      this.toggleChangeLanguage('fr')
+                                    }
+                                  >
+                                    français
+                                  </li>
+                                  <li
+                                    onClick={() =>
+                                      this.toggleChangeLanguage('zh')
+                                    }
+                                  >
+                                    中文
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                                  </div>*/}
+                    <div className="bar__module" style={{ marginLeft: '5px' }}>
+                      <a
+                        className="btn btn--sm btn--secondary type--uppercase"
+                        href="https://beta.databrokerdao.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <span className="btn__text" style={{ color: '#333' }}>
+                          <FormattedMessage id="navigation_beta" />
+                        </span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </nav>
+          </div>
+          <div className="main-container">
+            <section
+              className="cover imagebg"
+              data-gradient-bg="#EB274C,#7E347E,#2E3192"
+            >
+              <div className="background-image-holder">
+                <img alt="background" src={WorldSVG} />
+              </div>
+              <div className="container" style={{ marginTop: '20px' }}>
+                <div className="row">
+                  <div className="col-md-5 col-sm-5 col-xs-12">
+                    <div className="header-intro">
+                      <h1 style={{ lineHeight: '40pt' }}>
+                        <FormattedMessage id="splash_globalmarket" />
+                        <br /> <FormattedMessage id="splash_forlocaldata" />
+                      </h1>
+                      <p
+                        style={{
+                          fontSize: '13pt',
+                          lineHeight: '22pt',
+                          marginTop: '10px'
+                        }}
+                      >
+                        <b style={{ fontWeight: 'bold' }}>
+                          <FormattedMessage id="splash_boldintro" />
+                        </b>{' '}
+                        <FormattedMessage id="splash_intro" />
+                      </p>
+                      <div className="modal-instance header-video block">
+                        <div
+                          className="video-play-icon video-play-icon--xs modal-trigger bg--primary"
+                          data-modal-index="0"
+                        />
+                        <span>
+                          <strong>
+                            <FormattedMessage id="splash_videolink" />
+                          </strong>
+                        </span>
+                        <div className="modal-container">
+                          <div
+                            className="modal-content bg-dark"
+                            data-width="55%"
+                            data-height="60%"
+                          >
+                            <iframe
+                              title="DataBrokerDAO movie"
+                              data-src="https://www.youtube.com/embed/hZLr5O7y71c?autoplay=1&amp;rel=0"
+                              allowFullScreen="allowfullscreen"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        className="col-md-12"
+                        style={{
+                          marginBottom: '10px',
+                          paddingRight: '5px',
+                          paddingLeft: '5px'
+                        }}
+                      >
+                        <a
+                          href={`/whitepaper/WHITEPAPER_DataBrokerDAO_${language}.pdf`}
+                          className="btn btn-lg btn--secondary force-black"
+                          target="_blank"
+                          style={{
+                            width: '100%',
+                            color: 'black',
+                            fontWeight: 'bold'
+                          }}
+                        >
+                          <FormattedMessage
+                            id="splash_readwhitepaper"
+                            style={{
+                              color: 'black',
+                              fontWeight: 'bold'
+                            }}
+                          />
+                        </a>
+                      </div>
+                      <div
+                        className="col-md-12"
+                        style={{
+                          marginBottom: '10px',
+                          paddingRight: '5px',
+                          paddingLeft: '5px'
+                        }}
+                      >
+                        <a
+                          href={`/whitepaper/ONEPAGER_DataBrokerDAO_${language}.pdf`}
+                          className="btn btn-lg btn--secondary force-black"
+                          target="_blank"
+                          style={{
+                            width: '100%',
+                            color: 'black',
+                            fontWeight: 'bold'
+                          }}
+                        >
+                          <FormattedMessage
+                            id="splash_readonepaper"
+                            style={{
+                              color: 'black',
+                              fontWeight: 'bold'
+                            }}
+                          />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-md-6 col-sm-7 col-xs-12 text-center col-md-offset-1">
+                    <div
+                      className="boxed boxed--lg border--round box-shadow-wide bg--white token-sale"
+                      style={{ marginTop: 0 }}
+                    >
+                      {doneLoading && upcoming && this.saleUpcoming()}
+                      {active && this.saleRunning(doneLoading)}
+                      {doneLoading && done && this.saleDone()}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="container pos-absolute pos-bottom">
+                <div className="row">
+                  <div className="col-sm-12 text-center">
+                    <div className="channels">
+                      <span>
+                        <a
+                          style={{ textDecoration: 'none' }}
+                          href="https://t.me/databrokerdao"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <i className="fa fa-telegram fa-2x" />
+                        </a>
+                      </span>
+                      <span>
+                        <a
+                          style={{ textDecoration: 'none' }}
+                          href="https://www.facebook.com/DataBrokerDAO/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <i className="fa fa-facebook fa-2x" />
+                        </a>
+                      </span>
+                      <span>
+                        <a
+                          style={{ textDecoration: 'none' }}
+                          href="https://twitter.com/DataBrokerDAO"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <i className="fa fa-twitter fa-2x" />
+                        </a>
+                      </span>
+                      <span>
+                        <a
+                          style={{ textDecoration: 'none' }}
+                          href="https://medium.com/DataBrokerDAO"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <i className="fa fa-medium fa-2x" />
+                        </a>
+                      </span>
+                      <span>
+                        <a
+                          href="https://www.youtube.com/channel/UCGo8NhGJqtBo6y6GFWUB-rg"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <i className="fa fa-youtube fa-2x" />
+                        </a>
+                      </span>
+                      <span>
+                        <a
+                          style={{ textDecoration: 'none' }}
+                          href="https://bitcointalk.org/index.php?topic=2113309.0"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <i className="fa fa-btc fa-2x" />
+                        </a>
+                      </span>
+                      <span>
+                        <a
+                          style={{ textDecoration: 'none' }}
+                          href="https://github.com/DataBrokerDAO"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <i className="fa fa-github fa-2x" />
+                        </a>
+                      </span>
+                      <span>
+                        <a
+                          style={{ textDecoration: 'none' }}
+                          href="https://www.reddit.com/r/DatabrokerDAO/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <i className="fa fa-reddit fa-2x" />
+                        </a>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <VideoSection />
+            <TokenSaleSection />
+            <ChallengeSection />
+            <CTASection />
+            <SolutionSection />
+            <BetaSection />
+            <BenefitsSection />
+            <CTASection />
+            <AllianceSection />
+            <CTASection />
+            <RoadmapSection />
+            <CTASection />
+            <EventsSection />
+            <CTASection />
+            <PressSection />
+            <CTASection />
+            <TeamSection />
+            <CTASection />
+            <JobsSection />
+            <ChannelsSection />
+            <Footer />
+          </div>
+        </div>
+      </IntlProvider>
     );
   }
 }

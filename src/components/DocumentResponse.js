@@ -4,13 +4,14 @@ import { Form, Field, reduxForm } from 'redux-form';
 import axios from 'axios';
 import SuccessResponse from './SuccessResponse';
 import ErrorResponse from './ErrorResponse';
+import { FormattedMessage, injectIntl } from 'react-intl';
 
 class DocumentResponse extends Component {
   constructor(props) {
     super(props);
     this.state = {
       files: [],
-      loadedFiles: [],
+      loadedFiles: []
     };
   }
 
@@ -40,15 +41,15 @@ class DocumentResponse extends Component {
         {
           ...this.props.extraInitialData,
           ...values,
-          doc: this.state.loadedFiles[0],
+          doc: this.state.loadedFiles[0]
         },
         {
           auth: {
             username:
               'sahCa8aiieD7ke9ovu3zeDieEitaza9uxuW6op2SSa0tohQubuiqu8uTtaiy8Aiw',
             password:
-              'xaf6MeofRae1aiQuuLoz2EemAa0aiw7oLie1sheeaiS3ceo7chi4aiQuieGuo7ve',
-          },
+              'xaf6MeofRae1aiQuuLoz2EemAa0aiw7oLie1sheeaiS3ceo7chi4aiQuieGuo7ve'
+          }
         }
       )
       .then(response => {
@@ -61,7 +62,7 @@ class DocumentResponse extends Component {
           address: response.data.address || false,
           extra: response.data.extra || false,
           extraId: response.data.response.mtid || false,
-          uuid: response.data.uuid || false,
+          uuid: response.data.uuid || false
         });
         this._checkDocumentStatus(response.data.response.mtid);
       })
@@ -76,15 +77,15 @@ class DocumentResponse extends Component {
         .post(
           `${process.env.REACT_APP_API_URI}api/kycstatus/${mtid}`,
           {
-            ...this.props.extraInitialData,
+            ...this.props.extraInitialData
           },
           {
             auth: {
               username:
                 'sahCa8aiieD7ke9ovu3zeDieEitaza9uxuW6op2SSa0tohQubuiqu8uTtaiy8Aiw',
               password:
-                'xaf6MeofRae1aiQuuLoz2EemAa0aiw7oLie1sheeaiS3ceo7chi4aiQuieGuo7ve',
-            },
+                'xaf6MeofRae1aiQuuLoz2EemAa0aiw7oLie1sheeaiS3ceo7chi4aiQuieGuo7ve'
+            }
           }
         )
         .then(response => {
@@ -99,7 +100,7 @@ class DocumentResponse extends Component {
               error: response.data.failure || false,
               errorReason: response.data.response.ednaScoreCard.er || false,
               address: response.data.address || false,
-              uuid: response.data.uuid || false,
+              uuid: response.data.uuid || false
             });
           }
         })
@@ -115,7 +116,7 @@ class DocumentResponse extends Component {
     label,
     helptext,
     type,
-    meta: { touched, error, warning },
+    meta: { touched, error, warning }
   }) => (
     <div
       className={`form-group ${touched &&
@@ -391,7 +392,7 @@ class DocumentResponse extends Component {
     label,
     helptext,
     type,
-    meta: { touched, error, warning },
+    meta: { touched, error, warning }
   }) => (
     <div
       className={`form-group ${touched &&
@@ -421,14 +422,14 @@ class DocumentResponse extends Component {
       error,
       waitingForDocumentValidation,
       uuid,
-      errorReason,
+      errorReason
     } = this.state;
     let dropzoneRef;
     window.ga('send', {
       hitType: 'event',
       eventCategory: 'Funnel',
       eventAction: 'Stage3',
-      eventLabel: 'EarlyTokenSale',
+      eventLabel: 'EarlyTokenSale'
     });
     return (
       <div>
@@ -446,7 +447,9 @@ class DocumentResponse extends Component {
                   component={this._renderSelectField}
                   name="doctype"
                   required
-                  label="Document type"
+                  label={this.props.intl.formatMessage({
+                    id: 'form_doctype'
+                  })}
                   className="validate-required"
                 />
               </div>
@@ -455,14 +458,16 @@ class DocumentResponse extends Component {
                   component={this._renderCountrySelectField}
                   name="doccountry"
                   required
-                  label="Issuing country"
+                  label={this.props.intl.formatMessage({
+                    id: 'form_doccountry'
+                  })}
                   type="text"
                   className="validate-required"
                 />
               </div>
               <div className="col-sm-12">
                 <label className="type--uppercase ">
-                  Scan: (JPG or PNG format, maximum 5MB)
+                  <FormattedMessage id="form_scan" />
                 </label>
                 <Dropzone
                   onDrop={this.onDrop}
@@ -478,7 +483,7 @@ class DocumentResponse extends Component {
                     borderWidth: 2,
                     borderColor: '#666',
                     borderStyle: 'dashed',
-                    borderRadius: 5,
+                    borderRadius: 5
                   }}
                 >
                   {this.state.files.map(file => {
@@ -490,7 +495,7 @@ class DocumentResponse extends Component {
                         style={{
                           maxHeight: '100%',
                           margin: '0 auto',
-                          display: 'block',
+                          display: 'block'
                         }}
                       />
                     );
@@ -507,7 +512,7 @@ class DocumentResponse extends Component {
                       padding: '0 10px',
                       marginTop: '10px',
                       backgroundColor: '#666',
-                      borderColor: '#666',
+                      borderColor: '#666'
                     }}
                   >
                     Select file
@@ -527,7 +532,7 @@ class DocumentResponse extends Component {
                     ga-event-category="BuyFunnel"
                     ga-event-action="StageThreeSend"
                   >
-                    Show me the early token sale address
+                    <FormattedMessage id="form_docbutton" />
                   </button>
                 </div>
               </div>
@@ -536,14 +541,16 @@ class DocumentResponse extends Component {
         {(submitting || formSubmitted) &&
           waitingForDocumentValidation && (
             <div className="col-sm-12">
-              <div className="ldr">Checking...</div>
+              <div className="ldr">
+                <FormattedMessage id="form_checking" />
+              </div>
               <div
                 className="btn btn-lg type--uppercase btn--secondary"
                 style={{
-                  textAlign: 'center',
+                  textAlign: 'center'
                 }}
               >
-                Wait while your document is being verified...
+                <FormattedMessage id="form_checking_two" />
               </div>
             </div>
           )}
@@ -571,4 +578,6 @@ const validate = values => {
   return errors;
 };
 
-export default reduxForm({ form: 'document', validate })(DocumentResponse);
+export default injectIntl(
+  reduxForm({ form: 'document', validate })(DocumentResponse)
+);
