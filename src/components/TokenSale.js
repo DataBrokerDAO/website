@@ -123,18 +123,18 @@ class TokenSale extends Component {
       ...zh
     ]);
     let language = 'en';
-    if (!localStorage.getItem('dbdaolang')) {
-      const language =
-        (navigator.languages && navigator.languages[0]) ||
-        navigator.language ||
-        navigator.userLanguage;
-      let languageWithoutRegionCode = language.toLowerCase().split(/[_-]+/)[0];
-      localStorage.setItem('dbdaolang', languageWithoutRegionCode);
-    }
-    language = localStorage.getItem('dbdaolang');
-    if (!Object.keys(languages).includes(language)) {
-      language = 'en';
-    }
+    // if (!localStorage.getItem('dbdaolang')) {
+    //   const language =
+    //     (navigator.languages && navigator.languages[0]) ||
+    //     navigator.language ||
+    //     navigator.userLanguage;
+    //   let languageWithoutRegionCode = language.toLowerCase().split(/[_-]+/)[0];
+    //   localStorage.setItem('dbdaolang', languageWithoutRegionCode);
+    // }
+    // language = localStorage.getItem('dbdaolang');
+    // if (!Object.keys(languages).includes(language)) {
+    //   language = 'en';
+    // }
     this.setMessages(language);
   }
 
