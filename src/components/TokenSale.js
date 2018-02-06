@@ -281,14 +281,14 @@ class TokenSale extends Component {
             >
               <i className="fa fa-info-circle" aria-hidden="true" />
             </a>{' '}*/}
-            {/*<a
-              href="/how-to-participate.pdf"
+            <a
+              href="https://t.me/databrokerdao"
               target="_blank"
               rel="noopener noreferrer"
               style={{ textDecoration: 'underline' }}
             >
-              How to participate in the main sale
-            </a>*/}
+              Join our community on Telegram
+            </a>
           </div>
           <div className="modal-container">
             <div className="modal-content">
