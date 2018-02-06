@@ -287,7 +287,7 @@ class TokenSale extends Component {
               rel="noopener noreferrer"
               style={{ textDecoration: 'underline' }}
             >
-              Join our community on Telegram
+              Join us on Telegram
             </a>
           </div>
           <div className="modal-container">
