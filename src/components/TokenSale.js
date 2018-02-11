@@ -875,7 +875,7 @@ class TokenSale extends Component {
                       </span>
                       <span>
                         <a
-                          href="https://www.youtube.com/channel/UCGo8NhGJqtBo6y6GFWUB-rg"
+                          href="https://www.youtube.com/channel/UCUmxSlaliIuF0Z3yNw8y_uA"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
