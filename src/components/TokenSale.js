@@ -47,8 +47,6 @@ import { setTimeout } from 'timers';
 import TokenSaleSection from '../components/sections/tokensale';
 import RoadmapSection from '../components/sections/roadmap';
 
-import Granim from 'granim'
-
 const languages = {
   en: 'English',
   ar: 'عربى',
@@ -648,7 +646,7 @@ class TokenSale extends Component {
                         </li>
                       </ul>
                     </div>
-                    {/* <div className="bar__module" style={{ marginLeft: '5px' }}>
+                    <div className="bar__module" style={{ marginLeft: '5px' }}>
                       <div className="dropdown">
                         <span className="dropdown__trigger type--uppercase">
                           {languages[language]}{' '}
@@ -749,7 +747,7 @@ class TokenSale extends Component {
                           </div>
                         </div>
                       </div>
-                                  </div>*/}
+                                  </div>
                     <div className="bar__module" style={{ marginLeft: '5px' }}>
                       <a
                         className="btn btn--sm btn--secondary type--uppercase"
@@ -780,8 +778,8 @@ class TokenSale extends Component {
                   <div className="col-md-5 col-sm-5 col-xs-12">
                     <div className="header-intro">
                       <h1 style={{ lineHeight: '40pt' }}>
-                        <FormattedMessage id="splash_globalmarket" />
-                        <br /> <FormattedMessage id="splash_forlocaldata" />
+                        <FormattedMessage id="splash_globalmarket" defaultMessage=' '/>
+                        <br /> <FormattedMessage id="splash_forlocaldata" defaultMessage=' '/>
                       </h1>
                       <p
                         style={{
@@ -791,9 +789,9 @@ class TokenSale extends Component {
                         }}
                       >
                         <b style={{ fontWeight: 'bold' }}>
-                          <FormattedMessage id="splash_boldintro" />
+                          <FormattedMessage id="splash_boldintro" defaultMessage=' '/>
                         </b>{' '}
-                        <FormattedMessage id="splash_intro" />
+                        <FormattedMessage id="splash_intro" defaultMessage=' '/>
                       </p>
                       <div className="modal-instance header-video block">
                         <div
