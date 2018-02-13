@@ -526,10 +526,16 @@ mr = (function(mr, $, window, document) {
       var imgSrc = $(this)
         .children('img')
         .attr('src');
+
+      var opacity = 1
+      if ($(this).hasClass('low-opacity')) {
+        opacity = 0.4
+      }
+
       $(this)
         .css('background', 'url("' + imgSrc + '")')
         .css('background-position', 'initial')
-        .css('opacity', '1');
+        .css('opacity', opacity);
     });
   };
 

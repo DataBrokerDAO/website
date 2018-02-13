@@ -333,7 +333,7 @@ class TokenSale extends Component {
           <div className="modal-container">
             <div className="modal-content">
               <div className="boxed boxed--lg">
-                <RegisterForm upcoming={true} />
+                <RegisterForm upcoming={true} language={this.state.language} />
               </div>
             </div>
           </div>
@@ -772,8 +772,8 @@ class TokenSale extends Component {
               className="cover imagebg"
               data-gradient-bg="#EB274C,#7E347E,#2E3192"
             >
-              <div className="background-image-holder">
-                <img alt="background" src={WorldSVG} />
+              <div className="background-image-holder low-opacity">
+                <img alt="background" src={WorldSVG}/>
               </div>
               <div className="container" style={{ marginTop: '20px' }}>
                 <div className="row">

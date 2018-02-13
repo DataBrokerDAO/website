@@ -7,6 +7,7 @@ import ErrorResponse from './ErrorResponse';
 import DocumentResponse from './DocumentResponse';
 // import { IntercomAPI } from 'react-intercom';
 import { FormattedMessage, injectIntl } from 'react-intl';
+import { KYC_RESULTS } from '../utils/constants'
 
 class RegisterForm extends Component {
   constructor(props) {
@@ -38,6 +39,7 @@ class RegisterForm extends Component {
         {
           ...values,
           agree: true,
+          language: this.props.language || 'en',
           source: localStorage.getItem('code') || 'none',
           ref: localStorage.getItem('ref') || 'none',
           dfp: localStorage.getItem('dfp') || 'none',
@@ -54,19 +56,36 @@ class RegisterForm extends Component {
         }
       )
       .then(response => {
-        console.log(response.data);
+
+        if (!response) return
+
+        const {
+          result,
+          kyc,
+          uuid = false,
+          error,
+          address = false,
+          initialData: extraInitialData = false,
+          bitcoin = {}
+        } = response.data
+
+        const extra = result === KYC_RESULTS.MANUAL_REVIEW
+        const {
+          receivingAddress: btcAddress = 'invalid address'
+        } = bitcoin
+
         this.setState({
           formSubmitted: true,
-          error: response.data.failure || false,
+          error: result === KYC_RESULTS.ERROR,
           errorReason:
-            (response.data.response.ednaScoreCard &&
-              response.data.response.ednaScoreCard.er) ||
+            (kyc.ednaScoreCard &&
+              kyc.ednaScoreCard.er) ||
             false,
-          address: response.data.address || false,
-          extra: response.data.extra || false,
-          extraInitialData: response.data.initialData || false,
-          uuid: response.data.uuid || false,
-          btcAddress: response.data.response.btcReceivingAddress || 'invalid address'
+          address: address,
+          extra,
+          extraInitialData: { ...extraInitialData, uuid },
+          uuid,
+          btcAddress
         });
       })
       .catch(error => {
@@ -469,7 +488,7 @@ class RegisterForm extends Component {
                   name="zipcode"
                   required
                   label={this.props.intl.formatMessage({
-                    id: 'form_address'
+                    id: 'form_zipcode'
                   })}
                   type="text"
                   className="validate-required"
@@ -584,7 +603,7 @@ class RegisterForm extends Component {
           error !== false && <ErrorResponse error={errorReason} />}
         {formSubmitted &&
           extra !== false && (
-            <DocumentResponse extraInitialData={extraInitialData} />
+            <DocumentResponse extraInitialData={extraInitialData} language={this.props.language} />
           )}
       </div>
     );

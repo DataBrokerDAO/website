@@ -9,7 +9,7 @@ class SuccessResponse extends Component {
       hitType: 'event',
       eventCategory: 'Funnel',
       eventAction: 'Success',
-      eventLabel: 'EarlyTokenSale'
+      eventLabel: 'PreSale'
     });
     return (
       <div>
