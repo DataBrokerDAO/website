@@ -111,6 +111,15 @@ class SuccessResponse extends Component {
           />
           <span>
             <a
+              href={`https://t.me/databrokerdao`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i className="fa fa-telegram fa-1x" />Telegram
+            </a>
+          </span>
+          <span>
+            <a
               href={`https://twitter.com/intent/tweet?text=Check%20out%20DataBrokerDAO%20-%20A%20decentralized%20marketplace%20for%20IoT%20Sensor%20data.%20https%3A%2F%2Fdatabrokerdao.com%3Freferrer%3D${uuid}%20%23IoT%20%23tokensale`}
               target="_blank"
               rel="noopener noreferrer"
