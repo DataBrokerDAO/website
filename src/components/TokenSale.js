@@ -123,18 +123,18 @@ class TokenSale extends Component {
       ...zh
     ]);
     let language = 'en';
-    if (!localStorage.getItem('dbdaolang')) {
-      const language =
-        (navigator.languages && navigator.languages[0]) ||
-        navigator.language ||
-        navigator.userLanguage;
-      let languageWithoutRegionCode = language.toLowerCase().split(/[_-]+/)[0];
-      localStorage.setItem('dbdaolang', languageWithoutRegionCode);
-    }
-    language = localStorage.getItem('dbdaolang');
-    if (!Object.keys(languages).includes(language)) {
-      language = 'en';
-    }
+    // if (!localStorage.getItem('dbdaolang')) {
+    //   const language =
+    //     (navigator.languages && navigator.languages[0]) ||
+    //     navigator.language ||
+    //     navigator.userLanguage;
+    //   let languageWithoutRegionCode = language.toLowerCase().split(/[_-]+/)[0];
+    //   localStorage.setItem('dbdaolang', languageWithoutRegionCode);
+    // }
+    // language = localStorage.getItem('dbdaolang');
+    // if (!Object.keys(languages).includes(language)) {
+    //   language = 'en';
+    // }
     this.setMessages(language);
   }
 
@@ -319,14 +319,14 @@ class TokenSale extends Component {
             >
               <i className="fa fa-info-circle" aria-hidden="true" />
             </a>{' '}*/}
-            {/*<a
-              href="/how-to-participate.pdf"
+            <a
+              href="https://t.me/databrokerdao"
               target="_blank"
               rel="noopener noreferrer"
               style={{ textDecoration: 'underline' }}
             >
-              How to participate in the main sale
-            </a>*/}
+              Join us on Telegram
+            </a>
           </div>
           <div className="modal-container">
             <div className="modal-content">
@@ -931,7 +931,7 @@ class TokenSale extends Component {
                       </span>
                       <span>
                         <a
-                          href="https://www.youtube.com/channel/UCGo8NhGJqtBo6y6GFWUB-rg"
+                          href="https://www.youtube.com/channel/UCUmxSlaliIuF0Z3yNw8y_uA"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
