@@ -3233,6 +3233,11 @@ form[action*='list-manage.com'] .small-meta {
     z-index: 999;
   }
 }
+
+.pos-fixed .dropdown__trigger {
+  color: #252525;
+}
+
 @media all and (min-width: 991px) {
   .bar__module:not(:only-child) {
     display: inline-block;
@@ -3290,6 +3295,7 @@ form[action*='list-manage.com'] .small-meta {
     background: #252525;
   }
 }
+
 @media all and (max-width: 767px) {
   .bar__module {
     margin-bottom: 0.92857143em;
