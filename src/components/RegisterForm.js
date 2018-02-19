@@ -56,9 +56,7 @@ class RegisterForm extends Component {
         }
       )
       .then(response => {
-
         if (!response) return
-
         const {
           result,
           kyc,
@@ -90,6 +88,12 @@ class RegisterForm extends Component {
       })
       .catch(error => {
         console.log(error);
+        this.setState({
+          formSubmitted: true,
+          error,
+          extra: false,
+          errorReason: error.message
+        });
       });
   };
 
@@ -590,7 +594,7 @@ class RegisterForm extends Component {
             </Form>
           </div>
         )}
-        {formSubmitted &&
+        {formSubmitted && !error &&
           address !== false && (
             <SuccessResponse
               address={address}

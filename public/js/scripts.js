@@ -529,7 +529,7 @@ mr = (function(mr, $, window, document) {
 
       var opacity = 1
       if ($(this).hasClass('low-opacity')) {
-        opacity = 0.4
+        opacity = 0.15
       }
 
       $(this)
