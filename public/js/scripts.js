@@ -526,10 +526,16 @@ mr = (function(mr, $, window, document) {
       var imgSrc = $(this)
         .children('img')
         .attr('src');
+
+      var opacity = 1
+      if ($(this).hasClass('low-opacity')) {
+        opacity = 0.15
+      }
+
       $(this)
         .css('background', 'url("' + imgSrc + '")')
         .css('background-position', 'initial')
-        .css('opacity', '1');
+        .css('opacity', opacity);
     });
   };
 
@@ -1415,10 +1421,11 @@ mr = (function(mr, $, window, document) {
   'use strict';
 
   var documentReady = function($) {
-    $('[data-gradient-bg]').each(function(index, element) {
+    $('[data-gradient-bg-new]').each(function(index, element) {
+      console.log('creating gradient')
       var granimParent = $(this),
         granimID = 'granim-' + index + '',
-        colours = granimParent.attr('data-gradient-bg'),
+        colours = granimParent.attr('data-gradient-bg-new'),
         pairs = [],
         tempPair = [],
         count,

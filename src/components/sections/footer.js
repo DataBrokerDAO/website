@@ -5,7 +5,7 @@ class Footer extends PureComponent {
   render() {
     return (
       <footer
-        className="footer-6 cover imagebg space--xs bg--dark"
+        className="footer-6 cover imagebg space--xs"
         data-gradient-bg="#EB274C,#7E347E,#2E3192"
         style={{ paddingTop: '50px' }}
       >

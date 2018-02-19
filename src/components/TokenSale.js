@@ -142,12 +142,50 @@ class TokenSale extends Component {
     setTimeout(() => {
       mr.documentReady(jQuery); //eslint-disable-line
     }, 250);
+
+    // let colours = '#EB274C,#7E347E,#2E3192'
+    // let pairs = []
+    // let tempPair = []
+    //
+    // const passes = /^(#[0-9|a-f|A-F]{6}){1}([ ]*,[ ]*#[0-9|a-f|A-F]{6})*$/.test(colours);
+    //
+    // if (passes === true) {
+    //   colours = colours.replace(' ', '');
+    //   colours = colours.split(',');
+    //   const count = colours.length;
+    //   // If number of colours is odd - duplicate last colour to make even array
+    //   if (count % 2 !== 0) {
+    //     colours.push(colours[count - 1]);
+    //   }
+    //   for (let i = 0; i < count / 2; i++) {
+    //     let tempPair = [];
+    //     tempPair.push(colours.shift());
+    //     tempPair.push(colours.shift());
+    //     pairs.push(tempPair);
+    //   }
+    // }
+    //
+    // this.granimInstance = new Granim({
+    //   element: '#canvas-basic',
+    //   name: 'basic-gradient',
+    //   direction: 'left-right', // 'diagonal', 'top-bottom', 'radial'
+    //   opacity: [1, 1],
+    //   isPausedWhenNotInView: true,
+    //   states : {
+    //     "default-state": {
+    //       gradients: pairs
+    //     }
+    //   }
+    // });
+
   }
 
   componentDidUpdate() {
     setTimeout(() => {
       mr.documentReady(jQuery); //eslint-disable-line
     }, 250);
+
+
   }
 
   setMessages(language) {
@@ -293,7 +331,7 @@ class TokenSale extends Component {
           <div className="modal-container">
             <div className="modal-content">
               <div className="boxed boxed--lg">
-                <RegisterForm upcoming={true} />
+                <RegisterForm upcoming={true} language={this.state.language} />
               </div>
             </div>
           </div>
@@ -497,7 +535,25 @@ class TokenSale extends Component {
 
     return (
       <IntlProvider key={language} locale={language} messages={messages}>
-        <div>
+        <div
+          style={{ position: 'relative' }}
+        >
+          <div
+            style={{
+              position: 'absolute',
+              display: 'block',
+              width: '100%',
+              height: '100%', // don't ask
+              top: 0,
+              right: 0,
+              bottom: 0,
+              left: 0,
+              background: 'linear-gradient(to right, #EB274C, #7E347E, #2E3192)',
+              zIndex: '-1',
+
+            }}
+            // id="canvas-basic"
+          />
           <div className="nav-container">
             <div
               className="bar bar--md visible-xs bar--mobile-sticky"
@@ -590,7 +646,7 @@ class TokenSale extends Component {
                         </li>
                       </ul>
                     </div>
-                    {/* <div className="bar__module" style={{ marginLeft: '5px' }}>
+                    <div className="bar__module" style={{ marginLeft: '5px' }}>
                       <div className="dropdown">
                         <span className="dropdown__trigger type--uppercase">
                           {languages[language]}{' '}
@@ -691,7 +747,7 @@ class TokenSale extends Component {
                           </div>
                         </div>
                       </div>
-                                  </div>*/}
+                                  </div>
                     <div className="bar__module" style={{ marginLeft: '5px' }}>
                       <a
                         className="btn btn--sm btn--secondary type--uppercase"
@@ -714,16 +770,16 @@ class TokenSale extends Component {
               className="cover imagebg"
               data-gradient-bg="#EB274C,#7E347E,#2E3192"
             >
-              <div className="background-image-holder">
-                <img alt="background" src={WorldSVG} />
+              <div className="background-image-holder low-opacity">
+                <img alt="background" src={WorldSVG}/>
               </div>
               <div className="container" style={{ marginTop: '20px' }}>
                 <div className="row">
                   <div className="col-md-5 col-sm-5 col-xs-12">
                     <div className="header-intro">
                       <h1 style={{ lineHeight: '40pt' }}>
-                        <FormattedMessage id="splash_globalmarket" />
-                        <br /> <FormattedMessage id="splash_forlocaldata" />
+                        <FormattedMessage id="splash_globalmarket" defaultMessage=' '/>
+                        <br /> <FormattedMessage id="splash_forlocaldata" defaultMessage=' '/>
                       </h1>
                       <p
                         style={{
@@ -733,9 +789,9 @@ class TokenSale extends Component {
                         }}
                       >
                         <b style={{ fontWeight: 'bold' }}>
-                          <FormattedMessage id="splash_boldintro" />
+                          <FormattedMessage id="splash_boldintro" defaultMessage=' '/>
                         </b>{' '}
-                        <FormattedMessage id="splash_intro" />
+                        <FormattedMessage id="splash_intro" defaultMessage=' '/>
                       </p>
                       <div className="modal-instance header-video block">
                         <div

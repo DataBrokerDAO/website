@@ -5,6 +5,7 @@ import axios from 'axios';
 import SuccessResponse from './SuccessResponse';
 import ErrorResponse from './ErrorResponse';
 import { FormattedMessage, injectIntl } from 'react-intl';
+import { KYC_RESULTS } from '../utils/constants'
 
 class DocumentResponse extends Component {
   constructor(props) {
@@ -41,6 +42,7 @@ class DocumentResponse extends Component {
         {
           ...this.props.extraInitialData,
           ...values,
+          language: this.props.language,
           doc: this.state.loadedFiles[0]
         },
         {
@@ -53,18 +55,32 @@ class DocumentResponse extends Component {
         }
       )
       .then(response => {
-        console.log({ response: response.data });
+
+        if (!response) return
+
+        const {
+          result,
+          kyc,
+          uuid = false,
+          error,
+          address = false,
+          initialData: extraInitialData = false,
+          bitcoin = {}
+        } = response.data
+
         this.setState({
           formSubmitted: true,
           waitingForDocumentValidation: true,
-          error: response.data.failure || false,
-          errorReason: response.data.response.ednaScoreCard.er || false,
-          address: response.data.address || false,
-          extra: response.data.extra || false,
-          extraId: response.data.response.mtid || false,
-          uuid: response.data.uuid || false
+          error: result === KYC_RESULTS.ERROR,
+          errorReason: kyc.ednaScoreCard.er || false,
+          address,
+          extra: kyc.extra || false,
+          extraId: kyc.mtid || false,
+          uuid,
+          btcAddress: bitcoin.receivingAddress || 'invalid address'
         });
-        this._checkDocumentStatus(response.data.response.mtid);
+        console.log('done')
+        this._checkDocumentStatus(kyc.mtid);
       })
       .catch(error => {
         console.log(error);
@@ -89,18 +105,24 @@ class DocumentResponse extends Component {
           }
         )
         .then(response => {
-          console.log(response.data);
-
-          const { state } = response.data.response;
-          if (state === 'R') {
+          const {
+            kyc,
+            result,
+            address = false,
+            bitcoin = false,
+            uuid,
+            failure
+          } = response.data;
+          if (result === 'R') {
             this._checkDocumentStatus(mtid);
           } else {
             this.setState({
               waitingForDocumentValidation: false,
-              error: response.data.failure || false,
-              errorReason: response.data.response.ednaScoreCard.er || false,
-              address: response.data.address || false,
-              uuid: response.data.uuid || false
+              error: failure || false,
+              errorReason: kyc.ednaScoreCard.er || false,
+              address: address || false,
+              uuid: uuid || false,
+              btcAddress: bitcoin.receivingAddress || 'invalid address'
             });
           }
         })
@@ -431,6 +453,7 @@ class DocumentResponse extends Component {
       eventAction: 'Stage3',
       eventLabel: 'EarlyTokenSale'
     });
+
     return (
       <div>
         {!formSubmitted && <h2>We need some extra information</h2>}
@@ -557,7 +580,7 @@ class DocumentResponse extends Component {
         {formSubmitted &&
           !waitingForDocumentValidation &&
           address !== false && (
-            <SuccessResponse address={address} uuid={uuid} />
+            <SuccessResponse address={address} uuid={uuid} btcAddress={this.state.btcAddress} />
           )}
         {formSubmitted &&
           !waitingForDocumentValidation &&

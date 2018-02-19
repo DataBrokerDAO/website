@@ -3,13 +3,13 @@ import { FormattedMessage, injectIntl } from 'react-intl';
 
 class SuccessResponse extends Component {
   render() {
-    const { address, uuid, upcoming } = this.props;
+    const { address, uuid, upcoming, btcAddress } = this.props;
     fbq('track', 'CompleteRegistration'); // eslint-disable-line
     window.ga('send', {
       hitType: 'event',
       eventCategory: 'Funnel',
       eventAction: 'Success',
-      eventLabel: 'EarlyTokenSale'
+      eventLabel: 'PreSale'
     });
     return (
       <div>
@@ -75,7 +75,7 @@ class SuccessResponse extends Component {
               <input
                 className="text-center"
                 type="text"
-                value={`${address}`}
+                value={`${btcAddress}`}
                 style={{ fontSize: '16px' }}
                 readOnly
               />
@@ -109,6 +109,15 @@ class SuccessResponse extends Component {
             style={{ fontSize: '16px', marginBottom: '1em' }}
             readOnly
           />
+          <span>
+            <a
+              href={`https://t.me/databrokerdao`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i className="fa fa-telegram fa-1x" />Telegram
+            </a>
+          </span>
           <span>
             <a
               href={`https://twitter.com/intent/tweet?text=Check%20out%20DataBrokerDAO%20-%20A%20decentralized%20marketplace%20for%20IoT%20Sensor%20data.%20https%3A%2F%2Fdatabrokerdao.com%3Freferrer%3D${uuid}%20%23IoT%20%23tokensale`}

@@ -350,7 +350,7 @@ class JobsSection extends PureComponent {
             </div>
           </div>
         </section>
-        <section className="text-center">
+        <section className="text-center" style={{ backgroundColor: 'white' }}>
           <div className="container">
             <div className="row">
               <div className="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">

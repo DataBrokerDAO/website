@@ -4,7 +4,7 @@ import { FormattedMessage } from 'react-intl';
 class VideoSection extends PureComponent {
   render() {
     return (
-      <section id="databroker" className="feature-large switchable space--sm">
+      <section id="databroker" className="feature-large switchable space--sm" style={{ backgroundColor: 'white' }}>
         <div className="container">
           <div className="row align-center">
             <div className="col-md-5  col-sm-6">

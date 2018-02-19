@@ -5,7 +5,7 @@ class TeamSection extends PureComponent {
   render() {
     return (
       <div>
-        <section id="team" className="text-center space--xs">
+        <section id="team" className="text-center space--xs" style={{ backgroundColor: 'white' }}>
           <div className="container">
             <div className="row">
               <div className="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">

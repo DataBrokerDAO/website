@@ -4,7 +4,7 @@ import { FormattedMessage } from 'react-intl';
 class SolutionSection extends PureComponent {
   render() {
     return (
-      <section id="solution" className="text-center">
+      <section id="solution" className="text-center" style={{ backgroundColor: 'white' }}>
         <div className="container">
           <div className="row">
             <div className="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
