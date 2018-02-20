@@ -10,7 +10,7 @@ class Footer extends PureComponent {
         data-gradient-bg="#EB274C,#7E347E,#2E3192"
         style={{ paddingTop: '50px' }}
       >
-        <div className="background-image-holder">
+        <div className="background-image-holder low-opacity">
           <img alt="background" src={WorldSVG} />
         </div>
         <div className="container">
