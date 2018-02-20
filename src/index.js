@@ -8,7 +8,7 @@ import TokenSale from './components/TokenSale';
 // import { URL } from 'whatwg-url';
 
 // activate raven
-import './utils/raven'
+import './utils/raven';
 
 // ========================================================
 // Store Instantiation
@@ -31,6 +31,10 @@ if (url) {
   const code = url.referrer;
   if (code) {
     localStorage.setItem('code', code);
+  }
+  const lang = url.lang;
+  if (lang) {
+    localStorage.setItem('dbdaolang', lang);
   }
 }
 

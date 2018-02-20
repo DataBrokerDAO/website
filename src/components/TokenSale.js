@@ -123,18 +123,18 @@ class TokenSale extends Component {
       ...zh
     ]);
     let language = 'en';
-    // if (!localStorage.getItem('dbdaolang')) {
-    //   const language =
-    //     (navigator.languages && navigator.languages[0]) ||
-    //     navigator.language ||
-    //     navigator.userLanguage;
-    //   let languageWithoutRegionCode = language.toLowerCase().split(/[_-]+/)[0];
-    //   localStorage.setItem('dbdaolang', languageWithoutRegionCode);
-    // }
-    // language = localStorage.getItem('dbdaolang');
-    // if (!Object.keys(languages).includes(language)) {
-    //   language = 'en';
-    // }
+    if (!localStorage.getItem('dbdaolang')) {
+      const language =
+        (navigator.languages && navigator.languages[0]) ||
+        navigator.language ||
+        navigator.userLanguage;
+      let languageWithoutRegionCode = language.toLowerCase().split(/[_-]+/)[0];
+      localStorage.setItem('dbdaolang', languageWithoutRegionCode);
+    }
+    language = localStorage.getItem('dbdaolang');
+    if (!Object.keys(languages).includes(language)) {
+      language = 'en';
+    }
     this.setMessages(language);
   }
 
@@ -177,15 +177,12 @@ class TokenSale extends Component {
     //     }
     //   }
     // });
-
   }
 
   componentDidUpdate() {
     setTimeout(() => {
       mr.documentReady(jQuery); //eslint-disable-line
     }, 250);
-
-
   }
 
   setMessages(language) {
@@ -535,9 +532,7 @@ class TokenSale extends Component {
 
     return (
       <IntlProvider key={language} locale={language} messages={messages}>
-        <div
-          style={{ position: 'relative' }}
-        >
+        <div style={{ position: 'relative' }}>
           <div
             style={{
               position: 'absolute',
@@ -548,9 +543,9 @@ class TokenSale extends Component {
               right: 0,
               bottom: 0,
               left: 0,
-              background: 'linear-gradient(to right, #EB274C, #7E347E, #2E3192)',
-              zIndex: '-1',
-
+              background:
+                'linear-gradient(to right, #EB274C, #7E347E, #2E3192)',
+              zIndex: '-1'
             }}
             // id="canvas-basic"
           />
@@ -747,7 +742,7 @@ class TokenSale extends Component {
                           </div>
                         </div>
                       </div>
-                                  </div>
+                    </div>
                     <div className="bar__module" style={{ marginLeft: '5px' }}>
                       <a
                         className="btn btn--sm btn--secondary type--uppercase"
@@ -771,15 +766,22 @@ class TokenSale extends Component {
               data-gradient-bg="#EB274C,#7E347E,#2E3192"
             >
               <div className="background-image-holder low-opacity">
-                <img alt="background" src={WorldSVG}/>
+                <img alt="background" src={WorldSVG} />
               </div>
               <div className="container" style={{ marginTop: '20px' }}>
                 <div className="row">
                   <div className="col-md-5 col-sm-5 col-xs-12">
                     <div className="header-intro">
                       <h1 style={{ lineHeight: '40pt' }}>
-                        <FormattedMessage id="splash_globalmarket" defaultMessage=' '/>
-                        <br /> <FormattedMessage id="splash_forlocaldata" defaultMessage=' '/>
+                        <FormattedMessage
+                          id="splash_globalmarket"
+                          defaultMessage=" "
+                        />
+                        <br />{' '}
+                        <FormattedMessage
+                          id="splash_forlocaldata"
+                          defaultMessage=" "
+                        />
                       </h1>
                       <p
                         style={{
@@ -789,9 +791,15 @@ class TokenSale extends Component {
                         }}
                       >
                         <b style={{ fontWeight: 'bold' }}>
-                          <FormattedMessage id="splash_boldintro" defaultMessage=' '/>
+                          <FormattedMessage
+                            id="splash_boldintro"
+                            defaultMessage=" "
+                          />
                         </b>{' '}
-                        <FormattedMessage id="splash_intro" defaultMessage=' '/>
+                        <FormattedMessage
+                          id="splash_intro"
+                          defaultMessage=" "
+                        />
                       </p>
                       <div className="modal-instance header-video block">
                         <div
