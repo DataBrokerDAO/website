@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { FormattedMessage } from 'react-intl';
+import WorldSVG from '../../assets/world.svg';
 
 class TokenSaleSection extends PureComponent {
   render() {
@@ -10,7 +11,7 @@ class TokenSaleSection extends PureComponent {
         data-gradient-bg="#EB274C,#7E347E,#2E3192"
       >
         <div className="background-image-holder">
-          <img alt="background" src="./img/world.svg" />
+          <img alt="background" src={WorldSVG} />
         </div>
         <div className="container">
           <div className="row">
