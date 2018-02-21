@@ -5056,6 +5056,11 @@ body.dropdowns--hover .nav-sidebar-column .dropdown:hover > .dropdown__container
   content: '\e80b';
 }
 @media all and (max-width: 990px) {
+
+  .nav-container {
+    background-color: white;
+  }
+
   .nav-sidebar-column {
     transition: all .3s ease;
     left: -20.42857143em;
