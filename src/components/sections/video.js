@@ -4,7 +4,11 @@ import { FormattedMessage } from 'react-intl';
 class VideoSection extends PureComponent {
   render() {
     return (
-      <section id="databroker" className="feature-large switchable space--sm" style={{ backgroundColor: 'white' }}>
+      <section
+        id="databroker"
+        className="feature-large switchable space--sm"
+        style={{ backgroundColor: 'white' }}
+      >
         <div className="container">
           <div className="row align-center">
             <div className="col-md-5  col-sm-6">
@@ -17,19 +21,19 @@ class VideoSection extends PureComponent {
               </p>
             </div>
             <div className="col-md-6 col-sm-6 col-md-offset-1">
-              <div className="video-cover border--round box-shadow-wide">
-                <div className="background-image-holder">
-                  <img
-                    alt="DatabrokerDAO explainer video"
-                    src="./img/video3.png"
-                  />
+              <div
+                class="video-cover border--round"
+                style={{ background: 'white' }}
+              >
+                <div class="background-image-holder">
+                  <img alt="DataBrokerDAO" src="img/video-cover3.jpg" />
                 </div>
-                <div className="video-play-icon" />
+                <div class="video-play-icon" />
                 <iframe
-                  title="DataBrokerDAO video"
+                  style={{ background: 'white' }}
+                  title="DataBrokerDAO"
                   data-src="https://www.youtube.com/embed/ytTjHuAaNJ0?rel=0&amp;controls=0&amp;showinfo=0&amp;autoplay=1"
-                  frameBorder="0"
-                  allowFullScreen="allowfullscreen"
+                  allowFullScreen
                 />
               </div>
             </div>
