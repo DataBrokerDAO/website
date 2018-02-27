@@ -48,6 +48,12 @@ class TokenSaleSection extends PureComponent {
                             1 ETH = 4000 DTX + 3400 bonus
                           </td>
                         </tr>
+                        <tr>
+                          <td valign="top" className="force-black">
+                            <FormattedMessage id="tokensale_minimum" />:
+                          </td>
+                          <td className="type--bold">none</td>
+                        </tr>
                       </tbody>
                     </table>
                   </div>
@@ -65,6 +71,12 @@ class TokenSaleSection extends PureComponent {
                             Bonus:
                           </td>
                           <td className="type--bold">85%</td>
+                        </tr>
+                        <tr>
+                          <td valign="top" className="force-black">
+                            Lockup:
+                          </td>
+                          <td className="type--bold">none</td>
                         </tr>
                       </tbody>
                     </table>
