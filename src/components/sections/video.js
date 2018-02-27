@@ -27,7 +27,7 @@ class VideoSection extends PureComponent {
                 <div className="video-play-icon" />
                 <iframe
                   title="DataBrokerDAO video"
-                  data-src="https://www.youtube.com/embed/hZLr5O7y71c?rel=0&amp;controls=0&amp;showinfo=0&amp;autoplay=1"
+                  data-src="https://www.youtube.com/embed/ytTjHuAaNJ0?rel=0&amp;controls=0&amp;showinfo=0&amp;autoplay=1"
                   frameBorder="0"
                   allowFullScreen="allowfullscreen"
                 />
