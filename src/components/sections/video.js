@@ -21,7 +21,7 @@ class VideoSection extends PureComponent {
                 <div className="background-image-holder">
                   <img
                     alt="DatabrokerDAO explainer video"
-                    src="./img/video-cover2.png"
+                    src="./img/video3.png"
                   />
                 </div>
                 <div className="video-play-icon" />
