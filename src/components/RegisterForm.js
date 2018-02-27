@@ -405,7 +405,7 @@ class RegisterForm extends Component {
       <div>
         {!formSubmitted && (
           <div>
-            <h2>
+            {/*<h2>
               {localStorage.getItem('ref') === 'moonsyndicate' && (
                 <span>Join the private sale for Moon Syndicate members</span>
               )}
@@ -414,7 +414,7 @@ class RegisterForm extends Component {
               )}
             </h2>
             <hr className="short" />
-            {/*<div>
+            <div>
               <a
                 href="/how-to-participate.pdf"
                 target="_blank"
