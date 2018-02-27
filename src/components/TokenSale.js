@@ -571,13 +571,10 @@ class TokenSale extends Component {
             // id="canvas-basic"
           />
           <div className="nav-container">
-            <div
-              className="bar bar--md visible-xs bar--mobile-sticky"
-              data-scroll-class="250px:pos-fixed"
-            >
+            <div className="bar bar--md visible-xs">
               <div className="container">
                 <div className="row">
-                  <div className="col-xs-3 col-sm-2">
+                  <div className="col-xs-8 col-sm-2">
                     <a href="/">
                       <img
                         className="logo logo-dark"
@@ -591,7 +588,7 @@ class TokenSale extends Component {
                       />
                     </a>
                   </div>
-                  <div className="col-xs-9 col-sm-10 text-right">
+                  <div className="col-xs-4 col-sm-10 text-right">
                     <a
                       href="#"
                       className="hamburger-toggle"
@@ -605,12 +602,11 @@ class TokenSale extends Component {
             </div>
             <nav
               id="menu1"
-              className="bar bar--md bar-1 bar--absolute bar--transparent pos-vertical-align-columns"
-              data-scroll-class="250px:pos-fixed"
+              className="bar bar--md bar-1 bar--absolute bar--transparent pos-vertical-align-columns hidden-xs"
             >
               <div className="container">
                 <div className="row">
-                  <div className="col-md-3 col-sm-2 hidden-xs">
+                  <div className="col-md-3 col-sm-4 hidden-xs">
                     <div className="bar__module">
                       <a href="/">
                         <img
@@ -627,10 +623,10 @@ class TokenSale extends Component {
                     </div>
                   </div>
                   <div
-                    className="col-md-9 col-sm-12 text-right text-left-xs text-left-sm"
+                    className="col-md-9 col-sm-8 text-right text-left-xs text-left-sm"
                     style={{ marginTop: '10px' }}
                   >
-                    <div className="bar__module">
+                    <div className="bar__module col-sm-7">
                       <ul className="menu-horizontal text-left">
                         <li>
                           <a
@@ -662,7 +658,10 @@ class TokenSale extends Component {
                         </li>
                       </ul>
                     </div>
-                    <div className="bar__module" style={{ marginLeft: '5px' }}>
+                    <div
+                      className="bar__module col-sm-2"
+                      style={{ marginLeft: '5px' }}
+                    >
                       <div className="dropdown">
                         <span className="dropdown__trigger type--uppercase">
                           {languages[language]}{' '}
@@ -764,7 +763,10 @@ class TokenSale extends Component {
                         </div>
                       </div>
                     </div>
-                    <div className="bar__module" style={{ marginLeft: '5px' }}>
+                    <div
+                      className="bar__module col-sm-2"
+                      style={{ marginLeft: '5px' }}
+                    >
                       <a
                         className="btn btn--sm btn--secondary type--uppercase"
                         href="https://beta.databrokerdao.com/"
