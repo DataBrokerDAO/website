@@ -7,7 +7,7 @@ import ErrorResponse from './ErrorResponse';
 import DocumentResponse from './DocumentResponse';
 // import { IntercomAPI } from 'react-intercom';
 import { FormattedMessage, injectIntl } from 'react-intl';
-import { KYC_RESULTS } from '../utils/constants'
+import { KYC_RESULTS } from '../utils/constants';
 
 class RegisterForm extends Component {
   constructor(props) {
@@ -56,7 +56,7 @@ class RegisterForm extends Component {
         }
       )
       .then(response => {
-        if (!response) return
+        if (!response) return;
         const {
           result,
           kyc,
@@ -65,20 +65,16 @@ class RegisterForm extends Component {
           address = false,
           initialData: extraInitialData = false,
           bitcoin = {}
-        } = response.data
+        } = response.data;
 
-        const extra = result === KYC_RESULTS.MANUAL_REVIEW
-        const {
-          receivingAddress: btcAddress = 'invalid address'
-        } = bitcoin
+        const extra = result === KYC_RESULTS.MANUAL_REVIEW;
+        const { receivingAddress: btcAddress = 'invalid address' } = bitcoin;
 
         this.setState({
           formSubmitted: true,
           error: result === KYC_RESULTS.ERROR,
           errorReason:
-            (kyc.ednaScoreCard &&
-              kyc.ednaScoreCard.er) ||
-            false,
+            (kyc && kyc.ednaScoreCard && kyc.ednaScoreCard.er) || false,
           address: address,
           extra,
           extraInitialData: { ...extraInitialData, uuid },
@@ -410,7 +406,12 @@ class RegisterForm extends Component {
         {!formSubmitted && (
           <div>
             <h2>
-              <FormattedMessage id="form_title" />
+              {localStorage.getItem('ref') === 'moonsyndicate' && (
+                <span>Join the private sale for Moon Syndicate members</span>
+              )}
+              {localStorage.getItem('ref') !== 'moonsyndicate' && (
+                <FormattedMessage id="form_title" />
+              )}
             </h2>
             <hr className="short" />
             {/*<div>
@@ -594,7 +595,8 @@ class RegisterForm extends Component {
             </Form>
           </div>
         )}
-        {formSubmitted && !error &&
+        {formSubmitted &&
+          !error &&
           address !== false && (
             <SuccessResponse
               address={address}
@@ -607,7 +609,10 @@ class RegisterForm extends Component {
           error !== false && <ErrorResponse error={errorReason} />}
         {formSubmitted &&
           extra !== false && (
-            <DocumentResponse extraInitialData={extraInitialData} language={this.props.language} />
+            <DocumentResponse
+              extraInitialData={extraInitialData}
+              language={this.props.language}
+            />
           )}
       </div>
     );

@@ -21,6 +21,79 @@ class TokenSaleSection extends PureComponent {
               </h2>
             </div>
 
+            {localStorage.getItem('ref') === 'moonsyndicate' && (
+              <div className="col-sm-12 col-md-10 col-md-offset-1">
+                <div className="boxed boxed--lg box-shadow-wide bg--secondary token-box">
+                  <h3
+                    className="force-black type--bold unmarg--bottom type--uppercase"
+                    style={{ color: 'black' }}
+                  >
+                    Moon Syndicate Private Sale
+                  </h3>
+                  <hr className="short" />
+                  <div className="col-sm-6 padding-0">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td valign="top" className="force-black">
+                            <FormattedMessage id="tokensale_start" />:
+                          </td>
+                          <td className="type--bold">February 28th, 2018</td>
+                        </tr>
+                        <tr>
+                          <td valign="top" className="force-black">
+                            <FormattedMessage id="tokensale_rate" />:
+                          </td>
+                          <td className="type--bold">
+                            1 ETH = 4000 DTX + 3400 bonus
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div className="col-sm-6 padding-only-left">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td valign="top" className="force-black">
+                            Ends:
+                          </td>
+                          <td className="type--bold">March 14th, 2018</td>
+                        </tr>
+                        <tr>
+                          <td valign="top" className="force-black">
+                            Bonus:
+                          </td>
+                          <td className="type--bold">85%, no lockups</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div className="col-sm-12">
+                    <a
+                      className="btn btn-lg btn--primary"
+                      href="#start"
+                      style={{ display: 'block', margin: '0 auto' }}
+                    >
+                      <span
+                        className="btn__text type--uppercase"
+                        style={{ color: 'white' }}
+                      >
+                        {localStorage.getItem('ref') === 'moonsyndicate' && (
+                          <span>
+                            Join the private sale for Moon Syndicate members
+                          </span>
+                        )}
+                        {localStorage.getItem('ref') !== 'moonsyndicate' && (
+                          <FormattedMessage id="cta" />
+                        )}
+                      </span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            )}
+
             <div className="col-sm-12 col-md-10 col-md-offset-1">
               <div className="boxed boxed--lg box-shadow-wide bg--secondary token-box">
                 <h3
@@ -186,7 +259,12 @@ class TokenSaleSection extends PureComponent {
               className="btn__text type--uppercase"
               style={{ color: 'white' }}
             >
-              <FormattedMessage id="cta" />
+              {localStorage.getItem('ref') === 'moonsyndicate' && (
+                <span>Join the private sale for Moon Syndicate members</span>
+              )}
+              {localStorage.getItem('ref') !== 'moonsyndicate' && (
+                <FormattedMessage id="cta" />
+              )}
             </span>
           </a>
         </div>

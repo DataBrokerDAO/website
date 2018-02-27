@@ -288,6 +288,15 @@ class TokenSale extends Component {
         </p>
     <hr />*/}
         <hr style={{ border: 0 }} />
+        {localStorage.getItem('ref') === 'moonsyndicate' && (
+          <div style={{ marginBottom: '2em' }}>
+            <span style={{ textTransform: 'uppercase' }}>
+              A special offer for our friends at the Moon Syndicate
+            </span>
+            <p className="sale-date">Join the private sale now!</p>
+          </div>
+        )}
+
         <FormattedMessage id="sale_presalestarts" />
         <p className="sale-date">MARCH 19TH, 2018 - 4PM CET</p>
         <FormattedMessage id="sale_salestarts" />
@@ -306,7 +315,12 @@ class TokenSale extends Component {
             className="btn btn-lg type--uppercase btn--primary modal-trigger"
             style={{ fontSize: '18pt', fontWeight: 'bold', color: 'white' }}
           >
-            <FormattedMessage id="sale_button" />
+            {localStorage.getItem('ref') === 'moonsyndicate' && (
+              <span>Join the private sale</span>
+            )}
+            {localStorage.getItem('ref') !== 'moonsyndicate' && (
+              <FormattedMessage id="sale_button" />
+            )}
           </a>
           <div style={{ marginTop: '15px' }}>
             {/*<a
@@ -316,14 +330,21 @@ class TokenSale extends Component {
             >
               <i className="fa fa-info-circle" aria-hidden="true" />
             </a>{' '}*/}
-            <a
-              href="https://t.me/databrokerdao"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ textDecoration: 'underline' }}
-            >
-              Join us on Telegram
-            </a>
+            {localStorage.getItem('ref') === 'moonsyndicate' && (
+              <strong>
+                only for our friends of the Moon Syndicate<br />
+              </strong>
+            )}
+            {localStorage.getItem('ref') !== 'moonsyndicate' && (
+              <a
+                href="https://t.me/databrokerdao"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ textDecoration: 'underline' }}
+              >
+                Join us on Telegram
+              </a>
+            )}
           </div>
           <div className="modal-container">
             <div className="modal-content">
