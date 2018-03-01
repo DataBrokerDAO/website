@@ -11,7 +11,7 @@
   "splash_forlocaldata": "للبيانات المحلية",
   "splash_intro":
     "منصة Databroker DAO هي أول سوق لبيع وشراء بينات أجهزة الاستشعار. باعتبارها سوقاً لامركزياً لبيانات أجهزة الاستشعار المتصلة بإنترنت الأشياء باستخدام تقنية البلوكتشين، تتيح منصة Databroker DAO لمالكي أجهزة الاستشعار إمكانية تحويل البيانات الصادرة من الأجهزة إلى مصادر دخل متعددة، وهذا سيفسح المجال أمام فرص هائلة لعديد من القطاعات الصناعية، حيث ستُستخدم هذه البيانات كما ستصبح أكثر فعالية.",
-  "splash_boldintro": "",
+  "splash_boldintro": " ",
   "splash_videolink": "منصة Databroker DAO في 30 ثانية",
   "splash_readonepaper": "اقرأ النشرة الإعلانية",
   "splash_readwhitepaper": "اقرأ التقرير الرسمي",
@@ -57,7 +57,7 @@
     "بإمكان الأكاديميين الوصول إلى بيانات صادرة من آلاف أجهزة الاستشعار وشراء البيانات من السوق بصورة مباشرة وبتكاليف أرخص، ما يمكنهم من الاستغناء عن مزودي البيانات المهيمنين على السوق. ",
   "alliance_title": "تحالف منصة  DataBroker DAO",
   "alliance_subtitle": "لازالت القائمة تطول أكثر",
-  "alliance_intro": "",
+  "alliance_intro": " ",
   "alliance_quote":
     "واليوم نحن فخورون بالإعلان عن انضمام كل من  DESIDEDATUMو  IQUADRAT و  SKYLARKو  TECHNILOGإلى التحالف. ",
   "alliance_senthus":
@@ -185,11 +185,11 @@
   "tokensale_exchanges": "البورصات",
   "roadmap_title": "خارطة الطريق",
   "roadmap_presale": "مرحلة ما قبل البيع",
-  "roadmap_presale_text": "",
+  "roadmap_presale_text": " ",
   "roadmap_tokensale": "بيع عملة التوكن",
-  "roadmap_tokensale_text": "",
+  "roadmap_tokensale_text": " ",
   "roadmap_trading": "بدء التداول",
-  "roadmap_trading_text": "",
+  "roadmap_trading_text": " ",
   "roadmap_mainnet": "طرح العملة على منصة MAINNET",
   "roadmap_mainnet_text":
     "مع توفر عملة DTX وبعد أن تصبح جاهزة للتداول، يمكن نقلها إلى منصة mainnet.",

@@ -58,7 +58,7 @@
   "alliance_intro":
     "Hoje temos orgulho de anunciar que DESIDEDATUM, IQUADRAT, SKYLARK e TECHNILOG se juntaram a nós.",
   "alliance_quote":
-    "\"Estamos felizes em cruzar os caminhos com o SettleMint e nos envolver com a tecnologia blockchain através do DataBroker DAO. A integração foi tranquila e bem sucedida devido à excelência técnica. Numa próxima etapa do nosso roteiro, pretendemos incluir uma opção “vender meus dados” do DataBroker DAO em nosso portfólio, pois percebemos que esta é uma nova oportunidade de monetização para os proprietários de sensores, consumidores de dados e fornecedores\", disse Rajeev Jha - CEO do Yuktix\"",
+    "\"Estamos felizes em cruzar os caminhos com o SettleMint e nos envolver com a tecnologia blockchain através do DataBroker DAO. A integração foi tranquila e bem sucedida devido à excelência técnica. Numa próxima etapa do nosso roteiro, pretendemos incluir uma opção “vender meus dados” do DataBroker DAO em nosso portfólio, pois percebemos que esta é uma nova oportunidade de monetização para os proprietários de sensores, consumidores de dados e fornecedores\", disse Rajeev Jha - CEO do Yuktix\" ",
   "alliance_senthus":
     "No lado do comprador, encontramos o consórcio SENTHUS da nossa terra natal - Bélgica. O consórcio SENTHUS tem apoio do Ministro da Economia das regiões de Bruxelas, trabalhando para tornar a cidade capital de Bruxelas (tanto do país como de toda a União Europeia) em uma cidade mais inteligente.",
   "alliance_yuktix":
@@ -66,7 +66,7 @@
   "alliance_yiktix_2":
     "É assim que eles se encaixam no mercado DataBroker DAO, oferecendo aos seus clientes um caminho fácil para recuperar alguns ou até mesmo todo o custo da compra.",
   "alliance_yuktix_quote":
-    "\"Estamos felizes em cruzar os caminhos com o SettleMint e nos envolver com a tecnologia blockchain através do DataBroker DAO. A integração foi tranquila e bem sucedida devido à excelência técnica. Numa próxima etapa do nosso roteiro, pretendemos incluir uma opção “vender meus dados” do DataBroker DAO em nosso portfólio, pois percebemos que esta é uma nova oportunidade de monetização para os proprietários de sensores, consumidores de dados e fornecedores\", disse Rajeev Jha - CEO do Yuktix\"",
+    "\"Estamos felizes em cruzar os caminhos com o SettleMint e nos envolver com a tecnologia blockchain através do DataBroker DAO. A integração foi tranquila e bem sucedida devido à excelência técnica. Numa próxima etapa do nosso roteiro, pretendemos incluir uma opção “vender meus dados” do DataBroker DAO em nosso portfólio, pois percebemos que esta é uma nova oportunidade de monetização para os proprietários de sensores, consumidores de dados e fornecedores\", disse Rajeev Jha - CEO do Yuktix\" ",
   "alliance_join": "Junte-se à aliança",
   "events_title": "Eventos",
   "events_subtitle": "Eventos que iremos participar este ano",
@@ -118,14 +118,14 @@
   "julien_description":
     "Gerente de Desenvolvimento e Inovação Empresarial em Proximus",
   "team_title_three": "Parceiros",
-  "footer_whatis": "",
-  "footer_whitepaper": "",
-  "footer_alliance": "",
-  "footer_team": "",
-  "footer_jobs": "",
-  "footer_updates": "",
-  "footer_presskit": "",
-  "footer_contactus": "",
+  "footer_whatis": " ",
+  "footer_whitepaper": " ",
+  "footer_alliance": " ",
+  "footer_team": " ",
+  "footer_jobs": " ",
+  "footer_updates": " ",
+  "footer_presskit": " ",
+  "footer_contactus": " ",
   "copyright": "Copyright",
   "benefits_ticker":
     "monetize os seus dados, recupere os custos do sensor, tenha acesso a milhares de sensores, transforme despesas em investimentos",
@@ -197,7 +197,7 @@
   "roadmap_mainnet": "PUBLICAÇÃO DO MAINNET",
   "roadmap_mainnet_text":
     "Com a disponibilidade e a capacidade de trocar o token DTX, a plataforma pode se mover para o mainnet.",
-  "roadmap_extendedteam": "",
+  "roadmap_extendedteam": " ",
   "roadmap_extendedteam_text":
     "Um dos maiores desafios para o DataBroker DAO será dimensionar a equipe com rapidez suficiente para lidar com a procura do mercado. Integrar uma nova equipe de vendas e desenvolvedores adicionais é uma tarefa assustadora. Desde setembro, este tem sido um foco ativo e esse será o caso dos próximos anos.",
   "roadmap_gateway": "Integrações do operador de gateway",

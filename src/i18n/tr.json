@@ -64,7 +64,7 @@
     "YUKTIX, Bangalore, Hindistan'da bulunan bir IoT sensör üreticisidir. Şirket, tarım ve çevresel görüntüleme için sonraki jenerasyon bilgi sistemleri üretmektedir. YUKTIX çözümleri çiftçiler, yetiştiriciler, kooperatifler ve üstleniciler tarafından yada Akıllı Şehirlerde en iyi kullanımı sağlamak, kaynakları korumak ve operasyon verimliliğini arttırmak için kullanılabilir. Ayrıca web kancaları ve REST API'larla veri dağıtımı da mümkündür.",
   "alliance_yiktix_2":
     "Şirket, müşterilerine alımlarının bir kısmını ve hatta tamamını telafi etmeleri için, DataBroker DAO pazar yeriyle bu şekilde bağlantı kurmaktadır.",
-  "alliance_yuktix_quote": "",
+  "alliance_yuktix_quote": " ",
   "alliance_join": "birliğe katılın",
   "events_title": "Etkinlikler",
   "events_subtitle": "Bu yıl katılacağımız etkinlikler",
@@ -181,11 +181,11 @@
   "tokensale_exchanges": "Alım satım siteleri",
   "roadmap_title": "Yol haritası",
   "roadmap_presale": "ÖN SATIŞ",
-  "roadmap_presale_text": "",
+  "roadmap_presale_text": " ",
   "roadmap_tokensale": "TOKEN SATIŞI",
-  "roadmap_tokensale_text": "",
+  "roadmap_tokensale_text": " ",
   "roadmap_trading": "ALIM SATIMIN AÇILMASI",
-  "roadmap_trading_text": "",
+  "roadmap_trading_text": " ",
   "roadmap_mainnet": "MAINNET SUNUMU",
   "roadmap_mainnet_text":
     "DTX tokenın alınıp satılabilmesiyle, platform mainnet'e taşınabilecektir.",
