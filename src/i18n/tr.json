@@ -11,8 +11,8 @@
   "splash_intro":
     "DataBroker DAO, sensör verisi satmak & almak için ilk pazar yeridir. Blockchain teknolojisini kullanan, IoT sensor verileri için merkezsizleştirilmiş bir pazar yeri olan, Databroker DAO, sensor sahiplerinin oluşturulmuş veriyi gelir kanalı haline dönüştürmesine olanak verir. Bu, çeşitli endüstrilere değerli fırsatlar açacaktır. Veri daha etkin olacak ve kullanılacaktır.",
   "splash_videolink": "30 saniyede DataBroker DAO",
-  "splash_readwhitepaper": "Afişi okuyun",
-  "splash_readonepaper": "Tanıtım belgesini okuyun",
+  "splash_readonepaper": "Afişi okuyun",
+  "splash_readwhitepaper": "Tanıtım belgesini okuyun",
   "loading_message":
     "Bu internet sitesi, Ethereum blockchainiyle etkileşim halinde olmak için gelişmiş javascript kullanmaktadır. Bu alanda toplu satış uygulaması yüklenecektir. Yüklenmezse, lütfen farklı bir tarayıcı deneyin (Chrome) yada destek için bizimle Telegram'da konuşun.",
   "video_title": "30 saniyede DataBroker DAO",
@@ -181,14 +181,11 @@
   "tokensale_exchanges": "Alım satım siteleri",
   "roadmap_title": "Yol haritası",
   "roadmap_presale": "ÖN SATIŞ",
-  "roadmap_presale_text":
-    "Bu token satış etkinliğinin ön satış aşaması 5 Mart 2018'de 4PM CET'te başlar. Bu ön satışta %50 token bonusu uygulanır (6000 DTX/ETH) ve bu sürecte minimum satın alım miktarı 25 ETH yada 2 BTC'dir. 11 Mart, 4 PM CET'te biter.",
+  "roadmap_presale_text": "",
   "roadmap_tokensale": "TOKEN SATIŞI",
-  "roadmap_tokensale_text":
-    "Ana satış 12 Mart 2018'de 4PM CET'te başlar. Satış azalan bonus yapısıyla 4 hafta sürecektir. İlk hafta, %30, ikinci hafta %20, üçüncü hafta %10 ve son hafta %0 olacaktır. Bu son haftada tokenlar ETH başına 4000 DTX oranında dağıtılacaktır. Birinci haftada 5200, ikinci haftada 4800 ve üçüncü haftada 4400 olacaktır.",
+  "roadmap_tokensale_text": "",
   "roadmap_trading": "ALIM SATIMIN AÇILMASI",
-  "roadmap_trading_text":
-    "Tokenlar satışın bitiminden (16 Nisan 2018) 1 hafta sonrasına kadar alınıp satılamayacaktır. Bu noktada DTX token'ı Chankura.com'da listelemeyi taahhüt ediyoruz ve bir yada iki alım satım sitesiyle daha belirlemeye çalışıyoruz.",
+  "roadmap_trading_text": "",
   "roadmap_mainnet": "MAINNET SUNUMU",
   "roadmap_mainnet_text":
     "DTX tokenın alınıp satılabilmesiyle, platform mainnet'e taşınabilecektir.",

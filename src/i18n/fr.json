@@ -12,8 +12,8 @@
   "splash_intro":
     "DataBroker DAO est le premier marché pour vendre et acheter des données de capteurs. En tant que marché décentralisé pour les données de capteurs IoT utilisant la technologie Blockchain, DataBroker DAO permet aux propriétaires de capteurs de transformer les données générées pour les données du capteur IoT à l'aide de la technologie Blockchain en flux de revenus. Cela ouvrira une multitude d'opportunités pour diverses industries. Les données seront utilisées et deviendront plus efficaces.",
   "splash_videolink": "DataBroker DAO en 30 secondes",
-  "splash_readwhitepaper": "Lire le flyer",
-  "splash_readonepaper": "Lire le Livre blanc",
+  "splash_readwhitepaper": "Lire le Livre blanc",
+  "splash_readonepaper": "Lire le flyer",
   "loading_message":
     "Ce site utilise Advanced JavaScript pour interagir avec la blockchain Ethereum. Dans cet espace, l'application crowdsale se chargera. Si ce n'est pas le cas, veuillez essayer un autre navigateur (Chrome) ou contactez-nous sur Telegram pour obtenir de l'aide.",
   "video_title": "DataBroker DAO en 30 secondes",
@@ -188,13 +188,13 @@
   "roadmap_title": "Feuille de route",
   "roadmap_presale": "PRÉVENTE",
   "roadmap_presale_text":
-    "La phase de prévente de cet événement de vente de jetons commence le 5 mars à 16h00 CET. Durant cette prévente, un bonus de jeton de 50% s'applique (6000 DTX/ETH) et le montant minimum d'achat pendant cette période sera de 25 ETH ou de 2 BTC. La présente se termine le 11 mars à 16h00 CET.",
+    "La phase de prévente de cet événement de vente de jetons commence le 19 mars 2018 à 16h00 CET. Durant cette prévente, un bonus de jeton de 50% s'applique (6000 DTX / ETH) et le montant minimum d'achat pendant cette période sera de 10 ETH.",
   "roadmap_tokensale": "VENTE DE JETONS",
   "roadmap_tokensale_text":
-    "La vente principale débutera le 12 mars 2018 à 16h00 CET. La vente durera 4 semaines avec une structure de bonus toujours décroissante. Première semaine, 30%, deuxième semaine 20%, troisième semaine 10% et dernière semaine à 0%. La dernière semaine, les jetons seront distribués avec un rapport de 4000 DTX par ETH. Première semaine 5200, deuxième semaine 4800 et troisième semaine 4400.",
+    "La vente principale débutera le 26 mars 2018 à 16h00 CET. La vente durera 4 semaines. Le prix pour cette phase est de 4000 DTX par ETH. Un bonus de 10% sera accordé uniquement le premier jour",
   "roadmap_trading": "OUVERTURE DE LA NÉGOCIATION",
   "roadmap_trading_text":
-    "Les jetons ne seront pas échangeables avant une semaine après la fin de la vente (16 avril 2018). À ce stade, nous nous sommes engagés à lister le jeton DTX sur Chankura.com et avons prévu un ou deux autres échanges pour le lister, en temps opportun.",
+    "Les jetons ne seront pas échangeables avant une semaine après la fin de la vente (30 avril 2018). À ce stade, nous nous sommes engagés à lister le jeton DTX sur Chankura.com et avons prévu un ou deux autres échanges pour le lister, en temps opportun.",
   "roadmap_mainnet": "LANCEMENT DU RÉSEAU PRINCIPAL",
   "roadmap_mainnet_text":
     "Grâce à la disponibilité et la possibilité d'échanger le jeton DTX, la plate-forme pourra devenir le réseau principal.",

@@ -13,8 +13,8 @@
   "splash_intro":
     "DataBroker DAO是第一个买卖传感器数据的市场。作为使用区块链技术的物联网传感器数据的分散式市场，Databroker DAO使传感器所有者能够将使用区块链技术的物联网传感器数据转化成生成数据，Databroker DAO使传感器所有者能够将生成的数据转化为收入流。这将为各行各业开辟丰富的机会。数据将被使用并且变得更加有效。",
   "splash_videolink": "在30秒内了解DataBroker DAO",
-  "splash_readwhitepaper": "阅读传单",
-  "splash_readonepaper": "阅读白皮书",
+  "splash_readonepaper": "阅读传单",
+  "splash_readwhitepaper": "阅读白皮书",
   "loading_message":
     "本网站正使用高级的JavaScript来与以太坊区块链进行互动。在这个空间中，将加载众包应用程序。如果不加载，请尝试一种不同的浏览器（Chrome浏览器），或通过电报与我们交谈以获得支持。",
   "video_title": "在30秒内了解DataBroker DAO",
@@ -179,14 +179,11 @@
   "tokensale_exchanges": "交易平台",
   "roadmap_title": "路线图",
   "roadmap_presale": "预售",
-  "roadmap_presale_text":
-    "此代币发售活动的预售阶段与CET时间2018年3月5日下午4时开始。在此预售阶段将实施50%的代币奖励政策（6000 DTX/ETH）且最低购买金额是25ETH或2BTC。结束于CET时间3月11日下午4时。",
+  "roadmap_presale_text": "",
   "roadmap_tokensale": "代币发售",
-  "roadmap_tokensale_text":
-    "公开发售将于CET时间2018年3月12日下午4时开始发售活动将持续4周且实施逐步降低的奖励结构。第1周奖励30%，第2周奖励20%，第3周奖励10%且最后一周奖励为0%。在最后一周，代币按照每ETH购买4000个DTX的价格发售。第1周5200个，第2周4800个，第3周4400个。",
+  "roadmap_tokensale_text": "",
   "roadmap_trading": "交易的开放",
-  "roadmap_trading_text":
-    "交易在代币发售活动结束（即2018年4月16日）1周后才能交易。此时，我们保证将在上述交易日期把DTX代币列在Chankura.com交易平台上并到那时再确定1个或2个交易平台将其列上。",
+  "roadmap_trading_text": "",
   "roadmap_mainnet": "发布主网",
   "roadmap_mainnet_text": "有了DTX代币及到可交易日期后，平台将转移到主网上。",
   "roadmap_extendedteam": "扩展团队的建设和加入",

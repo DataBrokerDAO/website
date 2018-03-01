@@ -11,8 +11,8 @@
   "splash_intro":
     "DataBroker DAO는 센서 데이터를 사고 팔 수 있는 최초의 마켓플레이스입니다. 블록체인 기술을 활용하여 IoT 센서 데이터를 다루는 탈중앙화된 마켓플레이스로서, Databroker DAO는 센서 소유자로 하여금 생성된 데이터를 매출원으로 바꾸게 합니다. 이 플랫폼은 다양한 산업 분야에게 수 많은 기회의 문을 열어줄 것 입니다. 데이터는 더욱 많이 사용되고, 더욱 유용해 질 것 입니다.",
   "splash_videolink": "DataBroker DAO 30초 소개 동영상",
-  "splash_readwhitepaper": "팜플렛 보기",
-  "splash_readonepaper": "백서 보기",
+  "splash_readonepaper": "팜플렛 보기",
+  "splash_readwhitepaper": "백서 보기",
   "loading_message":
     "이 웹사이트는 이더리움 블록체인과 상호작용하기 위해 고급 자바스크립트를 이용하고 있습니다. 이 공간에서 크라우드세일 응용 프로그램이 로딩되는데, 만약 제대로  작동하지 않는다면 다른 브라우저 (크롬) 를 사용하거나 텔레그램을 통해 저희에게 지원을 문의해 주시기 바랍니다.",
   "video_title": "DataBroker DAO 30초 소개 동영상",
@@ -181,14 +181,11 @@
   "tokensale_exchanges": "거래소",
   "roadmap_title": "로드맵",
   "roadmap_presale": "사전판매",
-  "roadmap_presale_text":
-    "토큰 사전 판매는 2018년 3월 5일, 중앙유럽표준시 16:00에 시작됩니다. 사전판매 기간 동안에는 50%의 토큰 보너스가 적용(6000 DTX/ETH)되고 해당 기간의 최소 구매액은 25 ETH 또는 2 BTC 입니다. 사전 판매는 3월 11일 중앙유럽표준시 16:00에 종료됩니다.",
+  "roadmap_presale_text": "",
   "roadmap_tokensale": "토큰판매",
-  "roadmap_tokensale_text":
-    "메인 판매 행사는 2018년 3월 12일, 중앙유럽표준시 16:00 PM에 시작됩니다. 판매 행사는 4주간 진행되며 보너스는 매주 시간이 지남에 따라 줄어드는 구조입니다. 즉 첫째 주는 30%, 둘째 주는 20%, 셋째 주는 10% 그리고 마지막 주는 0%의 보너스가 지급됩니다. 마지막 주에는 1 ETH 당 4000 DTX라는 환율로 토큰이 지급되는데 이 말인즉 첫번째 주에는 5200, 두번째 주는 4800, 세번째 주는 4400의 토큰을 받을 수 있다는 말입니다.",
+  "roadmap_tokensale_text": "",
   "roadmap_trading": "거래 시작 ",
-  "roadmap_trading_text":
-    "토큰은 판매 행사가 끝나고 1주 후(2018년 4월 16일)까지 거래될 수 없습니다. 현 시점에서 저희는 Chankura.com에 DTX 토큰을 상장하는 것을 확약해놓은 상태이며 같은 목적으로 1-2개의 다른 거래소도 검토 중입니다. ",
+  "roadmap_trading_text": "",
   "roadmap_mainnet": "메인넷 런칭",
   "roadmap_mainnet_text":
     "DTX 토큰 거래의 가용성 및 능력으로 본 플랫폼은 메인넷에 런칭될 수 있습니다.",

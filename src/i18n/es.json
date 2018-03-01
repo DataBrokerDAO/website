@@ -11,8 +11,8 @@
   "splash_intro":
     "DataBroker DAO es el primer mercado para vender y comprar datos de sensores. Como un mercado descentralizado para datos de sensores IoT usando tecnología Blockchain, Databroker DAO le permite a los dueños de sensores convertir los datos generados en fuentes de ingreso. Esto abirá una amplia gama de oportunidades para diferentes industrias. Los datos serán utilizados y se harán más efectivos.",
   "splash_videolink": "DataBroker DAO en 30 segundos",
-  "splash_readwhitepaper": "Lea el folleto",
-  "splash_readonepaper": "Lea el Informe Técnico",
+  "splash_readwhitepaper": "Lea el Informe Técnico",
+  "splash_readonepaper": "Lea el folleto",
   "loading_message":
     "Este sitio web está usando javascript avanzado para interactuar con la blockchain de Ethereum. En este espacio cargará la aplicación crowdsale. Si no lo hace, por favor intente con un navegador diferente (Chrome) o contáctenos por Telegram para brindarle soporte.",
   "video_title": "Databroker DAO en 30 segundos",
@@ -186,13 +186,13 @@
   "roadmap_title": "Guía",
   "roadmap_presale": "PREVENTA",
   "roadmap_presale_text":
-    "La fase de preventa de este evento de venta de tokens comienza el 5 de marzo del  2018 a las 4 PM CET. Durante esta preventa se aplica una bonificación de tokens del 50% (6000 DTX/ETH) y la cantidad de compra mínima durante este periodo es de 25 ETH o 2 BTC. Finaliza el 11 de marzo a las 4 PM CET.",
+    "La fase de la preventa de este evento de venta de tokens comienza el 19 de marzo de 2018 a las 4PM CET. Durante esta preventa se aplica una bonificación de tokens del 50% (6000 DTX/ETH) y la cantidad mínima de compra durante este periodo es de 10 ETH",
   "roadmap_tokensale": "VENTA DE TOKENS",
   "roadmap_tokensale_text":
-    "La venta principal comenzará el 12 de marzo del 2018 a las 4 PM CET. La venta se ejecutará durante 4 semanas con una estructura de bonificación decreciente. La primera semana el 30%, la segunda semana el 20%, la tercera semana el 10% y la última semana el 0%. Esta última semana, los tokens se distribuirán a una tasa de 4000 DTX por ETH. La primera semana a 5200, la segunda semana a 4800 y la tercera semana a 4400.",
+    "La venta principal comienza el 26 de marzo de 2018, a las 4PM CET. La venta se ejecutará durante 4 semanas. La tasa para esta fase es de 4000 DTX por ETH. Solo el primer día se otorgará un 10% de bonificación.",
   "roadmap_trading": "SE ABRE LA COTIZACIÓN",
   "roadmap_trading_text":
-    "Los tokens serán comercializados hasta 1 semana después de finalizar la venta (el 16 de abril del 2018). En este momento, tenemos el compromiso de inscribir los tokens DTX en Chankura.com hasta esa fecha y estamos identificando uno o dos intercambios más para inscribirlos aquí, en dicha fecha.",
+    "Los tokens serán comercializados hasta 1 semana después de finalizar la venta (el 30 de abril del 2018). En este momento, tenemos el compromiso de inscribir los tokens DTX en Chankura.com hasta esa fecha y estamos identificando uno o dos intercambios más para inscribirlos aquí, en dicha fecha.",
   "roadmap_mainnet": "LIBERACIÓN NETA PRINCIPAL",
   "roadmap_mainnet_text":
     "Con la disponibilidad y capacidad de comercializar los tokens DTX, la plataforma puede colocar el neto principal.",

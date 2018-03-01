@@ -11,8 +11,8 @@
   "splash_intro":
     "DataBrokerDAOはデータ売買用の初の市場です。ブロックチェーンテクノジーを使用したLoTセンサーデータ分散市場により、データブローカーDAOによってセンサー所有者へデータ収益化への道を提供することができます。これから、データはより頻繁に使われるようになり、かつ、効果的になると思われ、様々な業界の方々にご利用いただけるようになります。",
   "splash_videolink": "３０秒でわかるDataBroker DAO",
-  "splash_readwhitepaper": "フライヤーを読む",
-  "splash_readonepaper": "ホワイトペーパーを読む",
+  "splash_readonepaper": "フライヤーを読む",
+  "splash_readwhitepaper": "ホワイトペーパーを読む",
   "loading_message":
     "こちらのウェブサイトはイーサリアムブロックチェーン使用するため上級者向けJavascript利用しております。",
   "video_title": "３０秒でわかるDataBroker DAO",
@@ -183,14 +183,11 @@
     "為替からEtherを送信しないでください。あなたはあなたのトークンと資金を失います！",
   "roadmap_title": "ロードマップ",
   "roadmap_presale": "事前販売",
-  "roadmap_presale_text":
-    "このトークン販売イベントの事前販売フェーズは、2018年3月5日午後4時（中央ヨーロッパ時間）に始まります。 この事前販売期間中、50％のトークンボーナスが適用され（6000 DTX / ETH）、この期間中の最低購入金額は25 ETHまたは2 BTCです。 3月11日午後4時（中央ヨーロッパ時間）に終了します。",
+  "roadmap_presale_text": "",
   "roadmap_tokensale": "トークンセール",
-  "roadmap_tokensale_text":
-    "メイン販売は2018年3月12日午後4時（中央ヨーロッパ時間）に始まります。このセールは、ボーナス構造が減少しながら4週間、実行されます。一週目30％、2週間目20％、3週間目10％、最後の週は0％です。この最終週で、トークンはETHあたり4000 DTXの割合で配布されます。 第1週は5200、第2週は4800、第3週は4400です。",
+  "roadmap_tokensale_text": "",
   "roadmap_trading": "取引開始",
-  "roadmap_trading_text":
-    "トークンは、販売終了後1週間（2018年4月16日）まで取引できません。現時点では、その当時にChankura.comへDTXトークンを記載するというコミットメントがあり、その時までにそれをリストアップするために1〜2回の取引をすると特定しています。",
+  "roadmap_trading_text": "",
   "roadmap_mainnet": "メインネット　解放",
   "roadmap_mainnet_text":
     "在庫とDTXトークンの取引能力により、プラットフォームはメインネットに移動できます。",
