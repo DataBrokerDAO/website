@@ -11,8 +11,8 @@
   "splash_intro":
     "DataBroker DAO ist der erste Marktplatz, an dem Sensordaten gekauft und verkauft werden. Als dezentraler Marktplatz für IoT-Sensordaten ermöglicht es Databroker DAO den Sensoreignern, generierte Daten für IoT-Sensordaten mithilfe der Blockchain-Technologie zu konvertieren. Databroker DAO ermöglicht es den Sensoreignern, generierte Daten in Ertragsströme umzuwandeln. Dies eröffnet eine Vielzahl von Möglichkeiten für verschiedene Branchen. Daten werden verwendet und werden effektiver.",
   "splash_videolink": "DataBroker DAO in 30 Sekunden",
-  "splash_readwhitepaper": "Lesen Sie den Flyer",
-  "splash_readonepaper": "Lesen Sie das White-Paper",
+  "splash_readwhitepaper": "Lesen Sie das White-Paper",
+  "splash_readonepaper": "Lesen Sie den Flyer",
   "loading_message":
     "Diese Webseite verwendet fortgeschrittenes Javascript um mit der Ethereum Blockchain zu interagieren. In diesem Feld wird die Crowdsale-Anwendung geladen. Wenn dies nicht der Fall ist, versuchen Sie es mit einem anderen Browser (Chrome) oder sprechen Sie mit uns über Telegram, um Unterstützung zu erhalten.",
   "video_title": "Databroker DAO in 30 Sekunden",
@@ -189,10 +189,10 @@
   "roadmap_title": "Roadmap",
   "roadmap_presale": "VORVERKAUF",
   "roadmap_presale_text":
-    "Die Vorverkaufsphase des Token-Verkaufs beginnt am 5. März 2018 um 16:00 Uhr MEZ. Während dieses Vorverkaufs gilt ein 50% Token-Bonus (6000 DTX/ETH) und der Mindestabnahmebetrag in diesem Zeitraum beträgt 25 ETH oder 2 BTC. Er endet am 11. März um 16 Uhr.",
+    "Die Vorverkaufsphase des Token-Verkaufs beginnt am 19. März 2018 um 16:00 Uhr MEZ. Während dieses Vorverkaufs gilt ein 50% Token-Bonus (6000 DTX/ETH) und der Mindestabnahmebetrag in diesem Zeitraum beträgt 10 ETH.",
   "roadmap_tokensale": "TOKEN-VERKAUF",
   "roadmap_tokensale_text":
-    "Der Hauptverkauf beginnt am 12. März 2018 um 16 Uhr. Der Verkauf wird für 4 Wochen mit einer immer abnehmenden Bonusstruktur laufen. Erste Woche 30%, zweite Woche 20%, dritte Woche 10% und letzte Woche 0%. In der letzten Woche werden die Token mit einer Rate von 4000 DTX pro ETH verteilt. Woche eins bei 5200, Woche zwei bei 4800 und Woche drei bei 4400.",
+    "Der Hauptverkauf beginnt am 26. März 2018 um 16 Uhr MEZ. Die Rate für diese Phase beträgt 4000 DTX pro ETH. Nur am ersten Tag wird ein 10% Bonus gewährt.",
   "roadmap_trading": "HANDEL ERÖFFNET",
   "roadmap_trading_text":
     "Die Token sind erst eine Woche nach dem Ende des Verkaufs (16. April 2018) handelbar. Zu diesem Zeitpunkt sind wir verpflichtet, das DTX-Token auf Chankura.com eine Woche nach Ende des Verkaufs aufzulisten und bis zu diesem Zeitpunkt ein oder zwei weitere Plattformen zu identifizieren",
