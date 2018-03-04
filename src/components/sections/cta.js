@@ -27,7 +27,10 @@ class CTASection extends PureComponent {
                 {localStorage.getItem('ref') === 'moonsyndicate' && (
                   <span>Join the private sale for Moon Syndicate members</span>
                 )}
-                {localStorage.getItem('ref') !== 'moonsyndicate' && (
+                {localStorage.getItem('ref') === 'mattsyndicate' && (
+                  <span>Join the private sale for MattSyndicate members</span>
+                )}
+                {localStorage.getItem('ref') !== 'moonsyndicate'  && localStorage.getItem('ref') !== 'mattsyndicate' && (
                   <FormattedMessage id="cta" />
                 )}
               </span>
