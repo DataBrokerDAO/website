@@ -149,7 +149,9 @@ class TokenSaleSection extends PureComponent {
                           <td valign="top" className="force-black">
                             Ends:
                           </td>
-                          <td className="type--bold">March 9th, 2018</td>
+                          <td className="type--bold">
+                            March 8th, 2018 23:59 CET
+                          </td>
                         </tr>
                         <tr>
                           <td valign="top" className="force-black">
