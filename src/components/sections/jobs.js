@@ -46,7 +46,7 @@ class JobsSection extends PureComponent {
                             className="col-md-7 col-sm-12"
                             style={{ marginLeft: '40px' }}
                           >
-                            <h4>We need a decentralised tinkerer</h4>
+                            <h4>We need a decentralized tinkerer</h4>
                             <p>
                               SettleMint bridges the gap between enterprise and
                               blockchain technologies. We provide both end-user
@@ -144,7 +144,7 @@ class JobsSection extends PureComponent {
                             className="col-md-7 col-sm-12"
                             style={{ marginLeft: '40px' }}
                           >
-                            <h4>We need a decentralised tinkerer</h4>
+                            <h4>We need a decentralized tinkerer</h4>
                             <p>
                               SettleMint bridges the gap between enterprise and
                               blockchain technologies. We provide both end-user
