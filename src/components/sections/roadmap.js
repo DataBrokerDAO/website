@@ -79,6 +79,14 @@ class RoadmapSection extends PureComponent {
               </div>
             </div>
           </div>
+          <div className="row ">
+            <div className="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 ">
+              <h2>
+                Want to know what else we planned?<br />Check out the whitepaper
+                around page 24!
+              </h2>
+            </div>
+          </div>
         </div>
       </section>
     );
