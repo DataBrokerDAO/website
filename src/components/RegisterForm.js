@@ -61,7 +61,6 @@ class RegisterForm extends Component {
           result,
           kyc,
           uuid = false,
-          error,
           address = false,
           initialData: extraInitialData = false,
           bitcoin = {}
