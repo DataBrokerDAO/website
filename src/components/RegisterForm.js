@@ -444,6 +444,7 @@ class RegisterForm extends Component {
                   label={this.props.intl.formatMessage({
                     id: 'form_firstname'
                   })}
+                  autocomplete="given-name"
                   type="text"
                   placeholder="Satoshi"
                   className="validate-required"
@@ -457,6 +458,7 @@ class RegisterForm extends Component {
                   label={this.props.intl.formatMessage({
                     id: 'form_lastname'
                   })}
+                  autocomplete="family-name"
                   type="text"
                   placeholder="Nakamoto"
                   className="validate-required"
@@ -470,6 +472,7 @@ class RegisterForm extends Component {
                   label={this.props.intl.formatMessage({
                     id: 'form_email'
                   })}
+                  autocomplete="email"
                   type="email"
                   placeholder="satoshi@nakamoto.com"
                   className="validate-required"
@@ -483,6 +486,7 @@ class RegisterForm extends Component {
                   label={this.props.intl.formatMessage({
                     id: 'form_address'
                   })}
+                  autocomplete="address-line1"
                   type="text"
                   className="validate-required"
                 />
@@ -495,6 +499,7 @@ class RegisterForm extends Component {
                   label={this.props.intl.formatMessage({
                     id: 'form_zipcode'
                   })}
+                  autocomplete="postal-code"
                   type="text"
                   className="validate-required"
                 />
@@ -507,6 +512,7 @@ class RegisterForm extends Component {
                   label={this.props.intl.formatMessage({
                     id: 'form_city'
                   })}
+                  autocomplete="address-level2"
                   type="text"
                   className="validate-required"
                 />
@@ -519,6 +525,7 @@ class RegisterForm extends Component {
                   label={this.props.intl.formatMessage({
                     id: 'form_state'
                   })}
+                  autocomplete="address-level1"
                   type="text"
                 />
               </div>
@@ -530,6 +537,7 @@ class RegisterForm extends Component {
                   label={this.props.intl.formatMessage({
                     id: 'form_country'
                   })}
+                  autocomplete="country-name"
                   type="text"
                   className="validate-required"
                 />
