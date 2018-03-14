@@ -257,11 +257,6 @@ class TokenSale extends Component {
             <p className="sale-date">Join the private sale now!</p>
           </div>
         )}
-        {!doneLoading && (
-          <div>
-            <div className="ldr">Loading...</div>
-          </div>
-        )}
         {doneLoading && (
           <ProgressBar percentage={percentage} label={`${percentage}% SOLD`} />
         )}
@@ -721,7 +716,7 @@ class TokenSale extends Component {
                       className="boxed boxed--lg border--round box-shadow-wide bg--white token-sale"
                       style={{ marginTop: 0 }}
                     >
-                      {doneLoading && this.saleUpcoming(doneLoading)}
+                      {this.saleUpcoming(doneLoading)}
                     </div>
                   </div>
                 </div>
