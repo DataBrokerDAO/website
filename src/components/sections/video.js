@@ -33,8 +33,9 @@ class VideoSection extends PureComponent {
                 <iframe
                   style={{ background: 'white' }}
                   title="DataBrokerDAO"
-                  data-src="https://www.youtube.com/embed/Ld3kMS6nyb4?rel=0&amp;controls=0&amp;showinfo=0&amp;autoplay=1"
+                  data-src="https://player.vimeo.com/video/260074443?autoplay=1"
                   allowFullScreen
+                  frameBorder={0}
                 />
               </div>
             </div>
