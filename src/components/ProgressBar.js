@@ -1,26 +1,26 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 class ProgressBar extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      rendered: false,
-    }
+      rendered: false
+    };
   }
 
   componentDidUpdate() {
-    const { percentage } = this.props
-    if (this.state.rendered !== percentage.toFixed(0)) {
-      window.radial(jQuery) //eslint-disable-line
-      this.setState({ rendered: percentage.toFixed(0) })
+    const { percentage } = this.props;
+    if (this.state.rendered !== percentage) {
+      window.radial(jQuery); //eslint-disable-line
+      this.setState({ rendered: percentage });
     }
   }
   render() {
-    const { percentage, label } = this.props
+    const { percentage, label } = this.props;
 
     return (
       <div
         className="radial"
-        data-value={percentage.toFixed(0)}
+        data-value={percentage}
         data-timing="1000"
         data-color="#f90066"
         data-size="200"
@@ -28,8 +28,8 @@ class ProgressBar extends Component {
       >
         <span className="h3 radial__label">{label}</span>
       </div>
-    )
+    );
   }
 }
 
-export default ProgressBar
+export default ProgressBar;

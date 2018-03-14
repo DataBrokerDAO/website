@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { getWeb3 } from '../utils/getWeb3';
-import moment from 'moment';
 import ProgressBar from './ProgressBar';
 // import PreRegisterForm from './PreRegisterForm';
 import RegisterForm from './RegisterForm';
@@ -66,17 +65,7 @@ class TokenSale extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      web3: null,
-      sale: null,
-      percentage: 0,
-      tokens: 0,
-      eth: 0,
-      MAX_ETH: 9375,
-      MAX_ETH_OVER: 28125,
-      // MAX_ETH: 1,
-      // MAX_ETH_OVER: 3,
-      startFundingTime: moment.unix(1505746800),
-      endFundingTime: moment.unix(1508166000)
+      web3: null
     };
   }
 
@@ -99,14 +88,6 @@ class TokenSale extends Component {
         .catch(e => {
           console.log('Error finding web3.', e);
         });
-    } else {
-      this.setState({
-        startFundingTime: moment.unix(1505746800),
-        endFundingTime: moment.unix(1508166000),
-        eth: 0,
-        tokens: 0,
-        percentage: 0
-      });
     }
     addLocaleData([
       ...en,
@@ -142,41 +123,6 @@ class TokenSale extends Component {
     setTimeout(() => {
       mr.documentReady(jQuery); //eslint-disable-line
     }, 250);
-
-    // let colours = '#EB274C,#7E347E,#2E3192'
-    // let pairs = []
-    // let tempPair = []
-    //
-    // const passes = /^(#[0-9|a-f|A-F]{6}){1}([ ]*,[ ]*#[0-9|a-f|A-F]{6})*$/.test(colours);
-    //
-    // if (passes === true) {
-    //   colours = colours.replace(' ', '');
-    //   colours = colours.split(',');
-    //   const count = colours.length;
-    //   // If number of colours is odd - duplicate last colour to make even array
-    //   if (count % 2 !== 0) {
-    //     colours.push(colours[count - 1]);
-    //   }
-    //   for (let i = 0; i < count / 2; i++) {
-    //     let tempPair = [];
-    //     tempPair.push(colours.shift());
-    //     tempPair.push(colours.shift());
-    //     pairs.push(tempPair);
-    //   }
-    // }
-    //
-    // this.granimInstance = new Granim({
-    //   element: '#canvas-basic',
-    //   name: 'basic-gradient',
-    //   direction: 'left-right', // 'diagonal', 'top-bottom', 'radial'
-    //   opacity: [1, 1],
-    //   isPausedWhenNotInView: true,
-    //   states : {
-    //     "default-state": {
-    //       gradients: pairs
-    //     }
-    //   }
-    // });
   }
 
   componentDidUpdate() {
@@ -231,8 +177,6 @@ class TokenSale extends Component {
   toggleChangeLanguage(newlang) {
     this.setMessages(newlang);
     localStorage.setItem('dbdaolang', newlang);
-    // mr.documentReady(jQuery); //eslint-disable-line
-    // mr.windowLoad(jQuery); //eslint-disable-line
   }
 
   longPoller() {
@@ -251,42 +195,59 @@ class TokenSale extends Component {
 
   async instantiateContract(update = false) {
     try {
-      const { sale, MAX_ETH, MAX_ETH_OVER } = this.state;
+      const { sale } = this.state;
       const DeployedSale = await sale.deployed();
 
-      const totalCollected = await DeployedSale.totalCollected();
-      const eth = totalCollected.toNumber() / 10 ** 18;
-      let totalSupply = MAX_ETH;
-
-      if (eth >= MAX_ETH) {
-        totalSupply = MAX_ETH_OVER;
+      const totalIssued = await DeployedSale.totalIssued();
+      const totalIssuedEarlySale = await DeployedSale.totalIssuedEarlySale();
+      let ethprice;
+      try {
+        const response = await fetch(
+          'https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD'
+        );
+        const json = await response.json();
+        ethprice = json.USD;
+      } catch (error) {
+        console.log(error);
+        ethprice = 700;
       }
 
+      let total = totalIssued.plus(totalIssuedEarlySale).div(10 ** 18);
+      let totalUSD = totalIssued
+        .div(6000)
+        .plus(totalIssuedEarlySale.div(6000))
+        .times(ethprice)
+        .div(10 ** 18);
+      if (total.gte(108000000)) {
+        total = totalIssued.div(10 ** 18);
+        totalUSD = totalIssued
+          .div(6000)
+          .times(ethprice)
+          .div(10 ** 18);
+      }
+
+      const percentage = total.div(108000000).times(100);
       const newState = {
-        eth,
-        tokens: eth * 1200,
-        percentage: eth / totalSupply * 100
+        total: total.toFormat(0),
+        percentage: percentage.toFixed(2),
+        usd: totalUSD.toFormat(0)
       };
-      // console.log(newState);
       this.setState(newState);
     } catch (error) {
       console.log(error);
     }
   }
 
-  saleUpcoming = () => {
+  saleUpcoming = doneLoading => {
+    const { percentage } = this.state;
     return (
       <div>
         <h2
           className="sale-date type--uppercase"
           style={{ fontWeight: 'bold' }}
         >
-          <FormattedMessage id="sale_title" />
+          DTX PRE-SALE LIVE NOW!
         </h2>
-        {/*<p className="sale-date unmarg--bottom">
-          The date of the main token sale will be announced shortly.
-        </p>
-    <hr />*/}
         <hr style={{ border: 0 }} />
         {localStorage.getItem('ref') === 'cryptoclub' && (
           <div style={{ marginBottom: '2em' }}>
@@ -305,18 +266,18 @@ class TokenSale extends Component {
           </div>
         )}
 
-        <FormattedMessage id="sale_presalestarts" />
-        <p className="sale-date">MARCH 19TH, 2018 - 4PM CET</p>
+        {!doneLoading && (
+          <div>
+            <div className="ldr">Loading...</div>
+          </div>
+        )}
+        {doneLoading && (
+          <ProgressBar percentage={percentage} label={`${percentage}% SOLD`} />
+        )}
+        {doneLoading && this.numberTable()}
+
         <FormattedMessage id="sale_salestarts" />
         <p className="sale-date">MARCH 26TH, 2018 - 4PM CET</p>
-        <hr style={{ border: 0 }} />
-
-        {/*<p className="sale-date unmarg--bottom">
-          The date of the main token sale will be announced shortly.
-          <br />
-          You’ll hear from us soon.
-        </p>
-    <hr />*/}
         <div className="modal-instance">
           <a
             id="preregister_button"
@@ -329,25 +290,13 @@ class TokenSale extends Component {
             )}
             {localStorage.getItem('ref') !== 'cryptoclub' &&
               localStorage.getItem('ref') !== 'mattsyndicate' && (
-                <FormattedMessage id="sale_button" />
+                <span>BUY NOW! (50% BONUS)</span>
               )}
           </a>
           <div style={{ marginTop: '15px' }}>
-            {/*<a
-              href="/how-to-participate.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i className="fa fa-info-circle" aria-hidden="true" />
-            </a>{' '}*/}
             {localStorage.getItem('ref') === 'cryptoclub' && (
               <strong>
                 only for our friends of the Crypto Club<br />
-              </strong>
-            )}
-            {localStorage.getItem('ref') === 'mattsyndicate' && (
-              <strong>
-                only for our friends of the MattSyndicate<br />
               </strong>
             )}
             {localStorage.getItem('ref') !== 'cryptoclub' &&
@@ -370,145 +319,14 @@ class TokenSale extends Component {
             </div>
           </div>
         </div>
-        {/*<div style={{ marginTop: '15px' }}>
-          <p>
-            In the meanwhile we are still accepting larger volume purchases at
-            reduced rates.<br />{' '}
-            <a
-              href="mailto:hello@databrokerdao.com"
-              style={{ textDecoration: 'underline' }}
-            >
-              Get in touch to discuss.
-            </a>
-          </p>
-          </div>*/}
-      </div>
-    );
-    // OLD
-    // return (
-    //   <div>
-    //     <h2 className="sale-date">Early Token Sale starts:</h2>
-    //     <p className="sale-date unmarg--bottom">18 SEPTEMBER 2017 - 5PM CET</p>
-    //     <hr />
-    //     <h3 className="unmarg--bottom">
-    //       Register now to access the sale address before the start!
-    //     </h3>
-    //     <br />
-    //     <p className="lead">
-    //       You will also receive a unique referral link that earns you 5% of
-    //       every contribution you refer
-    //     </p>
-    //     <div className="modal-instance">
-    //       <a className="btn btn-lg type--uppercase btn--primary modal-trigger">
-    //         Register now for the early sale
-    //       </a>
-    //       <div style={{ marginTop: '15px' }}>
-    //         <a
-    //           href="/how-to-participate.pdf"
-    //           target="_blank"
-    //           rel="noopener noreferrer"
-    //         >
-    //           <i className="fa fa-info-circle" aria-hidden="true" />
-    //         </a>{' '}
-    //         <a
-    //           href="/how-to-participate.pdf"
-    //           target="_blank"
-    //           rel="noopener noreferrer"
-    //           style={{ textDecoration: 'underline' }}
-    //         >
-    //           How to participate in the early sale
-    //         </a>
-    //       </div>
-    //       <div className="modal-container">
-    //         <div className="modal-content">
-    //           <div className="boxed boxed--lg">
-    //             <RegisterForm upcoming={true} />
-    //           </div>
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </div>
-    // )
-  };
-
-  saleRunning = doneLoading => {
-    const { endFundingTime, startFundingTime } = this.state;
-    const togo = endFundingTime.diff(moment(), 'minutes');
-    const total = endFundingTime.diff(startFundingTime, 'minutes');
-    const percentage = 100 - togo / total * 100;
-    return (
-      <div>
-        <h2 className="sale-date padding-2" style={{ marginBottom: '1em' }}>
-          Join the early sale!
-        </h2>
-        {!doneLoading && (
-          <div>
-            <div className="ldr">Loading...</div>
-          </div>
-        )}
-        {doneLoading && (
-          <ProgressBar percentage={percentage} label={`${togo} minutes left`} />
-        )}
-        {doneLoading && this.numberTable()}
-        <div className="modal-instance">
-          <a
-            className="btn btn-lg type--uppercase btn--primary modal-trigger"
-            style={{ fontWeight: 'bold', fontSize: '20px' }}
-          >
-            Buy your DATA tokens now!
-          </a>
-          <div style={{ marginTop: '15px' }}>
-            <a
-              href="/how-to-participate.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i className="fa fa-info-circle" aria-hidden="true" />
-            </a>{' '}
-            <a
-              href="/how-to-participate.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ textDecoration: 'underline' }}
-            >
-              How to participate in the early sale
-            </a>
-          </div>
-          <div style={{ marginTop: '15px' }}>
-            <a
-              href="mailto:hello@databrokerdao.com"
-              style={{ textDecoration: 'underline' }}
-            >
-              Contact us for extra volume discounts.
-            </a>
-          </div>
-          <div className="modal-container">
-            <div className="modal-content">
-              <div className="boxed boxed--lg">
-                <RegisterForm />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  };
-
-  saleDone = () => {
-    // const { percentage } = this.state;
-    return (
-      <div>
-        <h2 className="sale-date">The early token sale is concluded!</h2>
-        <hr />
-        <p className="sale-date unmarg--bottom">Thank you for your support!</p>
-        <hr />
         <div style={{ marginTop: '15px' }}>
           <a
-            href="mailto:hello@databrokerdao.com"
-            style={{ textDecoration: 'underline' }}
+            href="/how-to-participate.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            We are still accepting larger volume purchases at reduced rates.<br />{' '}
-            Get in touch to discuss.
+            <i className="fa fa-info-circle" aria-hidden="true" /> How to buy
+            the DTX token
           </a>
         </div>
       </div>
@@ -516,7 +334,7 @@ class TokenSale extends Component {
   };
 
   numberTable = () => {
-    const { tokens, eth } = this.state;
+    const { total, usd } = this.state;
 
     return (
       <div>
@@ -526,7 +344,7 @@ class TokenSale extends Component {
               <tr>
                 <td style={{ textAlign: 'left' }}>Tokens sold:</td>
                 <td style={{ textAlign: 'right' }} className="type--bold">
-                  {parseInt(tokens, 10).toFixed(0)}
+                  {total}
                 </td>
               </tr>
             </tbody>
@@ -536,9 +354,9 @@ class TokenSale extends Component {
           <table>
             <tbody>
               <tr>
-                <td style={{ textAlign: 'left' }}>ETH collected:</td>
+                <td style={{ textAlign: 'left' }}>USD:</td>
                 <td style={{ textAlign: 'right' }} className="type--bold">
-                  Ξ {parseInt(eth, 10).toFixed(0)}
+                  ${usd}
                 </td>
               </tr>
             </tbody>
@@ -549,23 +367,10 @@ class TokenSale extends Component {
   };
 
   render() {
-    const { tokens, eth, percentage } = this.state;
+    const { percentage } = this.state;
     const { language, messages } = this.state;
 
-    let upcoming = process.env.REACT_APP_SALE_UPCOMING === 'true';
-    let done = process.env.REACT_APP_SALE_DONE === 'true';
-    let active = process.env.REACT_APP_SALE_ACTIVE === 'true';
-
-    // if (startFundingTime && endFundingTime) {
-    //   upcoming = startFundingTime.isAfter(moment());
-    //   active =
-    //     startFundingTime.isBefore(moment()) && endFundingTime.isAfter(moment());
-    //   done = endFundingTime.isBefore(moment());
-    // }
-
-    const doneLoading = percentage >= 0 && eth >= 0 && tokens >= 0;
-
-    // setTimeout(() => window.modals(jQuery, window, document), 1000); //eslint-disable-line
+    const doneLoading = percentage >= 0;
 
     return (
       <IntlProvider key={language} locale={language} messages={messages}>
@@ -925,9 +730,7 @@ class TokenSale extends Component {
                       className="boxed boxed--lg border--round box-shadow-wide bg--white token-sale"
                       style={{ marginTop: 0 }}
                     >
-                      {doneLoading && upcoming && this.saleUpcoming()}
-                      {active && this.saleRunning(doneLoading)}
-                      {doneLoading && done && this.saleDone()}
+                      {doneLoading && this.saleUpcoming(doneLoading)}
                     </div>
                   </div>
                 </div>

@@ -22,13 +22,13 @@ class VideoSection extends PureComponent {
             </div>
             <div className="col-md-6 col-sm-6 col-md-offset-1">
               <div
-                class="video-cover border--round"
+                className="video-cover border--round"
                 style={{ background: 'white' }}
               >
-                <div class="background-image-holder">
+                <div className="background-image-holder">
                   <img alt="DataBrokerDAO" src="img/video-cover3.jpg" />
                 </div>
-                <div class="video-play-icon" />
+                <div className="video-play-icon" />
                 <iframe
                   style={{ background: 'white' }}
                   title="DataBrokerDAO"
