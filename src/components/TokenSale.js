@@ -918,6 +918,53 @@ class TokenSale extends Component {
                           />
                         </a>
                       </div>
+                      <div>
+                        <a
+                          href="https://www.trackico.io/ico/databrokerdao/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          title="DatabrokerDAO on TrackICO"
+                        >
+                          <img
+                            border="0"
+                            src="https://www.trackico.io/widget/square/databrokerdao/90.png"
+                            width="100px"
+                            height="100px"
+                            alt="DatabrokerDAO TrackICO rating"
+                            style={{ borderRadius: '5px' }}
+                          />
+                        </a>
+                        <a
+                          href="https://icobench.com/ico/databrokerdao"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          title="DatabrokerDAO on ICObench"
+                        >
+                          <img
+                            border="0"
+                            src="https://icobench.com/rated/databrokerdao?shape=square&size=s"
+                            width="100px"
+                            height="100px"
+                            alt="DatabrokerDAO ICO rating"
+                            style={{ borderRadius: '5px', marginLeft: '10px' }}
+                          />
+                        </a>
+                        <a
+                          href="https://icomarks.com/ico/databrokerdao"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          title="DatabrokerDAO"
+                        >
+                          <img
+                            border="0"
+                            src="https://icomarks.com/widget/d/databrokerdao/square.svg"
+                            width="100px"
+                            height="100px"
+                            alt="DatabrokerDAO ICO rating"
+                            style={{ borderRadius: '5px', marginLeft: '10px' }}
+                          />
+                        </a>
+                      </div>
                     </div>
                   </div>
                   <div className="col-md-6 col-sm-7 col-xs-12 text-center col-md-offset-1">
