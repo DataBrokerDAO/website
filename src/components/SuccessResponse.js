@@ -55,22 +55,6 @@ class SuccessResponse extends Component {
             </div>
           </div>
         )}
-        {localStorage.getItem('ref') === 'mattsyndicate' && (
-          <div>
-            <div className="form-group" style={{ marginTop: '1em' }}>
-              <label className="type--uppercase ">
-                Deposit wallet for the MattSyndicate private sale
-              </label>
-              <input
-                className="text-center"
-                type="text"
-                value="0x334a947c7c55e44010b78c28de0656b07cd2d473"
-                style={{ fontSize: '16px' }}
-                readOnly
-              />
-            </div>
-          </div>
-        )}
         {localStorage.getItem('ref') !== 'cryptoclub' && (
           <div>
             {upcoming ? (
