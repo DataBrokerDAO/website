@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { getWeb3 } from '../utils/getWeb3';
 import ProgressBar from './ProgressBar';
-// import PreRegisterForm from './PreRegisterForm';
+import moment from 'moment';
 import RegisterForm from './RegisterForm';
 import WorldSVG from '../assets/world.svg';
 import VideoSection from './sections/video';
@@ -230,7 +230,8 @@ class TokenSale extends Component {
       const newState = {
         total: total.toFormat(0),
         percentage: percentage.toFixed(2),
-        usd: totalUSD.toFormat(0)
+        usd: totalUSD.toFormat(0),
+        timeLeft: moment('2018-03-26 15:59:59+01:00').diff(moment(), 'days')
       };
       this.setState(newState);
     } catch (error) {
@@ -239,7 +240,7 @@ class TokenSale extends Component {
   }
 
   saleUpcoming = doneLoading => {
-    const { percentage } = this.state;
+    const { percentage, timeLeft } = this.state;
     return (
       <div>
         <h2
@@ -248,7 +249,10 @@ class TokenSale extends Component {
         >
           DTX PRE-SALE LIVE NOW!
         </h2>
-        <hr style={{ border: 0 }} />
+        <h3>
+          50% bonus, 10 ETH minimum<br />
+          Ends in {timeLeft} days
+        </h3>
         {localStorage.getItem('ref') === 'cryptoclub' && (
           <div style={{ marginBottom: '2em' }}>
             <span style={{ textTransform: 'uppercase' }}>
@@ -276,7 +280,7 @@ class TokenSale extends Component {
             )}
             {localStorage.getItem('ref') !== 'cryptoclub' &&
               localStorage.getItem('ref') !== 'mattsyndicate' && (
-                <span>BUY NOW! (50% BONUS)</span>
+                <span>BUY NOW!</span>
               )}
           </a>
           <div style={{ marginTop: '15px' }}>
@@ -631,30 +635,7 @@ class TokenSale extends Component {
                           defaultMessage=" "
                         />
                       </p>
-                      <div className="modal-instance header-video block">
-                        <div
-                          className="video-play-icon video-play-icon--xs modal-trigger bg--primary"
-                          data-modal-index="0"
-                        />
-                        <span>
-                          <strong>
-                            <FormattedMessage id="splash_videolink" />
-                          </strong>
-                        </span>
-                        <div className="modal-container">
-                          <div
-                            className="modal-content bg-dark"
-                            data-width="55%"
-                            data-height="60%"
-                          >
-                            <iframe
-                              title="DataBrokerDAO movie"
-                              data-src="https://www.youtube.com/embed/Ld3kMS6nyb4?autoplay=1&amp;rel=0"
-                              allowFullScreen="allowfullscreen"
-                            />
-                          </div>
-                        </div>
-                      </div>
+
                       <div
                         className="col-md-12"
                         style={{
@@ -709,7 +690,15 @@ class TokenSale extends Component {
                           />
                         </a>
                       </div>
-                      <div>
+                      <div
+                        className="col-md-3"
+                        style={{
+                          marginBottom: '10px',
+                          paddingRight: '5px',
+                          paddingLeft: '5px',
+                          textAlign: 'center'
+                        }}
+                      >
                         <a
                           href="https://www.trackico.io/ico/databrokerdao/"
                           target="_blank"
@@ -725,6 +714,16 @@ class TokenSale extends Component {
                             style={{ borderRadius: '5px' }}
                           />
                         </a>
+                      </div>
+                      <div
+                        className="col-md-3"
+                        style={{
+                          marginBottom: '10px',
+                          paddingRight: '5px',
+                          paddingLeft: '5px',
+                          textAlign: 'center'
+                        }}
+                      >
                         <a
                           href="https://icobench.com/ico/databrokerdao"
                           target="_blank"
@@ -737,9 +736,19 @@ class TokenSale extends Component {
                             width="100px"
                             height="100px"
                             alt="DatabrokerDAO ICO rating"
-                            style={{ borderRadius: '5px', marginLeft: '10px' }}
+                            style={{ borderRadius: '5px' }}
                           />
                         </a>
+                      </div>
+                      <div
+                        className="col-md-3"
+                        style={{
+                          marginBottom: '10px',
+                          paddingRight: '5px',
+                          paddingLeft: '5px',
+                          textAlign: 'center'
+                        }}
+                      >
                         <a
                           href="https://icomarks.com/ico/databrokerdao"
                           target="_blank"
@@ -752,7 +761,32 @@ class TokenSale extends Component {
                             width="100px"
                             height="100px"
                             alt="DatabrokerDAO ICO rating"
-                            style={{ borderRadius: '5px', marginLeft: '10px' }}
+                            style={{ borderRadius: '5px' }}
+                          />
+                        </a>
+                      </div>
+                      <div
+                        className="col-md-3"
+                        style={{
+                          marginBottom: '10px',
+                          paddingRight: '5px',
+                          paddingLeft: '5px',
+                          textAlign: 'center'
+                        }}
+                      >
+                        <a
+                          href="https://icoholder.com/en/databrokerdao-3028"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          title="DatabrokerDAO"
+                        >
+                          <img
+                            border="0"
+                            src="https://icoholder.com/en/big-green/3028.widget.svg?width=100"
+                            width="100px"
+                            height="100px"
+                            alt="DatabrokerDAO ICO rating"
+                            style={{ borderRadius: '5px' }}
                           />
                         </a>
                       </div>

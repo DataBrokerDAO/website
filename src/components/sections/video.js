@@ -29,6 +29,7 @@ class VideoSection extends PureComponent {
                   <img alt="DataBrokerDAO" src="img/video-cover3.jpg" />
                 </div>
                 <div className="video-play-icon" />
+
                 <iframe
                   style={{ background: 'white' }}
                   title="DataBrokerDAO"
