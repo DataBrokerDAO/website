@@ -406,10 +406,10 @@ class RegisterForm extends Component {
         {!formSubmitted && (
           <div>
             {/*<h2>
-              {localStorage.getItem('ref') === 'moonsyndicate' && (
-                <span>Join the private sale for Moon Syndicate members</span>
+              {localStorage.getItem('ref') === 'cryptoclub' && (
+                <span>Join the private sale for Crypto Club members</span>
               )}
-              {localStorage.getItem('ref') !== 'moonsyndicate' && (
+              {localStorage.getItem('ref') !== 'cryptoclub' && (
                 <FormattedMessage id="form_title" />
               )}
             </h2>

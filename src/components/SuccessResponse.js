@@ -14,11 +14,11 @@ class SuccessResponse extends Component {
     return (
       <div>
         <h2>
-          {(localStorage.getItem('ref') === 'moonsyndicate' ||
+          {(localStorage.getItem('ref') === 'cryptoclub' ||
             localStorage.getItem('ref') === 'mattsyndicate') && (
             <span>You have qualified for the private sale!</span>
           )}
-          {localStorage.getItem('ref') !== 'moonsyndicate' &&
+          {localStorage.getItem('ref') !== 'cryptoclub' &&
             localStorage.getItem('ref') !== 'mattsyndicate' && (
               <FormattedMessage id="form_success_title" />
             )}
@@ -31,7 +31,7 @@ class SuccessResponse extends Component {
             <br />
           </div>
         )}
-        {(localStorage.getItem('ref') === 'moonsyndicate' ||
+        {(localStorage.getItem('ref') === 'cryptoclub' ||
           localStorage.getItem('ref') === 'mattsyndicate') && (
           <div style={{ fontWeight: 'bold' }}>
             <i className="fa fa-exclamation-triangle" aria-hidden="true" />{' '}
@@ -39,16 +39,16 @@ class SuccessResponse extends Component {
             <br />
           </div>
         )}
-        {localStorage.getItem('ref') === 'moonsyndicate' && (
+        {localStorage.getItem('ref') === 'cryptoclub' && (
           <div>
             <div className="form-group" style={{ marginTop: '1em' }}>
               <label className="type--uppercase ">
-                Deposit wallet for the Moon Syndicate private sale
+                Deposit wallet for the Crypto Club private sale
               </label>
               <input
                 className="text-center"
                 type="text"
-                value="0x6b9036Bd1bFC92E54eF6d94307567Ce1F588e70F"
+                value="0xcfd029fb115855622a2e0252db5e6fd98174bc2b"
                 style={{ fontSize: '16px' }}
                 readOnly
               />
@@ -71,7 +71,7 @@ class SuccessResponse extends Component {
             </div>
           </div>
         )}
-        {localStorage.getItem('ref') !== 'moonsyndicate' && (
+        {localStorage.getItem('ref') !== 'cryptoclub' && (
           <div>
             {upcoming ? (
               <p className="lead">
@@ -148,7 +148,7 @@ class SuccessResponse extends Component {
         >
           Guide on how to participate
       </a>*/}
-        {localStorage.getItem('ref') !== 'moonsyndicate' &&
+        {localStorage.getItem('ref') !== 'cryptoclub' &&
           localStorage.getItem('ref') !== 'mattsyndicate' && (
             <div>
               <hr className="short" />

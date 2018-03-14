@@ -288,10 +288,10 @@ class TokenSale extends Component {
         </p>
     <hr />*/}
         <hr style={{ border: 0 }} />
-        {localStorage.getItem('ref') === 'moonsyndicate' && (
+        {localStorage.getItem('ref') === 'cryptoclub' && (
           <div style={{ marginBottom: '2em' }}>
             <span style={{ textTransform: 'uppercase' }}>
-              A special offer for our friends at the Moon Syndicate
+              A special offer for our friends at the Crypto Club
             </span>
             <p className="sale-date">Join the private sale now!</p>
           </div>
@@ -323,11 +323,11 @@ class TokenSale extends Component {
             className="btn btn-lg type--uppercase btn--primary modal-trigger"
             style={{ fontSize: '18pt', fontWeight: 'bold', color: 'white' }}
           >
-            {(localStorage.getItem('ref') === 'moonsyndicate' ||
+            {(localStorage.getItem('ref') === 'cryptoclub' ||
               localStorage.getItem('ref') === 'mattsyndicate') && (
               <span>Join the private sale</span>
             )}
-            {localStorage.getItem('ref') !== 'moonsyndicate' &&
+            {localStorage.getItem('ref') !== 'cryptoclub' &&
               localStorage.getItem('ref') !== 'mattsyndicate' && (
                 <FormattedMessage id="sale_button" />
               )}
@@ -340,9 +340,9 @@ class TokenSale extends Component {
             >
               <i className="fa fa-info-circle" aria-hidden="true" />
             </a>{' '}*/}
-            {localStorage.getItem('ref') === 'moonsyndicate' && (
+            {localStorage.getItem('ref') === 'cryptoclub' && (
               <strong>
-                only for our friends of the Moon Syndicate<br />
+                only for our friends of the Crypto Club<br />
               </strong>
             )}
             {localStorage.getItem('ref') === 'mattsyndicate' && (
@@ -350,7 +350,7 @@ class TokenSale extends Component {
                 only for our friends of the MattSyndicate<br />
               </strong>
             )}
-            {localStorage.getItem('ref') !== 'moonsyndicate' &&
+            {localStorage.getItem('ref') !== 'cryptoclub' &&
               localStorage.getItem('ref') !== 'mattsyndicate' && (
                 <a
                   href="https://t.me/databrokerdao"

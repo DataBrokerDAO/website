@@ -24,15 +24,16 @@ class CTASection extends PureComponent {
                 className="btn__text type--uppercase"
                 style={{ color: 'white' }}
               >
-                {localStorage.getItem('ref') === 'moonsyndicate' && (
-                  <span>Join the private sale for Moon Syndicate members</span>
+                {localStorage.getItem('ref') === 'cryptoclub' && (
+                  <span>Join the private sale for Crypto Club members</span>
                 )}
                 {localStorage.getItem('ref') === 'mattsyndicate' && (
                   <span>Join the private sale for MattSyndicate members</span>
                 )}
-                {localStorage.getItem('ref') !== 'moonsyndicate'  && localStorage.getItem('ref') !== 'mattsyndicate' && (
-                  <FormattedMessage id="cta" />
-                )}
+                {localStorage.getItem('ref') !== 'cryptoclub' &&
+                  localStorage.getItem('ref') !== 'mattsyndicate' && (
+                    <FormattedMessage id="cta" />
+                  )}
               </span>
             </a>
           </div>

@@ -21,14 +21,14 @@ class TokenSaleSection extends PureComponent {
               </h2>
             </div>
 
-            {localStorage.getItem('ref') === 'moonsyndicate' && (
+            {localStorage.getItem('ref') === 'cryptoclub' && (
               <div className="col-sm-12 col-md-10 col-md-offset-1">
                 <div className="boxed boxed--lg box-shadow-wide bg--secondary token-box">
                   <h3
                     className="force-black type--bold unmarg--bottom type--uppercase"
                     style={{ color: 'black' }}
                   >
-                    Moon Syndicate Private Sale
+                    Crypto Club Private Sale
                   </h3>
                   <hr className="short" />
                   <div className="col-sm-6 padding-0">
@@ -91,12 +91,12 @@ class TokenSaleSection extends PureComponent {
                         className="btn__text type--uppercase"
                         style={{ color: 'white' }}
                       >
-                        {localStorage.getItem('ref') === 'moonsyndicate' && (
+                        {localStorage.getItem('ref') === 'cryptoclub' && (
                           <span>
-                            Join the private sale for Moon Syndicate members
+                            Join the private sale for Crypto Club members
                           </span>
                         )}
-                        {localStorage.getItem('ref') !== 'moonsyndicate' && (
+                        {localStorage.getItem('ref') !== 'cryptoclub' && (
                           <FormattedMessage id="cta" />
                         )}
                       </span>
@@ -183,7 +183,7 @@ class TokenSaleSection extends PureComponent {
                             Join the private sale for MattSyndicate members
                           </span>
                         )}
-                        {localStorage.getItem('ref') !== 'moonsyndicate' &&
+                        {localStorage.getItem('ref') !== 'cryptoclub' &&
                           localStorage.getItem('ref') !== 'mattsyndicate' && (
                             <FormattedMessage id="cta" />
                           )}
@@ -359,13 +359,13 @@ class TokenSaleSection extends PureComponent {
               className="btn__text type--uppercase"
               style={{ color: 'white' }}
             >
-              {localStorage.getItem('ref') === 'moonsyndicate' && (
-                <span>Join the private sale for Moon Syndicate members</span>
+              {localStorage.getItem('ref') === 'cryptoclub' && (
+                <span>Join the private sale for Crypto Club members</span>
               )}
               {localStorage.getItem('ref') === 'mattsyndicate' && (
                 <span>Join the private sale for MattSyndicate members</span>
               )}
-              {localStorage.getItem('ref') !== 'moonsyndicate' &&
+              {localStorage.getItem('ref') !== 'cryptoclub' &&
                 localStorage.getItem('ref') === 'mattsyndicate' && (
                   <FormattedMessage id="cta" />
                 )}
