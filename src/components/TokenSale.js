@@ -858,7 +858,7 @@ class TokenSale extends Component {
                           >
                             <iframe
                               title="DataBrokerDAO movie"
-                              data-src="https://www.youtube.com/embed/hZLr5O7y71c?autoplay=1&amp;rel=0"
+                              data-src="https://www.youtube.com/embed/Ld3kMS6nyb4?autoplay=1&amp;rel=0"
                               allowFullScreen="allowfullscreen"
                             />
                           </div>
