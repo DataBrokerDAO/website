@@ -257,15 +257,6 @@ class TokenSale extends Component {
             <p className="sale-date">Join the private sale now!</p>
           </div>
         )}
-        {localStorage.getItem('ref') === 'mattsyndicate' && (
-          <div style={{ marginBottom: '2em' }}>
-            <span style={{ textTransform: 'uppercase' }}>
-              A special offer for our friends at the MattSyndicate
-            </span>
-            <p className="sale-date">Join the private sale now!</p>
-          </div>
-        )}
-
         {!doneLoading && (
           <div>
             <div className="ldr">Loading...</div>
