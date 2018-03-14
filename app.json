@@ -4,7 +4,7 @@
   "env": {
     "REACT_APP_SALE_ACTIVE": true,
     "REACT_APP_SALE_UPCOMING": false,
-    "REACT_APP_SALE_NETWORK" "https://rinkeby.infura.io"
+    "REACT_APP_SALE_NETWORK": "https://rinkeby.infura.io"
   },
   "formation": {},
   "addons": [],
