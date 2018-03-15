@@ -1,5 +1,5 @@
-import React, { PureComponent } from 'react';
-import { FormattedMessage } from 'react-intl';
+import React, { PureComponent } from 'react'
+import { FormattedMessage } from 'react-intl'
 
 class VideoSection extends PureComponent {
   render() {
@@ -42,8 +42,8 @@ class VideoSection extends PureComponent {
           </div>
         </div>
       </section>
-    );
+    )
   }
 }
 
-export default VideoSection;
+export default VideoSection

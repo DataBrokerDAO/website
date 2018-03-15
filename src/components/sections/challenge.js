@@ -1,5 +1,5 @@
-import React, { PureComponent } from 'react';
-import { FormattedMessage } from 'react-intl';
+import React, { PureComponent } from 'react'
+import { FormattedMessage } from 'react-intl'
 
 class ChallengeSection extends PureComponent {
   render() {
@@ -69,8 +69,8 @@ class ChallengeSection extends PureComponent {
           </div>
         </div>
       </section>
-    );
+    )
   }
 }
 
-export default ChallengeSection;
+export default ChallengeSection

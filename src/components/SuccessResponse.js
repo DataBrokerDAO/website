@@ -1,16 +1,20 @@
-import React, { Component } from 'react';
-import { FormattedMessage, injectIntl } from 'react-intl';
+import React, { Component } from 'react'
+import { FormattedMessage, injectIntl } from 'react-intl'
 
 class SuccessResponse extends Component {
   render() {
-    const { address, uuid, upcoming, btcAddress } = this.props;
-    fbq('track', 'CompleteRegistration'); // eslint-disable-line
+    const { address, uuid, upcoming, btcAddress } = this.props
+    fbq('track', 'CompleteRegistration') // eslint-disable-line
     window.ga('send', {
       hitType: 'event',
       eventCategory: 'Funnel',
       eventAction: 'Success',
-      eventLabel: 'PreSale'
-    });
+      eventLabel: 'PreSale',
+    })
+    gtag('event', 'conversion', {
+      send_to: 'AW-871172050/4K_ACMTF5H4Q0o-0nwM',
+    })
+
     return (
       <div>
         <h2>
@@ -187,8 +191,8 @@ class SuccessResponse extends Component {
             </div>
           )}
       </div>
-    );
+    )
   }
 }
 
-export default injectIntl(SuccessResponse);
+export default injectIntl(SuccessResponse)

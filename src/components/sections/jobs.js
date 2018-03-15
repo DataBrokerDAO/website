@@ -1,5 +1,5 @@
-import React, { PureComponent } from 'react';
-import { FormattedMessage } from 'react-intl';
+import React, { PureComponent } from 'react'
+import { FormattedMessage } from 'react-intl'
 
 class JobsSection extends PureComponent {
   render() {
@@ -375,8 +375,8 @@ class JobsSection extends PureComponent {
           </div>
         </section>
       </div>
-    );
+    )
   }
 }
 
-export default JobsSection;
+export default JobsSection

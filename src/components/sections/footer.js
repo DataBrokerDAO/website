@@ -1,6 +1,6 @@
-import React, { PureComponent } from 'react';
-import { FormattedMessage } from 'react-intl';
-import WorldSVG from '../../assets/world.svg';
+import React, { PureComponent } from 'react'
+import { FormattedMessage } from 'react-intl'
+import WorldSVG from '../../assets/world.svg'
 
 class Footer extends PureComponent {
   render() {
@@ -98,8 +98,8 @@ class Footer extends PureComponent {
           </div>
         </div>
       </footer>
-    );
+    )
   }
 }
 
-export default Footer;
+export default Footer

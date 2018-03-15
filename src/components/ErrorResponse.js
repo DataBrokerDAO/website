@@ -1,15 +1,16 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 class ErrorResponse extends Component {
   render() {
-    fbq('track', 'CompleteRegistration'); // eslint-disable-line
+    fbq('track', 'CompleteRegistration') // eslint-disable-line
     // const { error } = this.props;
     window.ga('send', {
       hitType: 'event',
       eventCategory: 'Funnel',
       eventAction: 'Error',
-      eventLabel: 'EarlyTokenSale',
-    });
+      eventLabel: 'PreSale',
+    })
+
     return (
       <div>
         <h2>Registration failed! </h2>
@@ -24,8 +25,8 @@ class ErrorResponse extends Component {
           is deemed correct.
         </p>
       </div>
-    );
+    )
   }
 }
 
-export default ErrorResponse;
+export default ErrorResponse

@@ -1,6 +1,6 @@
-import React, { PureComponent } from 'react';
-import WorldSVG from '../../assets/world.svg';
-import { FormattedMessage } from 'react-intl';
+import React, { PureComponent } from 'react'
+import WorldSVG from '../../assets/world.svg'
+import { FormattedMessage } from 'react-intl'
 
 class CTASection extends PureComponent {
   render() {
@@ -39,8 +39,8 @@ class CTASection extends PureComponent {
           </div>
         </div>
       </section>
-    );
+    )
   }
 }
 
-export default CTASection;
+export default CTASection

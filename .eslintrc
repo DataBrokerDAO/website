@@ -1,4 +1,23 @@
 {
-  "extends": ["prettier", "react-app"],
-  "plugins": ["prettier"]
+  "extends": ["react-app", "prettier", "eslint:recommended"],
+  "plugins": ["prettier", "node", "promise"],
+  "rules": {
+    "prettier/prettier": "warn",
+    "no-console": 0
+  },
+  "globals": {
+    "artifacts": true,
+    "web3": true,
+    "assert": true,
+    "contract": true,
+    "gtag": true
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+    "jest": true
+  }
 }

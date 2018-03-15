@@ -1,5 +1,5 @@
-import React, { PureComponent } from 'react';
-import { FormattedMessage } from 'react-intl';
+import React, { PureComponent } from 'react'
+import { FormattedMessage } from 'react-intl'
 
 class RoadmapSection extends PureComponent {
   render() {
@@ -138,8 +138,8 @@ class RoadmapSection extends PureComponent {
           </div>
         </div>
       </section>
-    );
+    )
   }
 }
 
-export default RoadmapSection;
+export default RoadmapSection

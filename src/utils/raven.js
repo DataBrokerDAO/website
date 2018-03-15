@@ -7,15 +7,12 @@ const version = `${process.env.REACT_APP_VERSION || '0.0.0'}-${REACT_ENV}`
 const EXCLUDES = ['Local storage is missing', 'Retrying']
 
 try {
-  Raven.config(
-    'https://67258c1618d14fbd99e9811bc8003798@sentry.io/282513',
-    {
-      environment: process.env.REACT_APP_ENV || 'production',
-      release: version,
-      autoBreadcrumbs: false,
-      ignoreErrors: EXCLUDES,
-    }
-  ).install()
+  Raven.config('https://67258c1618d14fbd99e9811bc8003798@sentry.io/282513', {
+    environment: process.env.REACT_APP_ENV || 'production',
+    release: version,
+    autoBreadcrumbs: false,
+    ignoreErrors: EXCLUDES,
+  }).install()
   console.info('Raven configured.')
 } catch (e) {
   // eslint-disable-next-line no-console
@@ -29,12 +26,12 @@ export function captureException(e) {
         if (e.meta) {
           let tags = undefined
           if (e.meta.action) {
-            tags = {action: e.meta.action}
+            tags = { action: e.meta.action }
           }
           // also route to bugsnag!
           Raven.captureException(e, {
             extra: e.meta,
-            tags
+            tags,
           })
         } else {
           // also route to bugsnag!
@@ -59,9 +56,9 @@ export function captureMessage(
   extra
 ) {
   try {
-    let options = {level}
+    let options = { level }
     if (extra) {
-      options = {...options, ...extra}
+      options = { ...options, ...extra }
     }
 
     Raven.captureMessage(message, options)
@@ -73,5 +70,5 @@ export function captureMessage(
 export const RAVEN_MESSAGE_TYPES = {
   info: 'info',
   warning: 'warning',
-  error: 'error'
+  error: 'error',
 }

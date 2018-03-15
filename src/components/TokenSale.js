@@ -1,50 +1,50 @@
-import React, { Component } from 'react';
-import { getWeb3 } from '../utils/getWeb3';
-import ProgressBar from './ProgressBar';
-import moment from 'moment';
-import RegisterForm from './RegisterForm';
-import WorldSVG from '../assets/world.svg';
-import VideoSection from './sections/video';
-import ChallengeSection from './sections/challenge';
-import JobsSection from './sections/jobs';
-import ChannelsSection from './sections/channels';
-import Footer from './sections/footer';
-import CTASection from './sections/cta';
-import SolutionSection from './sections/solutions';
-import TeamSection from './sections/team';
-import PressSection from './sections/press';
-import EventsSection from './sections/events';
-import AllianceSection from './sections/alliance';
-import BenefitsSection from './sections/benefits';
-import BetaSection from './sections/beta';
-import { IntlProvider, addLocaleData, FormattedMessage } from 'react-intl';
-import en from 'react-intl/locale-data/en';
-import ar from 'react-intl/locale-data/ar';
-import tr from 'react-intl/locale-data/tr';
-import es from 'react-intl/locale-data/es';
-import ru from 'react-intl/locale-data/ru';
-import pt from 'react-intl/locale-data/pt';
-import ko from 'react-intl/locale-data/ko';
-import ja from 'react-intl/locale-data/ja';
-import it from 'react-intl/locale-data/it';
-import de from 'react-intl/locale-data/de';
-import fr from 'react-intl/locale-data/fr';
-import zh from 'react-intl/locale-data/zh';
-import enTranslations from '../i18n/en.json';
-import arTranslations from '../i18n/ar.json';
-import trTranslations from '../i18n/tr.json';
-import esTranslations from '../i18n/es.json';
-import ruTranslations from '../i18n/ru.json';
-import ptTranslations from '../i18n/pt.json';
-import koTranslations from '../i18n/ko.json';
-import jaTranslations from '../i18n/ja.json';
-import itTranslations from '../i18n/it.json';
-import deTranslations from '../i18n/de.json';
-import frTranslations from '../i18n/fr.json';
-import zhTranslations from '../i18n/zh.json';
-import { setTimeout } from 'timers';
-import TokenSaleSection from '../components/sections/tokensale';
-import RoadmapSection from '../components/sections/roadmap';
+import React, { Component } from 'react'
+import { getWeb3 } from '../utils/getWeb3'
+import ProgressBar from './ProgressBar'
+import moment from 'moment'
+import RegisterForm from './RegisterForm'
+import WorldSVG from '../assets/world.svg'
+import VideoSection from './sections/video'
+import ChallengeSection from './sections/challenge'
+import JobsSection from './sections/jobs'
+import ChannelsSection from './sections/channels'
+import Footer from './sections/footer'
+import CTASection from './sections/cta'
+import SolutionSection from './sections/solutions'
+import TeamSection from './sections/team'
+import PressSection from './sections/press'
+import EventsSection from './sections/events'
+import AllianceSection from './sections/alliance'
+import BenefitsSection from './sections/benefits'
+import BetaSection from './sections/beta'
+import { IntlProvider, addLocaleData, FormattedMessage } from 'react-intl'
+import en from 'react-intl/locale-data/en'
+import ar from 'react-intl/locale-data/ar'
+import tr from 'react-intl/locale-data/tr'
+import es from 'react-intl/locale-data/es'
+import ru from 'react-intl/locale-data/ru'
+import pt from 'react-intl/locale-data/pt'
+import ko from 'react-intl/locale-data/ko'
+import ja from 'react-intl/locale-data/ja'
+import it from 'react-intl/locale-data/it'
+import de from 'react-intl/locale-data/de'
+import fr from 'react-intl/locale-data/fr'
+import zh from 'react-intl/locale-data/zh'
+import enTranslations from '../i18n/en.json'
+import arTranslations from '../i18n/ar.json'
+import trTranslations from '../i18n/tr.json'
+import esTranslations from '../i18n/es.json'
+import ruTranslations from '../i18n/ru.json'
+import ptTranslations from '../i18n/pt.json'
+import koTranslations from '../i18n/ko.json'
+import jaTranslations from '../i18n/ja.json'
+import itTranslations from '../i18n/it.json'
+import deTranslations from '../i18n/de.json'
+import frTranslations from '../i18n/fr.json'
+import zhTranslations from '../i18n/zh.json'
+import { setTimeout } from 'timers'
+import TokenSaleSection from '../components/sections/tokensale'
+import RoadmapSection from '../components/sections/roadmap'
 
 const languages = {
   en: 'English',
@@ -58,15 +58,15 @@ const languages = {
   it: 'italiano',
   de: 'Deutsche',
   fr: 'français',
-  zh: '中文'
-};
+  zh: '中文',
+}
 
 class TokenSale extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
-      web3: null
-    };
+      web3: null,
+    }
   }
 
   componentWillMount() {
@@ -74,20 +74,22 @@ class TokenSale extends Component {
       getWeb3
         .then(results => {
           this.setState({
-            ...results
-          });
+            ...results,
+          })
           this.instantiateContract()
             .then(() => {
-              this.polling = true;
-              this.longPoller();
+              this.polling = true
+              this.longPoller()
+              return true
             })
             .catch(error => {
-              console.log('longPoller error', error);
-            });
+              console.log('longPoller error', error)
+            })
+          return true
         })
         .catch(e => {
-          console.log('Error finding web3.', e);
-        });
+          console.log('Error finding web3.', e)
+        })
     }
     addLocaleData([
       ...en,
@@ -101,146 +103,146 @@ class TokenSale extends Component {
       ...it,
       ...de,
       ...fr,
-      ...zh
-    ]);
-    let language = 'en';
+      ...zh,
+    ])
+    let language = 'en'
     if (!localStorage.getItem('dbdaolang')) {
       const language =
         (navigator.languages && navigator.languages[0]) ||
         navigator.language ||
-        navigator.userLanguage;
-      let languageWithoutRegionCode = language.toLowerCase().split(/[_-]+/)[0];
-      localStorage.setItem('dbdaolang', languageWithoutRegionCode);
+        navigator.userLanguage
+      let languageWithoutRegionCode = language.toLowerCase().split(/[_-]+/)[0]
+      localStorage.setItem('dbdaolang', languageWithoutRegionCode)
     }
-    language = localStorage.getItem('dbdaolang');
+    language = localStorage.getItem('dbdaolang')
     if (!Object.keys(languages).includes(language)) {
-      language = 'en';
+      language = 'en'
     }
-    this.setMessages(language);
+    this.setMessages(language)
   }
 
   componentDidMount() {
     setTimeout(() => {
-      mr.documentReady(jQuery); //eslint-disable-line
-    }, 250);
+      mr.documentReady(jQuery) //eslint-disable-line
+    }, 250)
   }
 
   componentDidUpdate() {
     setTimeout(() => {
-      mr.documentReady(jQuery); //eslint-disable-line
-    }, 250);
+      mr.documentReady(jQuery) //eslint-disable-line
+    }, 250)
   }
 
   setMessages(language) {
-    let messages;
+    let messages
     switch (language) {
       case 'ar':
-        messages = arTranslations;
-        break;
+        messages = arTranslations
+        break
       case 'tr':
-        messages = trTranslations;
-        break;
+        messages = trTranslations
+        break
       case 'es':
-        messages = esTranslations;
-        break;
+        messages = esTranslations
+        break
       case 'ru':
-        messages = ruTranslations;
-        break;
+        messages = ruTranslations
+        break
       case 'pt':
-        messages = ptTranslations;
-        break;
+        messages = ptTranslations
+        break
       case 'ko':
-        messages = koTranslations;
-        break;
+        messages = koTranslations
+        break
       case 'ja':
-        messages = jaTranslations;
-        break;
+        messages = jaTranslations
+        break
       case 'it':
-        messages = itTranslations;
-        break;
+        messages = itTranslations
+        break
       case 'de':
-        messages = deTranslations;
-        break;
+        messages = deTranslations
+        break
       case 'fr':
-        messages = frTranslations;
-        break;
+        messages = frTranslations
+        break
       case 'zh':
-        messages = zhTranslations;
-        break;
+        messages = zhTranslations
+        break
       default:
-        messages = enTranslations;
-        break;
+        messages = enTranslations
+        break
     }
-    this.setState({ language, messages });
+    this.setState({ language, messages })
   }
 
   toggleChangeLanguage(newlang) {
-    this.setMessages(newlang);
-    localStorage.setItem('dbdaolang', newlang);
+    this.setMessages(newlang)
+    localStorage.setItem('dbdaolang', newlang)
   }
 
   longPoller() {
     setTimeout(() => {
       this.instantiateContract(true).then(() => {
         if (this.polling) {
-          this.longPoller();
+          this.longPoller()
         }
-      });
-    }, 10000);
+      })
+    }, 10000)
   }
 
   componentWillUnmount() {
-    this.polling = false;
+    this.polling = false
   }
 
   async instantiateContract(update = false) {
     try {
-      const { sale } = this.state;
-      const DeployedSale = await sale.deployed();
+      const { sale } = this.state
+      const DeployedSale = await sale.deployed()
 
-      const totalIssued = await DeployedSale.totalIssued();
-      const totalIssuedEarlySale = await DeployedSale.totalIssuedEarlySale();
-      let ethprice;
+      const totalIssued = await DeployedSale.totalIssued()
+      const totalIssuedEarlySale = await DeployedSale.totalIssuedEarlySale()
+      let ethprice
       try {
         const response = await fetch(
           'https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD'
-        );
-        const json = await response.json();
-        ethprice = json.USD;
+        )
+        const json = await response.json()
+        ethprice = json.USD
       } catch (error) {
-        console.log(error);
-        ethprice = 700;
+        console.log(error)
+        ethprice = 700
       }
 
-      let total = totalIssued.plus(totalIssuedEarlySale).div(10 ** 18);
+      let total = totalIssued.plus(totalIssuedEarlySale).div(10 ** 18)
       let totalUSD = totalIssued
         .div(6000)
         .plus(totalIssuedEarlySale.div(6000))
         .times(ethprice)
-        .div(10 ** 18);
+        .div(10 ** 18)
       if (total.gte(108000000)) {
-        total = totalIssued.div(10 ** 18);
+        total = totalIssued.div(10 ** 18)
         totalUSD = totalIssued
           .div(6000)
           .times(ethprice)
-          .div(10 ** 18);
+          .div(10 ** 18)
       }
 
-      const percentage = total.div(108000000).times(100);
+      const percentage = total.div(108000000).times(100)
       const newState = {
         total: total.toFormat(0),
         percentage: percentage.toFixed(2),
         usd: totalUSD.toFormat(0),
-        timeLeft: moment('2018-03-26 15:59:59+01:00').diff(moment(), 'days')
-      };
-      this.setState(newState);
+        timeLeft: moment('2018-03-26 15:59:59+01:00').diff(moment(), 'days'),
+      }
+      this.setState(newState)
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
   }
 
   saleUpcoming = doneLoading => {
-    const { percentage, timeLeft } = this.state;
+    const { percentage, timeLeft } = this.state
     return (
       <div>
         <h2
@@ -320,11 +322,11 @@ class TokenSale extends Component {
           </a>
         </div>
       </div>
-    );
-  };
+    )
+  }
 
   numberTable = () => {
-    const { total, usd } = this.state;
+    const { total, usd } = this.state
 
     return (
       <div>
@@ -353,14 +355,14 @@ class TokenSale extends Component {
           </table>
         </div>
       </div>
-    );
-  };
+    )
+  }
 
   render() {
-    const { percentage } = this.state;
-    const { language, messages } = this.state;
+    const { percentage } = this.state
+    const { language, messages } = this.state
 
-    const doneLoading = percentage >= 0;
+    const doneLoading = percentage >= 0
 
     return (
       <IntlProvider key={language} locale={language} messages={messages}>
@@ -377,7 +379,7 @@ class TokenSale extends Component {
               left: 0,
               background:
                 'linear-gradient(to right, #EB274C, #7E347E, #2E3192)',
-              zIndex: '-1'
+              zIndex: '-1',
             }}
             // id="canvas-basic"
           />
@@ -621,7 +623,7 @@ class TokenSale extends Component {
                         style={{
                           fontSize: '13pt',
                           lineHeight: '22pt',
-                          marginTop: '10px'
+                          marginTop: '10px',
                         }}
                       >
                         <b style={{ fontWeight: 'bold' }}>
@@ -641,7 +643,7 @@ class TokenSale extends Component {
                         style={{
                           marginBottom: '10px',
                           paddingRight: '5px',
-                          paddingLeft: '5px'
+                          paddingLeft: '5px',
                         }}
                       >
                         <a
@@ -651,14 +653,14 @@ class TokenSale extends Component {
                           style={{
                             width: '100%',
                             color: 'black',
-                            fontWeight: 'bold'
+                            fontWeight: 'bold',
                           }}
                         >
                           <FormattedMessage
                             id="splash_readwhitepaper"
                             style={{
                               color: 'black',
-                              fontWeight: 'bold'
+                              fontWeight: 'bold',
                             }}
                           />
                         </a>
@@ -668,7 +670,7 @@ class TokenSale extends Component {
                         style={{
                           marginBottom: '10px',
                           paddingRight: '5px',
-                          paddingLeft: '5px'
+                          paddingLeft: '5px',
                         }}
                       >
                         <a
@@ -678,25 +680,25 @@ class TokenSale extends Component {
                           style={{
                             width: '100%',
                             color: 'black',
-                            fontWeight: 'bold'
+                            fontWeight: 'bold',
                           }}
                         >
                           <FormattedMessage
                             id="splash_readonepaper"
                             style={{
                               color: 'black',
-                              fontWeight: 'bold'
+                              fontWeight: 'bold',
                             }}
                           />
                         </a>
                       </div>
                       <div
-                        className="col-md-3"
+                        className="col-xs-3"
                         style={{
                           marginBottom: '10px',
                           paddingRight: '5px',
                           paddingLeft: '5px',
-                          textAlign: 'center'
+                          textAlign: 'center',
                         }}
                       >
                         <a
@@ -708,20 +710,22 @@ class TokenSale extends Component {
                           <img
                             border="0"
                             src="https://www.trackico.io/widget/square/databrokerdao/90.png"
-                            width="100px"
-                            height="100px"
                             alt="DatabrokerDAO TrackICO rating"
-                            style={{ borderRadius: '5px' }}
+                            style={{
+                              borderRadius: '5px',
+                              width: '100%',
+                              maxWidth: '100px',
+                            }}
                           />
                         </a>
                       </div>
                       <div
-                        className="col-md-3"
+                        className="col-xs-3"
                         style={{
                           marginBottom: '10px',
                           paddingRight: '5px',
                           paddingLeft: '5px',
-                          textAlign: 'center'
+                          textAlign: 'center',
                         }}
                       >
                         <a
@@ -733,20 +737,22 @@ class TokenSale extends Component {
                           <img
                             border="0"
                             src="https://icobench.com/rated/databrokerdao?shape=square&size=s"
-                            width="100px"
-                            height="100px"
                             alt="DatabrokerDAO ICO rating"
-                            style={{ borderRadius: '5px' }}
+                            style={{
+                              borderRadius: '5px',
+                              width: '100%',
+                              maxWidth: '100px',
+                            }}
                           />
                         </a>
                       </div>
                       <div
-                        className="col-md-3"
+                        className="col-xs-3"
                         style={{
                           marginBottom: '10px',
                           paddingRight: '5px',
                           paddingLeft: '5px',
-                          textAlign: 'center'
+                          textAlign: 'center',
                         }}
                       >
                         <a
@@ -758,20 +764,22 @@ class TokenSale extends Component {
                           <img
                             border="0"
                             src="https://icomarks.com/widget/d/databrokerdao/square.svg"
-                            width="100px"
-                            height="100px"
                             alt="DatabrokerDAO ICO rating"
-                            style={{ borderRadius: '5px' }}
+                            style={{
+                              borderRadius: '5px',
+                              width: '100%',
+                              maxWidth: '100px',
+                            }}
                           />
                         </a>
                       </div>
                       <div
-                        className="col-md-3"
+                        className="col-xs-3"
                         style={{
                           marginBottom: '10px',
                           paddingRight: '5px',
                           paddingLeft: '5px',
-                          textAlign: 'center'
+                          textAlign: 'center',
                         }}
                       >
                         <a
@@ -783,10 +791,12 @@ class TokenSale extends Component {
                           <img
                             border="0"
                             src="https://icoholder.com/en/big-green/3028.widget.svg?width=100"
-                            width="100px"
-                            height="100px"
                             alt="DatabrokerDAO ICO rating"
-                            style={{ borderRadius: '5px' }}
+                            style={{
+                              borderRadius: '5px',
+                              width: '100%',
+                              maxWidth: '100px',
+                            }}
                           />
                         </a>
                       </div>
@@ -914,8 +924,8 @@ class TokenSale extends Component {
           </div>
         </div>
       </IntlProvider>
-    );
+    )
   }
 }
 
-export default TokenSale;
+export default TokenSale

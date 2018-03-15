@@ -1,21 +1,21 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 class ProgressBar extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
-      rendered: false
-    };
+      rendered: false,
+    }
   }
 
   componentDidUpdate() {
-    const { percentage } = this.props;
+    const { percentage } = this.props
     if (this.state.rendered !== percentage) {
-      window.radial(jQuery); //eslint-disable-line
-      this.setState({ rendered: percentage });
+      window.radial(jQuery) //eslint-disable-line
+      this.setState({ rendered: percentage })
     }
   }
   render() {
-    const { percentage, label } = this.props;
+    const { percentage, label } = this.props
 
     return (
       <div
@@ -28,8 +28,8 @@ class ProgressBar extends Component {
       >
         <span className="h3 radial__label">{label}</span>
       </div>
-    );
+    )
   }
 }
 
-export default ProgressBar;
+export default ProgressBar

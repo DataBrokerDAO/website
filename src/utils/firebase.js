@@ -1,4 +1,4 @@
-import firebase from 'firebase';
+import firebase from 'firebase'
 
 var config = {
   // apiKey: 'AIzaSyBoI_GMKEmv-UJaNeG_EfwpLLOjAMnGiSY',
@@ -8,11 +8,11 @@ var config = {
   apiKey: 'AIzaSyBsF57CHXhzZ0Z0LYCTy-LEQUUHX5ACxz8',
   authDomain: 'databrokerdao-crowdsaledev.firebaseapp.com',
   databaseURL: 'https://databrokerdao-crowdsaledev.firebaseio.com',
-  storageBucket: 'databrokerdao-crowdsaledev.appspot.com'
-};
-firebase.initializeApp(config);
+  storageBucket: 'databrokerdao-crowdsaledev.appspot.com',
+}
+firebase.initializeApp(config)
 
 // Get a reference to the database service
-var database = firebase.database();
+var database = firebase.database()
 
-export default database;
+export default database

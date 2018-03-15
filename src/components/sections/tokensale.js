@@ -1,6 +1,6 @@
-import React, { PureComponent } from 'react';
-import { FormattedMessage } from 'react-intl';
-import WorldSVG from '../../assets/world.svg';
+import React, { PureComponent } from 'react'
+import { FormattedMessage } from 'react-intl'
+import WorldSVG from '../../assets/world.svg'
 
 class TokenSaleSection extends PureComponent {
   render() {
@@ -176,8 +176,8 @@ class TokenSaleSection extends PureComponent {
           </div>
         </div>
       </section>
-    );
+    )
   }
 }
 
-export default TokenSaleSection;
+export default TokenSaleSection

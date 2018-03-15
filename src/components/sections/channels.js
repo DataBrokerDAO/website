@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent } from 'react'
 
 class ChannelsSection extends PureComponent {
   render() {
@@ -90,8 +90,8 @@ class ChannelsSection extends PureComponent {
           </div>
         </div>
       </section>
-    );
+    )
   }
 }
 
-export default ChannelsSection;
+export default ChannelsSection

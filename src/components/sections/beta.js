@@ -1,6 +1,6 @@
-import React, { PureComponent } from 'react';
-import WorldSVG from '../../assets/world.svg';
-import { FormattedMessage } from 'react-intl';
+import React, { PureComponent } from 'react'
+import WorldSVG from '../../assets/world.svg'
+import { FormattedMessage } from 'react-intl'
 
 class BetaSection extends PureComponent {
   render() {
@@ -50,8 +50,8 @@ class BetaSection extends PureComponent {
           </div>
         </div>
       </section>
-    );
+    )
   }
 }
 
-export default BetaSection;
+export default BetaSection

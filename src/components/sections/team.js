@@ -1,6 +1,6 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
-import { FormattedMessage } from 'react-intl';
+import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
+import { FormattedMessage } from 'react-intl'
 
 const LinkedInAction = ({ url }) => {
   return (
@@ -9,8 +9,8 @@ const LinkedInAction = ({ url }) => {
         <i className="color--primary fa fa-linkedin fa-2x" />
       </a>
     </div>
-  );
-};
+  )
+}
 
 const TeamCard = ({
   firstName,
@@ -18,9 +18,9 @@ const TeamCard = ({
   jobTitle,
   jobDescription,
   linkedIn,
-  imgUrl
+  imgUrl,
 }) => {
-  const fullName = `${firstName} ${lastName}`;
+  const fullName = `${firstName} ${lastName}`
 
   return (
     <div className="col-xs-6 col-sm-3 masonry__item modal-instance">
@@ -55,8 +55,8 @@ const TeamCard = ({
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
 TeamCard.propTypes = {
   firstName: PropTypes.string.isRequired,
@@ -64,8 +64,8 @@ TeamCard.propTypes = {
   jobTitle: PropTypes.string.isRequired,
   jobDescription: PropTypes.string.isRequired,
   linkedIn: PropTypes.string,
-  imgUrl: PropTypes.string // optional, defaults to firstname lowercase if not provided
-};
+  imgUrl: PropTypes.string, // optional, defaults to firstname lowercase if not provided
+}
 
 class TeamSection extends PureComponent {
   render() {
@@ -873,8 +873,8 @@ class TeamSection extends PureComponent {
           </div>
         </section>
       </div>
-    );
+    )
   }
 }
 
-export default TeamSection;
+export default TeamSection

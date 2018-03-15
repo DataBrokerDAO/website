@@ -1,39 +1,39 @@
-import React, { Component } from 'react';
-import Dropzone from 'react-dropzone';
-import { Form, Field, reduxForm } from 'redux-form';
-import axios from 'axios';
-import SuccessResponse from './SuccessResponse';
-import ErrorResponse from './ErrorResponse';
-import { FormattedMessage, injectIntl } from 'react-intl';
+import React, { Component } from 'react'
+import Dropzone from 'react-dropzone'
+import { Form, Field, reduxForm } from 'redux-form'
+import axios from 'axios'
+import SuccessResponse from './SuccessResponse'
+import ErrorResponse from './ErrorResponse'
+import { FormattedMessage, injectIntl } from 'react-intl'
 import { KYC_RESULTS } from '../utils/constants'
 
 class DocumentResponse extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       files: [],
-      loadedFiles: []
-    };
+      loadedFiles: [],
+    }
   }
 
   onDrop = acceptedFiles => {
-    const loadedFiles = [];
-    const files = [];
+    const loadedFiles = []
+    const files = []
 
     acceptedFiles.forEach(file => {
-      files.push(file);
-      const reader = new FileReader();
+      files.push(file)
+      const reader = new FileReader()
       reader.onload = inputFile => {
         loadedFiles.push(
           `${file.type};base64,${Buffer.from(inputFile.target.result).toString(
             'base64'
           )}`
-        );
-      };
-      reader.readAsArrayBuffer(file);
-    });
-    this.setState({ loadedFiles, files });
-  };
+        )
+      }
+      reader.readAsArrayBuffer(file)
+    })
+    this.setState({ loadedFiles, files })
+  }
 
   _submit = values => {
     axios
@@ -43,29 +43,26 @@ class DocumentResponse extends Component {
           ...this.props.extraInitialData,
           ...values,
           language: this.props.language,
-          doc: this.state.loadedFiles[0]
+          doc: this.state.loadedFiles[0],
         },
         {
           auth: {
             username:
               'sahCa8aiieD7ke9ovu3zeDieEitaza9uxuW6op2SSa0tohQubuiqu8uTtaiy8Aiw',
             password:
-              'xaf6MeofRae1aiQuuLoz2EemAa0aiw7oLie1sheeaiS3ceo7chi4aiQuieGuo7ve'
-          }
+              'xaf6MeofRae1aiQuuLoz2EemAa0aiw7oLie1sheeaiS3ceo7chi4aiQuieGuo7ve',
+          },
         }
       )
       .then(response => {
-
         if (!response) return
 
         const {
           result,
           kyc,
           uuid = false,
-          error,
           address = false,
-          initialData: extraInitialData = false,
-          bitcoin = {}
+          bitcoin = {},
         } = response.data
 
         this.setState({
@@ -77,15 +74,15 @@ class DocumentResponse extends Component {
           extra: kyc.extra || false,
           extraId: kyc.mtid || false,
           uuid,
-          btcAddress: bitcoin.receivingAddress || 'invalid address'
-        });
-        console.log('done')
-        this._checkDocumentStatus(kyc.mtid);
+          btcAddress: bitcoin.receivingAddress || 'invalid address',
+        })
+        this._checkDocumentStatus(kyc.mtid)
+        return true
       })
       .catch(error => {
-        console.log(error);
-      });
-  };
+        console.log(error)
+      })
+  }
 
   _checkDocumentStatus = mtid => {
     setTimeout(() => {
@@ -93,15 +90,15 @@ class DocumentResponse extends Component {
         .post(
           `${process.env.REACT_APP_API_URI}api/kycstatus/${mtid}`,
           {
-            ...this.props.extraInitialData
+            ...this.props.extraInitialData,
           },
           {
             auth: {
               username:
                 'sahCa8aiieD7ke9ovu3zeDieEitaza9uxuW6op2SSa0tohQubuiqu8uTtaiy8Aiw',
               password:
-                'xaf6MeofRae1aiQuuLoz2EemAa0aiw7oLie1sheeaiS3ceo7chi4aiQuieGuo7ve'
-            }
+                'xaf6MeofRae1aiQuuLoz2EemAa0aiw7oLie1sheeaiS3ceo7chi4aiQuieGuo7ve',
+            },
           }
         )
         .then(response => {
@@ -111,10 +108,10 @@ class DocumentResponse extends Component {
             address = false,
             bitcoin = false,
             uuid,
-            failure
-          } = response.data;
+            failure,
+          } = response.data
           if (result === 'R') {
-            this._checkDocumentStatus(mtid);
+            this._checkDocumentStatus(mtid)
           } else {
             this.setState({
               waitingForDocumentValidation: false,
@@ -122,23 +119,24 @@ class DocumentResponse extends Component {
               errorReason: kyc.ednaScoreCard.er || false,
               address: address || false,
               uuid: uuid || false,
-              btcAddress: bitcoin.receivingAddress || 'invalid address'
-            });
+              btcAddress: bitcoin.receivingAddress || 'invalid address',
+            })
           }
+          return true
         })
         .catch(error => {
-          console.log(error);
-          this._checkDocumentStatus(mtid);
-        });
-    }, 1000);
-  };
+          console.log(error)
+          this._checkDocumentStatus(mtid)
+        })
+    }, 1000)
+  }
 
   _renderCountrySelectField = ({
     input,
     label,
     helptext,
     type,
-    meta: { touched, error, warning }
+    meta: { touched, error, warning },
   }) => (
     <div
       className={`form-group ${touched &&
@@ -407,14 +405,14 @@ class DocumentResponse extends Component {
         {touched && ((error && error) || (warning && warning))}
       </div>
     </div>
-  );
+  )
 
   _renderSelectField = ({
     input,
     label,
     helptext,
     type,
-    meta: { touched, error, warning }
+    meta: { touched, error, warning },
   }) => (
     <div
       className={`form-group ${touched &&
@@ -434,25 +432,25 @@ class DocumentResponse extends Component {
         {touched && ((error && error) || (warning && warning))}
       </div>
     </div>
-  );
+  )
 
   render() {
-    const { handleSubmit, submitting, pristine } = this.props;
+    const { handleSubmit, submitting, pristine } = this.props
     const {
       formSubmitted,
       address,
       error,
       waitingForDocumentValidation,
       uuid,
-      errorReason
-    } = this.state;
-    let dropzoneRef;
+      errorReason,
+    } = this.state
+    let dropzoneRef
     window.ga('send', {
       hitType: 'event',
       eventCategory: 'Funnel',
       eventAction: 'Stage3',
-      eventLabel: 'EarlyTokenSale'
-    });
+      eventLabel: 'PreSale',
+    })
 
     return (
       <div>
@@ -471,7 +469,7 @@ class DocumentResponse extends Component {
                   name="doctype"
                   required
                   label={this.props.intl.formatMessage({
-                    id: 'form_doctype'
+                    id: 'form_doctype',
                   })}
                   className="validate-required"
                 />
@@ -482,7 +480,7 @@ class DocumentResponse extends Component {
                   name="doccountry"
                   required
                   label={this.props.intl.formatMessage({
-                    id: 'form_doccountry'
+                    id: 'form_doccountry',
                   })}
                   type="text"
                   className="validate-required"
@@ -495,7 +493,7 @@ class DocumentResponse extends Component {
                 <Dropzone
                   onDrop={this.onDrop}
                   ref={node => {
-                    dropzoneRef = node;
+                    dropzoneRef = node
                   }}
                   multiple={false}
                   accept="image/jpeg, image/png"
@@ -506,7 +504,7 @@ class DocumentResponse extends Component {
                     borderWidth: 2,
                     borderColor: '#666',
                     borderStyle: 'dashed',
-                    borderRadius: 5
+                    borderRadius: 5,
                   }}
                 >
                   {this.state.files.map(file => {
@@ -518,10 +516,10 @@ class DocumentResponse extends Component {
                         style={{
                           maxHeight: '100%',
                           margin: '0 auto',
-                          display: 'block'
+                          display: 'block',
                         }}
                       />
-                    );
+                    )
                   })}
                 </Dropzone>
                 {this.state.files.length === 0 && (
@@ -529,13 +527,13 @@ class DocumentResponse extends Component {
                     type="button"
                     className="btn btn--primary"
                     onClick={() => {
-                      dropzoneRef.open();
+                      dropzoneRef.open()
                     }}
                     style={{
                       padding: '0 10px',
                       marginTop: '10px',
                       backgroundColor: '#666',
-                      borderColor: '#666'
+                      borderColor: '#666',
                     }}
                   >
                     Select file
@@ -570,7 +568,7 @@ class DocumentResponse extends Component {
               <div
                 className="btn btn-lg type--uppercase btn--secondary"
                 style={{
-                  textAlign: 'center'
+                  textAlign: 'center',
                 }}
               >
                 <FormattedMessage id="form_checking_two" />
@@ -580,27 +578,31 @@ class DocumentResponse extends Component {
         {formSubmitted &&
           !waitingForDocumentValidation &&
           address !== false && (
-            <SuccessResponse address={address} uuid={uuid} btcAddress={this.state.btcAddress} />
+            <SuccessResponse
+              address={address}
+              uuid={uuid}
+              btcAddress={this.state.btcAddress}
+            />
           )}
         {formSubmitted &&
           !waitingForDocumentValidation &&
           error !== false && <ErrorResponse error={errorReason} />}
       </div>
-    );
+    )
   }
 }
 
 const validate = values => {
-  const errors = {};
-  const requiredFields = ['doctype'];
+  const errors = {}
+  const requiredFields = ['doctype']
   requiredFields.forEach(field => {
     if (!values[field]) {
-      errors[field] = `this is a required field`;
+      errors[field] = `this is a required field`
     }
-  });
-  return errors;
-};
+  })
+  return errors
+}
 
 export default injectIntl(
   reduxForm({ form: 'document', validate })(DocumentResponse)
-);
+)

@@ -1,5 +1,5 @@
 export const KYC_RESULTS = {
   ACCEPT: 'ACCEPT',
   MANUAL_REVIEW: 'MANUAL_REVIEW',
-  ERROR: 'ERROR'
+  ERROR: 'ERROR',
 }
