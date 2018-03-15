@@ -3,7 +3,7 @@ import { FormattedMessage, injectIntl } from 'react-intl'
 
 class SuccessResponse extends Component {
   render() {
-    const { address, uuid, upcoming, btcAddress } = this.props
+    const { address, uuid, btcAddress } = this.props
     fbq('track', 'CompleteRegistration') // eslint-disable-line
     window.ga('send', {
       hitType: 'event',
@@ -28,21 +28,11 @@ class SuccessResponse extends Component {
             )}
         </h2>
         <hr className="short" />
-        {!upcoming && (
-          <div style={{ fontWeight: 'bold' }}>
-            <i className="fa fa-exclamation-triangle" aria-hidden="true" />{' '}
-            <FormattedMessage id="form_success_exchangewarning" />
-            <br />
-          </div>
-        )}
-        {(localStorage.getItem('ref') === 'cryptoclub' ||
-          localStorage.getItem('ref') === 'mattsyndicate') && (
-          <div style={{ fontWeight: 'bold' }}>
-            <i className="fa fa-exclamation-triangle" aria-hidden="true" />{' '}
-            <FormattedMessage id="form_success_exchangewarning" />
-            <br />
-          </div>
-        )}
+        <div style={{ fontWeight: 'bold' }}>
+          <i className="fa fa-exclamation-triangle" aria-hidden="true" />{' '}
+          <FormattedMessage id="form_success_exchangewarning" />
+          <br />
+        </div>
         {localStorage.getItem('ref') === 'cryptoclub' && (
           <div>
             <div className="form-group" style={{ marginTop: '1em' }}>
@@ -59,60 +49,49 @@ class SuccessResponse extends Component {
             </div>
           </div>
         )}
-        <div>
-          <div className="form-group" style={{ marginTop: '1em' }}>
-            <label className="type--uppercase ">
-              Do <b>not</b> send ETH to the tokensale address before:
-            </label>
-            <input
-              className="text-center"
-              type="text"
-              value={`March 19th 2018 - 4PM CET`}
-              style={{ fontSize: '16px' }}
-              readOnly
-            />
-          </div>
+        {localStorage.getItem('ref') !== 'cryptoclub' && (
           <div>
-            <div className="form-group" style={{ marginTop: '1em' }}>
-              <label className="type--uppercase ">
-                <FormattedMessage id="form_success_ethaddress" />
-              </label>
-              <input
-                className="text-center"
-                type="text"
-                value={`${address}`}
-                style={{ fontSize: '16px' }}
-                readOnly
-              />
-            </div>
-            <div className="form-group">
-              <label className="type--uppercase ">
-                <FormattedMessage id="form_success_gas" />
-              </label>
-              <input
-                className="text-center"
-                type="text"
-                value="200000"
-                style={{ fontSize: '16px' }}
-                readOnly
-              />
-            </div>
-            <hr />
-            <div className="form-group" style={{ marginTop: '1em' }}>
-              <label className="type--uppercase ">
-                <FormattedMessage id="form_success_btc" />
-              </label>
-              <input
-                className="text-center"
-                type="text"
-                value={`${btcAddress}`}
-                style={{ fontSize: '16px' }}
-                readOnly
-              />
+            <div>
+              <div className="form-group" style={{ marginTop: '1em' }}>
+                <label className="type--uppercase ">
+                  <FormattedMessage id="form_success_ethaddress" />
+                </label>
+                <input
+                  className="text-center"
+                  type="text"
+                  value={`${address}`}
+                  style={{ fontSize: '16px' }}
+                  readOnly
+                />
+              </div>
+              <div className="form-group">
+                <label className="type--uppercase ">
+                  <FormattedMessage id="form_success_gas" />
+                </label>
+                <input
+                  className="text-center"
+                  type="text"
+                  value="200000"
+                  style={{ fontSize: '16px' }}
+                  readOnly
+                />
+              </div>
+              <hr />
+              <div className="form-group" style={{ marginTop: '1em' }}>
+                <label className="type--uppercase ">
+                  <FormattedMessage id="form_success_btc" />
+                </label>
+                <input
+                  className="text-center"
+                  type="text"
+                  value={`${btcAddress}`}
+                  style={{ fontSize: '16px' }}
+                  readOnly
+                />
+              </div>
             </div>
           </div>
-          )}
-        </div>
+        )}
         <a
           href="/how-to-participate.pdf"
           target="_blank"
