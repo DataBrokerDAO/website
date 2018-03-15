@@ -59,69 +59,61 @@ class SuccessResponse extends Component {
             </div>
           </div>
         )}
-        {localStorage.getItem('ref') !== 'cryptoclub' && (
-          <div>
-            {upcoming ? (
-              <p className="lead">
-                <FormattedMessage id="form_success_upcoming_thanks" />
-              </p>
-            ) : (
-              // <div className="form-group" style={{ marginTop: '1em' }}>
-              //   <label className="type--uppercase ">
-              //     Do <b>not</b> send ETH to the tokensale address before:
-              //   </label>
-              //   <input
-              //     className="text-center"
-              //     type="text"
-              //     value={`18 SEPTEMBER 2017 - 5PM CET`}
-              //     style={{ fontSize: '16px' }}
-              //     readOnly
-              //   />
-              // </div>
-
-              <div>
-                <div className="form-group" style={{ marginTop: '1em' }}>
-                  <label className="type--uppercase ">
-                    <FormattedMessage id="form_success_ethaddress" />
-                  </label>
-                  <input
-                    className="text-center"
-                    type="text"
-                    value={`${address}`}
-                    style={{ fontSize: '16px' }}
-                    readOnly
-                  />
-                </div>
-                <div className="form-group">
-                  <label className="type--uppercase ">
-                    <FormattedMessage id="form_success_gas" />
-                  </label>
-                  <input
-                    className="text-center"
-                    type="text"
-                    value="200000"
-                    style={{ fontSize: '16px' }}
-                    readOnly
-                  />
-                </div>
-                <hr />
-                <div className="form-group" style={{ marginTop: '1em' }}>
-                  <label className="type--uppercase ">
-                    <FormattedMessage id="form_success_btc" />
-                  </label>
-                  <input
-                    className="text-center"
-                    type="text"
-                    value={`${btcAddress}`}
-                    style={{ fontSize: '16px' }}
-                    readOnly
-                  />
-                </div>
-              </div>
-            )}
+        <div>
+          <div className="form-group" style={{ marginTop: '1em' }}>
+            <label className="type--uppercase ">
+              Do <b>not</b> send ETH to the tokensale address before:
+            </label>
+            <input
+              className="text-center"
+              type="text"
+              value={`March 19th 2018 - 4PM CET`}
+              style={{ fontSize: '16px' }}
+              readOnly
+            />
           </div>
-        )}
-        {/*<a
+          <div>
+            <div className="form-group" style={{ marginTop: '1em' }}>
+              <label className="type--uppercase ">
+                <FormattedMessage id="form_success_ethaddress" />
+              </label>
+              <input
+                className="text-center"
+                type="text"
+                value={`${address}`}
+                style={{ fontSize: '16px' }}
+                readOnly
+              />
+            </div>
+            <div className="form-group">
+              <label className="type--uppercase ">
+                <FormattedMessage id="form_success_gas" />
+              </label>
+              <input
+                className="text-center"
+                type="text"
+                value="200000"
+                style={{ fontSize: '16px' }}
+                readOnly
+              />
+            </div>
+            <hr />
+            <div className="form-group" style={{ marginTop: '1em' }}>
+              <label className="type--uppercase ">
+                <FormattedMessage id="form_success_btc" />
+              </label>
+              <input
+                className="text-center"
+                type="text"
+                value={`${btcAddress}`}
+                style={{ fontSize: '16px' }}
+                readOnly
+              />
+            </div>
+          </div>
+          )}
+        </div>
+        <a
           href="/how-to-participate.pdf"
           target="_blank"
           rel="noopener noreferrer"
@@ -135,7 +127,7 @@ class SuccessResponse extends Component {
           style={{ textDecoration: 'underline' }}
         >
           Guide on how to participate
-      </a>*/}
+        </a>
         {localStorage.getItem('ref') !== 'cryptoclub' &&
           localStorage.getItem('ref') !== 'mattsyndicate' && (
             <div>
