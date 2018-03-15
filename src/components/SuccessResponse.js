@@ -110,7 +110,6 @@ class SuccessResponse extends Component {
         {localStorage.getItem('ref') !== 'cryptoclub' &&
           localStorage.getItem('ref') !== 'mattsyndicate' && (
             <div>
-              <hr className="short" />
               <div className="modal_channels">
                 <h3>
                   <FormattedMessage id="form_success_referral_title" />
