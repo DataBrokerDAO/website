@@ -545,9 +545,7 @@ class RegisterForm extends Component {
                   component={this._renderTextField}
                   name="ethereumAddress"
                   required
-                  label={this.props.intl.formatMessage({
-                    id: 'form_ethereumaddress',
-                  })}
+                  label="Your Ethereum address (will receive the tokens)"
                   type="text"
                   placeholder="0x52b8398551bb1d0bdc022355897508f658ad42f8"
                   className="validate-required"

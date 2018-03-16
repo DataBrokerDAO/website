@@ -242,7 +242,7 @@ class TokenSale extends Component {
   }
 
   saleUpcoming = doneLoading => {
-    const { percentage, timeLeft } = this.state
+    const { percentage /*timeLeft*/ } = this.state
     return (
       <div>
         <h2
@@ -252,8 +252,9 @@ class TokenSale extends Component {
           DTX PRE-SALE LIVE NOW!
         </h2>
         <h3>
-          50% bonus, 10 ETH minimum<br />
-          Ends in {timeLeft} days
+          50% bonus, 10 ETH minimum
+          {/*<br />
+          Ends in {timeLeft} days*/}
         </h3>
         {localStorage.getItem('ref') === 'cryptoclub' && (
           <div style={{ marginBottom: '2em' }}>
@@ -263,13 +264,17 @@ class TokenSale extends Component {
             <p className="sale-date">Join the private sale now!</p>
           </div>
         )}
-        {doneLoading && (
-          <ProgressBar percentage={percentage} label={`${percentage}% SOLD`} />
-        )}
-        {doneLoading && this.numberTable()}
+        {false &&
+          doneLoading && (
+            <ProgressBar
+              percentage={percentage}
+              label={`${percentage}% SOLD`}
+            />
+          )}
+        {false && doneLoading && this.numberTable()}
 
         <FormattedMessage id="sale_salestarts" />
-        <p className="sale-date">MARCH 26TH, 2018 - 4PM CET</p>
+        <p className="sale-date">APRIL 26TH, 2018 - 4PM CET</p>
         <div className="modal-instance">
           <a
             id="preregister_button"
@@ -286,22 +291,25 @@ class TokenSale extends Component {
               )}
           </a>
           <div style={{ marginTop: '15px' }}>
-            {localStorage.getItem('ref') === 'cryptoclub' && (
-              <strong>
-                only for our friends of the Crypto Club<br />
-              </strong>
-            )}
-            {localStorage.getItem('ref') !== 'cryptoclub' &&
-              localStorage.getItem('ref') !== 'mattsyndicate' && (
-                <a
-                  href="https://t.me/databrokerdao"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ textDecoration: 'underline' }}
-                >
-                  Join us on Telegram
-                </a>
-              )}
+            <a
+              href="https://t.me/databrokerdao"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                textDecoration: 'none',
+                fontWeight: 'bold',
+                color: '#0088cc',
+                fontSize: '1.2em',
+              }}
+            >
+              <i
+                className="socicon socicon-telegram"
+                style={{
+                  color: '#0088cc',
+                }}
+              />{' '}
+              Join us on Telegram
+            </a>
           </div>
           <div className="modal-container">
             <div className="modal-content">

@@ -24,7 +24,7 @@ class SuccessResponse extends Component {
           )}
           {localStorage.getItem('ref') !== 'cryptoclub' &&
             localStorage.getItem('ref') !== 'mattsyndicate' && (
-              <FormattedMessage id="form_success_title" />
+              <span>You have completed the KYC procedure successfully!</span>
             )}
         </h2>
         <hr className="short" />
@@ -54,7 +54,7 @@ class SuccessResponse extends Component {
             <div>
               <div className="form-group" style={{ marginTop: '1em' }}>
                 <label className="type--uppercase ">
-                  <FormattedMessage id="form_success_ethaddress" />
+                  Buy tokens by sending ETH to the following address
                 </label>
                 <input
                   className="text-center"
@@ -79,7 +79,7 @@ class SuccessResponse extends Component {
               <hr />
               <div className="form-group" style={{ marginTop: '1em' }}>
                 <label className="type--uppercase ">
-                  <FormattedMessage id="form_success_btc" />
+                  Or participate by sending Bitcoin to the following address
                 </label>
                 <input
                   className="text-center"
@@ -92,21 +92,7 @@ class SuccessResponse extends Component {
             </div>
           </div>
         )}
-        <a
-          href="/how-to-participate.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <i className="fa fa-info-circle" aria-hidden="true" />
-        </a>{' '}
-        <a
-          href="/how-to-participate.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ textDecoration: 'underline' }}
-        >
-          Guide on how to participate
-        </a>
+        <hr className="short" />
         {localStorage.getItem('ref') !== 'cryptoclub' &&
           localStorage.getItem('ref') !== 'mattsyndicate' && (
             <div>

@@ -29,7 +29,7 @@ class RoadmapSection extends PureComponent {
                 </div>
                 <div className="process__item ">
                   <span className="type--uppercase type--bold ">
-                    March, 26th 2018 4PM CET
+                    April, 26th 2018 4PM CET
                   </span>
                   <h4 className="color--primary  type--uppercase">
                     <FormattedMessage id="roadmap_tokensale" />
@@ -40,7 +40,7 @@ class RoadmapSection extends PureComponent {
                 </div>
                 <div className="process__item ">
                   <span className="type--uppercase type--bold ">
-                    April 30th 2018
+                    May 30th 2018
                   </span>
                   <h4 className="color--primary  type--uppercase">
                     <FormattedMessage id="roadmap_trading" />
