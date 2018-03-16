@@ -3,7 +3,7 @@ import { FormattedMessage, injectIntl } from 'react-intl'
 
 class SuccessResponse extends Component {
   render() {
-    const { address, uuid, btcAddress } = this.props
+    const { /*address,*/ uuid /*btcAddress*/ } = this.props
     fbq('track', 'CompleteRegistration') // eslint-disable-line
     window.ga('send', {
       hitType: 'event',
@@ -28,11 +28,6 @@ class SuccessResponse extends Component {
             )}
         </h2>
         <hr className="short" />
-        <div style={{ fontWeight: 'bold' }}>
-          <i className="fa fa-exclamation-triangle" aria-hidden="true" />{' '}
-          <FormattedMessage id="form_success_exchangewarning" />
-          <br />
-        </div>
         {localStorage.getItem('ref') === 'cryptoclub' && (
           <div>
             <div className="form-group" style={{ marginTop: '1em' }}>
@@ -49,7 +44,10 @@ class SuccessResponse extends Component {
             </div>
           </div>
         )}
-        {localStorage.getItem('ref') !== 'cryptoclub' && (
+        <p className="lead">
+          <FormattedMessage id="form_success_upcoming_thanks" />
+        </p>
+        {/*localStorage.getItem('ref') !== 'cryptoclub' && (
           <div>
             <div>
               <div className="form-group" style={{ marginTop: '1em' }}>
@@ -76,6 +74,17 @@ class SuccessResponse extends Component {
                   readOnly
                 />
               </div>
+              <div className="form-group">
+                <label className="type--uppercase ">Minimum amount</label>
+                <input
+                  className="text-center"
+                  type="text"
+                  value="10 ETH"
+                  style={{ fontSize: '16px' }}
+                  readOnly
+                />
+              </div>
+              {/*
               <hr />
               <div className="form-group" style={{ marginTop: '1em' }}>
                 <label className="type--uppercase ">
@@ -89,9 +98,19 @@ class SuccessResponse extends Component {
                   readOnly
                 />
               </div>
+              <div className="form-group">
+                <label className="type--uppercase ">Minimum amount</label>
+                <input
+                  className="text-center"
+                  type="text"
+                  value="1 BTC"
+                  style={{ fontSize: '16px' }}
+                  readOnly
+                />
+              </div>}
             </div>
           </div>
-        )}
+            )*/}
         <hr className="short" />
         {localStorage.getItem('ref') !== 'cryptoclub' &&
           localStorage.getItem('ref') !== 'mattsyndicate' && (
