@@ -291,7 +291,7 @@ class TokenSale extends Component {
             )}
             {localStorage.getItem('ref') !== 'cryptoclub' &&
               localStorage.getItem('ref') !== 'mattsyndicate' && (
-                <span>BUY NOW!</span>
+                <span>REGISTER NOW!</span>
               )}
           </a>
           <div style={{ marginTop: '15px' }}>
