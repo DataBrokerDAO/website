@@ -1,5 +1,5 @@
 var mr = (function($, window, document) {
-  'use strict';
+  'use strict'
 
   var mr = {},
     components = {
@@ -7,81 +7,81 @@ var mr = (function($, window, document) {
       documentReadyDeferred: [],
       windowLoad: [],
       windowLoadDeferred: [],
-    };
+    }
 
-  mr.status = { documentReadyRan: false, windowLoadPending: false };
+  mr.status = { documentReadyRan: false, windowLoadPending: false }
 
-  $(document).ready(documentReady);
-  $(window).on('load', windowLoad);
+  $(document).ready(documentReady)
+  $(window).on('load', windowLoad)
 
   function documentReady(context) {
-    context = typeof context === typeof undefined ? $ : context;
+    context = typeof context === typeof undefined ? $ : context
     components.documentReady
       .concat(components.documentReadyDeferred)
       .forEach(function(component) {
-        component(context);
-      });
-    mr.status.documentReadyRan = true;
+        component(context)
+      })
+    mr.status.documentReadyRan = true
     if (mr.status.windowLoadPending) {
-      windowLoad(mr.setContext());
+      windowLoad(mr.setContext())
     }
   }
 
   function windowLoad(context) {
     if (mr.status.documentReadyRan) {
-      mr.status.windowLoadPending = false;
-      context = typeof context === 'object' ? $ : context;
+      mr.status.windowLoadPending = false
+      context = typeof context === 'object' ? $ : context
       components.windowLoad
         .concat(components.windowLoadDeferred)
         .forEach(function(component) {
-          component(context);
-        });
+          component(context)
+        })
     } else {
-      mr.status.windowLoadPending = true;
+      mr.status.windowLoadPending = true
     }
   }
 
   mr.setContext = function(contextSelector) {
-    var context = $;
+    var context = $
     if (typeof contextSelector !== typeof undefined) {
       return function(selector) {
-        return $(contextSelector).find(selector);
-      };
+        return $(contextSelector).find(selector)
+      }
     }
-    return context;
-  };
+    return context
+  }
 
-  mr.components = components;
-  mr.documentReady = documentReady;
-  mr.windowLoad = windowLoad;
+  mr.components = components
+  mr.documentReady = documentReady
+  mr.windowLoad = windowLoad
 
-  return mr;
-})(jQuery, window, document);
+  return mr
+})(jQuery, window, document)
 
 //////////////// Utility Functions
 mr = (function(mr, $, window, document) {
-  'use strict';
-  mr.util = {};
+  'use strict'
+  mr.util = {}
 
   mr.util.requestAnimationFrame =
     window.requestAnimationFrame ||
     window.mozRequestAnimationFrame ||
     window.webkitRequestAnimationFrame ||
-    window.msRequestAnimationFrame;
+    window.msRequestAnimationFrame
 
   mr.util.documentReady = function($) {
-    var today = new Date();
-    var year = today.getFullYear();
-    $('.update-year').text(year);
-  };
+    var today = new Date()
+    var year = today.getFullYear()
+    $('.update-year').text(year)
+  }
 
   mr.util.windowLoad = function($) {
     $('[data-delay-src]').each(function() {
-      var $el = $(this);
-      $el.attr('src', $el.attr('data-delay-src'));
-      $el.removeAttr('data-delay-src');
-    });
-  };
+      var $el = $(this)
+      $el.attr('src', $el.attr('data-delay-src'))
+      $el.removeAttr('data-delay-src')
+    })
+  }
 
   mr.util.getURLParameter = function(name) {
     return (
@@ -90,16 +90,16 @@ mr = (function(mr, $, window, document) {
           location.search
         ) || [undefined, ''])[1].replace(/\+/g, '%20')
       ) || null
-    );
-  };
+    )
+  }
 
   mr.util.capitaliseFirstLetter = function(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  };
+    return string.charAt(0).toUpperCase() + string.slice(1)
+  }
 
   mr.util.slugify = function(text, spacesOnly) {
     if (typeof spacesOnly !== typeof undefined) {
-      return text.replace(/ +/g, '');
+      return text.replace(/ +/g, '')
     } else {
       return text
         .toLowerCase()
@@ -107,101 +107,101 @@ mr = (function(mr, $, window, document) {
           /[\~\!\@\#\$\%\^\&\*\(\)\-\_\=\+\]\[\}\{\'\"\;\\\:\?\/\>\<\.\,]+/g,
           ''
         )
-        .replace(/ +/g, '-');
+        .replace(/ +/g, '-')
     }
-  };
+  }
 
   mr.util.sortChildrenByText = function(parentElement, reverse) {
-    var $parentElement = $(parentElement);
-    var items = $parentElement.children().get();
-    var order = -1;
-    var order2 = 1;
+    var $parentElement = $(parentElement)
+    var items = $parentElement.children().get()
+    var order = -1
+    var order2 = 1
     if (typeof reverse !== typeof undefined) {
-      order = 1;
-      order2 = -1;
+      order = 1
+      order2 = -1
     }
 
     items.sort(function(a, b) {
-      var keyA = $(a).text();
-      var keyB = $(b).text();
+      var keyA = $(a).text()
+      var keyB = $(b).text()
 
-      if (keyA < keyB) return order;
-      if (keyA > keyB) return order2;
-      return 0;
-    });
+      if (keyA < keyB) return order
+      if (keyA > keyB) return order2
+      return 0
+    })
 
     // Append back into place
-    $parentElement.empty();
+    $parentElement.empty()
     $(items).each(function(i, itm) {
-      $parentElement.append(itm);
-    });
-  };
+      $parentElement.append(itm)
+    })
+  }
 
   // Set data-src attribute of element from src to be restored later
   mr.util.idleSrc = function(context, selector) {
-    selector = typeof selector !== typeof undefined ? selector : '';
+    selector = typeof selector !== typeof undefined ? selector : ''
     var elems = context.is(selector + '[src]')
       ? context
-      : context.find(selector + '[src]');
+      : context.find(selector + '[src]')
 
     elems.each(function(index, elem) {
-      elem = $(elem);
+      elem = $(elem)
       var currentSrc = elem.attr('src'),
-        dataSrc = elem.attr('data-src');
+        dataSrc = elem.attr('data-src')
 
       // If there is no data-src, save current source to it
       if (typeof dataSrc === typeof undefined) {
-        elem.attr('data-src', currentSrc);
+        elem.attr('data-src', currentSrc)
       }
 
       // Clear the src attribute
-      elem.attr('src', '');
-    });
-  };
+      elem.attr('src', '')
+    })
+  }
 
   // Set src attribute of element from its data-src where it was temporarily stored earlier
   mr.util.activateIdleSrc = function(context, selector) {
-    selector = typeof selector !== typeof undefined ? selector : '';
+    selector = typeof selector !== typeof undefined ? selector : ''
     var elems = context.is(selector + '[data-src]')
       ? context
-      : context.find(selector + '[data-src]');
+      : context.find(selector + '[data-src]')
 
     elems.each(function(index, elem) {
-      elem = $(elem);
-      var dataSrc = elem.attr('data-src');
+      elem = $(elem)
+      var dataSrc = elem.attr('data-src')
 
       // Write the 'src' attribute using the 'data-src' value
-      elem.attr('src', dataSrc);
-    });
-  };
+      elem.attr('src', dataSrc)
+    })
+  }
 
   mr.util.pauseVideo = function(context) {
-    var elems = context.is('video') ? context : context.find('video');
+    var elems = context.is('video') ? context : context.find('video')
 
     elems.each(function(index, video) {
-      var playingVideo = $(video).get(0);
-      playingVideo.pause();
-    });
-  };
+      var playingVideo = $(video).get(0)
+      playingVideo.pause()
+    })
+  }
 
   // Take a text value in either px (eg. 150px) or vh (eg. 65vh) and return a number in pixels.
   mr.util.parsePixels = function(text) {
     var windowHeight = $(window).height(),
-      value;
+      value
 
     // Text text against regular expression for px value.
     if (/^[1-9]{1}[0-9]*[p][x]$/.test(text)) {
-      return parseInt(text.replace('px', ''), 10);
+      return parseInt(text.replace('px', ''), 10)
     } else if (/^[1-9]{1}[0-9]*[v][h]$/.test(text)) {
       // Otherwise it is vh value.
-      value = parseInt(text.replace('vh', ''), 10);
+      value = parseInt(text.replace('vh', ''), 10)
       // Return conversion to percentage of window height.
-      return windowHeight * (value / 100);
+      return windowHeight * (value / 100)
     } else {
       // If it is not proper text, return -1 to indicate bad value.
-      return -1;
+      return -1
     }
-  };
+  }
 
   mr.util.removeHash = function() {
     // Removes hash from URL bar without reloading and without losing search query
@@ -209,274 +209,271 @@ mr = (function(mr, $, window, document) {
       '',
       document.title,
       window.location.pathname + window.location.search
-    );
-  };
+    )
+  }
 
-  mr.components.documentReady.push(mr.util.documentReady);
-  mr.components.windowLoad.push(mr.util.windowLoad);
-  return mr;
-})(mr, jQuery, window, document);
+  mr.components.documentReady.push(mr.util.documentReady)
+  mr.components.windowLoad.push(mr.util.windowLoad)
+  return mr
+})(mr, jQuery, window, document)
 
 //////////////// Window Functions
 mr = (function(mr, $, window, document) {
-  'use strict';
+  'use strict'
 
-  mr.window = {};
-  mr.window.height = $(window).height();
-  mr.window.width = $(window).width();
+  mr.window = {}
+  mr.window.height = $(window).height()
+  mr.window.width = $(window).width()
 
   $(window).on('resize', function() {
-    mr.window.height = $(window).height();
-    mr.window.width = $(window).width();
-  });
+    mr.window.height = $(window).height()
+    mr.window.width = $(window).width()
+  })
 
-  return mr;
-})(mr, jQuery, window, document);
+  return mr
+})(mr, jQuery, window, document)
 
 //////////////// Scroll Functions
 mr = (function(mr, $, window, document) {
-  'use strict';
+  'use strict'
 
-  mr.scroll = {};
+  mr.scroll = {}
   var raf =
     window.requestAnimationFrame ||
     window.mozRequestAnimationFrame ||
     window.webkitRequestAnimationFrame ||
-    window.msRequestAnimationFrame;
-  mr.scroll.listeners = [];
-  mr.scroll.busy = false;
-  mr.scroll.y = 0;
-  mr.scroll.x = 0;
+    window.msRequestAnimationFrame
+  mr.scroll.listeners = []
+  mr.scroll.busy = false
+  mr.scroll.y = 0
+  mr.scroll.x = 0
 
   var documentReady = function($) {
     //////////////// Capture Scroll Event and fire scroll function
-    jQuery(window).off('scroll.mr');
+    jQuery(window).off('scroll.mr')
     jQuery(window).on('scroll.mr', function(evt) {
       if (mr.scroll.busy === false) {
-        mr.scroll.busy = true;
+        mr.scroll.busy = true
         raf(function(evt) {
-          mr.scroll.update(evt);
-        });
+          mr.scroll.update(evt)
+        })
       }
       if (evt.stopPropagation) {
-        evt.stopPropagation();
+        evt.stopPropagation()
       }
-    });
-  };
+    })
+  }
 
   mr.scroll.update = function(event) {
     // Loop through all mr scroll listeners
-    var parallax =
-      typeof window.mr_parallax !== typeof undefined ? true : false;
+    var parallax = typeof window.mr_parallax !== typeof undefined ? true : false
     mr.scroll.y = parallax
       ? mr_parallax.mr_getScrollPosition()
-      : window.pageYOffset;
-    mr.scroll.busy = false;
+      : window.pageYOffset
+    mr.scroll.busy = false
     if (parallax) {
-      mr_parallax.mr_parallaxBackground();
+      mr_parallax.mr_parallaxBackground()
     }
 
     if (mr.scroll.listeners.length > 0) {
       for (var i = 0, l = mr.scroll.listeners.length; i < l; i++) {
-        mr.scroll.listeners[i](event);
+        mr.scroll.listeners[i](event)
       }
     }
-  };
+  }
 
-  mr.scroll.documentReady = documentReady;
+  mr.scroll.documentReady = documentReady
 
-  mr.components.documentReady.push(documentReady);
+  mr.components.documentReady.push(documentReady)
 
-  return mr;
-})(mr, jQuery, window, document);
+  return mr
+})(mr, jQuery, window, document)
 
 //////////////// Scroll Class Modifier
 mr = (function(mr, $, window, document) {
-  'use strict';
+  'use strict'
 
-  mr.scroll.classModifiers = {};
+  mr.scroll.classModifiers = {}
   // Globally accessible list of elements/rules
-  mr.scroll.classModifiers.rules = [];
+  mr.scroll.classModifiers.rules = []
 
   mr.scroll.classModifiers.parseScrollRules = function(element) {
     var text = element.attr('data-scroll-class'),
-      rules = text.split(';');
+      rules = text.split(';')
 
     rules.forEach(function(rule) {
       var ruleComponents,
         scrollPoint,
-        ruleObject = {};
-      ruleComponents = rule.replace(/\s/g, '').split(':');
+        ruleObject = {}
+      ruleComponents = rule.replace(/\s/g, '').split(':')
       if (ruleComponents.length === 2) {
-        scrollPoint = mr.util.parsePixels(ruleComponents[0]);
+        scrollPoint = mr.util.parsePixels(ruleComponents[0])
         if (scrollPoint > -1) {
-          ruleObject.scrollPoint = scrollPoint;
+          ruleObject.scrollPoint = scrollPoint
           if (ruleComponents[1].length) {
-            var toggleClass = ruleComponents[1];
-            ruleObject.toggleClass = toggleClass;
+            var toggleClass = ruleComponents[1]
+            ruleObject.toggleClass = toggleClass
             // Set variable in object to indicate that element already has class applied
-            ruleObject.hasClass = element.hasClass(toggleClass);
-            ruleObject.element = element.get(0);
-            mr.scroll.classModifiers.rules.push(ruleObject);
+            ruleObject.hasClass = element.hasClass(toggleClass)
+            ruleObject.element = element.get(0)
+            mr.scroll.classModifiers.rules.push(ruleObject)
           } else {
             // Error: toggleClass component does not exist.
             //console.log('Error - toggle class not found.');
-            return false;
+            return false
           }
         } else {
           // Error: scrollpoint component was malformed
           //console.log('Error - Scrollpoint not found.');
-          return false;
+          return false
         }
       }
-    });
+    })
 
     if (mr.scroll.classModifiers.rules.length) {
-      return true;
+      return true
     } else {
-      return false;
+      return false
     }
-  };
+  }
 
   mr.scroll.classModifiers.update = function(event) {
     var currentScroll = mr.scroll.y,
       scrollRules = mr.scroll.classModifiers.rules,
       l = scrollRules.length,
-      currentRule;
+      currentRule
 
     // Given the current scrollPoint, check for necessary changes
     while (l--) {
-      currentRule = scrollRules[l];
+      currentRule = scrollRules[l]
 
       if (currentScroll > currentRule.scrollPoint && !currentRule.hasClass) {
         // Set local copy and glogal copy at the same time;
-        currentRule.element.classList.add(currentRule.toggleClass);
-        currentRule.hasClass = mr.scroll.classModifiers.rules[
-          l
-        ].hasClass = true;
+        currentRule.element.classList.add(currentRule.toggleClass)
+        currentRule.hasClass = mr.scroll.classModifiers.rules[l].hasClass = true
       }
       if (currentScroll < currentRule.scrollPoint && currentRule.hasClass) {
         // Set local copy and glogal copy at the same time;
-        currentRule.element.classList.remove(currentRule.toggleClass);
+        currentRule.element.classList.remove(currentRule.toggleClass)
         currentRule.hasClass = mr.scroll.classModifiers.rules[
           l
-        ].hasClass = false;
+        ].hasClass = false
       }
     }
-  };
+  }
 
   var fixedElementSizes = function() {
     $('.main-container [data-scroll-class*="pos-fixed"]').each(function() {
-      var element = $(this);
-      element.css('max-width', element.parent().outerWidth());
-      element.parent().css('min-height', element.outerHeight());
-    });
-  };
+      var element = $(this)
+      element.css('max-width', element.parent().outerWidth())
+      element.parent().css('min-height', element.outerHeight())
+    })
+  }
 
   var documentReady = function($) {
     // Collect info on all elements that require class modification at load time
     // Each element has data-scroll-class with a formatted value to represent class to add/remove at a particular scroll point.
     $('[data-scroll-class]').each(function() {
-      var element = $(this);
+      var element = $(this)
 
       // Test the rules to be added to an array of rules.
       if (!mr.scroll.classModifiers.parseScrollRules(element)) {
-        console.log('Error parsing scroll rules on: ' + element);
+        console.log('Error parsing scroll rules on: ' + element)
       }
-    });
+    })
 
     // For 'position fixed' elements, give them a max-width for correct fixing behaviour
-    fixedElementSizes();
-    $(window).on('resize', fixedElementSizes);
+    fixedElementSizes()
+    $(window).on('resize', fixedElementSizes)
 
     // If there are valid scroll rules add classModifiers update function to the scroll event processing queue.
     if (mr.scroll.classModifiers.rules.length) {
-      mr.scroll.listeners.push(mr.scroll.classModifiers.update);
+      mr.scroll.listeners.push(mr.scroll.classModifiers.update)
     }
-  };
+  }
 
-  mr.components.documentReady.push(documentReady);
-  mr.scroll.classModifiers.documentReady = documentReady;
+  mr.components.documentReady.push(documentReady)
+  mr.scroll.classModifiers.documentReady = documentReady
 
-  return mr;
-})(mr, jQuery, window, document);
+  return mr
+})(mr, jQuery, window, document)
 
 //////////////// Accordions
 mr = (function(mr, $, window, document) {
-  'use strict';
+  'use strict'
 
-  mr.accordions = {};
+  mr.accordions = {}
 
   mr.accordions.documentReady = function($) {
     $('.accordion__title').on('click', function() {
-      mr.accordions.activatePanel($(this));
-    });
+      mr.accordions.activatePanel($(this))
+    })
 
     $('.accordion').each(function() {
-      var accordion = $(this);
-      var minHeight = accordion.outerHeight(true);
-      accordion.css('min-height', minHeight);
-    });
+      var accordion = $(this)
+      var minHeight = accordion.outerHeight(true)
+      accordion.css('min-height', minHeight)
+    })
 
     if (window.location.hash !== '') {
-      mr.accordions.activatePanelById(window.location.hash, true);
+      mr.accordions.activatePanelById(window.location.hash, true)
     }
 
     $('a[href^="#"]').on('click', function() {
-      mr.accordions.activatePanelById($(this).attr('href'), true);
-    });
-  };
+      mr.accordions.activatePanelById($(this).attr('href'), true)
+    })
+  }
 
   mr.accordions.activatePanel = function(panel, forceOpen) {
     var $panel = $(panel),
       accordion = $panel.closest('.accordion'),
       li = $panel.closest('li'),
       openEvent = document.createEvent('Event'),
-      closeEvent = document.createEvent('Event');
+      closeEvent = document.createEvent('Event')
 
-    openEvent.initEvent('panelOpened.accordions.mr', true, true);
-    closeEvent.initEvent('panelClosed.accordions.mr', true, true);
+    openEvent.initEvent('panelOpened.accordions.mr', true, true)
+    closeEvent.initEvent('panelClosed.accordions.mr', true, true)
 
     if (li.hasClass('active')) {
       if (forceOpen !== true) {
-        li.removeClass('active');
+        li.removeClass('active')
         $panel
           .trigger('panelClosed.accordions.mr')
           .get(0)
-          .dispatchEvent(closeEvent);
+          .dispatchEvent(closeEvent)
       }
     } else {
       if (accordion.hasClass('accordion--oneopen')) {
-        var wasActive = accordion.find('li.active');
+        var wasActive = accordion.find('li.active')
         if (wasActive.length) {
-          wasActive.removeClass('active');
+          wasActive.removeClass('active')
           wasActive
             .trigger('panelClosed.accordions.mr')
             .get(0)
-            .dispatchEvent(closeEvent);
+            .dispatchEvent(closeEvent)
         }
-        li.addClass('active');
+        li.addClass('active')
         li
           .trigger('panelOpened.accordions.mr')
           .get(0)
-          .dispatchEvent(openEvent);
+          .dispatchEvent(openEvent)
       } else {
         if (!li.is('.active')) {
           li
             .trigger('panelOpened.accordions.mr')
             .get(0)
-            .dispatchEvent(openEvent);
+            .dispatchEvent(openEvent)
         }
-        li.addClass('active');
+        li.addClass('active')
       }
     }
-  };
+  }
 
   mr.accordions.activatePanelById = function(id, forceOpen) {
-    var panel;
+    var panel
 
     if (id !== '' && id !== '#') {
-      panel = $('.accordion > li > .accordion__title#' + id.replace('#', ''));
+      panel = $('.accordion > li > .accordion__title#' + id.replace('#', ''))
       if (panel.length) {
         $('html, body')
           .stop(true)
@@ -485,39 +482,39 @@ mr = (function(mr, $, window, document) {
               scrollTop: panel.offset().top - 50,
             },
             1200
-          );
-        mr.accordions.activatePanel(panel, forceOpen);
+          )
+        mr.accordions.activatePanel(panel, forceOpen)
       }
     }
-  };
+  }
 
-  mr.components.documentReady.push(mr.accordions.documentReady);
-  return mr;
-})(mr, jQuery, window, document);
+  mr.components.documentReady.push(mr.accordions.documentReady)
+  return mr
+})(mr, jQuery, window, document)
 
 //////////////// Alerts
 mr = (function(mr, $, window, document) {
-  'use strict';
+  'use strict'
 
   var documentReady = function($) {
     $('.alert__close').on('click touchstart', function() {
       jQuery(this)
         .closest('.alert')
-        .addClass('alert--dismissed');
-    });
-  };
+        .addClass('alert--dismissed')
+    })
+  }
 
   mr.alerts = {
     documentReady: documentReady,
-  };
+  }
 
-  mr.components.documentReady.push(documentReady);
-  return mr;
-})(mr, jQuery, window, document);
+  mr.components.documentReady.push(documentReady)
+  return mr
+})(mr, jQuery, window, document)
 
 //////////////// Backgrounds
 mr = (function(mr, $, window, document) {
-  'use strict';
+  'use strict'
 
   var documentReady = function($) {
     //////////////// Append .background-image-holder <img>'s as CSS backgrounds
@@ -525,52 +522,58 @@ mr = (function(mr, $, window, document) {
     $('.background-image-holder').each(function() {
       var imgSrc = $(this)
         .children('img')
-        .attr('src');
+        .attr('src')
+
+      var opacity = 1
+      if ($(this).hasClass('low-opacity')) {
+        opacity = 0.15
+      }
+
       $(this)
         .css('background', 'url("' + imgSrc + '")')
         .css('background-position', 'initial')
-        .css('opacity', '1');
-    });
-  };
+        .css('opacity', opacity)
+    })
+  }
 
   mr.backgrounds = {
     documentReady: documentReady,
-  };
+  }
 
-  mr.components.documentReady.push(documentReady);
-  return mr;
-})(mr, jQuery, window, document);
+  mr.components.documentReady.push(documentReady)
+  return mr
+})(mr, jQuery, window, document)
 
 //////////////// Bars
 mr = (function(mr, $, window, document) {
-  'use strict';
+  'use strict'
 
   var documentReady = function($) {
     $(
       '.nav-container .bar[data-scroll-class*="fixed"]:not(.bar--absolute)'
     ).each(function() {
       var bar = $(this),
-        barHeight = bar.outerHeight(true);
-      bar.closest('.nav-container').css('min-height', barHeight);
-    });
-  };
+        barHeight = bar.outerHeight(true)
+      bar.closest('.nav-container').css('min-height', barHeight)
+    })
+  }
 
   mr.bars = {
     documentReady: documentReady,
-  };
+  }
 
-  mr.components.documentReady.push(documentReady);
-  return mr;
-})(mr, jQuery, window, document);
+  mr.components.documentReady.push(documentReady)
+  return mr
+})(mr, jQuery, window, document)
 
 //////////////// Cookies
 mr = (function(mr, $, window, document) {
-  'use strict';
+  'use strict'
 
   mr.cookies = {
     getItem: function(sKey) {
       if (!sKey) {
-        return null;
+        return null
       }
       return (
         decodeURIComponent(
@@ -583,27 +586,27 @@ mr = (function(mr, $, window, document) {
             '$1'
           )
         ) || null
-      );
+      )
     },
     setItem: function(sKey, sValue, vEnd, sPath, sDomain, bSecure) {
       if (!sKey || /^(?:expires|max\-age|path|domain|secure)$/i.test(sKey)) {
-        return false;
+        return false
       }
-      var sExpires = '';
+      var sExpires = ''
       if (vEnd) {
         switch (vEnd.constructor) {
           case Number:
             sExpires =
               vEnd === Infinity
                 ? '; expires=Fri, 31 Dec 9999 23:59:59 GMT'
-                : '; max-age=' + vEnd;
-            break;
+                : '; max-age=' + vEnd
+            break
           case String:
-            sExpires = '; expires=' + vEnd;
-            break;
+            sExpires = '; expires=' + vEnd
+            break
           case Date:
-            sExpires = '; expires=' + vEnd.toUTCString();
-            break;
+            sExpires = '; expires=' + vEnd.toUTCString()
+            break
         }
       }
       document.cookie =
@@ -613,116 +616,114 @@ mr = (function(mr, $, window, document) {
         sExpires +
         (sDomain ? '; domain=' + sDomain : '') +
         (sPath ? '; path=' + sPath : '') +
-        (bSecure ? '; secure' : '');
-      return true;
+        (bSecure ? '; secure' : '')
+      return true
     },
     removeItem: function(sKey, sPath, sDomain) {
       if (!this.hasItem(sKey)) {
-        return false;
+        return false
       }
       document.cookie =
         encodeURIComponent(sKey) +
         '=; expires=Thu, 01 Jan 1970 00:00:00 GMT' +
         (sDomain ? '; domain=' + sDomain : '') +
-        (sPath ? '; path=' + sPath : '');
-      return true;
+        (sPath ? '; path=' + sPath : '')
+      return true
     },
     hasItem: function(sKey) {
       if (!sKey) {
-        return false;
+        return false
       }
       return new RegExp(
         '(?:^|;\\s*)' +
           encodeURIComponent(sKey).replace(/[\-\.\+\*]/g, '\\$&') +
           '\\s*\\='
-      ).test(document.cookie);
+      ).test(document.cookie)
     },
     keys: function() {
       var aKeys = document.cookie
         .replace(/((?:^|\s*;)[^\=]+)(?=;|$)|^\s*|\s*(?:\=[^;]*)?(?:\1|$)/g, '')
-        .split(/\s*(?:\=[^;]*)?;\s*/);
+        .split(/\s*(?:\=[^;]*)?;\s*/)
       for (var nLen = aKeys.length, nIdx = 0; nIdx < nLen; nIdx++) {
-        aKeys[nIdx] = decodeURIComponent(aKeys[nIdx]);
+        aKeys[nIdx] = decodeURIComponent(aKeys[nIdx])
       }
-      return aKeys;
+      return aKeys
     },
-  };
+  }
 
-  return mr;
-})(mr, jQuery, window, document);
+  return mr
+})(mr, jQuery, window, document)
 
 //////////////// Countdown
 mr = (function(mr, $, window, document) {
-  'use strict';
+  'use strict'
 
   var documentReady = function($) {
     $('.countdown[data-date]').each(function() {
       var element = $(this),
         date = element.attr('data-date'),
         daysText = 'days',
-        fallback;
+        fallback
 
       if (typeof element.attr('data-date-fallback') !== typeof undefined) {
-        fallback = element.attr('data-date-fallback');
+        fallback = element.attr('data-date-fallback')
       }
 
       if (typeof element.attr('data-days-text') !== typeof undefined) {
-        daysText = element.attr('data-days-text');
+        daysText = element.attr('data-days-text')
       }
 
       element.countdown(date, function(event) {
         if (event.elapsed) {
-          element.text(fallback);
+          element.text(fallback)
         } else {
-          element.text(event.strftime('%D ' + daysText + ' %H:%M:%S'));
+          element.text(event.strftime('%D ' + daysText + ' %H:%M:%S'))
         }
-      });
-    });
-  };
+      })
+    })
+  }
 
   mr.countdown = {
     documentReady: documentReady,
-  };
+  }
 
-  mr.components.documentReadyDeferred.push(documentReady);
-  return mr;
-})(mr, jQuery, window, document);
+  mr.components.documentReadyDeferred.push(documentReady)
+  return mr
+})(mr, jQuery, window, document)
 
 //////////////// Datepicker
 mr = (function(mr, $, window, document) {
-  'use strict';
+  'use strict'
 
   var documentReady = function($) {
     if ($('.datepicker').length) {
-      $('.datepicker').pickadate();
+      $('.datepicker').pickadate()
     }
-  };
+  }
 
-  mr.components.documentReadyDeferred.push(documentReady);
-  return mr;
-})(mr, jQuery, window, document);
+  mr.components.documentReadyDeferred.push(documentReady)
+  return mr
+})(mr, jQuery, window, document)
 
 //////////////// Dropdowns
 mr = (function(mr, $, window, document) {
-  'use strict';
-  mr.dropdowns = {};
-  mr.dropdowns.done = false;
+  'use strict'
+  mr.dropdowns = {}
+  mr.dropdowns.done = false
 
   var documentReady = function($) {
-    var rtl = false;
+    var rtl = false
 
     if ($('html[dir="rtl"]').length) {
-      rtl = true;
+      rtl = true
     }
 
     if (!mr.dropdowns.done) {
-      jQuery(
-        document
-      ).on(
+      jQuery(document).on(
         'click',
         'body:not(.dropdowns--hover) .dropdown:not(.dropdown--hover), body.dropdowns--hover .dropdown.dropdown--click',
         function(event) {
-          var dropdown = jQuery(this);
+          var dropdown = jQuery(this)
           if (
             jQuery(event.target).is('.dropdown--active > .dropdown__trigger')
           ) {
@@ -730,56 +731,60 @@ mr = (function(mr, $, window, document) {
               .siblings()
               .removeClass('dropdown--active')
               .find('.dropdown')
-              .removeClass('dropdown--active');
-            dropdown.toggleClass('dropdown--active');
+              .removeClass('dropdown--active')
+            dropdown.toggleClass('dropdown--active')
           } else {
-            $('.dropdown--active').removeClass('dropdown--active');
-            dropdown.addClass('dropdown--active');
+            $('.dropdown--active').removeClass('dropdown--active')
+            dropdown.addClass('dropdown--active')
           }
         }
-      );
-      jQuery(
-        document
-      ).on('click touchstart', 'body:not(.dropdowns--hover)', function(event) {
-        if (
-          !jQuery(event.target).is('[class*="dropdown"], [class*="dropdown"] *')
-        ) {
-          $('.dropdown--active').removeClass('dropdown--active');
+      )
+      jQuery(document).on(
+        'click touchstart',
+        'body:not(.dropdowns--hover)',
+        function(event) {
+          if (
+            !jQuery(event.target).is(
+              '[class*="dropdown"], [class*="dropdown"] *'
+            )
+          ) {
+            $('.dropdown--active').removeClass('dropdown--active')
+          }
         }
-      });
+      )
       jQuery('body.dropdowns--hover .dropdown').on('click', function(event) {
-        event.stopPropagation();
-        var hoverDropdown = jQuery(this);
-        hoverDropdown.toggleClass('dropdown--active');
-      });
+        event.stopPropagation()
+        var hoverDropdown = jQuery(this)
+        hoverDropdown.toggleClass('dropdown--active')
+      })
 
       // Append a container to the body for measuring purposes
       jQuery('body').append(
         '<div class="container containerMeasure" style="opacity:0;pointer-events:none;"></div>'
-      );
+      )
 
       // Menu dropdown positioning
       if (rtl === false) {
-        repositionDropdowns($);
+        repositionDropdowns($)
         jQuery(window).on('resize', function() {
-          repositionDropdowns($);
-        });
+          repositionDropdowns($)
+        })
       } else {
-        repositionDropdownsRtl($);
+        repositionDropdownsRtl($)
         jQuery(window).on('resize', function() {
-          repositionDropdownsRtl($);
-        });
+          repositionDropdownsRtl($)
+        })
       }
 
-      mr.dropdowns.done = true;
+      mr.dropdowns.done = true
     }
-  };
+  }
 
   function repositionDropdowns($) {
     $('.dropdown__container').each(function() {
-      var container, containerOffset, masterOffset, menuItem, content;
+      var container, containerOffset, masterOffset, menuItem, content
 
-      jQuery(this).css('left', '');
+      jQuery(this).css('left', '')
 
       // container = jQuery(this);
       // containerOffset = container.offset().left;
@@ -793,83 +798,83 @@ mr = (function(mr, $, window, document) {
       //     content = container.find('.dropdown__content');
       //     content.css('left', ((menuItem)-(masterOffset)));
       // }
-    });
+    })
     $('.dropdown__content').each(function() {
-      var dropdown, offset, width, offsetRight, winWidth, leftCorrect;
+      var dropdown, offset, width, offsetRight, winWidth, leftCorrect
 
-      dropdown = jQuery(this);
-      offset = dropdown.offset().left;
-      width = dropdown.outerWidth(true);
-      offsetRight = offset + width;
-      winWidth = jQuery(window).outerWidth(true);
-      leftCorrect = jQuery('.containerMeasure').outerWidth() - width;
+      dropdown = jQuery(this)
+      offset = dropdown.offset().left
+      width = dropdown.outerWidth(true)
+      offsetRight = offset + width
+      winWidth = jQuery(window).outerWidth(true)
+      leftCorrect = jQuery('.containerMeasure').outerWidth() - width
 
       if (offsetRight > winWidth) {
-        dropdown.css('left', leftCorrect);
+        dropdown.css('left', leftCorrect)
       }
-    });
+    })
   }
 
   function repositionDropdownsRtl($) {
-    var windowWidth = jQuery(window).width();
+    var windowWidth = jQuery(window).width()
 
     $('.dropdown__container').each(function() {
-      var container, containerOffset, masterOffset, menuItem, content;
+      var container, containerOffset, masterOffset, menuItem, content
 
-      jQuery(this).css('left', '');
+      jQuery(this).css('left', '')
 
-      container = jQuery(this);
+      container = jQuery(this)
       containerOffset =
-        windowWidth - (container.offset().left + container.outerWidth(true));
-      masterOffset = jQuery('.containerMeasure').offset().left;
+        windowWidth - (container.offset().left + container.outerWidth(true))
+      masterOffset = jQuery('.containerMeasure').offset().left
       menuItem =
         windowWidth -
         (container.closest('.dropdown').offset().left +
-          container.closest('.dropdown').outerWidth(true));
-      content = null;
+          container.closest('.dropdown').outerWidth(true))
+      content = null
 
-      container.css('right', -containerOffset + masterOffset);
+      container.css('right', -containerOffset + masterOffset)
 
       if (container.find('.dropdown__content:not([class*="md-12"])').length) {
-        content = container.find('.dropdown__content');
-        content.css('right', menuItem - masterOffset);
+        content = container.find('.dropdown__content')
+        content.css('right', menuItem - masterOffset)
       }
-    });
+    })
     $('.dropdown__content').each(function() {
-      var dropdown, offset, width, offsetRight, winWidth, rightCorrect;
+      var dropdown, offset, width, offsetRight, winWidth, rightCorrect
 
-      dropdown = jQuery(this);
+      dropdown = jQuery(this)
       offset =
-        windowWidth - (dropdown.offset().left + dropdown.outerWidth(true));
-      width = dropdown.outerWidth(true);
-      offsetRight = offset + width;
-      winWidth = jQuery(window).outerWidth(true);
-      rightCorrect = jQuery('.containerMeasure').outerWidth() - width;
+        windowWidth - (dropdown.offset().left + dropdown.outerWidth(true))
+      width = dropdown.outerWidth(true)
+      offsetRight = offset + width
+      winWidth = jQuery(window).outerWidth(true)
+      rightCorrect = jQuery('.containerMeasure').outerWidth() - width
 
       if (offsetRight > winWidth) {
-        dropdown.css('right', rightCorrect);
+        dropdown.css('right', rightCorrect)
       }
-    });
+    })
   }
 
-  mr.dropdowns.documentReady = documentReady;
+  mr.dropdowns.documentReady = documentReady
 
-  mr.components.documentReady.push(documentReady);
-  return mr;
-})(mr, jQuery, window, document);
+  mr.components.documentReady.push(documentReady)
+  return mr
+})(mr, jQuery, window, document)
 
 //////////////// Forms
 
 mr = (function(mr, $, window, document) {
-  'use strict';
+  'use strict'
 
-  mr.forms = {};
-  mr.forms.captcha = {};
-  mr.forms.captcha.widgets = [];
-  mr.forms.captcha.done = false;
+  mr.forms = {}
+  mr.forms.captcha = {}
+  mr.forms.captcha.widgets = []
+  mr.forms.captcha.done = false
 
   var documentReady = function($) {
-    mr.forms.captcha.widgets = [];
+    mr.forms.captcha.widgets = []
 
     /// Checkbox & Radio Inputs
 
@@ -878,18 +883,18 @@ mr = (function(mr, $, window, document) {
     ).each(function(index) {
       var input = $(this),
         label = input.siblings('label'),
-        id = 'input-assigned-' + index;
+        id = 'input-assigned-' + index
       if (
         typeof input.attr('id') === typeof undefined ||
         input.attr('id') === ''
       ) {
-        input.attr('id', id);
-        label.attr('for', id);
+        input.attr('id', id)
+        label.attr('for', id)
       } else {
-        id = input.attr('id');
-        label.attr('for', id);
+        id = input.attr('id')
+        label.attr('for', id)
       }
-    });
+    })
 
     //////////////// Number Inputs
 
@@ -902,22 +907,22 @@ mr = (function(mr, $, window, document) {
           max = input.attr('max'),
           min = input.attr('min'),
           step = 1,
-          current = parseInt(input.val(), 10);
+          current = parseInt(input.val(), 10)
 
         if (parent.is('[data-step]')) {
-          step = parseInt(parent.attr('data-step'), 10);
+          step = parseInt(parent.attr('data-step'), 10)
         }
 
         if (control.hasClass('input-number__increase')) {
           if (current + step <= max) {
-            input.val(current + step);
+            input.val(current + step)
           }
         } else {
           if (current - step >= min) {
-            input.val(current - step);
+            input.val(current - step)
           }
         }
-      });
+      })
 
     //////////////// File Uploads
 
@@ -926,9 +931,9 @@ mr = (function(mr, $, window, document) {
       .on('click.mr', function() {
         $(this)
           .siblings('input')
-          .trigger('click');
-        return false;
-      });
+          .trigger('click')
+        return false
+      })
 
     //////////////// Handle Form Submit
 
@@ -937,96 +942,94 @@ mr = (function(mr, $, window, document) {
     )
       .attr('novalidate', true)
       .off('submit')
-      .on('submit', mr.forms.submit);
+      .on('submit', mr.forms.submit)
 
     //////////////// Handle Form Submit
-    $(
-      document
-    ).on(
+    $(document).on(
       'change, input, paste, keyup',
       '.attempted-submit .field-error',
       function() {
-        $(this).removeClass('field-error');
+        $(this).removeClass('field-error')
       }
-    );
+    )
 
     //////////////// Check forms for Google reCaptcha site keys
 
-    $(
-      'form[data-recaptcha-sitekey]:not([data-recaptcha-sitekey=""])'
-    ).each(function() {
-      var $thisForm = jQuery(this),
-        $captchaDiv = $thisForm.find('div.recaptcha'),
-        $insertBefore,
-        $column,
-        widgetObject,
-        $script,
-        scriptSrc,
-        widgetColourTheme,
-        widgetSize;
+    $('form[data-recaptcha-sitekey]:not([data-recaptcha-sitekey=""])').each(
+      function() {
+        var $thisForm = jQuery(this),
+          $captchaDiv = $thisForm.find('div.recaptcha'),
+          $insertBefore,
+          $column,
+          widgetObject,
+          $script,
+          scriptSrc,
+          widgetColourTheme,
+          widgetSize
 
-      widgetColourTheme = $thisForm.attr('data-recaptcha-theme');
-      widgetColourTheme =
-        typeof widgetColourTheme !== typeof undefined ? widgetColourTheme : '';
+        widgetColourTheme = $thisForm.attr('data-recaptcha-theme')
+        widgetColourTheme =
+          typeof widgetColourTheme !== typeof undefined ? widgetColourTheme : ''
 
-      widgetSize = $thisForm.attr('data-recaptcha-size');
-      widgetSize = typeof widgetSize !== typeof undefined ? widgetSize : '';
+        widgetSize = $thisForm.attr('data-recaptcha-size')
+        widgetSize = typeof widgetSize !== typeof undefined ? widgetSize : ''
 
-      // Store the site key for later use
-      mr.forms.captcha.sitekey = $thisForm.attr('data-recaptcha-sitekey');
+        // Store the site key for later use
+        mr.forms.captcha.sitekey = $thisForm.attr('data-recaptcha-sitekey')
 
-      if ($captchaDiv.length) {
-        // If a div.recaptcha was already present on this form, do nothing at this stage,
-        // It will be populated with a captcha widget later.
-      } else {
-        // Create a captcha div and insert it before the submit button.
-        $insertBefore = $thisForm
-          .find('button[type=submit]')
-          .closest('[class*="col-"]');
-        $captchaDiv = jQuery('<div>').addClass('recaptcha');
-        $column = jQuery('<div>')
-          .addClass('col-xs-12')
-          .append($captchaDiv);
-        $column.insertBefore($insertBefore);
-      }
-
-      // Add the widget div to the widgets array
-      widgetObject = {
-        element: $captchaDiv.get(0),
-        parentForm: $thisForm,
-        theme: widgetColourTheme,
-        size: widgetSize,
-      };
-
-      mr.forms.captcha.widgets.push(widgetObject);
-
-      // mr.forms.captcha.done indicates whether the api script has been appended yet.
-      if (mr.forms.captcha.done === false) {
-        if (!jQuery('script[src*="recaptcha/api.js"]').length) {
-          $script = jQuery('<script async defer>');
-          scriptSrc =
-            'https://www.google.com/recaptcha/api.js?onload=mrFormsCaptchaInit&render=explicit';
-          $script.attr('src', scriptSrc);
-          jQuery('body').append($script);
-          mr.forms.captcha.done = true;
+        if ($captchaDiv.length) {
+          // If a div.recaptcha was already present on this form, do nothing at this stage,
+          // It will be populated with a captcha widget later.
+        } else {
+          // Create a captcha div and insert it before the submit button.
+          $insertBefore = $thisForm
+            .find('button[type=submit]')
+            .closest('[class*="col-"]')
+          $captchaDiv = jQuery('<div>').addClass('recaptcha')
+          $column = jQuery('<div>')
+            .addClass('col-xs-12')
+            .append($captchaDiv)
+          $column.insertBefore($insertBefore)
         }
-      } else {
-        if (typeof grecaptcha !== typeof undefined) {
-          mr.forms.captcha.renderWidgets();
+
+        // Add the widget div to the widgets array
+        widgetObject = {
+          element: $captchaDiv.get(0),
+          parentForm: $thisForm,
+          theme: widgetColourTheme,
+          size: widgetSize,
+        }
+
+        mr.forms.captcha.widgets.push(widgetObject)
+
+        // mr.forms.captcha.done indicates whether the api script has been appended yet.
+        if (mr.forms.captcha.done === false) {
+          if (!jQuery('script[src*="recaptcha/api.js"]').length) {
+            $script = jQuery('<script async defer>')
+            scriptSrc =
+              'https://www.google.com/recaptcha/api.js?onload=mrFormsCaptchaInit&render=explicit'
+            $script.attr('src', scriptSrc)
+            jQuery('body').append($script)
+            mr.forms.captcha.done = true
+          }
+        } else {
+          if (typeof grecaptcha !== typeof undefined) {
+            mr.forms.captcha.renderWidgets()
+          }
         }
       }
-    });
-  };
+    )
+  }
 
-  mr.forms.documentReady = documentReady;
+  mr.forms.documentReady = documentReady
   window.checkboxes = function($) {
-    documentReady($);
-  };
+    documentReady($)
+  }
 
   mr.forms.submit = function(e) {
     // return false so form submits through jQuery rather than reloading page.
-    if (e.preventDefault) e.preventDefault();
-    else e.returnValue = false;
+    if (e.preventDefault) e.preventDefault()
+    else e.returnValue = false
 
     var body = $('body'),
       thisForm = $(e.target).closest('form'),
@@ -1044,49 +1047,49 @@ mr = (function(mr, $, window, document) {
       formError,
       formSuccess,
       errorText,
-      successText;
+      successText
 
-    body.find('.form-error, .form-success').remove();
-    submitButton.attr('data-text', submitButton.text());
+    body.find('.form-error, .form-success').remove()
+    submitButton.attr('data-text', submitButton.text())
     errorText = thisForm.attr('data-error')
       ? thisForm.attr('data-error')
-      : 'Please fill all fields correctly';
+      : 'Please fill all fields correctly'
     successText = thisForm.attr('data-success')
       ? thisForm.attr('data-success')
-      : "Thanks, we'll be in touch shortly";
+      : "Thanks, we'll be in touch shortly"
     body.append(
       '<div class="form-error" style="display: none;">' + errorText + '</div>'
-    );
+    )
     body.append(
       '<div class="form-success" style="display: none;">' +
         successText +
         '</div>'
-    );
-    formError = body.find('.form-error');
-    formSuccess = body.find('.form-success');
-    thisForm.addClass('attempted-submit');
+    )
+    formError = body.find('.form-error')
+    formSuccess = body.find('.form-success')
+    thisForm.addClass('attempted-submit')
 
     // Do this if the form is intended to be submitted to MailChimp or Campaign Monitor
     if (
       formAction.indexOf('createsend.com') !== -1 ||
       formAction.indexOf('list-manage.com') !== -1
     ) {
-      console.log('Mail list form signup detected.');
+      console.log('Mail list form signup detected.')
       if (
         typeof originalError !== typeof undefined &&
         originalError !== false
       ) {
-        formError.html(originalError);
+        formError.html(originalError)
       }
 
       // validateFields returns 1 on error;
       if (mr.forms.validateFields(thisForm) !== 1) {
-        thisForm.removeClass('attempted-submit');
+        thisForm.removeClass('attempted-submit')
 
         // Hide the error if one was shown
-        formError.fadeOut(200);
+        formError.fadeOut(200)
         // Create a new loading spinner in the submit button.
-        submitButton.addClass('btn--loading');
+        submitButton.addClass('btn--loading')
 
         try {
           $.ajax({
@@ -1104,21 +1107,21 @@ mr = (function(mr, $, window, document) {
                 // Got an error from Mail Chimp or Campaign Monitor
 
                 // Keep the current error text in a data attribute on the form
-                formError.attr('original-error', formError.text());
+                formError.attr('original-error', formError.text())
                 // Show the error with the returned error text.
                 formError
                   .html(data.msg)
                   .stop(true)
-                  .fadeIn(1000);
-                formSuccess.stop(true).fadeOut(1000);
+                  .fadeIn(1000)
+                formSuccess.stop(true).fadeOut(1000)
 
-                submitButton.removeClass('btn--loading');
+                submitButton.removeClass('btn--loading')
               } else {
                 // Got success from Mail Chimp or Campaign Monitor
 
-                submitButton.removeClass('btn--loading');
+                submitButton.removeClass('btn--loading')
 
-                successRedirect = thisForm.attr('data-success-redirect');
+                successRedirect = thisForm.attr('data-success-redirect')
                 // For some browsers, if empty `successRedirect` is undefined; for others,
                 // `successRedirect` is false.  Check for both.
                 if (
@@ -1126,32 +1129,32 @@ mr = (function(mr, $, window, document) {
                   successRedirect !== false &&
                   successRedirect !== ''
                 ) {
-                  window.location = successRedirect;
+                  window.location = successRedirect
                 } else {
-                  mr.forms.resetForm(thisForm);
+                  mr.forms.resetForm(thisForm)
                   mr.forms.showFormSuccess(
                     formSuccess,
                     formError,
                     1000,
                     5000,
                     500
-                  );
+                  )
                 }
               }
             },
-          });
+          })
         } catch (err) {
           // Keep the current error text in a data attribute on the form
-          formError.attr('original-error', formError.text());
+          formError.attr('original-error', formError.text())
           // Show the error with the returned error text.
-          formError.html(err.message);
-          mr.forms.showFormError(formSuccess, formError, 1000, 5000, 500);
+          formError.html(err.message)
+          mr.forms.showFormError(formSuccess, formError, 1000, 5000, 500)
 
-          submitButton.removeClass('btn--loading');
+          submitButton.removeClass('btn--loading')
         }
       } else {
         // There was a validation error - show the default form error message
-        mr.forms.showFormError(formSuccess, formError, 1000, 5000, 500);
+        mr.forms.showFormError(formSuccess, formError, 1000, 5000, 500)
       }
     } else {
       // If no MailChimp or Campaign Monitor form was detected then this is treated as an email form instead.
@@ -1159,21 +1162,21 @@ mr = (function(mr, $, window, document) {
         typeof originalError !== typeof undefined &&
         originalError !== false
       ) {
-        formError.text(originalError);
+        formError.text(originalError)
       }
 
-      error = mr.forms.validateFields(thisForm);
+      error = mr.forms.validateFields(thisForm)
 
       if (error === 1) {
-        mr.forms.showFormError(formSuccess, formError, 1000, 5000, 500);
+        mr.forms.showFormError(formSuccess, formError, 1000, 5000, 500)
       } else {
-        thisForm.removeClass('attempted-submit');
+        thisForm.removeClass('attempted-submit')
 
         // Hide the error if one was shown
-        formError.fadeOut(200);
+        formError.fadeOut(200)
 
         // Create a new loading spinner in the submit button.
-        submitButton.addClass('btn--loading');
+        submitButton.addClass('btn--loading')
 
         jQuery.ajax({
           type: 'POST',
@@ -1188,130 +1191,130 @@ mr = (function(mr, $, window, document) {
             // Swiftmailer always sends back a number representing number of emails sent.
             // If this is numeric (not Swift Mailer error text) AND greater than 0 then show success message.
 
-            submitButton.removeClass('btn--loading');
+            submitButton.removeClass('btn--loading')
 
             if ($.isNumeric(response)) {
               if (parseInt(response, 10) > 0) {
                 // For some browsers, if empty 'successRedirect' is undefined; for others,
                 // 'successRedirect' is false.  Check for both.
-                successRedirect = thisForm.attr('data-success-redirect');
+                successRedirect = thisForm.attr('data-success-redirect')
                 if (
                   typeof successRedirect !== typeof undefined &&
                   successRedirect !== false &&
                   successRedirect !== ''
                 ) {
-                  window.location = successRedirect;
+                  window.location = successRedirect
                 }
 
-                mr.forms.resetForm(thisForm);
+                mr.forms.resetForm(thisForm)
                 mr.forms.showFormSuccess(
                   formSuccess,
                   formError,
                   1000,
                   5000,
                   500
-                );
-                mr.forms.captcha.resetWidgets();
+                )
+                mr.forms.captcha.resetWidgets()
               }
             } else {
               // If error text was returned, put the text in the .form-error div and show it.
               // Keep the current error text in a data attribute on the form
-              formError.attr('original-error', formError.text());
+              formError.attr('original-error', formError.text())
               // Show the error with the returned error text.
               formError
                 .text(response)
                 .stop(true)
-                .fadeIn(1000);
-              formSuccess.stop(true).fadeOut(1000);
+                .fadeIn(1000)
+              formSuccess.stop(true).fadeOut(1000)
             }
           },
           error: function(errorObject, errorText, errorHTTP) {
             // Keep the current error text in a data attribute on the form
-            formError.attr('original-error', formError.text());
+            formError.attr('original-error', formError.text())
             // Show the error with the returned error text.
             formError
               .text(errorHTTP)
               .stop(true)
-              .fadeIn(1000);
-            formSuccess.stop(true).fadeOut(1000);
-            submitButton.removeClass('btn--loading');
+              .fadeIn(1000)
+            formSuccess.stop(true).fadeOut(1000)
+            submitButton.removeClass('btn--loading')
           },
-        });
+        })
       }
     }
-    return false;
-  };
+    return false
+  }
 
   mr.forms.validateFields = function(form) {
     var body = $(body),
       error = false,
       originalErrorMessage,
       name,
-      thisElement;
+      thisElement
 
-    form = $(form);
+    form = $(form)
 
     form.find('.validate-required[type="checkbox"]').each(function() {
-      var checkbox = $(this);
+      var checkbox = $(this)
       if (!$('[name="' + $(this).attr('name') + '"]:checked').length) {
-        error = 1;
-        name = $(this).attr('data-name') || 'check';
-        checkbox.parent().addClass('field-error');
+        error = 1
+        name = $(this).attr('data-name') || 'check'
+        checkbox.parent().addClass('field-error')
         //body.find('.form-error').text('Please tick at least one ' + name + ' box.');
       }
-    });
+    })
 
     form
       .find('.validate-required, .required, [required]')
       .not('input[type="checkbox"]')
       .each(function() {
         if ($(this).val() === '') {
-          $(this).addClass('field-error');
-          error = 1;
+          $(this).addClass('field-error')
+          error = 1
         } else {
-          $(this).removeClass('field-error');
+          $(this).removeClass('field-error')
         }
-      });
+      })
 
     form
       .find('.validate-email, .email, [name*="cm-"][type="email"]')
       .each(function() {
         if (!/(.+)@(.+){2,}\.(.+){2,}/.test($(this).val())) {
-          $(this).addClass('field-error');
-          error = 1;
+          $(this).addClass('field-error')
+          error = 1
         } else {
-          $(this).removeClass('field-error');
+          $(this).removeClass('field-error')
         }
-      });
+      })
 
     form.find('.validate-number-dash').each(function() {
       if (!/^[0-9][0-9-]+[0-9]$/.test($(this).val())) {
-        $(this).addClass('field-error');
-        error = 1;
+        $(this).addClass('field-error')
+        error = 1
       } else {
-        $(this).removeClass('field-error');
+        $(this).removeClass('field-error')
       }
-    });
+    })
 
     // Validate recaptcha
     if (
       form.find('div.recaptcha').length &&
       typeof form.attr('data-recaptcha-sitekey') !== typeof undefined
     ) {
-      thisElement = $(form.find('div.recaptcha'));
+      thisElement = $(form.find('div.recaptcha'))
 
       if (grecaptcha.getResponse(form.data('recaptchaWidgetID')) !== '') {
-        thisElement.removeClass('field-error');
+        thisElement.removeClass('field-error')
       } else {
-        thisElement.addClass('field-error');
-        error = 1;
+        thisElement.addClass('field-error')
+        error = 1
       }
     }
 
     if (!form.find('.field-error').length) {
-      body.find('.form-error').fadeOut(1000);
+      body.find('.form-error').fadeOut(1000)
     } else {
-      var firstError = $(form).find('.field-error:first');
+      var firstError = $(form).find('.field-error:first')
 
       if (firstError.length) {
         $('html, body')
@@ -1322,14 +1325,14 @@ mr = (function(mr, $, window, document) {
             },
             1200,
             function() {
-              firstError.focus();
+              firstError.focus()
             }
-          );
+          )
       }
     }
 
-    return error;
-  };
+    return error
+  }
 
   mr.forms.showFormSuccess = function(
     formSuccess,
@@ -1338,13 +1341,13 @@ mr = (function(mr, $, window, document) {
     wait,
     fadeOutSuccess
   ) {
-    formSuccess.stop(true).fadeIn(fadeOutError);
+    formSuccess.stop(true).fadeIn(fadeOutError)
 
-    formError.stop(true).fadeOut(fadeOutError);
+    formError.stop(true).fadeOut(fadeOutError)
     setTimeout(function() {
-      formSuccess.stop(true).fadeOut(fadeOutSuccess);
-    }, wait);
-  };
+      formSuccess.stop(true).fadeOut(fadeOutSuccess)
+    }, wait)
+  }
 
   mr.forms.showFormError = function(
     formSuccess,
@@ -1353,34 +1356,34 @@ mr = (function(mr, $, window, document) {
     wait,
     fadeOutError
   ) {
-    formError.stop(true).fadeIn(fadeOutSuccess);
+    formError.stop(true).fadeIn(fadeOutSuccess)
 
-    formSuccess.stop(true).fadeOut(fadeOutSuccess);
+    formSuccess.stop(true).fadeOut(fadeOutSuccess)
     setTimeout(function() {
-      formError.stop(true).fadeOut(fadeOutError);
-    }, wait);
-  };
+      formError.stop(true).fadeOut(fadeOutError)
+    }, wait)
+  }
 
   // Reset form to empty/default state.
   mr.forms.resetForm = function(form) {
-    form = $(form);
-    form.get(0).reset();
-    form.find('.input-radio, .input-checkbox').removeClass('checked');
+    form = $(form)
+    form.get(0).reset()
+    form.find('.input-radio, .input-checkbox').removeClass('checked')
     form
       .find('[data-default-value]')
       .filter(
         '[type="text"],[type="number"],[type="email"],[type="url"],[type="search"],[type="tel"]'
       )
       .each(function() {
-        var elem = jQuery(this);
-        elem.val(elem.attr('data-default-value'));
-      });
-  };
+        var elem = jQuery(this)
+        elem.val(elem.attr('data-default-value'))
+      })
+  }
 
   // Defined on the window scope as the recaptcha js api seems not to be able to call function in mr scope
   window.mrFormsCaptchaInit = function() {
-    mr.forms.captcha.renderWidgets();
-  };
+    mr.forms.captcha.renderWidgets()
+  }
 
   mr.forms.captcha.renderWidgets = function() {
     mr.forms.captcha.widgets.forEach(function(widget) {
@@ -1390,66 +1393,67 @@ mr = (function(mr, $, window, document) {
           theme: widget.theme,
           size: widget.size,
           callback: mr.forms.captcha.setHuman,
-        });
-        widget.parentForm.data('recaptchaWidgetID', widget.id);
+        })
+        widget.parentForm.data('recaptchaWidgetID', widget.id)
       }
-    });
-  };
+    })
+  }
 
   mr.forms.captcha.resetWidgets = function() {
     mr.forms.captcha.widgets.forEach(function(widget) {
-      grecaptcha.reset(widget.id);
-    });
-  };
+      grecaptcha.reset(widget.id)
+    })
+  }
 
   mr.forms.captcha.setHuman = function() {
-    jQuery('div.recaptcha.field-error').removeClass('field-error');
-  };
+    jQuery('div.recaptcha.field-error').removeClass('field-error')
+  }
 
-  mr.components.documentReadyDeferred.push(documentReady);
-  return mr;
-})(mr, jQuery, window, document);
+  mr.components.documentReadyDeferred.push(documentReady)
+  return mr
+})(mr, jQuery, window, document)
 
 //////////////// Granim
 mr = (function(mr, $, window, document) {
-  'use strict';
+  'use strict'
 
   var documentReady = function($) {
-    $('[data-gradient-bg]').each(function(index, element) {
+    $('[data-gradient-bg-new]').each(function(index, element) {
+      console.log('creating gradient')
       var granimParent = $(this),
         granimID = 'granim-' + index + '',
-        colours = granimParent.attr('data-gradient-bg'),
+        colours = granimParent.attr('data-gradient-bg-new'),
         pairs = [],
         tempPair = [],
         count,
         passes,
-        i;
+        i
 
       // Canvas element forms the gradient background
-      granimParent.prepend('<canvas id="' + granimID + '"></canvas>');
+      granimParent.prepend('<canvas id="' + granimID + '"></canvas>')
 
       // Regular expression to match comma separated list of hex colour values
       passes = /^(#[0-9|a-f|A-F]{6}){1}([ ]*,[ ]*#[0-9|a-f|A-F]{6})*$/.test(
         colours
-      );
+      )
 
       if (passes === true) {
-        colours = colours.replace(' ', '');
-        colours = colours.split(',');
-        count = colours.length;
+        colours = colours.replace(' ', '')
+        colours = colours.split(',')
+        count = colours.length
         // If number of colours is odd - duplicate last colour to make even array
         if (count % 2 !== 0) {
-          colours.push(colours[count - 1]);
+          colours.push(colours[count - 1])
         }
         for (i = 0; i < count / 2; i++) {
-          tempPair = [];
-          tempPair.push(colours.shift());
-          tempPair.push(colours.shift());
-          pairs.push(tempPair);
+          tempPair = []
+          tempPair.push(colours.shift())
+          tempPair.push(colours.shift())
+          pairs.push(tempPair)
         }
       }
 
-      var granimElement = $(this);
+      var granimElement = $(this)
       var granimInstance = new Granim({
         element: '#' + granimID,
         name: 'basic-gradient',
@@ -1461,21 +1465,21 @@ mr = (function(mr, $, window, document) {
             gradients: pairs,
           },
         },
-      });
-    });
-  };
+      })
+    })
+  }
 
   mr.granim = {
     documentReady: documentReady,
-  };
+  }
 
-  mr.components.documentReadyDeferred.push(documentReady);
-  return mr;
-})(mr, jQuery, window, document);
+  mr.components.documentReadyDeferred.push(documentReady)
+  return mr
+})(mr, jQuery, window, document)
 
 //////////////// Instagram
 mr = (function(mr, $, window, document) {
-  'use strict';
+  'use strict'
 
   var documentReady = function($) {
     if ($('.instafeed').length) {
@@ -1483,76 +1487,76 @@ mr = (function(mr, $, window, document) {
       var token = '4079540202.b9b1d8a.1d13c245c68d4a17bfbff87919aaeb14',
         client = 'b9b1d8ae049d4153b24a6332f0088686',
         elementToken,
-        elementClient;
+        elementClient
 
       if ($('.instafeed[data-access-token][data-client-id]').length) {
         elementToken = $('.instafeed[data-access-token][data-client-id]')
           .first()
-          .attr('data-access-token');
+          .attr('data-access-token')
         elementClient = $('.instafeed[data-access-token][data-client-id]')
           .first()
-          .attr('data-client-id');
+          .attr('data-client-id')
 
         if (elementToken !== '') {
-          token = elementToken;
+          token = elementToken
         }
         if (elementClient !== '') {
-          client = elementClient;
+          client = elementClient
         }
       }
 
       jQuery.fn.spectragram.accessData = {
         accessToken: token,
         clientID: client,
-      };
+      }
     }
 
     $('.instafeed').each(function() {
       var feed = $(this),
         feedID = feed.attr('data-user-name'),
-        fetchNumber = 12;
+        fetchNumber = 12
       if (typeof feed.attr('data-amount') !== typeof undefined) {
-        fetchNumber = parseInt(feed.attr('data-amount'), 10);
+        fetchNumber = parseInt(feed.attr('data-amount'), 10)
       }
-      feed.append('<ul></ul>');
+      feed.append('<ul></ul>')
       feed.children('ul').spectragram('getUserFeed', {
         query: feedID,
         max: fetchNumber,
-      });
-    });
-  };
+      })
+    })
+  }
 
   mr.instagram = {
     documentReady: documentReady,
-  };
+  }
 
-  mr.components.documentReadyDeferred.push(documentReady);
-  return mr;
-})(mr, jQuery, window, document);
+  mr.components.documentReadyDeferred.push(documentReady)
+  return mr
+})(mr, jQuery, window, document)
 
 //////////////// Maps
 mr = (function(mr, $, window, document) {
-  'use strict';
+  'use strict'
 
-  mr.maps = {};
+  mr.maps = {}
 
   var documentReady = function($) {
     // Interact with Map once the user has clicked (to prevent scrolling the page = zooming the map
 
     $('.map-holder')
       .on('click', function() {
-        $(this).addClass('interact');
+        $(this).addClass('interact')
       })
-      .removeClass('interact');
+      .removeClass('interact')
 
-    var mapsOnPage = $('.map-container[data-maps-api-key]');
+    var mapsOnPage = $('.map-container[data-maps-api-key]')
     if (mapsOnPage.length) {
-      mapsOnPage.addClass('gmaps-active');
-      mr.maps.initAPI($);
-      mr.maps.init();
+      mapsOnPage.addClass('gmaps-active')
+      mr.maps.initAPI($)
+      mr.maps.init()
     }
-  };
-  mr.maps.documentReady = documentReady;
+  }
+  mr.maps.documentReady = documentReady
 
   mr.maps.initAPI = function($) {
     // Load Google MAP API JS with callback to initialise when fully loaded
@@ -1561,21 +1565,21 @@ mr = (function(mr, $, window, document) {
       !document.querySelector('.gMapsAPI')
     ) {
       if ($('[data-maps-api-key]').length) {
-        var script = document.createElement('script');
-        var apiKey = $('[data-maps-api-key]:first').attr('data-maps-api-key');
-        apiKey = typeof apiKey !== typeof undefined ? apiKey : '';
+        var script = document.createElement('script')
+        var apiKey = $('[data-maps-api-key]:first').attr('data-maps-api-key')
+        apiKey = typeof apiKey !== typeof undefined ? apiKey : ''
         if (apiKey !== '') {
-          script.type = 'text/javascript';
+          script.type = 'text/javascript'
           script.src =
             'https://maps.googleapis.com/maps/api/js?key=' +
             apiKey +
-            '&callback=mr.maps.init';
-          script.className = 'gMapsAPI';
-          document.body.appendChild(script);
+            '&callback=mr.maps.init'
+          script.className = 'gMapsAPI'
+          document.body.appendChild(script)
         }
       }
     }
-  };
+  }
 
   mr.maps.init = function() {
     if (typeof window.google !== 'undefined') {
@@ -1698,14 +1702,14 @@ mr = (function(mr, $, window, document) {
                   ? { position: google.maps.ControlPosition[zoomControlPos] }
                   : null,
               styles: mapStyle,
-            };
-          console.log(mapOptions);
+            }
+          console.log(mapOptions)
 
           if (
             typeof mapInstance.attr('data-marker-title') !== typeof undefined &&
             mapInstance.attr('data-marker-title') !== ''
           ) {
-            markerTitle = mapInstance.attr('data-marker-title');
+            markerTitle = mapInstance.attr('data-marker-title')
           }
 
           if (address !== undefined && address[0] !== '') {
@@ -1713,11 +1717,11 @@ mr = (function(mr, $, window, document) {
               { address: address[0].replace('[nomarker]', '') },
               function(results, status) {
                 if (status === google.maps.GeocoderStatus.OK) {
-                  var map = new google.maps.Map(mapElement, mapOptions);
-                  map.setCenter(results[0].geometry.location);
+                  var map = new google.maps.Map(mapElement, mapOptions)
+                  map.setCenter(results[0].geometry.location)
 
                   address.forEach(function(address) {
-                    var markerGeoCoder;
+                    var markerGeoCoder
 
                     markerImage = {
                       url:
@@ -1727,7 +1731,7 @@ mr = (function(mr, $, window, document) {
                             : markerImage.url
                           : '../img/mapmarker.png',
                       scaledSize: new google.maps.Size(50, 50),
-                    };
+                    }
 
                     if (/(\-?\d+(\.\d+)?),\s*(\-?\d+(\.\d+)?)/.test(address)) {
                       var latlong = address.split(','),
@@ -1740,9 +1744,9 @@ mr = (function(mr, $, window, document) {
                           icon: markerImage,
                           title: markerTitle,
                           optimised: false,
-                        });
+                        })
                     } else if (address.indexOf('[nomarker]') < 0) {
-                      markerGeoCoder = new google.maps.Geocoder();
+                      markerGeoCoder = new google.maps.Geocoder()
                       markerGeoCoder.geocode(
                         { address: address.replace('[nomarker]', '') },
                         function(results, status) {
@@ -1753,19 +1757,19 @@ mr = (function(mr, $, window, document) {
                               title: markerTitle,
                               position: results[0].geometry.location,
                               optimised: false,
-                            });
+                            })
                           } else {
-                            console.log('Map marker error: ' + status);
+                            console.log('Map marker error: ' + status)
                           }
                         }
-                      );
+                      )
                     }
-                  });
+                  })
                 } else {
-                  console.log('There was a problem geocoding the address.');
+                  console.log('There was a problem geocoding the address.')
                 }
               }
-            );
+            )
           } else if (
             typeof latitude !== typeof undefined &&
             latitude !== '' &&
@@ -1774,89 +1778,87 @@ mr = (function(mr, $, window, document) {
             longitude !== '' &&
             longitude !== false
           ) {
-            mapOptions.center = { lat: latitude, lng: longitude };
-            map = new google.maps.Map(mapInstance, mapOptions);
+            mapOptions.center = { lat: latitude, lng: longitude }
+            map = new google.maps.Map(mapInstance, mapOptions)
             marker = new google.maps.Marker({
               position: { lat: latitude, lng: longitude },
               map: map,
               icon: markerImage,
               title: markerTitle,
-            });
+            })
           }
-        });
+        })
       }
     }
-  };
+  }
 
-  mr.components.documentReady.push(documentReady);
-  return mr;
-})(mr, jQuery, window, document);
+  mr.components.documentReady.push(documentReady)
+  return mr
+})(mr, jQuery, window, document)
 
 //////////////// Masonry
 mr = (function(mr, $, window, document) {
-  'use strict';
+  'use strict'
 
   var documentReady = function($) {
-    mr.masonry.updateFilters();
+    mr.masonry.updateFilters()
 
-    $(
-      document
-    ).on(
+    $(document).on(
       'click touchstart',
       '.masonry__filters li:not(.js-no-action)',
       function() {
-        var masonryFilter = $(this);
+        var masonryFilter = $(this)
         var masonryContainer = masonryFilter
           .closest('.masonry')
-          .find('.masonry__container');
-        var filterValue = '*';
+          .find('.masonry__container')
+        var filterValue = '*'
         if (masonryFilter.attr('data-masonry-filter') !== '*') {
-          filterValue = '.filter-' + masonryFilter.attr('data-masonry-filter');
+          filterValue = '.filter-' + masonryFilter.attr('data-masonry-filter')
         }
-        masonryFilter.siblings('li').removeClass('active');
-        masonryFilter.addClass('active');
-        masonryContainer.removeClass('masonry--animate');
+        masonryFilter.siblings('li').removeClass('active')
+        masonryFilter.addClass('active')
+        masonryContainer.removeClass('masonry--animate')
         masonryContainer.on('layoutComplete', function() {
-          $(this).addClass('masonry--active');
+          $(this).addClass('masonry--active')
           if (typeof mr_parallax !== typeof undefined) {
             setTimeout(function() {
-              mr_parallax.profileParallaxElements();
-            }, 100);
+              mr_parallax.profileParallaxElements()
+            }, 100)
           }
-        });
-        masonryContainer.isotope({ filter: filterValue });
+        })
+        masonryContainer.isotope({ filter: filterValue })
       }
-    );
-  };
+    )
+  }
 
   var windowLoad = function() {
     $('.masonry').each(function() {
       var masonry = $(this).find('.masonry__container'),
         masonryParent = $(this),
-        defaultFilter = '*';
+        defaultFilter = '*'
 
       // Check for a default filter attribute
       if (masonryParent.is('[data-default-filter]')) {
-        defaultFilter = masonryParent.attr('data-default-filter').toLowerCase();
-        defaultFilter = '.filter-' + defaultFilter;
-        masonryParent.find('li[data-masonry-filter]').removeClass('active');
+        defaultFilter = masonryParent.attr('data-default-filter').toLowerCase()
+        defaultFilter = '.filter-' + defaultFilter
+        masonryParent.find('li[data-masonry-filter]').removeClass('active')
         masonryParent
           .find(
             'li[data-masonry-filter="' +
               masonryParent.attr('data-default-filter').toLowerCase() +
               '"]'
           )
-          .addClass('active');
+          .addClass('active')
       }
 
       masonry.on('layoutComplete', function() {
-        masonry.addClass('masonry--active');
+        masonry.addClass('masonry--active')
         if (typeof mr_parallax !== typeof undefined) {
           setTimeout(function() {
-            mr_parallax.profileParallaxElements();
-          }, 100);
+            mr_parallax.profileParallaxElements()
+          }, 100)
         }
-      });
+      })
 
       masonry.isotope({
         itemSelector: '.masonry__item',
@@ -1864,20 +1866,20 @@ mr = (function(mr, $, window, document) {
         masonry: {
           columnWidth: '.masonry__item',
         },
-      });
-    });
-  };
+      })
+    })
+  }
 
   mr.masonry = {
     documentReady: documentReady,
     windowLoad: windowLoad,
-  };
+  }
 
   mr.masonry.updateFilters = function(masonry) {
     // If no argument is supplied, just apply the update to all masonry sets on the page.
-    masonry = typeof masonry !== typeof undefined ? masonry : '.masonry';
+    masonry = typeof masonry !== typeof undefined ? masonry : '.masonry'
 
-    var $masonry = $(masonry);
+    var $masonry = $(masonry)
 
     $masonry.each(function() {
       var $masonry = $(this),
@@ -1888,7 +1890,7 @@ mr = (function(mr, $, window, document) {
           typeof filters.attr('data-filter-all-text') !== typeof undefined
             ? filters.attr('data-filter-all-text')
             : 'All',
-        filtersList;
+        filtersList
 
       // Ensure we are working with a .masonry element
       if ($masonry.is('.masonry')) {
@@ -1897,10 +1899,10 @@ mr = (function(mr, $, window, document) {
           masonryContainer.find('.masonry__item[data-masonry-filter]').length
         ) {
           // Create empty ul for filters
-          filtersList = filters.find('> ul');
+          filtersList = filters.find('> ul')
 
           if (!filtersList.length) {
-            filtersList = filters.append('<ul></ul>').find('> ul');
+            filtersList = filters.append('<ul></ul>').find('> ul')
           }
 
           // To avoid cases where user leave filter attribute blank
@@ -1910,7 +1912,7 @@ mr = (function(mr, $, window, document) {
             .each(function() {
               var masonryItem = $(this),
                 filterString = masonryItem.attr('data-masonry-filter'),
-                filtersArray = [];
+                filtersArray = []
 
               // If not undefined or empty
               if (
@@ -1918,16 +1920,16 @@ mr = (function(mr, $, window, document) {
                 filterString !== ''
               ) {
                 // Split tags from string into array
-                filtersArray = filterString.split(',');
+                filtersArray = filterString.split(',')
               }
               jQuery(filtersArray).each(function(index, tag) {
                 // Slugify the tag
 
-                var slug = mr.util.slugify(tag);
+                var slug = mr.util.slugify(tag)
 
                 // Add the filter class to the masonry item
 
-                masonryItem.addClass('filter-' + slug);
+                masonryItem.addClass('filter-' + slug)
 
                 // If this tag does not appear in the list already, add it
                 if (
@@ -1936,70 +1938,70 @@ mr = (function(mr, $, window, document) {
                 ) {
                   filtersList.append(
                     '<li data-masonry-filter="' + slug + '">' + tag + '</li>'
-                  );
+                  )
                 }
-              });
-            });
+              })
+            })
 
-          mr.util.sortChildrenByText($(this).find('.masonry__filters ul'));
+          mr.util.sortChildrenByText($(this).find('.masonry__filters ul'))
           // Add a filter "all" option
           if (!filtersList.find('[data-masonry-filter="*"]').length) {
             filtersList.prepend(
               '<li class="active" data-masonry-filter="*">' +
                 filterAllText +
                 '</li>'
-            );
+            )
           }
         }
         //End of "if filterable masonry item exists"
       }
       //End of "if $masonry is .masonry"
-    });
-  };
+    })
+  }
 
   mr.masonry.updateLayout = function(masonry) {
     // If no argument is supplied, just apply the update to all masonry sets on the page.
-    masonry = typeof masonry !== typeof undefined ? masonry : '.masonry';
+    masonry = typeof masonry !== typeof undefined ? masonry : '.masonry'
 
-    var $masonry = $(masonry);
+    var $masonry = $(masonry)
 
     $masonry.each(function() {
       var collection = $(this),
         newItems = collection.find('.masonry__item:not([style])'),
-        masonryContainer = collection.find('.masonry__container');
+        masonryContainer = collection.find('.masonry__container')
 
       if (collection.is('.masonry')) {
         if (newItems.length) {
-          masonryContainer.isotope('appended', newItems).isotope('layout');
+          masonryContainer.isotope('appended', newItems).isotope('layout')
         }
 
-        masonryContainer.isotope('layout');
+        masonryContainer.isotope('layout')
       }
-    });
-  };
+    })
+  }
 
-  mr.components.documentReady.push(documentReady);
-  mr.components.windowLoad.push(windowLoad);
-  return mr;
-})(mr, jQuery, window, document);
+  mr.components.documentReady.push(documentReady)
+  mr.components.windowLoad.push(windowLoad)
+  return mr
+})(mr, jQuery, window, document)
 
 //////////////// Modals
 mr = (function(mr, $, window, document) {
-  'use strict';
+  'use strict'
 
-  mr.modals = {};
+  mr.modals = {}
 
   var documentReady = function($, skip) {
     if (!skip) {
       var allPageModals = '<div class="all-page-modals"></div>',
-        mainContainer = $('div.main-container');
+        mainContainer = $('div.main-container')
 
       if (mainContainer.length) {
-        jQuery(allPageModals).insertAfter(mainContainer);
-        mr.modals.allModalsContainer = $('div.all-page-modals');
+        jQuery(allPageModals).insertAfter(mainContainer)
+        mr.modals.allModalsContainer = $('div.all-page-modals')
       } else {
-        jQuery('body').append(allPageModals);
-        mr.modals.allModalsContainer = jQuery('body div.all-page-modals');
+        jQuery('body').append(allPageModals)
+        mr.modals.allModalsContainer = jQuery('body div.all-page-modals')
       }
     }
 
@@ -2007,12 +2009,12 @@ mr = (function(mr, $, window, document) {
       // Add modal close if none exists
       var modal = $(this),
         $window = $(window),
-        modalContent = modal.find('.modal-content');
+        modalContent = modal.find('.modal-content')
 
       if (!modal.find('.modal-close').length) {
         modal
           .find('.modal-content')
-          .append('<div class="modal-close modal-close-cross"></div>');
+          .append('<div class="modal-close modal-close-cross"></div>')
       }
 
       // Set modal height
@@ -2021,211 +2023,209 @@ mr = (function(mr, $, window, document) {
         var modalWidth =
           modalContent
             .attr('data-width')
-            .substr(0, modalContent.attr('data-width').indexOf('%')) * 1;
-        modalContent.css('width', modalWidth + '%');
+            .substr(0, modalContent.attr('data-width').indexOf('%')) * 1
+        modalContent.css('width', modalWidth + '%')
       }
       if (modalContent.attr('data-height') !== undefined) {
         var modalHeight =
           modalContent
             .attr('data-height')
-            .substr(0, modalContent.attr('data-height').indexOf('%')) * 1;
-        modalContent.css('height', modalHeight + '%');
+            .substr(0, modalContent.attr('data-height').indexOf('%')) * 1
+        modalContent.css('height', modalHeight + '%')
       }
 
       // Set iframe's src to data-src to stop autoplaying iframes
-      mr.util.idleSrc(modal, 'iframe');
-    });
+      mr.util.idleSrc(modal, 'iframe')
+    })
 
     $('.modal-instance').each(function(index) {
-      var modalInstance = $(this);
-      var modal = modalInstance.find('.modal-container');
-      var modalContent = modalInstance.find('.modal-content');
-      var trigger = modalInstance.find('.modal-trigger');
+      var modalInstance = $(this)
+      var modal = modalInstance.find('.modal-container')
+      var modalContent = modalInstance.find('.modal-content')
+      var trigger = modalInstance.find('.modal-trigger')
 
       // Link modal with modal-id attribute
 
-      trigger.attr('data-modal-index', index);
-      modal.attr('data-modal-index', index);
+      trigger.attr('data-modal-index', index)
+      modal.attr('data-modal-index', index)
 
       // Set unique id for multiple triggers
 
       if (typeof modal.attr('data-modal-id') !== typeof undefined) {
-        trigger.attr('data-modal-id', modal.attr('data-modal-id'));
+        trigger.attr('data-modal-id', modal.attr('data-modal-id'))
       }
 
       // Attach the modal to the body
-      modal = modal.detach();
+      modal = modal.detach()
       if (mr.modals.allModalsContainer)
-        mr.modals.allModalsContainer.append(modal);
-    });
+        mr.modals.allModalsContainer.append(modal)
+    })
 
     $('.modal-trigger').on('click', function() {
-      var modalTrigger = $(this);
-      var uniqueID, targetModal;
+      var modalTrigger = $(this)
+      var uniqueID, targetModal
       // Determine if the modal id is set by user or is set programatically
 
       if (typeof modalTrigger.attr('data-modal-id') !== typeof undefined) {
-        uniqueID = modalTrigger.attr('data-modal-id');
+        uniqueID = modalTrigger.attr('data-modal-id')
         targetModal = mr.modals.allModalsContainer.find(
           '.modal-container[data-modal-id="' + uniqueID + '"]'
-        );
+        )
       } else {
-        uniqueID = $(this).attr('data-modal-index');
+        uniqueID = $(this).attr('data-modal-index')
         targetModal = mr.modals.allModalsContainer.find(
           '.modal-container[data-modal-index="' + uniqueID + '"]'
-        );
+        )
       }
 
-      mr.util.activateIdleSrc(targetModal, 'iframe');
-      mr.modals.autoplayVideo(targetModal);
+      mr.util.activateIdleSrc(targetModal, 'iframe')
+      mr.modals.autoplayVideo(targetModal)
 
-      mr.modals.showModal(targetModal);
+      mr.modals.showModal(targetModal)
 
       window.ga('send', {
         hitType: 'event',
         eventCategory: 'Funnel',
         eventAction: 'Buy',
-        eventLabel: 'EarlyTokenSale',
-      });
+        eventLabel: 'PreSale',
+      })
 
-      return false;
-    });
+      return false
+    })
 
-    jQuery(document).on('click', '.modal-close', mr.modals.closeActiveModal);
+    jQuery(document).on('click', '.modal-close', mr.modals.closeActiveModal)
 
     jQuery(document).keyup(function(e) {
       if (e.keyCode === 27) {
         // escape key maps to keycode `27`
-        mr.modals.closeActiveModal();
+        mr.modals.closeActiveModal()
       }
-    });
+    })
 
     $('.modal-container').on('click', function(e) {
-      if (e.target !== this) return;
-      mr.modals.closeActiveModal();
-    });
+      if (e.target !== this) return
+      mr.modals.closeActiveModal()
+    })
 
     // Trigger autoshow modals
     $('.modal-container[data-autoshow]').each(function() {
-      var modal = $(this);
-      var millisecondsDelay = modal.attr('data-autoshow') * 1;
+      var modal = $(this)
+      var millisecondsDelay = modal.attr('data-autoshow') * 1
 
-      mr.util.activateIdleSrc(modal);
-      mr.modals.autoplayVideo(modal);
+      mr.util.activateIdleSrc(modal)
+      mr.modals.autoplayVideo(modal)
 
       // If this modal has a cookie attribute, check to see if a cookie is set, and if so, don't show it.
       if (typeof modal.attr('data-cookie') !== typeof undefined) {
         if (!mr.cookies.hasItem(modal.attr('data-cookie'))) {
-          mr.modals.showModal(modal, millisecondsDelay);
+          mr.modals.showModal(modal, millisecondsDelay)
         }
       } else {
-        mr.modals.showModal(modal, millisecondsDelay);
+        mr.modals.showModal(modal, millisecondsDelay)
       }
-    });
+    })
 
     // Exit modals
     $('.modal-container[data-show-on-exit]').each(function() {
       var modal = jQuery(this),
         exitSelector = modal.attr('data-show-on-exit'),
-        delay = 0;
+        delay = 0
 
       if (modal.attr('data-delay')) {
-        delay = parseInt(modal.attr('data-delay'), 10) || 0;
+        delay = parseInt(modal.attr('data-delay'), 10) || 0
       }
 
       // If a valid selector is found, attach leave event to show modal.
       if ($(exitSelector).length) {
-        modal.prepend($('<i class="ti-close close-modal">'));
+        modal.prepend($('<i class="ti-close close-modal">'))
         jQuery(document).on('mouseleave', exitSelector, function() {
           if (!$('.modal-active').length) {
             if (typeof modal.attr('data-cookie') !== typeof undefined) {
               if (!mr.cookies.hasItem(modal.attr('data-cookie'))) {
-                mr.modals.showModal(modal, delay);
+                mr.modals.showModal(modal, delay)
               }
             } else {
-              mr.modals.showModal(modal, delay);
+              mr.modals.showModal(modal, delay)
             }
           }
-        });
+        })
       }
-    });
+    })
 
     // Autoshow modal by ID from location href
     if (window.location.href.split('#').length === 2) {
-      var modalID = window.location.href.split('#').pop();
+      var modalID = window.location.href.split('#').pop()
       if ($('[data-modal-id="' + modalID + '"]').length) {
-        mr.modals.closeActiveModal();
-        mr.modals.showModal($('[data-modal-id="' + modalID + '"]'));
+        mr.modals.closeActiveModal()
+        mr.modals.showModal($('[data-modal-id="' + modalID + '"]'))
       }
     }
 
     jQuery(document).on('click', 'a[href^="#"]', function() {
       var modalID = $(this)
         .attr('href')
-        .replace('#', '');
-      mr.modals.closeActiveModal();
+        .replace('#', '')
+      mr.modals.closeActiveModal()
       setTimeout(
         mr.modals.showModal,
         500,
         '[data-modal-id="' + modalID + '"]',
         0
-      );
-    });
+      )
+    })
 
     // Make modal scrollable
-    jQuery(
-      document
-    ).on(
+    jQuery(document).on(
       'wheel mousewheel scroll',
       '.modal-content, .modal-content .scrollable',
       function(evt) {
         if (evt.preventDefault) {
-          evt.preventDefault();
+          evt.preventDefault()
         }
         if (evt.stopPropagation) {
-          evt.stopPropagation();
+          evt.stopPropagation()
         }
-        this.scrollTop += evt.originalEvent.deltaY;
+        this.scrollTop += evt.originalEvent.deltaY
       }
-    );
-  };
+    )
+  }
   ////////////////
   //////////////// End documentReady
   ////////////////
 
-  mr.modals.documentReady = documentReady;
+  mr.modals.documentReady = documentReady
   window.modals = function($) {
-    documentReady($, true);
-  };
+    documentReady($, true)
+  }
 
   mr.modals.showModal = function(modal, millisecondsDelay) {
     var delay =
-      typeof millisecondsDelay !== typeof undefined ? 1 * millisecondsDelay : 0;
+      typeof millisecondsDelay !== typeof undefined ? 1 * millisecondsDelay : 0
 
     setTimeout(function() {
-      var openEvent = document.createEvent('Event');
-      openEvent.initEvent('modalOpened.modals.mr', true, true);
+      var openEvent = document.createEvent('Event')
+      openEvent.initEvent('modalOpened.modals.mr', true, true)
       var item = $(modal)
         .addClass('modal-active')
         .trigger('modalOpened.modals.mr')
-        .get(0);
+        .get(0)
 
       if (item) {
-        item.dispatchEvent(openEvent);
+        item.dispatchEvent(openEvent)
       }
-    }, delay);
-  };
+    }, delay)
+  }
 
   mr.modals.closeActiveModal = function() {
     var modal = jQuery('body div.modal-active'),
-      closeEvent = document.createEvent('Event');
+      closeEvent = document.createEvent('Event')
 
-    mr.util.idleSrc(modal, 'iframe');
-    mr.util.pauseVideo(modal);
+    mr.util.idleSrc(modal, 'iframe')
+    mr.util.pauseVideo(modal)
 
     // If this modal requires to be closed permanently using a cookie, set the cookie now.
     if (typeof modal.attr('data-cookie') !== typeof undefined) {
-      mr.cookies.setItem(modal.attr('data-cookie'), 'true', Infinity, '/');
+      mr.cookies.setItem(modal.attr('data-cookie'), 'true', Infinity, '/')
     }
 
     if (modal.length) {
@@ -2234,50 +2234,50 @@ mr = (function(mr, $, window, document) {
         modal.is('[data-modal-id]') &&
         window.location.hash === '#' + modal.attr('data-modal-id')
       ) {
-        mr.util.removeHash();
+        mr.util.removeHash()
       }
-      closeEvent.initEvent('modalClosed.modals.mr', true, true);
+      closeEvent.initEvent('modalClosed.modals.mr', true, true)
       modal
         .removeClass('modal-active')
         .trigger('modalClosed.modals.mr')
         .get(0)
-        .dispatchEvent(closeEvent);
+        .dispatchEvent(closeEvent)
     }
-  };
+  }
 
   mr.modals.autoplayVideo = function(modal) {
     // If modal contains HTML5 video with autoplay, play the video
     if (modal.find('video[autoplay]').length) {
-      var video = modal.find('video').get(0);
-      video.play();
+      var video = modal.find('video').get(0)
+      video.play()
     }
-  };
+  }
 
-  mr.components.documentReady.push(documentReady);
-  return mr;
-})(mr, jQuery, window, document);
+  mr.components.documentReady.push(documentReady)
+  return mr
+})(mr, jQuery, window, document)
 
 //////////////// Newsletter Providers
 mr = (function(mr, $, window, document) {
-  'use strict';
+  'use strict'
 
-  mr.newsletters = {};
+  mr.newsletters = {}
 
   var documentReady = function($) {
-    var form, checkbox, label, id, parent, radio;
+    var form, checkbox, label, id, parent, radio
 
     // Treat Campaign Monitor forms
     $('form[action*="createsend.com"]').each(function() {
-      form = $(this);
+      form = $(this)
 
       // Override browser validation and allow us to use our own
-      form.attr('novalidate', 'novalidate');
+      form.attr('novalidate', 'novalidate')
 
       // Give each text input a placeholder value
 
       if (!form.is('.form--no-placeholders')) {
         form.find('input:not([checkbox]):not([radio])').each(function() {
-          var $input = $(this);
+          var $input = $(this)
           if (typeof $input.attr('placeholder') !== typeof undefined) {
             if ($input.attr('placeholder') === '') {
               if ($input.siblings('label').length) {
@@ -2287,12 +2287,12 @@ mr = (function(mr, $, window, document) {
                     .siblings('label')
                     .first()
                     .text()
-                );
+                )
                 if (form.is('.form--no-labels')) {
                   $input
                     .siblings('label')
                     .first()
-                    .remove();
+                    .remove()
                 }
               }
             }
@@ -2303,76 +2303,76 @@ mr = (function(mr, $, window, document) {
                 .siblings('label')
                 .first()
                 .text()
-            );
+            )
             if (form.is('.form--no-labels')) {
               $input
                 .siblings('label')
                 .first()
-                .remove();
+                .remove()
             }
           }
           if ($input.parent().is('p')) {
-            $input.unwrap();
+            $input.unwrap()
           }
-        });
+        })
       } else {
-        form.find('input[placeholder]').removeAttr('placeholder');
+        form.find('input[placeholder]').removeAttr('placeholder')
       }
 
       // Wrap select elements in template code
 
-      form.find('select').wrap('<div class="input-select"></div>');
+      form.find('select').wrap('<div class="input-select"></div>')
 
       // Wrap radios elements in template code
 
-      form.find('input[type="radio"]').wrap('<div class="input-radio"></div>');
+      form.find('input[type="radio"]').wrap('<div class="input-radio"></div>')
 
       // Wrap checkbox elements in template code
 
       form.find('input[type="checkbox"]').each(function() {
-        checkbox = $(this);
-        id = checkbox.attr('id');
-        label = form.find('label[for=' + id + ']');
+        checkbox = $(this)
+        id = checkbox.attr('id')
+        label = form.find('label[for=' + id + ']')
         if (!label.length) {
-          label = $('<label for="' + id + '"></label>');
+          label = $('<label for="' + id + '"></label>')
         }
 
         checkbox.before(
           '<div class="input-checkbox" data-id="' + id + '"></div>'
-        );
-        $('.input-checkbox[data-id="' + id + '"]').prepend(checkbox);
-        $('.input-checkbox[data-id="' + id + '"]').prepend(label);
-      });
+        )
+        $('.input-checkbox[data-id="' + id + '"]').prepend(checkbox)
+        $('.input-checkbox[data-id="' + id + '"]').prepend(label)
+      })
 
       form.find('button[type="submit"]').each(function() {
-        var button = $(this);
-        button.addClass('btn');
+        var button = $(this)
+        button.addClass('btn')
         if (button.parent().is('p')) {
-          button.unwrap();
+          button.unwrap()
         }
-      });
+      })
 
       form
         .find('[required]')
         .attr('required', 'required')
-        .addClass('validate-required');
+        .addClass('validate-required')
 
-      form.addClass('form--active');
+      form.addClass('form--active')
 
-      mr.newsletters.prepareAjaxAction(form);
-    });
+      mr.newsletters.prepareAjaxAction(form)
+    })
 
     // Treat MailChimp forms
     $('form[action*="list-manage.com"]').each(function() {
-      form = $(this);
+      form = $(this)
 
       // Override browser validation and allow us to use our own
-      form.attr('novalidate', 'novalidate');
+      form.attr('novalidate', 'novalidate')
 
       // Give each text input a placeholder value
       if (!form.is('.form--no-placeholders')) {
         form.find('input:not([checkbox]):not([radio])').each(function() {
-          var $input = $(this);
+          var $input = $(this)
           if (typeof $input.attr('placeholder') !== typeof undefined) {
             if ($input.attr('placeholder') === '') {
               if ($input.siblings('label').length) {
@@ -2382,12 +2382,12 @@ mr = (function(mr, $, window, document) {
                     .siblings('label')
                     .first()
                     .text()
-                );
+                )
                 if (form.is('.form--no-labels')) {
                   $input
                     .siblings('label')
                     .first()
-                    .remove();
+                    .remove()
                 }
               }
             }
@@ -2398,204 +2398,204 @@ mr = (function(mr, $, window, document) {
                 .siblings('label')
                 .first()
                 .text()
-            );
+            )
             if (form.is('.form--no-labels')) {
               $input
                 .siblings('label')
                 .first()
-                .remove();
+                .remove()
             }
           }
-        });
+        })
       } else {
-        form.find('input[placeholder]').removeAttr('placeholder');
+        form.find('input[placeholder]').removeAttr('placeholder')
       }
 
       if (form.is('.form--no-labels')) {
         form.find('input:not([checkbox]):not([radio])').each(function() {
-          var $input = $(this);
+          var $input = $(this)
           if ($input.siblings('label').length) {
             $input
               .siblings('label')
               .first()
-              .remove();
+              .remove()
           }
-        });
+        })
       }
 
       // Wrap select elements in template code
 
-      form.find('select').wrap('<div class="input-select"></div>');
+      form.find('select').wrap('<div class="input-select"></div>')
 
       // Wrap checboxes elements in template code
 
       form.find('input[type="checkbox"]').each(function() {
-        checkbox = jQuery(this);
-        parent = checkbox.parent();
-        label = parent.find('label');
+        checkbox = jQuery(this)
+        parent = checkbox.parent()
+        label = parent.find('label')
         if (!label.length) {
-          label = jQuery('<label>');
+          label = jQuery('<label>')
         }
-        checkbox.before('<div class="input-checkbox"></div>');
-        parent.find('.input-checkbox').append(checkbox);
-        parent.find('.input-checkbox').append(label);
-      });
+        checkbox.before('<div class="input-checkbox"></div>')
+        parent.find('.input-checkbox').append(checkbox)
+        parent.find('.input-checkbox').append(label)
+      })
 
       // Wrap radio elements in template code
 
       form.find('input[type="radio"]').each(function() {
-        radio = jQuery(this);
-        parent = radio.closest('li');
-        label = parent.find('label');
+        radio = jQuery(this)
+        parent = radio.closest('li')
+        label = parent.find('label')
         if (!label.length) {
-          label = jQuery('<label>');
+          label = jQuery('<label>')
         }
-        radio.before('<div class="input-radio"></div>');
-        parent.find('.input-radio').prepend(radio);
-        parent.find('.input-radio').prepend(label);
-      });
+        radio.before('<div class="input-radio"></div>')
+        parent.find('.input-radio').prepend(radio)
+        parent.find('.input-radio').prepend(label)
+      })
 
       // Convert MailChimp input[type="submit"] to div.button
 
       form.find('input[type="submit"]').each(function() {
-        var submit = $(this);
+        var submit = $(this)
 
         var newButton = jQuery('<button/>')
           .attr('type', 'submit')
           .attr('class', submit.attr('class'))
           .addClass('btn')
-          .text(submit.attr('value'));
+          .text(submit.attr('value'))
 
         if (submit.parent().is('div.clear')) {
-          submit.unwrap();
+          submit.unwrap()
         }
 
-        newButton.insertBefore(submit);
-        submit.remove();
-      });
+        newButton.insertBefore(submit)
+        submit.remove()
+      })
 
       form.find('input').each(function() {
-        var input = $(this);
+        var input = $(this)
         if (input.hasClass('required')) {
-          input.removeClass('required').addClass('validate-required');
+          input.removeClass('required').addClass('validate-required')
         }
-      });
+      })
 
       form
         .find('input[type="email"]')
         .removeClass('email')
-        .addClass('validate-email');
+        .addClass('validate-email')
 
-      form.find('#mce-responses').remove();
+      form.find('#mce-responses').remove()
 
       form.find('.mc-field-group').each(function() {
         $(this)
           .children()
           .first()
-          .unwrap();
-      });
+          .unwrap()
+      })
 
       form
         .find('[required]')
         .attr('required', 'required')
-        .addClass('validate-required');
+        .addClass('validate-required')
 
-      form.addClass('form--active');
+      form.addClass('form--active')
 
-      mr.newsletters.prepareAjaxAction(form);
-    });
+      mr.newsletters.prepareAjaxAction(form)
+    })
 
     // Reinitialize the forms so interactions work as they should
 
-    mr.forms.documentReady(mr.setContext('form.form--active'));
-  };
+    mr.forms.documentReady(mr.setContext('form.form--active'))
+  }
 
-  mr.newsletters.documentReady = documentReady;
+  mr.newsletters.documentReady = documentReady
 
   mr.newsletters.prepareAjaxAction = function(form) {
-    var action = $(form).attr('action');
+    var action = $(form).attr('action')
 
     // Alter action for a Mail Chimp-compatible ajax request url.
     if (/list-manage\.com/.test(action)) {
-      action = action.replace('/post?', '/post-json?') + '&c=?';
+      action = action.replace('/post?', '/post-json?') + '&c=?'
       if (action.substr(0, 2) === '//') {
-        action = 'http:' + action;
+        action = 'http:' + action
       }
     }
 
     // Alter action for a Campaign Monitor-compatible ajax request url.
     if (/createsend\.com/.test(action)) {
-      action = action + '?callback=?';
+      action = action + '?callback=?'
     }
 
     // Set action on the form
-    $(form).attr('action', action);
-  };
+    $(form).attr('action', action)
+  }
 
-  mr.components.documentReady.push(documentReady);
-  return mr;
-})(mr, jQuery, window, document);
+  mr.components.documentReady.push(documentReady)
+  return mr
+})(mr, jQuery, window, document)
 
 //////////////// Notifications
 mr = (function(mr, $, window, document) {
-  'use strict';
+  'use strict'
 
-  mr.notifications = {};
+  mr.notifications = {}
 
   var documentReady = function($) {
     $('.notification').each(function() {
-      var notification = $(this);
+      var notification = $(this)
       if (!notification.find('.notification-close').length) {
         notification.append(
           '<div class="notification-close-cross notification-close"></div>'
-        );
+        )
       }
-    });
+    })
 
     $('.notification[data-autoshow]').each(function() {
-      var notification = $(this);
-      var millisecondsDelay = parseInt(notification.attr('data-autoshow'), 10);
+      var notification = $(this)
+      var millisecondsDelay = parseInt(notification.attr('data-autoshow'), 10)
 
       // If this notification has a cookie attribute, check to see if a cookie is set, and if so, don't show it.
       if (typeof notification.attr('data-cookie') !== typeof undefined) {
         if (!mr.cookies.hasItem(notification.attr('data-cookie'))) {
-          mr.notifications.showNotification(notification, millisecondsDelay);
+          mr.notifications.showNotification(notification, millisecondsDelay)
         }
       } else {
-        mr.notifications.showNotification(notification, millisecondsDelay);
+        mr.notifications.showNotification(notification, millisecondsDelay)
       }
-    });
+    })
 
     $('[data-notification-link]:not(.notification)').on('click', function() {
-      var notificationID = jQuery(this).attr('data-notification-link');
+      var notificationID = jQuery(this).attr('data-notification-link')
       var notification = $(
         '.notification[data-notification-link="' + notificationID + '"]'
-      );
-      jQuery('.notification--reveal').addClass('notification--dismissed');
-      notification.removeClass('notification--dismissed');
-      mr.notifications.showNotification(notification, 0);
-      return false;
-    });
+      )
+      jQuery('.notification--reveal').addClass('notification--dismissed')
+      notification.removeClass('notification--dismissed')
+      mr.notifications.showNotification(notification, 0)
+      return false
+    })
 
     $('.notification-close').on('click', function() {
-      var closeButton = jQuery(this);
+      var closeButton = jQuery(this)
       // Pass the closeNotification function a reference to the close button
-      mr.notifications.closeNotification(closeButton);
+      mr.notifications.closeNotification(closeButton)
 
       if (closeButton.attr('href') === '#') {
-        return false;
+        return false
       }
-    });
+    })
 
     $('.notification .inner-link').on('click', function() {
       var notificationLink = jQuery(this)
         .closest('.notification')
-        .attr('data-notification-link');
-      mr.notifications.closeNotification(notificationLink);
-    });
-  };
+        .attr('data-notification-link')
+      mr.notifications.closeNotification(notificationLink)
+    })
+  }
 
-  mr.notifications.documentReady = documentReady;
+  mr.notifications.documentReady = documentReady
 
   mr.notifications.showNotification = function(
     notification,
@@ -2606,50 +2606,50 @@ mr = (function(mr, $, window, document) {
         typeof millisecondsDelay !== typeof undefined
           ? 1 * millisecondsDelay
           : 0,
-      openEvent = document.createEvent('Event');
+      openEvent = document.createEvent('Event')
 
     setTimeout(function() {
-      openEvent.initEvent('notificationOpened.notifications.mr', true, true);
+      openEvent.initEvent('notificationOpened.notifications.mr', true, true)
       $notification
         .addClass('notification--reveal')
         .trigger('notificationOpened.notifications.mr')
         .get(0)
-        .dispatchEvent(openEvent);
-      $notification.closest('nav').addClass('notification--reveal');
+        .dispatchEvent(openEvent)
+      $notification.closest('nav').addClass('notification--reveal')
       if ($notification.find('input').length) {
         $notification
           .find('input')
           .first()
-          .focus();
+          .focus()
       }
-    }, delay);
+    }, delay)
     // If notification has autohide attribute, set a timeout
     // for the autohide time plus the original delay time in case notification was called
     // on page load
     if (notification.is('[data-autohide]')) {
-      var hideDelay = parseInt(notification.attr('data-autohide'), 10);
+      var hideDelay = parseInt(notification.attr('data-autohide'), 10)
       setTimeout(function() {
-        mr.notifications.closeNotification(notification);
-      }, hideDelay + delay);
+        mr.notifications.closeNotification(notification)
+      }, hideDelay + delay)
     }
-  };
+  }
 
   mr.notifications.closeNotification = function(notification) {
     var $notification = jQuery(notification),
-      closeEvent = document.createEvent('Event');
+      closeEvent = document.createEvent('Event')
     notification = $notification.is('.notification')
       ? $notification
       : $notification.is('.notification-close')
         ? $notification.closest('.notification')
-        : $('.notification[data-notification-link="' + notification + '"]');
+        : $('.notification[data-notification-link="' + notification + '"]')
 
-    closeEvent.initEvent('notificationClosed.notifications.mr', true, true);
+    closeEvent.initEvent('notificationClosed.notifications.mr', true, true)
     notification
       .addClass('notification--dismissed')
       .trigger('notificationClosed.notifications.mr')
       .get(0)
-      .dispatchEvent(closeEvent);
-    notification.closest('nav').removeClass('notification--reveal');
+      .dispatchEvent(closeEvent)
+    notification.closest('nav').removeClass('notification--reveal')
 
     // If this notification requires to be closed permanently using a cookie, set the cookie now.
     if (typeof notification.attr('data-cookie') !== typeof undefined) {
@@ -2658,112 +2658,112 @@ mr = (function(mr, $, window, document) {
         'true',
         Infinity,
         '/'
-      );
+      )
     }
-  };
+  }
 
-  mr.components.documentReady.push(documentReady);
-  return mr;
-})(mr, jQuery, window, document);
+  mr.components.documentReady.push(documentReady)
+  return mr
+})(mr, jQuery, window, document)
 
 //////////////// Parallax
 mr = (function(mr, $, window, document) {
-  'use strict';
+  'use strict'
 
-  mr.parallax = {};
+  mr.parallax = {}
 
   var documentReady = function($) {
-    var $window = $(window);
-    var windowWidth = $window.width();
-    var windowHeight = $window.height();
-    var navHeight = $('nav').outerHeight(true);
+    var $window = $(window)
+    var windowWidth = $window.width()
+    var windowHeight = $window.height()
+    var navHeight = $('nav').outerHeight(true)
 
     if (windowWidth > 768) {
       var parallaxHero = $('.parallax:nth-of-type(1)'),
         parallaxHeroImage = $(
           '.parallax:nth-of-type(1) .background-image-holder'
-        );
+        )
 
-      parallaxHeroImage.css('top', -navHeight);
+      parallaxHeroImage.css('top', -navHeight)
       if (parallaxHero.outerHeight(true) === windowHeight) {
-        parallaxHeroImage.css('height', windowHeight + navHeight);
+        parallaxHeroImage.css('height', windowHeight + navHeight)
       }
     }
-  };
+  }
 
-  mr.parallax.documentReady = documentReady;
+  mr.parallax.documentReady = documentReady
 
   mr.parallax.update = function() {
     if (typeof mr_parallax !== typeof undefined) {
-      mr_parallax.profileParallaxElements();
-      mr_parallax.mr_parallaxBackground();
+      mr_parallax.profileParallaxElements()
+      mr_parallax.mr_parallaxBackground()
     }
-  };
+  }
 
-  mr.components.documentReady.push(documentReady);
-  return mr;
-})(mr, jQuery, window, document);
+  mr.components.documentReady.push(documentReady)
+  return mr
+})(mr, jQuery, window, document)
 
 //////////////// Progress Horizontal (bars)
 mr = (function(mr, $, window, document) {
-  'use strict';
+  'use strict'
 
   var documentReady = function($) {
-    var progressBars = [];
+    var progressBars = []
 
     $('.progress-horizontal').each(function() {
       var bar = jQuery(this).find('.progress-horizontal__bar'),
         barObject = {},
-        progress = jQuery('<div class="progress-horizontal__progress"></div>');
+        progress = jQuery('<div class="progress-horizontal__progress"></div>')
 
-      bar.prepend(progress);
+      bar.prepend(progress)
 
-      barObject.element = bar;
-      barObject.progress = progress;
-      barObject.value = parseInt(bar.attr('data-value'), 10) + '%';
-      barObject.offsetTop = bar.offset().top;
-      barObject.animate = false;
+      barObject.element = bar
+      barObject.progress = progress
+      barObject.value = parseInt(bar.attr('data-value'), 10) + '%'
+      barObject.offsetTop = bar.offset().top
+      barObject.animate = false
 
       if (jQuery(this).hasClass('progress-horizontal--animate')) {
-        barObject.animate = true;
+        barObject.animate = true
       } else {
-        progress.css('width', barObject.value);
+        progress.css('width', barObject.value)
       }
-      progressBars.push(barObject);
-    });
-  };
+      progressBars.push(barObject)
+    })
+  }
 
   mr.progressHorizontal = {
     documentReady: documentReady,
-  };
+  }
 
-  mr.components.documentReady.push(documentReady);
-  return mr;
-})(mr, jQuery, window, document);
+  mr.components.documentReady.push(documentReady)
+  return mr
+})(mr, jQuery, window, document)
 
 //////////////// EasyPiecharts
 mr = (function(mr, $, window, document) {
-  'use strict';
+  'use strict'
 
-  mr.easypiecharts = {};
-  mr.easypiecharts.pies = [];
+  mr.easypiecharts = {}
+  mr.easypiecharts.pies = []
 
   var documentReady = function($) {
     mr.easypiecharts.init = function() {
-      mr.easypiecharts.pies = [];
+      mr.easypiecharts.pies = []
 
       $('.radial').each(function() {
         var pieObject = {},
-          currentPie = jQuery(this);
+          currentPie = jQuery(this)
 
-        pieObject.element = currentPie;
-        pieObject.value = parseInt(currentPie.attr('data-value'), 10);
-        pieObject.top = currentPie.offset().top;
-        pieObject.height = currentPie.height() / 2;
-        pieObject.active = false;
-        mr.easypiecharts.pies.push(pieObject);
-      });
-    };
+        pieObject.element = currentPie
+        pieObject.value = parseInt(currentPie.attr('data-value'), 10)
+        pieObject.top = currentPie.offset().top
+        pieObject.height = currentPie.height() / 2
+        pieObject.active = false
+        mr.easypiecharts.pies.push(pieObject)
+      })
+    }
 
     mr.easypiecharts.activate = function() {
       mr.easypiecharts.pies.forEach(function(pie) {
@@ -2772,14 +2772,14 @@ mr = (function(mr, $, window, document) {
           Math.round(pie.top + pie.height)
         ) {
           if (pie.active === false) {
-            pie.element.data('easyPieChart').enableAnimation();
-            pie.element.data('easyPieChart').update(pie.value);
-            pie.element.addClass('radial--active');
-            pie.active = true;
+            pie.element.data('easyPieChart').enableAnimation()
+            pie.element.data('easyPieChart').update(pie.value)
+            pie.element.addClass('radial--active')
+            pie.active = true
           }
         }
-      });
-    };
+      })
+    }
 
     $('.radial').each(function() {
       var chart = jQuery(this),
@@ -2787,21 +2787,21 @@ mr = (function(mr, $, window, document) {
         color = '#000000',
         time = 2000,
         pieSize = 110,
-        barWidth = 3;
+        barWidth = 3
 
       if (typeof chart.attr('data-timing') !== typeof undefined) {
-        time = chart.attr('data-timing') * 1;
+        time = chart.attr('data-timing') * 1
       }
       if (typeof chart.attr('data-color') !== typeof undefined) {
-        color = chart.attr('data-color');
+        color = chart.attr('data-color')
       }
       if (typeof chart.attr('data-size') !== typeof undefined) {
-        pieSize = chart.attr('data-size');
+        pieSize = chart.attr('data-size')
       }
       if (typeof chart.attr('data-bar-width') !== typeof undefined) {
-        barWidth = chart.attr('data-bar-width');
+        barWidth = chart.attr('data-bar-width')
       }
-      chart.css('height', pieSize).css('width', pieSize);
+      chart.css('height', pieSize).css('width', pieSize)
 
       chart.easyPieChart({
         animate: { duration: time, enabled: true },
@@ -2809,68 +2809,66 @@ mr = (function(mr, $, window, document) {
         scaleColor: false,
         size: pieSize,
         lineWidth: barWidth,
-      });
-      chart.data('easyPieChart').update(0);
-    });
+      })
+      chart.data('easyPieChart').update(0)
+    })
 
     if ($('.radial').length) {
-      mr.easypiecharts.init();
-      mr.easypiecharts.activate();
-      mr.scroll.listeners.push(mr.easypiecharts.activate);
+      mr.easypiecharts.init()
+      mr.easypiecharts.activate()
+      mr.scroll.listeners.push(mr.easypiecharts.activate)
     }
-  };
+  }
 
-  mr.easypiecharts.documentReady = documentReady;
+  mr.easypiecharts.documentReady = documentReady
   window.radial = function($) {
-    documentReady($);
-  };
+    documentReady($)
+  }
 
-  mr.components.documentReadyDeferred.push(documentReady);
-  return mr;
-})(mr, jQuery, window, document);
+  mr.components.documentReadyDeferred.push(documentReady)
+  return mr
+})(mr, jQuery, window, document)
 
 //////////////// Flickity
 mr = (function(mr, $, window, document) {
-  'use strict';
+  'use strict'
 
-  mr.sliders = {};
-  mr.sliders.draggable = true;
+  mr.sliders = {}
+  mr.sliders.draggable = true
 
   var documentReady = function($) {
     $('.slider').each(function(index) {
-      var slider = $(this);
-      var sliderInitializer = slider.find('ul.slides');
-      sliderInitializer.find('>li').addClass('slide');
-      var childnum = sliderInitializer.find('li').length;
+      var slider = $(this)
+      var sliderInitializer = slider.find('ul.slides')
+      sliderInitializer.find('>li').addClass('slide')
+      var childnum = sliderInitializer.find('li').length
 
-      var arrows = slider.attr('data-arrows') === 'true' ? true : false;
+      var arrows = slider.attr('data-arrows') === 'true' ? true : false
 
       var paging =
         slider.attr('data-paging') === 'true' &&
         sliderInitializer.find('li').length > 1
           ? true
-          : false;
+          : false
       var timing = slider.attr('data-timing')
         ? parseInt(slider.attr('data-timing'), 10)
-        : 7000;
-      var autoplay = slider.attr('data-autoplay') === 'false' ? false : true;
+        : 7000
+      var autoplay = slider.attr('data-autoplay') === 'false' ? false : true
       var draggable =
-        slider.attr('data-draggable') === 'false'
-          ? false
-          : mr.sliders.draggable;
+        slider.attr('data-draggable') === 'false' ? false : mr.sliders.draggable
       var accessibility =
-        slider.attr('data-accessibility') === 'false' ? false : true;
-      var rightToLeft = slider.attr('data-rtl') === 'true' ? true : false;
+        slider.attr('data-accessibility') === 'false' ? false : true
+      var rightToLeft = slider.attr('data-rtl') === 'true' ? true : false
       var initialIndex = slider.attr('data-initial')
         ? parseInt(slider.attr('data-initial'), 10)
-        : 0;
-      var freeScroll = slider.attr('data-freescroll') === 'true' ? true : false;
+        : 0
+      var freeScroll = slider.attr('data-freescroll') === 'true' ? true : false
 
       // Set data attribute to inidicate the number of children in the slider
-      slider.attr('data-children', childnum);
+      slider.attr('data-children', childnum)
 
       if (childnum < 2) {
-        draggable = false;
+        draggable = false
       }
 
       $(sliderInitializer).flickity({
@@ -2886,57 +2884,57 @@ mr = (function(mr, $, window, document) {
         rightToLeft: rightToLeft,
         initialIndex: initialIndex,
         freeScroll: freeScroll,
-      });
+      })
 
       $(sliderInitializer).on('scroll.flickity', function(event, progress) {
         if (slider.find('.is-selected').hasClass('controls--dark')) {
-          slider.addClass('controls--dark');
+          slider.addClass('controls--dark')
         } else {
-          slider.removeClass('controls--dark');
+          slider.removeClass('controls--dark')
         }
-      });
-    });
+      })
+    })
 
-    mr.parallax.update();
-  };
+    mr.parallax.update()
+  }
 
-  mr.sliders.documentReady = documentReady;
+  mr.sliders.documentReady = documentReady
 
-  mr.components.documentReadyDeferred.push(documentReady);
-  return mr;
-})(mr, jQuery, window, document);
+  mr.components.documentReadyDeferred.push(documentReady)
+  return mr
+})(mr, jQuery, window, document)
 
 //////////////// Smoothscroll
 mr = (function(mr, $, window, document) {
-  'use strict';
+  'use strict'
 
-  mr.smoothscroll = {};
-  mr.smoothscroll.sections = [];
+  mr.smoothscroll = {}
+  mr.smoothscroll.sections = []
 
   mr.smoothscroll.init = function() {
-    mr.smoothscroll.sections = [];
+    mr.smoothscroll.sections = []
 
     $('a.inner-link').each(function() {
       var sectionObject = {},
         link = $(this),
         href = link.attr('href'),
-        validLink = new RegExp('^#[^\r\n\t\f\v#.]+$', 'gm');
+        validLink = new RegExp('^#[^\r\n\t\f\v#.]+$', 'gm')
 
       if (validLink.test(href)) {
         if ($('section' + href).length) {
-          sectionObject.id = href;
-          sectionObject.top = Math.round($(href).offset().top);
-          sectionObject.height = Math.round($(href).outerHeight());
-          sectionObject.link = link.get(0);
-          sectionObject.active = false;
+          sectionObject.id = href
+          sectionObject.top = Math.round($(href).offset().top)
+          sectionObject.height = Math.round($(href).outerHeight())
+          sectionObject.link = link.get(0)
+          sectionObject.active = false
 
-          mr.smoothscroll.sections.push(sectionObject);
+          mr.smoothscroll.sections.push(sectionObject)
         }
       }
-    });
+    })
 
-    mr.smoothscroll.highlight();
-  };
+    mr.smoothscroll.highlight()
+  }
 
   mr.smoothscroll.highlight = function() {
     mr.smoothscroll.sections.forEach(function(section) {
@@ -2945,38 +2943,38 @@ mr = (function(mr, $, window, document) {
         mr.scroll.y < section.top + section.height
       ) {
         if (section.active === false) {
-          section.link.classList.add('inner-link--active');
-          section.active = true;
+          section.link.classList.add('inner-link--active')
+          section.active = true
         }
       } else {
-        section.link.classList.remove('inner-link--active');
-        section.active = false;
+        section.link.classList.remove('inner-link--active')
+        section.active = false
       }
-    });
-  };
+    })
+  }
 
-  mr.scroll.listeners.push(mr.smoothscroll.highlight);
+  mr.scroll.listeners.push(mr.smoothscroll.highlight)
 
   var documentReady = function($) {
     // Smooth scroll to inner links
-    var innerLinks = $('a.inner-link');
+    var innerLinks = $('a.inner-link')
 
     if (innerLinks.length) {
       innerLinks.each(function(index) {
         var link = $(this),
-          href = link.attr('href');
+          href = link.attr('href')
         if (href.charAt(0) !== '#') {
-          link.removeClass('inner-link');
+          link.removeClass('inner-link')
         }
-      });
+      })
 
-      mr.smoothscroll.init();
-      $(window).on('resize', mr.smoothscroll.init);
+      mr.smoothscroll.init()
+      $(window).on('resize', mr.smoothscroll.init)
 
-      var offset = 0;
+      var offset = 0
       if ($('body[data-smooth-scroll-offset]').length) {
-        offset = $('body').attr('data-smooth-scroll-offset');
-        offset = offset * 1;
+        offset = $('body').attr('data-smooth-scroll-offset')
+        offset = offset * 1
       }
 
       smoothScroll.init({
@@ -2985,72 +2983,72 @@ mr = (function(mr, $, window, document) {
         speed: 750,
         easing: 'easeInOutCubic',
         offset: offset,
-      });
+      })
     }
-  };
+  }
 
-  mr.smoothscroll.documentReady = documentReady;
+  mr.smoothscroll.documentReady = documentReady
 
-  mr.components.documentReady.push(documentReady);
-  mr.components.windowLoad.push(mr.smoothscroll.init);
-  return mr;
-})(mr, jQuery, window, document);
+  mr.components.documentReady.push(documentReady)
+  mr.components.windowLoad.push(mr.smoothscroll.init)
+  return mr
+})(mr, jQuery, window, document)
 
 //////////////// Tabs
 mr = (function(mr, $, window, document) {
-  'use strict';
+  'use strict'
 
-  mr.tabs = {};
+  mr.tabs = {}
 
   var documentReady = function($) {
     $('.tabs').each(function() {
-      var tabs = $(this);
-      tabs.after('<ul class="tabs-content">');
+      var tabs = $(this)
+      tabs.after('<ul class="tabs-content">')
       tabs.find('li').each(function() {
         var currentTab = $(this),
           tabContent = currentTab
             .find('.tab__content')
             .wrap('<li></li>')
             .parent(),
-          tabContentClone = tabContent.clone(true, true);
-        tabContent.remove();
+          tabContentClone = tabContent.clone(true, true)
+        tabContent.remove()
         currentTab
           .closest('.tabs-container')
           .find('.tabs-content')
-          .append(tabContentClone);
-      });
-    });
+          .append(tabContentClone)
+      })
+    })
 
     $('.tabs > li').on('click', function() {
       var clickedTab = $(this),
-        hash;
-      mr.tabs.activateTab(clickedTab);
+        hash
+      mr.tabs.activateTab(clickedTab)
 
       // Update the URL bar if the currently clicked tab has an ID
       if (clickedTab.is('[id]')) {
         // Create the hash from the tab's ID
-        hash = '#' + clickedTab.attr('id');
+        hash = '#' + clickedTab.attr('id')
         // Check we are in a newish browser with the history API
         if (history.pushState) {
-          history.pushState(null, null, hash);
+          history.pushState(null, null, hash)
         } else {
-          location.hash = hash;
+          location.hash = hash
         }
       }
-    });
+    })
 
     $('.tabs li.active').each(function() {
-      mr.tabs.activateTab(this);
-    });
+      mr.tabs.activateTab(this)
+    })
 
     if (window.location.hash !== '') {
-      mr.tabs.activateTabById(window.location.hash);
+      mr.tabs.activateTabById(window.location.hash)
     }
 
     $('a[href^="#"]').on('click', function() {
-      mr.tabs.activateTabById($(this).attr('href'));
-    });
-  };
+      mr.tabs.activateTabById($(this).attr('href'))
+    })
+  }
 
   mr.tabs.activateTab = function(tab) {
     var clickedTab = $(tab),
@@ -3061,121 +3059,121 @@ mr = (function(mr, $, window, document) {
       ),
       openEvent = document.createEvent('Event'),
       iframe,
-      radial;
+      radial
 
-    openEvent.initEvent('tabOpened.tabs.mr', true, true);
+    openEvent.initEvent('tabOpened.tabs.mr', true, true)
 
-    tabContainer.find('> .tabs > li').removeClass('active');
-    tabContainer.find('> .tabs-content > li').removeClass('active');
+    tabContainer.find('> .tabs > li').removeClass('active')
+    tabContainer.find('> .tabs-content > li').removeClass('active')
 
     clickedTab
       .addClass('active')
       .trigger('tabOpened.tabs.mr')
       .get(0)
-      .dispatchEvent(openEvent);
-    activeContent.addClass('active');
+      .dispatchEvent(openEvent)
+    activeContent.addClass('active')
 
     // If there is an <iframe> element in the tab, reload its content when the tab is made active.
-    iframe = activeContent.find('iframe');
+    iframe = activeContent.find('iframe')
     if (iframe.length) {
-      iframe.attr('src', iframe.attr('src'));
+      iframe.attr('src', iframe.attr('src'))
     }
-  };
+  }
 
   mr.tabs.activateTabById = function(id) {
     if (id !== '' && id !== '#') {
-      $('.tabs > li#' + id.replace('#', '')).click();
+      $('.tabs > li#' + id.replace('#', '')).click()
     }
-  };
+  }
 
-  mr.tabs.documentReady = documentReady;
-  mr.components.documentReady.push(documentReady);
-  return mr;
-})(mr, jQuery, window, document);
+  mr.tabs.documentReady = documentReady
+  mr.components.documentReady.push(documentReady)
+  return mr
+})(mr, jQuery, window, document)
 
 //////////////// Toggle Class
 mr = (function(mr, $, window, document) {
-  'use strict';
+  'use strict'
 
   var documentReady = function($) {
     $('[data-toggle-class]').each(function() {
       var element = $(this),
-        data = element.attr('data-toggle-class').split('|');
+        data = element.attr('data-toggle-class').split('|')
 
       $(data).each(function() {
         var candidate = element,
           dataArray = [],
           toggleClass = '',
           toggleElement = '',
-          dataArray = this.split(';');
+          dataArray = this.split(';')
 
         if (dataArray.length === 2) {
-          toggleElement = dataArray[0];
-          toggleClass = dataArray[1];
+          toggleElement = dataArray[0]
+          toggleClass = dataArray[1]
           $(candidate).on('click', function() {
             if (!candidate.hasClass('toggled-class')) {
-              candidate.toggleClass('toggled-class');
+              candidate.toggleClass('toggled-class')
             } else {
-              candidate.removeClass('toggled-class');
+              candidate.removeClass('toggled-class')
             }
-            $(toggleElement).toggleClass(toggleClass);
-            return false;
-          });
+            $(toggleElement).toggleClass(toggleClass)
+            return false
+          })
         } else {
           console.log(
             'Error in [data-toggle-class] attribute. This attribute accepts an element, or comma separated elements terminated witha ";" followed by a class name to toggle'
-          );
+          )
         }
-      });
-    });
-  };
+      })
+    })
+  }
 
   mr.toggleClass = {
     documentReady: documentReady,
-  };
+  }
 
-  mr.components.documentReady.push(documentReady);
-  return mr;
-})(mr, jQuery, window, document);
+  mr.components.documentReady.push(documentReady)
+  return mr
+})(mr, jQuery, window, document)
 
 //////////////// Typed Headline Effect
 mr = (function(mr, $, window, document) {
-  'use strict';
+  'use strict'
 
   var documentReady = function($) {
     $('.typed-text').each(function() {
-      var text = $(this);
+      var text = $(this)
       var strings = text.attr('data-typed-strings')
         ? text.attr('data-typed-strings').split(',')
-        : [];
+        : []
       $(text).typed({
         strings: strings,
         typeSpeed: 100,
         loop: true,
         showCursor: false,
-      });
-    });
-  };
+      })
+    })
+  }
 
   mr.typed = {
     documentReady: documentReady,
-  };
+  }
 
-  mr.components.documentReady.push(documentReady);
-  return mr;
-})(mr, jQuery, window, document);
+  mr.components.documentReady.push(documentReady)
+  return mr
+})(mr, jQuery, window, document)
 
 //////////////// Twitter Feeds
 mr = (function(mr, $, window, document) {
-  'use strict';
+  'use strict'
 
   var documentReady = function($) {
     $('.tweets-feed')
       .each(function(index) {
-        $(this).attr('id', 'tweets-' + index);
+        $(this).attr('id', 'tweets-' + index)
       })
       .each(function(index) {
-        var element = $('#tweets-' + index);
+        var element = $('#tweets-' + index)
         var TweetConfig = {
           domId: '',
           maxTweets: element.attr('data-amount'),
@@ -3185,68 +3183,68 @@ mr = (function(mr, $, window, document) {
           dateFunction: '',
           showRetweet: false,
           customCallback: handleTweets,
-        };
+        }
 
         if (typeof element.attr('data-widget-id') !== typeof undefined) {
-          TweetConfig.id = element.attr('data-widget-id');
+          TweetConfig.id = element.attr('data-widget-id')
         } else if (
           typeof element.attr('data-feed-name') !== typeof undefined &&
           element.attr('data-feed-name') !== ''
         ) {
           TweetConfig.profile = {
             screenName: element.attr('data-feed-name').replace('@', ''),
-          };
+          }
         } else {
-          TweetConfig.profile = { screenName: 'twitter' };
+          TweetConfig.profile = { screenName: 'twitter' }
         }
 
         if (element.closest('.twitter-feed--slider').length) {
-          element.addClass('slider');
+          element.addClass('slider')
         }
 
         function handleTweets(tweets) {
-          var x = tweets.length;
-          var n = 0;
-          var html = '<ul class="slides">';
+          var x = tweets.length
+          var n = 0
+          var html = '<ul class="slides">'
           while (n < x) {
-            html += '<li>' + tweets[n] + '</li>';
-            n++;
+            html += '<li>' + tweets[n] + '</li>'
+            n++
           }
-          html += '</ul>';
-          element.html(html);
+          html += '</ul>'
+          element.html(html)
 
           // Initialize twitter feed slider
           if (element.closest('.slider').length) {
-            mr.sliders.documentReady(mr.setContext());
+            mr.sliders.documentReady(mr.setContext())
 
-            return html;
+            return html
           }
         }
-        twitterFetcher.fetch(TweetConfig);
-      });
-  };
+        twitterFetcher.fetch(TweetConfig)
+      })
+  }
 
   mr.twitter = {
     documentReady: documentReady,
-  };
+  }
 
-  mr.components.documentReady.push(documentReady);
+  mr.components.documentReady.push(documentReady)
 
-  return mr;
-})(mr, jQuery, window, document);
+  return mr
+})(mr, jQuery, window, document)
 
 //////////////// Video
 mr = (function(mr, $, window, document) {
-  'use strict';
+  'use strict'
 
   var documentReady = function($) {
     //////////////// Youtube Background
 
     if ($('.youtube-background').length) {
       $('.youtube-background').each(function() {
-        var player = $(this);
-        var vidURL = $(this).attr('data-video-url');
-        var startAt = $(this).attr('data-start-at');
+        var player = $(this)
+        var vidURL = $(this).attr('data-video-url')
+        var startAt = $(this).attr('data-start-at')
         player.attr(
           'data-property',
           '{videoURL:"' +
@@ -3254,68 +3252,68 @@ mr = (function(mr, $, window, document) {
             '",containment:"self",autoPlay:true, mute:true, startAt:' +
             startAt +
             ', opacity:1}'
-        );
+        )
         player
           .closest('.videobg')
-          .append('<div class="loading-indicator"></div>');
-        player.YTPlayer();
+          .append('<div class="loading-indicator"></div>')
+        player.YTPlayer()
         player.on('YTPStart', function() {
-          player.closest('.videobg').addClass('video-active');
-        });
-      });
+          player.closest('.videobg').addClass('video-active')
+        })
+      })
     }
 
     if ($('.videobg').find('video').length) {
       $('.videobg')
         .find('video')
         .closest('.videobg')
-        .addClass('video-active');
+        .addClass('video-active')
     }
 
     //////////////// Video Cover Play Icons
 
     $('.video-cover').each(function() {
-      var videoCover = $(this);
+      var videoCover = $(this)
       if (videoCover.find('iframe[src]').length) {
         videoCover
           .find('iframe')
-          .attr('data-src', videoCover.find('iframe').attr('src'));
-        videoCover.find('iframe').attr('src', '');
+          .attr('data-src', videoCover.find('iframe').attr('src'))
+        videoCover.find('iframe').attr('src', '')
       }
-    });
+    })
 
     $('.video-cover .video-play-icon').on('click', function() {
-      var playIcon = $(this);
-      var videoCover = playIcon.closest('.video-cover');
+      var playIcon = $(this)
+      var videoCover = playIcon.closest('.video-cover')
       if (videoCover.find('video').length) {
-        var video = videoCover.find('video').get(0);
-        videoCover.addClass('reveal-video');
-        video.play();
-        return false;
+        var video = videoCover.find('video').get(0)
+        videoCover.addClass('reveal-video')
+        video.play()
+        return false
       } else if (videoCover.find('iframe').length) {
-        var iframe = videoCover.find('iframe');
-        iframe.attr('src', iframe.attr('data-src'));
-        videoCover.addClass('reveal-video');
-        return false;
+        var iframe = videoCover.find('iframe')
+        iframe.attr('src', iframe.attr('data-src'))
+        videoCover.addClass('reveal-video')
+        return false
       }
-    });
-  };
+    })
+  }
 
   mr.video = {
     documentReady: documentReady,
-  };
+  }
 
-  mr.components.documentReady.push(documentReady);
-  return mr;
-})(mr, jQuery, window, document);
+  mr.components.documentReady.push(documentReady)
+  return mr
+})(mr, jQuery, window, document)
 
 //////////////// Wizard
 mr = (function(mr, $, window, document) {
-  'use strict';
+  'use strict'
 
   var documentReady = function($) {
     $('.wizard').each(function() {
-      var wizard = jQuery(this);
+      var wizard = jQuery(this)
 
       if (!wizard.is('[role="application"][id^="steps-uid"]')) {
         wizard.steps({
@@ -3323,17 +3321,17 @@ mr = (function(mr, $, window, document) {
           bodyTag: 'section',
           transitionEffect: 'slideLeft',
           autoFocus: true,
-        });
+        })
 
-        wizard.addClass('active');
+        wizard.addClass('active')
       }
-    });
-  };
+    })
+  }
 
   mr.wizard = {
     documentReady: documentReady,
-  };
+  }
 
-  mr.components.documentReady.push(documentReady);
-  return mr;
-})(mr, jQuery, window, document);
+  mr.components.documentReady.push(documentReady)
+  return mr
+})(mr, jQuery, window, document)

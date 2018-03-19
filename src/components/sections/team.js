@@ -1,11 +1,81 @@
-import React, { PureComponent } from 'react';
-import { FormattedMessage } from 'react-intl';
+import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
+import { FormattedMessage } from 'react-intl'
+
+const LinkedInAction = ({ url }) => {
+  return (
+    <div className="card__action">
+      <a href={url} target="_blank" rel="noopener noreferrer">
+        <i className="color--primary fa fa-linkedin fa-2x" />
+      </a>
+    </div>
+  )
+}
+
+const TeamCard = ({
+  firstName,
+  lastName,
+  jobTitle,
+  jobDescription,
+  linkedIn,
+  imgUrl,
+}) => {
+  const fullName = `${firstName} ${lastName}`
+
+  return (
+    <div className="col-xs-6 col-sm-3 masonry__item modal-instance">
+      <div className="card card-2 text-center">
+        <div className="card__top modal-trigger">
+          <img
+            alt={firstName}
+            src={imgUrl || `./img/${firstName.toLowerCase()}.jpg`}
+            style={{ filter: 'grayscale(100%)' }}
+          />
+        </div>
+        <div className="card__body modal-trigger">
+          <h4 className="color--primary">{fullName}</h4>
+          <span className="type--fade">{jobTitle}</span>
+        </div>
+        <div className="card__bottom text-center">
+          {linkedIn && <LinkedInAction url={linkedIn} />}
+        </div>
+      </div>
+
+      <div className="modal-container">
+        <div className="modal-content">
+          <div className="boxed card card-1">
+            <div className="card__body">
+              <h4 className="color--primary">{fullName}</h4>
+              <span className="type--fade">{jobTitle}</span>
+            </div>
+            <div className="card__bottom">
+              <p>{jobDescription}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+TeamCard.propTypes = {
+  firstName: PropTypes.string.isRequired,
+  lastName: PropTypes.string.isRequired,
+  jobTitle: PropTypes.string.isRequired,
+  jobDescription: PropTypes.string.isRequired,
+  linkedIn: PropTypes.string,
+  imgUrl: PropTypes.string, // optional, defaults to firstname lowercase if not provided
+}
 
 class TeamSection extends PureComponent {
   render() {
     return (
       <div>
-        <section id="team" className="text-center space--xs">
+        <section
+          id="team"
+          className="text-center space--xs"
+          style={{ backgroundColor: 'white' }}
+        >
           <div className="container">
             <div className="row">
               <div className="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
@@ -483,14 +553,47 @@ class TeamSection extends PureComponent {
                           </div>
                           <div className="card__bottom">
                             <p>
-                              Marketing and multimedia specialist, including
-                              videography, photography and animation.
+                              During his studies in Marketing and
+                              Communications, Mago discovered his passion for
+                              the Blockchain technology. He's our Digital
+                              Marketing and Multimedia specialist, including:
+                              copywriting, videography, photography and motion
+                              graphics.
                             </p>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
+                  <TeamCard
+                    firstName="Astrid"
+                    lastName="Janssens"
+                    jobTitle="Management Assistant"
+                    jobDescription="Always seeking to find the best administrative solution and on a mission to get things organised. Passionate problem solver and always willing to lend a hand or give support."
+                    linkedIn="https://www.linkedin.com/in/astrid-janssens-6599b29/"
+                  />
+                  <TeamCard
+                    firstName="Rutger"
+                    lastName="Bevers"
+                    jobTitle="Full Stack Engineer"
+                    jobDescription="Rutger is passionate about building digital products that are deeply innovative and benefit society."
+                    linkedIn="https://www.linkedin.com/in/rutgerbevers/"
+                    imgUrl="./img/rodgerbeavers.png" /* hehehehehe -- a last wave from hilke :-) */
+                  />
+                  <TeamCard
+                    firstName="Charles"
+                    lastName="de Bergeyck"
+                    jobTitle="CFO"
+                    jobDescription="Finance professional with a  20 years demonstrated experience and track record of working in small companies to large corporations in the US and Sweden, along with with entrepreneurial start-up experience."
+                    linkedIn="https://www.linkedin.com/in/charles-e-de-bergeyck-3521a411/"
+                  />
+                  <TeamCard
+                    firstName="Peter-Jan"
+                    lastName="Brone"
+                    jobTitle="Blockchain Developer"
+                    jobDescription="Passionate coder, with an emphasis on queueing, caching and performance of distributed systems"
+                    linkedIn="https://www.linkedin.com/in/peterjanbrone/"
+                  />
                 </div>
               </div>
             </div>
@@ -770,8 +873,8 @@ class TeamSection extends PureComponent {
           </div>
         </section>
       </div>
-    );
+    )
   }
 }
 
-export default TeamSection;
+export default TeamSection

@@ -1,5 +1,6 @@
-import React, { PureComponent } from 'react';
-import { FormattedMessage } from 'react-intl';
+import React, { PureComponent } from 'react'
+import { FormattedMessage } from 'react-intl'
+import WorldSVG from '../../assets/world.svg'
 
 class TokenSaleSection extends PureComponent {
   render() {
@@ -9,8 +10,8 @@ class TokenSaleSection extends PureComponent {
         className="imagebg space--sm"
         data-gradient-bg="#EB274C,#7E347E,#2E3192"
       >
-        <div className="background-image-holder">
-          <img alt="background" src="./img/world.svg" />
+        <div className="background-image-holder low-opacity">
+          <img alt="background" src={WorldSVG} />
         </div>
         <div className="container">
           <div className="row">
@@ -19,7 +20,6 @@ class TokenSaleSection extends PureComponent {
                 <FormattedMessage id="tokensale_title" />
               </h2>
             </div>
-
             <div className="col-sm-12 col-md-10 col-md-offset-1">
               <div className="boxed boxed--lg box-shadow-wide bg--secondary token-box">
                 <h3
@@ -96,7 +96,7 @@ class TokenSaleSection extends PureComponent {
                         <td valign="top" className="force-black">
                           <FormattedMessage id="tokensale_start" />:
                         </td>
-                        <td className="type--bold">March 26th, 2018 4PM CET</td>
+                        <td className="type--bold">April 26th, 2018 4PM CET</td>
                       </tr>
                       <tr>
                         <td valign="top" className="force-black">
@@ -114,7 +114,7 @@ class TokenSaleSection extends PureComponent {
                         <td valign="top" className="force-black">
                           <FormattedMessage id="tokensale_end" />:
                         </td>
-                        <td className="type--bold">April 23rd, 2018 4PM CET</td>
+                        <td className="type--bold">May 26th, 2018 4PM CET</td>
                       </tr>
                       <tr>
                         <td valign="top" className="force-black">
@@ -144,7 +144,7 @@ class TokenSaleSection extends PureComponent {
                         <td valign="top" className="force-black">
                           <FormattedMessage id="tokensale_start" />:
                         </td>
-                        <td className="type--bold">April 30th, 2018</td>
+                        <td className="type--bold">May 30th, 2018</td>
                       </tr>
                     </tbody>
                   </table>
@@ -175,23 +175,9 @@ class TokenSaleSection extends PureComponent {
             </div>
           </div>
         </div>
-        <div className="row align-center">
-          <a
-            className="btn btn-lg btn--primary"
-            href="#start"
-            style={{ display: 'block', margin: '0 auto' }}
-          >
-            <span
-              className="btn__text type--uppercase"
-              style={{ color: 'white' }}
-            >
-              <FormattedMessage id="cta" />
-            </span>
-          </a>
-        </div>
       </section>
-    );
+    )
   }
 }
 
-export default TokenSaleSection;
+export default TokenSaleSection

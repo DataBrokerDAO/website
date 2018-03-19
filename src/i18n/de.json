@@ -1,155 +1,214 @@
 {
-  "alliance_title": "The DataBroker DAO Alliance",
-  "alliance_intro":
-    "Building a platform and business like DataBroker DAO requires real sellers and buyers of IoT sensor data. Over the past couple of months we have been hard at work integrating these parties into an alliance. A few months ago, we already announced the first two official members of this DataBroker DAO alliance, YUKTIX and SENTHUS. Today we are proud to announce DESIDEDATUM, IQUADRAT, SKYLARK and TECHNILOG have joined.",
-  "alliance_quote":
-    "\"We are happy to cross paths with SettleMint and to engage with blockchain technology over DataBroker DAO. The integration was smooth and successful due to technical excellence. In a next step on our roadmap we intend to include a DataBrokerDAO “sell my data” option into our portfolio, as we realise this is a new monetisation opportunity for both sensor owners, data consumers and vendors\", said mr. Rajeev Jha - CEO of Yuktix",
-  "alliance_senthus":
-    "On the buyer side of things we find the SENTHUS consortium from our homeland Belgium. The SENTHUS consortium is, supported by the Brussels regions minister of economy, working to make the capital city of Brussels (both of the country and of the entire European Union) a smarter city.",
-  "alliance_yuktix":
-    "YUKTIX is an IoT sensor manufacturer, based in Bangalore, India. The company creates next generation information systems for agriculture and environmental Monitoring. YUKTIX solutions can be used by farmers, growers, cooperatives and contractors or in Smart Cities to drive best practices, conserve resources and improve operation efficiency. YUKTIX provides a complete end-to-end solution. Meaning, just turn “ON” the sensor nodes and collect data on the YUKTIX SensorDB. Data distribution is also made possible via webhooks and REST API’s.\n\nWhich is how they tie in to the DataBroker DAO marketplace, offering their customers an easy path to recoup some or even all of the costs of their purchases.",
-  "alliance_join": "join the alliance",
-  "benefits_title": "The benefits",
-  "benefits_pretitle": "You can",
-  "benefits_sensor_title": "Sensor owners",
-  "benefits_sensor_text":
-    "Are able to monetize their data and turn a sunk cost into a potential money maker and at least the opportunity to recoup some of their investments in IoT sensors.",
-  "benefits_ticker":
-    "monetize your data, recoup sensor costs, gain access to thousands of sensors, turn expenses into investments",
-  "benefits_network_title": "Network operators",
-  "benefits_network_text":
-    "Gain scale and speed in the adoption of their network as connected telcos can present a win-back to their enterprise accounts, a clear USP.",
-  "benefits_manufacturers_title": "Sensor manufacturers",
-  "benefits_manufacturers_text":
-    "Can stop the 'race to the bottom' for production and pull resources and capital out of manufacturing and allocate these to profitable SaaS offerings.",
-  "benefits_smartcity_title": "Smart city initiatives",
-  "benefits_smartcity_text":
-    "Can limit the upfront cost of populating the town with sufficient sensors and turn the expense into an investment with a 2-3 year payback period and a continuous income stream after that.",
-  "benefits_agriculture_title": "Agricultural sector",
-  "benefits_agriculture_text":
-    "In the Agricultural sector in Belgium today, 10% of farmers are 'techie'. They deploy sensors include for wind, temperature, barometric pressure, humidity, PH level in the soil. The platform will provide the possibility to recoup some of this cost.",
-  "benefits_academics_title": "Academics",
-  "benefits_academics_text":
-    "Can get access to thousands of sensors and can buy data directly and more cheap on the marketplace, cutting out established data providers.",
-  "beta_title": "Beta Platform",
-  "beta_intro": "We have a fully functioning platform for you to try",
-  "beta_text":
-    "Want to know how selling or buying IoT sensor data would work on Databroker? Check out the BETA version of the platform.",
-  "beta_button": "Try our marketplace",
-  "challenge_title": "The Challenge",
-  "challenge_intro":
-    "Unlocking the potential & monetization of IoT sensor data",
-  "challenge_text":
-    " Individuals, companies, researchers & governments are spending hundreds of billions each year on buying and maintaining IoT sensors. The growth of the investment and applications in IoT is truly staggering, and yet, all data captured by these devices is locked up in silos and walled gardens.",
-  "cta": "Preregister now for the DTX token sale",
-  "video_title": "Databroker DAO in 30 seconds",
-  "events_title": "Events",
-  "events_subtitle": "Events we will be attending this year",
-  "events_subtitle_two": "Events we've attended lately",
-  "events_webinar": "Or join us at one of our free webinars",
-  "events_webinar_button": "Register",
-  "footer_whatis": "What is DataBroker DAO",
-  "footer_whitepaper": "Whitepaper",
-  "footer_alliance": "Alliance",
-  "footer_updates": "Updates",
-  "footer_presskit": "Press Kit",
-  "footer_contactus": "Contact Us",
-  "footer_team": "Team",
-  "footer_jobs": "Jobs",
-  "jobs_title": "Jobs",
-  "jobs_subtitle": "DataBroker DAO is growing",
-  "jobs_intro":
-    "And you can be part of its decentralised future. We are looking for motivated and experienced team members that can think outside of the box.",
-  "jobs_title_two": "We're always looking for talent",
-  "jobs_text_two":
-    "Got what it takes to work with us? Great! Send us a link to your resumé or portfolio to become part of our talent pool. We always have limited intern positions throughout the year, connect with us via hello@databrokerdao.com to see what's possible.",
-  "jobs_button": "Drop your resumé here",
-  "press_title": "Press",
-  "press_subtitle": "The media about DataBroker DAO",
-  "press_text":
-    "DataBroker DAO has been reviewed by media &amp; industry experts worldwide. Click on any of the logos to read the stories.",
-  "solution_title": "The Solution",
-  "solution_subtitle":
-    "DataBroker DAO: a peer to peer marketplace for IoT sensor data",
-  "team_title": "Team",
-  "team_title_two": "Advisors",
-  "team_title_three": "Partners",
-  "video_lead":
-    "Today companies make use of sensor data to optimize and monitor their operations. The result is a single purpose data landscape. DataBroker DAO drives the evolution towards truly ‘smart living’ by making this data easily accessible to cities, organizations and entrepreneurs at an affordable price. Check out our video to learn more.",
-  "splash_globalmarket": "Global market",
-  "splash_forlocaldata": "for local data",
-  "splash_boldintro":
-    "DataBroker DAO is the first marketplace to sell & buy sensor data.",
-  "splash_intro":
-    "As a decentralised marketplace for IoT sensor data using Blockchain technology, Databroker DAO enables sensor owners to turn generated data into revenue streams. This will open up a wealth of opportunities for various industries. Data will be used and become more effective.",
-  "splash_videolink": "DataBroker DAO in 30 seconds",
-  "splash_readwhitepaper": "Read the whitepaper",
-  "splash_readonepaper": "Read the onepager",
+  "meta_title": "DataBrokerDAO · Globaler Markt für lokale Daten",
+  "navigation_what": "Was ist Databroker DAO?",
   "navigation_whitepaper": "Whitepaper",
-  "navigation_alliance": "Alliance",
+  "navigation_alliance": "Allianz",
   "navigation_team": "Team",
+  "navigation_jobs": "Arbeitsplätze",
   "navigation_updates": "Updates",
-  "navigation_beta": "Try it!",
-  "sale_title": "Token sale",
+  "navigation_beta": "Probieren Sie unseren Marktplatz aus",
+  "splash_forlocaldata": "Globaler Markt für lokale Daten",
+  "splash_intro":
+    "DataBroker DAO ist der erste Marktplatz, an dem Sensordaten gekauft und verkauft werden. Als dezentraler Marktplatz für IoT-Sensordaten ermöglicht es Databroker DAO den Sensoreignern, generierte Daten für IoT-Sensordaten mithilfe der Blockchain-Technologie zu konvertieren. Databroker DAO ermöglicht es den Sensoreignern, generierte Daten in Ertragsströme umzuwandeln. Dies eröffnet eine Vielzahl von Möglichkeiten für verschiedene Branchen. Daten werden verwendet und werden effektiver.",
+  "splash_videolink": "DataBroker DAO in 30 Sekunden",
+  "splash_readwhitepaper": "Lesen Sie das White-Paper",
+  "splash_readonepaper": "Lesen Sie den Flyer",
+  "loading_message":
+    "Diese Webseite verwendet fortgeschrittenes Javascript um mit der Ethereum Blockchain zu interagieren. In diesem Feld wird die Crowdsale-Anwendung geladen. Wenn dies nicht der Fall ist, versuchen Sie es mit einem anderen Browser (Chrome) oder sprechen Sie mit uns über Telegram, um Unterstützung zu erhalten.",
+  "video_title": "Databroker DAO in 30 Sekunden",
+  "video_lead":
+    "Heutzutage nutzen Unternehmen Sensordaten, um ihren Betrieb zu optimieren und zu überwachen. Das Ergebnis ist eine Einzweck-Datenlandschaft. DataBroker DAO treibt die Entwicklung zu \"intelligentem Leben\" voran, indem es diese Daten einfach zur Datenlandschaft macht. DataBroker DAO betreibt eine Entwicklung in Richtung \"intelligentes Leben,\" indem diese Daten für Städte, Organisationen und Unternehmer zu einem erschwinglichen Preis leicht zugänglich gemacht werden. Sehen Sie sich unser Video an, um mehr zu erfahren.",
+  "cta": "Registrieren Sie sich jetzt vorzeitig für den Hauptverkauf",
+  "challenge_title": "Die Herausforderung",
+  "challenge_intro":
+    "Das Potenzial und die Monetarisierung von IoT-Sensordaten freisetzen",
+  "challenge_text":
+    "Einzelpersonen, Unternehmen, Forscher und Regierungen geben jedes Jahr Hunderte von Milliarden für den Kauf und die Wartung von IoT-Sensoren aus. Das Wachstum der Investitionen und Anwendungen im IoT ist wahrlich atemberaubend, sowie die Aufrechterhaltung von IoT-Sensoren und dennoch sind alle von diesen Geräten erfassten Daten in Silos und geschlossenen Plattformen eingeschlossen.",
+  "solution_title": "Die Lösung",
+  "solution_subtitle":
+    "DataBroker DAO: ein Peer-to-Peer-Marktplatz für IoT-Sensordaten",
+  "beta_title": "Beta Plattform",
+  "beta_intro":
+    "Wir haben eine voll funktionsfähige Plattform, die Sie ausprobieren können",
+  "beta_text":
+    "Möchten Sie wissen, wie der Kauf oder Verkauf von IoT-Sensordaten bei Databroker funktioniert? Dann sehen Sie sich die BETA-Version der Plattform an.",
+  "beta_button": "Probieren Sie unseren Marktplatz aus",
+  "benefits_title": "Die Vorteile",
+  "benefits_pretitle": "Sie können",
+  "benefits_sensor_title": "Sensor Besitzer",
+  "benefits_sensor_text":
+    "Sind in der Lage, ihre Daten zu monetarisieren und verlorene Kosten in einen potenziellen Geldmacher zu verwandeln und haben zumindest die Möglichkeit, einen Teil ihrer Investitionen in IoT-Sensoren zurückzugewinnen.",
+  "benefits_network_title": "Netzbetreiber",
+  "benefits_network_text":
+    "Erhöhen Sie die Skalierbarkeit und Geschwindigkeit bei der Einführung ihres Netzwerks, da verbundene Telcos ihren Enterprise-Accounts eine klare Rückmeldung geben können, ein klares Alleinstellungsmerkmal.",
+  "benefits_manufacturers_title": "Sensorhersteller",
+  "benefits_manufacturers_text":
+    "Kann das \"Race to the bottom\" für die Produktion stoppen und Ressourcen und Kapital aus der Produktion ziehen und diese für profitable SaaS-Angebote nutzen.",
+  "benefits_smartcity_title": "Smart-city Initiativen",
+  "benefits_smartcity_text":
+    "Können die Anfangskosten begrenzen, um die Stadt mit ausreichenden Sensoren zu bevölkern und die Ausgaben in eine Investition mit einer Amortisationszeit von 2-3 Jahren und einem kontinuierlichen Einkommensstrom danach verwandeln.",
+  "benefits_agriculture_title": "Landwirtschaftssektor",
+  "benefits_agriculture_text":
+    "Im Agrarsektor in Belgien sind heute 10% der Landwirte \"Technikfreaks\". Sie stellen Sensoren für Wind, Temperatur, Luftdruck, Feuchtigkeit, pH-Wert im Boden bereit. Die Plattform bietet die Möglichkeit, einen Teil dieser Kosten zu decken.",
+  "benefits_academics_title": "Akademiker",
+  "benefits_academics_text":
+    "Können auf Tausende von Sensoren zugreifen und Daten direkt und kostengünstiger auf dem Markt kaufen, wodurch etablierte Datenanbieter ausgeschlossen werden.",
+  "alliance_title": "Die DataBroker DAO-Allianz",
+  "alliance_subtitle": "Die Liste wächst",
+  "alliance_intro":
+    "Heute sind wir stolz darauf, dass DESIDEDATUM, IQUADRAT, SKYLARK und TECHNILOG beigetreten sind.",
+  "alliance_quote":
+    "Wir sind glücklich, mit SettleMint die Wege zu gehen und uns über DataBroker DAO mit der Blockchain-Technologie zu beschäftigen. Die Integration war aufgrund der technischen Exzellenz reibungslos und erfolgreich. In einem nächsten Schritt auf unserer Roadmap beabsichtigen wir eine DataBroker DAO-Option \"sell my data\" (verkaufe meine Daten) in unser Portfolio aufzunehmen, da wir feststellen, dass dies eine neue Monetarisierungsmöglichkeit für Sensor Besitzer, Datenverbraucher und Anbieter ist, sagte Herr. Rajeev Jha - CEO von Yuktix",
+  "alliance_senthus":
+    "Auf der Käuferseite finden wir das SENTHUS-Konsortium aus unserer Heimat Belgien. Das SENTHUS-Konsortium wird, unterstützt durch den Wirtschaftsminister der Region Brüssel, daran arbeiten, die Hauptstadt Brüssel (sowohl des Landes als auch der gesamten Europäischen Union) zu einer klügeren Stadt zu machen.",
+  "alliance_yuktix":
+    "YUKTIX ist ein Hersteller von IoT-Sensoren mit Sitz in Bangalore, Indien. Das Unternehmen erstellt Informationssysteme der nächsten Generation für die Landwirtschaft und das Umweltmonitoring. YUKTIX-Lösungen können von Landwirten, Erzeugern, Kooperativen und Auftragnehmern oder in Smart-Cities eingesetzt werden, um Best Practices zu fördern, Ressourcen zu schonen und die Betriebseffizienz zu verbessern. YUKTIX bietet eine komplette End-to-End-Lösung. Das heißt, schalten Sie einfach die Sensorknoten ein und sammeln Sie Daten auf der YUKTIX SensorDB. Die Datenverteilung wird auch über Webhooks und REST-APIs ermöglicht.",
+  "alliance_yiktix_2":
+    "So knüpfen sie an den DataBroker DAO-Marktplatz an und bieten ihren Kunden einen einfachen Weg, um einige oder sogar alle Kosten ihrer Einkäufe zu decken.",
+  "alliance_yuktix_quote":
+    "Wir sind glücklich, mit SettleMint die Wege zu gehen und über DataBroker DAO mit der Blockchain-Technologie zu interagieren. Die Integration war aufgrund der technischen Exzellenz reibungslos und erfolgreich. In einem nächsten Schritt auf unserer Roadmap beabsichtigen wir, eine DataBrokerDAO-Option \"sell my data\" (verkaufe meine Daten) in unser Portfolio aufzunehmen, da wir erkennen, dass dies eine neue Monetarisierungsmöglichkeit für sowohl Sensorinhaber, Datenverbraucher als auch Verkäufer ist, sagte Herr Rajeev Jha - CEO von Yuktix.",
+  "alliance_join": "Tritt der Allianz bei",
+  "events_title": "Veranstaltungen",
+  "events_subtitle":
+    "Veranstaltungen, an denen wir in diesem Jahr teilnehmen werden\r\n",
+  "events_subtitle_two":
+    "Veranstaltungen, die wir in letzter Zeit besucht haben",
+  "press_title": "Presse",
+  "press_subtitle": "Die Medien über DataBroker DAO",
+  "press_text":
+    "DataBroker DAO wurde von Medien- und Branchenexperten weltweit geprüft. Klicken Sie auf eines der Logos, um die Geschichten zu lesen.",
+  "press_inquiries": "Presseanfragen",
+  "team_title": "Team",
+  "matthew_title": "Mitbegründer & CEO",
+  "matthew_description":
+    "Er gründete und verließ zwei Unternehmen in Japan und erwarb anschließend seinen MBA in Belgien. Danach trat er einem großen Finanzinstitut bei und war in verschiedenen Funktionen tätig, vom COO der Consumer Finance-Sparte bis hin zum Leiter der Plattforminnovation für die Broker- und Crowdfunding-Plattform. Im Jahr 2016 verließ er die Bank und gründete SettleMint.",
+  "roderik_title": "Mitbegründer & CTO",
+  "roderik_description":
+    "Nachdem Roderik 1999 eine der größten E-Commerce-Computerladen-Websites in Belgien aufgebaut hatte, arbeitete er im IT-Entwicklungssektor und baute als CTO eine traditionelle Marcom-Agentur zu einem digitalen Kraftpaket auf. Er verließ dieses Geschäft, um sich auf Blockchain-Technologien zu konzentrieren, als er 2016 SettleMint mitbegründete.",
+  "frank_title": "MarCom Direktor",
+  "frank_description":
+    "Als Marketing- und Kommunikationsexperte mit fast 20 Jahren Erfahrung in den Bereichen Werbung, Verlagswesen, Vertrieb, Automotive und ICT arbeitete Frank an Agentur- und Werbeseiten, bevor er bei SettleMint einstieg.",
+  "els_title": "Projekt Managerin",
+  "els_description":
+    "Els arbeitete als Account Managerin in verschiedenen Finanzinstitutionen, bevor sie zu ihrer ersten Liebe, der Kommunikation, zurückkehrte. Als Account Direktorin arbeitete sie für die größte FMCG-Gruppe in Belgien, bevor sie zu SettleMint kam.",
+  "cassandre_title": "Solution Analystin",
+  "cassandre_description":
+    "Cassandre hat bei Accenture in den Blockchain-Innovationslaboren gearbeitet, bevor sie in diesem Jahr zu SettleMint kam.",
+  "tom_title": "Blockchain Architekt",
+  "tom_description":
+    "Tom ist ein Serienunternehmer mit aktiven Unternehmen in Belgien, Spanien und Osteuropa und einem starken Hintergrund in der Qualitätssicherung in großen Finanzinstituten in ganz Europa.",
+  "silke_title": "Blockchain Entwicklerin",
+  "silke_description":
+    "Nachdem sie in mehreren belgischen Startups mit bahnbrechenden Web- und mobilen Technologien gearbeitet hatte, entschied sich Silke, ihre Erfahrung als Full-Stack-Entwickler zu nutzen, um die SettleMint-Technologie auf ein höheres Niveau zu heben.",
+  "veronica_title": "Investment Advisor",
+  "veronica_description":
+    "Erfahrene Venture Development Konsultantin mit nachgewiesener Historie und Erfolgsbilanz in der Frühphase der Investment-Services- und Entrepreneurship-Branche. Veronica ist eine aktive Konnektorin, eine geschickte Business-Entwicklerin, bekannt für ihre Fähigkeit mit Menschen umzugehen, ihre Resilienz und Energie, sowie ihren Willen, die Wachstumschancen für Blockchain zu nutzen und einen positiven Beitrag zum MENA Entrepreneurship-Umfeld zu leisten.",
+  "mago_title": "Content Creator",
+  "mago_description":
+    "Marketing- und Multimedia-Spezialist, einschließlich Videografie, Fotografie und Animation.",
+  "ricardo_title": "Content Creator",
+  "ricardo_description":
+    "Ricardo Pires verfügt über mehr als 15 Jahre Medien- und Kommunikationserfahrung, zuerst als Journalist in Brasilien, dann in Indien und schließlich für 10 Jahre bei den Vereinten Nationen als Kommunikationsspezialist für humanitäre Bemühungen, Krisenkommunikation und Entwicklung. Seine Arbeit umfasste Aufenthalte im Südsudan, Peru, Ghana, Nigeria, Sambia, der Zentralafrikanischen Republik, der Schweiz, Italien und Kenia.",
+  "team_title_two": "Berater",
+  "jonathan_title": "Berater",
+  "jonathan_description": "President, Medici Ventures, Inc.",
+  "richard_title":
+    "Blockchain News Publisher Partner Cryptoassets Design Group",
+  "patrick_title": "Berater",
+  "patrick_description": "CEO, Overstock.com",
+  "julien_title": "Berater",
+  "julien_description":
+    "Business Entwickler and Innovationsmanager bei Proximus",
+  "team_title_three": "Partner",
+  "footer_whatis": "Was ist Databroker DAO?",
+  "footer_whitepaper": "Whitepaper",
+  "footer_alliance": "Allianz",
+  "footer_team": "Team",
+  "footer_jobs": "Arbeitsplätze",
+  "footer_updates": "Updates",
+  "footer_presskit": "Pressemappe",
+  "footer_contactus": "Kontaktiere uns",
+  "copyright": "Urheberrechte",
+  "benefits_ticker":
+    "Monetarisieren Sie Ihre Daten, holen Sie Sensorkosten wieder herein, erhalten Sie Zugriff auf tausende von Sensoren und verwandeln Sie Ihre Ausgaben in Investitionen",
+  "events_webinar":
+    "Oder besuchen Sie uns in einem unserer kostenlosen Webinare",
+  "events_webinar_button": "Registrieren",
+  "jobs_title": "Jobs",
+  "jobs_subtitle": "DataBroker DAO wächst",
+  "jobs_intro":
+    "Und Sie können Teil seiner dezentralen Zukunft sein. Wir suchen motivierte und erfahrene Teammitglieder, die über den Tellerrand blicken können.",
+  "jobs_title_two": "Wir suchen immer nach Talenten",
+  "jobs_text_two":
+    "Haben Sie das Zeug dazu, mit uns zu arbeiten? Großartig! Senden Sie uns einen Link zu Ihrem Lebenslauf oder Portfolio, um Teil unseres Talentpools zu werden. Wir haben im Laufe des Jahres immer begrenzte Praktikantenstellen. Kontaktieren Sie uns über hello@databrokerdao.com, um zu sehen, was möglich ist.",
+  "jobs_button": "Senden Sie Ihren Lebenslauf ",
+  "sale_title": "Token-Verkauf",
   "sale_intro":
-    "Want to be the first to be informed about the main token sale? Do not hesitate and preregister now!",
-  "sale_button": "Preregister now",
-  "sale_alternate_button": "Just want to stay informed? Subscribe.",
-  "form_title": "Preregister for the main token sale",
-  "form_firstname": "Your first name",
-  "form_lastname": "Your last name",
-  "form_email": "Your email address",
-  "form_address": "Your address",
-  "form_zipcode": "Your zipcode",
-  "form_city": "Your city",
-  "form_state": "Your state",
-  "form_country": "Your country",
-  "form_ethereumaddress": "The Ethereum address that will send the transaction",
-  "form_estimatedcontribution": "Estimated contribution in ETH",
-  "form_button": "Submit KYC information",
-  "form_doctype": "Document type",
-  "form_doccountry": "Issuing country",
-  "form_scan": "Scan: (JPG or PNG format, maximum 5MB)",
-  "form_docbutton": "Submit additional information",
-  "form_checking": "Checking...",
-  "form_checking_two": "Wait while your document is being verified...",
-  "form_success_title": "You've been preregistered!",
+    "Möchten Sie als Erster über den wichtigsten Token-Verkauf informiert werden? Zögern Sie nicht und melden Sie sich jetzt vorzeitig an!",
+  "sale_button": "Registrieren Sie sich jetzt vor",
+  "sale_alternate_button":
+    "Möchten Sie nur informiert bleiben? Abonnieren Sie.",
+  "form_title": "Vorregistrieren Sie sich jetzt für den Token-Verkauf",
+  "form_firstname": "Ihr Vorname",
+  "form_lastname": "Ihr Nachname",
+  "form_email": "Ihre E-Mailadresse",
+  "form_address": "Ihre Adresse",
+  "form_zipcode": "Ihre Postleitzahl",
+  "form_city": "Ihre Stadt",
+  "form_state": "Ihr Bundesland",
+  "form_country": "Ihr Land",
+  "form_ethereumaddress": "Die Ethereum-Adresse, welche die Transaktion sendet",
+  "form_estimatedcontribution": "Geschätzter Beitrag in ETH",
+  "form_button": "Reichen Sie Ihre KYC Informationen ein",
+  "form_doctype": "Art des Dokuments",
+  "form_doccountry": "Ausstellendes Land",
+  "form_scan": "Scan: (JPG- oder PNG-Format, maximal 5 MB)",
+  "form_docbutton": "Reichen Sie zusätzliche Informationen ein",
+  "form_checking": "Überprüfung...",
+  "form_checking_two": "Warten Sie, während Ihr Dokument verifiziert wird…",
+  "form_success_title": "Sie wurden vorregistriert!",
   "form_success_upcoming_thanks":
-    "Thank you for preregistering for the main token sale, once the token sale starts you will be the first to know. We will send you an email with all the necessary information.",
+    "Vielen Dank für die Vorregistrierung für den Haupt-Token-Verkauf. Sobald der Token-Verkauf beginnt, werden Sie als Erster davon erfahren. Wir werden Ihnen eine E-Mail mit allen notwendigen Informationen senden.",
   "form_success_exchangewarning":
-    "Do not send Ether from an exchange, you will lose your tokens and funds!",
-  "form_success_ethaddress": "Ethereum token sale address",
-  "form_success_gas": "Minimum Gas amount",
-  "form_success_btc": "Your personal Bitcoin sale address",
-  "form_success_referral_title": "Earn 5% via your referral link!",
-  "tokensale_title": "DTX token sale",
-  "tokensale_presale": "Presale",
-  "tokensale_sale": "DTX TOKEN SALE",
+    "Senden Sie Ether nicht von einer Börse, sonst verlieren Sie Ihre Token und Ihr Geld!",
+  "form_success_ethaddress": "Ethereum-Token-Verkaufsadresse",
+  "form_success_gas": "Mindestmenge an Gas",
+  "form_success_btc": "Ihre persönliche Bitcoin-Verkaufsadresse",
+  "form_success_referral_title": "Verdienen Sie 5% über Ihren Empfehlungslink!",
+  "tokensale_title": "DTX-Token-Verkauf",
+  "tokensale_presale": "Vorverkauf",
+  "tokensale_sale": "DTX-TOKEN-VERKAUF",
   "tokensale_start": "Start",
-  "tokensale_rate": "Rate",
+  "tokensale_rate": "Bewertung",
   "tokensale_minimum": "Minimum",
-  "tokensale_end": "End",
+  "tokensale_end": "Ende",
   "tokensale_bonus": "Bonus",
-  "tokensale_inquiries": "Inquiries",
-  "tokensale_trading": "DTX TOKEN TRADING",
-  "tokensale_exchanges": "Exchanges",
+  "tokensale_inquiries": "Anfragen",
+  "tokensale_trading": "DTX-TOKEN HANDEL",
+  "tokensale_exchanges": "Börsen",
   "roadmap_title": "Roadmap",
-  "roadmap_presale": "PRESALE",
+  "roadmap_presale": "VORVERKAUF",
   "roadmap_presale_text":
-    "The presale phase of this token sale event starts on March 5th, 2018 at 4PM CET. During this presale a 50% token bonus applies (6000 DTX/ETH) and the minimum purchase amount during this period is 25 ETH or 2 BTC. It ends on March 11th, at 4PM CET.",
-  "roadmap_tokensale": "TOKEN SALE",
+    "Die Vorverkaufsphase des Token-Verkaufs beginnt am 19. März 2018 um 16:00 Uhr MEZ. Während dieses Vorverkaufs gilt ein 50% Token-Bonus (6000 DTX/ETH) und der Mindestabnahmebetrag in diesem Zeitraum beträgt 10 ETH.",
+  "roadmap_tokensale": "TOKEN-VERKAUF",
   "roadmap_tokensale_text":
-    "The main sale will start March 12th, 2018 at 4PM CET. The sale will run for 4 weeks with an ever decreasing bonus structure. First week, 30%, second week 20%, third week 10% and the last week at 0%. This last week, the tokens will be distributed at a rate of 4000 DTX per ETH. Week one at 5200, week two at 4800 and week three at 4400.",
-  "roadmap_trading": "TRADING OPENS",
+    "Der Hauptverkauf beginnt am 26. April 2018 um 16 Uhr MEZ. Die Rate für diese Phase beträgt 4000 DTX pro ETH. Nur am ersten Tag wird ein 10% Bonus gewährt.",
+  "roadmap_trading": "HANDEL ERÖFFNET",
   "roadmap_trading_text":
-    "The tokens will not be tradeable until 1 week after the sale ends (April 16th, 2018). At this point in time we have a commitment to list the DTX token on Chankura.com at that time and are identifying one or two more exchanges to list it on, by that time",
-  "roadmap_mainnet": "MAINNET RELEASE",
+    "Die Token sind erst eine Woche nach dem Ende des Verkaufs (30. May 2018) handelbar. Zu diesem Zeitpunkt sind wir verpflichtet, das DTX-Token auf Chankura.com eine Woche nach Ende des Verkaufs aufzulisten und bis zu diesem Zeitpunkt ein oder zwei weitere Plattformen zu identifizieren",
+  "roadmap_mainnet": "MAINNET-VERÖFFENTLICHUNG",
   "roadmap_mainnet_text":
-    "With the availability and the ability to trade the DTX token, the platform can move to the mainnet.",
-  "roadmap_extendedteam": "Setup and onboarding of an extended team",
+    "Mit der Verfügbarkeit und der Möglichkeit, das DTX-Token zu handeln, kann die Plattform zum Mainnet wechseln.",
+  "roadmap_extendedteam": "Setup und Onboarding eines erweiterten Teams",
   "roadmap_extendedteam_text":
-    "One of the larger challenges for DataBroker DAO will be scaling the team fast enough to cope with market demands. Onboarding a new sales team and additional developers is a daunting task. Since September this has been an active focus and this will be the case for the years to come.",
-  "roadmap_gateway": "Gateway operator integrations",
+    "Eine der größeren Herausforderungen für DataBroker DAO besteht darin, das Team schnell genug zu skalieren, um den Marktanforderungen gerecht zu werden. Das Einbinden eines neuen Vertriebsteams und zusätzlicher Entwickler ist eine gewaltige Aufgabe. Seit September wird aktiv darauf fokussiert, was für die kommenden Jahre der Fall sein wird.",
+  "roadmap_gateway": "Gateway-Betreiberintegrationen",
   "roadmap_gateway_text":
-    "The main road to mass adoption is integrating with gateway operators that enable the onboarding of millions of sensors in one go. The DataBroker DAO platform will be integrated with the gateways of these gateway operators. We will be working on both common standards and libraries to ease integration, and perform the initial integrations for the first operators in the DataBroker DAO Alliance."
+    "Der wichtigste Weg zur Massenanwendung ist die Integration mit Gateway-Betreibern, die das Onboarding von Millionen von Sensoren auf einmal ermöglichen. Die DataBroker-DAO-Plattform wird in die Gateways dieser Gateway-Betreiber integriert. Wir werden an gemeinsamen Standards und Bibliotheken arbeiten, um die Integration zu erleichtern und die ersten Integrationen für die ersten Betreiber in der DataBroker DAO Allianz durchführen.",
+  "meta_description":
+    "DataBroker DAO ist der erste Marktplatz, an dem Sensordaten gekauft und verkauft werden.",
+  "tokensale_referral":
+    "Vor und während des Token-Verkaufs ist ein Überweisungssystem in Kraft. Beiträge über einen Verweis-Link führen zu einem Bonus von 5% der Token, die über einen Verweislink verkauft werden.",
+  "sale_presalestarts": "DTX PRESALE STARTS",
+  "sale_salestarts": "DTX PUBLIC SALE STARTS"
 }

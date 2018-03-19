@@ -1,5 +1,5 @@
-import React, { PureComponent } from 'react';
-import { FormattedMessage } from 'react-intl';
+import React, { PureComponent } from 'react'
+import { FormattedMessage } from 'react-intl'
 
 class JobsSection extends PureComponent {
   render() {
@@ -46,7 +46,7 @@ class JobsSection extends PureComponent {
                             className="col-md-7 col-sm-12"
                             style={{ marginLeft: '40px' }}
                           >
-                            <h4>We need a decentralised tinkerer</h4>
+                            <h4>We need a decentralized tinkerer</h4>
                             <p>
                               SettleMint bridges the gap between enterprise and
                               blockchain technologies. We provide both end-user
@@ -144,7 +144,7 @@ class JobsSection extends PureComponent {
                             className="col-md-7 col-sm-12"
                             style={{ marginLeft: '40px' }}
                           >
-                            <h4>We need a decentralised tinkerer</h4>
+                            <h4>We need a decentralized tinkerer</h4>
                             <p>
                               SettleMint bridges the gap between enterprise and
                               blockchain technologies. We provide both end-user
@@ -350,7 +350,7 @@ class JobsSection extends PureComponent {
             </div>
           </div>
         </section>
-        <section className="text-center">
+        <section className="text-center" style={{ backgroundColor: 'white' }}>
           <div className="container">
             <div className="row">
               <div className="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
@@ -375,8 +375,8 @@ class JobsSection extends PureComponent {
           </div>
         </section>
       </div>
-    );
+    )
   }
 }
 
-export default JobsSection;
+export default JobsSection

@@ -1,6 +1,6 @@
 import Web3 from 'web3'
 import contract from 'truffle-contract'
-import saleJSON from '../contracts/EarlyTokenSale.json'
+import saleJSON from '../contracts/TokenSale.json'
 
 export const getWeb3 = new Promise(function(resolve, reject) {
   // Wait for loading completion to avoid race conditions with web3 injection timing.

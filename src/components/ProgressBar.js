@@ -9,9 +9,9 @@ class ProgressBar extends Component {
 
   componentDidUpdate() {
     const { percentage } = this.props
-    if (this.state.rendered !== percentage.toFixed(0)) {
+    if (this.state.rendered !== percentage) {
       window.radial(jQuery) //eslint-disable-line
-      this.setState({ rendered: percentage.toFixed(0) })
+      this.setState({ rendered: percentage })
     }
   }
   render() {
@@ -20,7 +20,7 @@ class ProgressBar extends Component {
     return (
       <div
         className="radial"
-        data-value={percentage.toFixed(0)}
+        data-value={percentage}
         data-timing="1000"
         data-color="#f90066"
         data-size="200"

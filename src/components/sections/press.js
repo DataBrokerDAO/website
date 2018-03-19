@@ -1,5 +1,5 @@
-import React, { PureComponent } from 'react';
-import { FormattedMessage } from 'react-intl';
+import React, { PureComponent } from 'react'
+import { FormattedMessage } from 'react-intl'
 
 class PressSection extends PureComponent {
   render() {
@@ -28,7 +28,7 @@ class PressSection extends PureComponent {
                 style={{ cursor: 'pointer' }}
                 target="_blank"
                 rel="noopener noreferrer"
-                href="http://www.the-blockchain.com/2017/09/08/databroker-dao-decentralised-marketplace-iot-sensor-data-announces-beta-upcoming-token-sale/"
+                href="http://www.the-blockchain.com/2017/09/08/databroker-dao-decentralized-marketplace-iot-sensor-data-announces-beta-upcoming-token-sale/"
               >
                 <img
                   alt="Blockchain News"
@@ -264,7 +264,7 @@ class PressSection extends PureComponent {
 
           <div className="row align-center" style={{ marginTop: '50px' }}>
             <a
-            id="press-inquiries-btn"
+              id="press-inquiries-btn"
               className="btn btn-lg btn--secondary"
               href="mailto:hello@databrokerdao.com"
               style={{ display: 'block', margin: '0 auto' }}
@@ -277,8 +277,8 @@ class PressSection extends PureComponent {
           </div>
         </div>
       </section>
-    );
+    )
   }
 }
 
-export default PressSection;
+export default PressSection

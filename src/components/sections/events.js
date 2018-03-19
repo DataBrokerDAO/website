@@ -1,5 +1,58 @@
-import React, { PureComponent } from 'react';
-import { FormattedMessage } from 'react-intl';
+import React, { PureComponent } from 'react'
+import { FormattedMessage } from 'react-intl'
+
+const events = [
+  {
+    date: 'March 8',
+    title: 'FINTECH Belgium - MeetUp on ICOs',
+    location: 'Brussels, Belgium',
+  },
+  {
+    date: 'March 13',
+    title: 'Blockchain Summit Belgium',
+    location: 'Ghent, Belgium',
+  },
+  {
+    date: 'March 21-23',
+    title: 'Go Global Mission Kenya',
+    location: 'Kenya',
+  },
+  {
+    date: 'March 28-29',
+    title: 'STEP Money',
+    location: 'Dubai, UAE',
+  },
+  {
+    date: 'March 26-28',
+    title: 'KNOW Identity Conference',
+    location: 'Washington, USA',
+  },
+  {
+    date: 'April 4-5',
+    title: 'Sido - The IoT Showroom',
+    location: 'Lyon, France',
+  },
+  {
+    date: 'April 17-19',
+    title: 'EventHorizon',
+    location: 'Berlin, Germany',
+  },
+  {
+    date: 'April 19',
+    title: 'Zero-In',
+    location: 'Amsterdam, Netherlands',
+  },
+  {
+    date: 'May 2-3',
+    title: 'Future Blockchain Summit',
+    location: 'Dubai, UAE',
+  },
+  {
+    date: 'June 11-14',
+    title: 'MoneyConf',
+    location: 'Dublin, Ireland',
+  },
+]
 
 class EventsSection extends PureComponent {
   render() {
@@ -19,15 +72,16 @@ class EventsSection extends PureComponent {
               </p>
             </div>
           </div>
-
           <div className="row events" style={{ margin: '30px 0' }}>
-            <div className="col-sm-4">
-              <div className="event feature feature-1 boxed boxed--border">
-                <p className="color--primary">March 4 - 5</p>
-                <h4>Blockchain and Token Summit</h4>
-                <p>Dubai, United Arab Emirates</p>
+            {events.map((event, index) => (
+              <div key={index} className="col-sm-4">
+                <div className="event feature feature-1 boxed boxed--border">
+                  <p className="color--primary">{event.date}</p>
+                  <h4>{event.title}</h4>
+                  <p>{event.location}</p>
+                </div>
               </div>
-            </div>
+            ))}
 
             <div className="col-sm-4">
               <div className="event feature feature-1 boxed boxed--border">
@@ -154,8 +208,8 @@ class EventsSection extends PureComponent {
           </div>
         </div>
       </section>
-    );
+    )
   }
 }
 
-export default EventsSection;
+export default EventsSection

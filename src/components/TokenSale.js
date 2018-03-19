@@ -1,51 +1,50 @@
-import React, { Component } from 'react';
-import { getWeb3 } from '../utils/getWeb3';
-import moment from 'moment';
-import ProgressBar from './ProgressBar';
-// import PreRegisterForm from './PreRegisterForm';
-import RegisterForm from './RegisterForm';
-import WorldSVG from '../assets/world.svg';
-import VideoSection from './sections/video';
-import ChallengeSection from './sections/challenge';
-import JobsSection from './sections/jobs';
-import ChannelsSection from './sections/channels';
-import Footer from './sections/footer';
-import CTASection from './sections/cta';
-import SolutionSection from './sections/solutions';
-import TeamSection from './sections/team';
-import PressSection from './sections/press';
-import EventsSection from './sections/events';
-import AllianceSection from './sections/alliance';
-import BenefitsSection from './sections/benefits';
-import BetaSection from './sections/beta';
-import { IntlProvider, addLocaleData, FormattedMessage } from 'react-intl';
-import en from 'react-intl/locale-data/en';
-import ar from 'react-intl/locale-data/ar';
-import tr from 'react-intl/locale-data/tr';
-import es from 'react-intl/locale-data/es';
-import ru from 'react-intl/locale-data/ru';
-import pt from 'react-intl/locale-data/pt';
-import ko from 'react-intl/locale-data/ko';
-import ja from 'react-intl/locale-data/ja';
-import it from 'react-intl/locale-data/it';
-import de from 'react-intl/locale-data/de';
-import fr from 'react-intl/locale-data/fr';
-import zh from 'react-intl/locale-data/zh';
-import enTranslations from '../i18n/en.json';
-import arTranslations from '../i18n/ar.json';
-import trTranslations from '../i18n/tr.json';
-import esTranslations from '../i18n/es.json';
-import ruTranslations from '../i18n/ru.json';
-import ptTranslations from '../i18n/pt.json';
-import koTranslations from '../i18n/ko.json';
-import jaTranslations from '../i18n/ja.json';
-import itTranslations from '../i18n/it.json';
-import deTranslations from '../i18n/de.json';
-import frTranslations from '../i18n/fr.json';
-import zhTranslations from '../i18n/zh.json';
-import { setTimeout } from 'timers';
-import TokenSaleSection from '../components/sections/tokensale';
-import RoadmapSection from '../components/sections/roadmap';
+import React, { Component } from 'react'
+import { getWeb3 } from '../utils/getWeb3'
+import ProgressBar from './ProgressBar'
+import moment from 'moment'
+import RegisterForm from './RegisterForm'
+import WorldSVG from '../assets/world.svg'
+import VideoSection from './sections/video'
+import ChallengeSection from './sections/challenge'
+import JobsSection from './sections/jobs'
+import ChannelsSection from './sections/channels'
+import Footer from './sections/footer'
+import CTASection from './sections/cta'
+import SolutionSection from './sections/solutions'
+import TeamSection from './sections/team'
+import PressSection from './sections/press'
+import EventsSection from './sections/events'
+import AllianceSection from './sections/alliance'
+import BenefitsSection from './sections/benefits'
+import BetaSection from './sections/beta'
+import { IntlProvider, addLocaleData, FormattedMessage } from 'react-intl'
+import en from 'react-intl/locale-data/en'
+import ar from 'react-intl/locale-data/ar'
+import tr from 'react-intl/locale-data/tr'
+import es from 'react-intl/locale-data/es'
+import ru from 'react-intl/locale-data/ru'
+import pt from 'react-intl/locale-data/pt'
+import ko from 'react-intl/locale-data/ko'
+import ja from 'react-intl/locale-data/ja'
+import it from 'react-intl/locale-data/it'
+import de from 'react-intl/locale-data/de'
+import fr from 'react-intl/locale-data/fr'
+import zh from 'react-intl/locale-data/zh'
+import enTranslations from '../i18n/en.json'
+import arTranslations from '../i18n/ar.json'
+import trTranslations from '../i18n/tr.json'
+import esTranslations from '../i18n/es.json'
+import ruTranslations from '../i18n/ru.json'
+import ptTranslations from '../i18n/pt.json'
+import koTranslations from '../i18n/ko.json'
+import jaTranslations from '../i18n/ja.json'
+import itTranslations from '../i18n/it.json'
+import deTranslations from '../i18n/de.json'
+import frTranslations from '../i18n/fr.json'
+import zhTranslations from '../i18n/zh.json'
+import { setTimeout } from 'timers'
+import TokenSaleSection from '../components/sections/tokensale'
+import RoadmapSection from '../components/sections/roadmap'
 
 const languages = {
   en: 'English',
@@ -59,25 +58,15 @@ const languages = {
   it: 'italiano',
   de: 'Deutsche',
   fr: 'français',
-  zh: '中文'
-};
+  zh: '中文',
+}
 
 class TokenSale extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       web3: null,
-      sale: null,
-      percentage: 0,
-      tokens: 0,
-      eth: 0,
-      MAX_ETH: 9375,
-      MAX_ETH_OVER: 28125,
-      // MAX_ETH: 1,
-      // MAX_ETH_OVER: 3,
-      startFundingTime: moment.unix(1505746800),
-      endFundingTime: moment.unix(1508166000)
-    };
+    }
   }
 
   componentWillMount() {
@@ -85,28 +74,22 @@ class TokenSale extends Component {
       getWeb3
         .then(results => {
           this.setState({
-            ...results
-          });
+            ...results,
+          })
           this.instantiateContract()
             .then(() => {
-              this.polling = true;
-              this.longPoller();
+              this.polling = true
+              this.longPoller()
+              return true
             })
             .catch(error => {
-              console.log('longPoller error', error);
-            });
+              console.log('longPoller error', error)
+            })
+          return true
         })
         .catch(e => {
-          console.log('Error finding web3.', e);
-        });
-    } else {
-      this.setState({
-        startFundingTime: moment.unix(1505746800),
-        endFundingTime: moment.unix(1508166000),
-        eth: 0,
-        tokens: 0,
-        percentage: 0
-      });
+          console.log('Error finding web3.', e)
+        })
     }
     addLocaleData([
       ...en,
@@ -120,331 +103,242 @@ class TokenSale extends Component {
       ...it,
       ...de,
       ...fr,
-      ...zh
-    ]);
-    let language = 'en';
-    // if (!localStorage.getItem('dbdaolang')) {
-    //   const language =
-    //     (navigator.languages && navigator.languages[0]) ||
-    //     navigator.language ||
-    //     navigator.userLanguage;
-    //   let languageWithoutRegionCode = language.toLowerCase().split(/[_-]+/)[0];
-    //   localStorage.setItem('dbdaolang', languageWithoutRegionCode);
-    // }
-    // language = localStorage.getItem('dbdaolang');
-    // if (!Object.keys(languages).includes(language)) {
-    //   language = 'en';
-    // }
-    this.setMessages(language);
+      ...zh,
+    ])
+    let language = 'en'
+    if (!localStorage.getItem('dbdaolang')) {
+      const language =
+        (navigator.languages && navigator.languages[0]) ||
+        navigator.language ||
+        navigator.userLanguage
+      let languageWithoutRegionCode = language.toLowerCase().split(/[_-]+/)[0]
+      localStorage.setItem('dbdaolang', languageWithoutRegionCode)
+    }
+    language = localStorage.getItem('dbdaolang')
+    if (!Object.keys(languages).includes(language)) {
+      language = 'en'
+    }
+    this.setMessages(language)
   }
 
   componentDidMount() {
     setTimeout(() => {
-      mr.documentReady(jQuery); //eslint-disable-line
-    }, 250);
+      mr.documentReady(jQuery) //eslint-disable-line
+    }, 250)
   }
 
   componentDidUpdate() {
     setTimeout(() => {
-      mr.documentReady(jQuery); //eslint-disable-line
-    }, 250);
+      mr.documentReady(jQuery) //eslint-disable-line
+    }, 250)
   }
 
   setMessages(language) {
-    let messages;
+    let messages
     switch (language) {
       case 'ar':
-        messages = arTranslations;
-        break;
+        messages = arTranslations
+        break
       case 'tr':
-        messages = trTranslations;
-        break;
+        messages = trTranslations
+        break
       case 'es':
-        messages = esTranslations;
-        break;
+        messages = esTranslations
+        break
       case 'ru':
-        messages = ruTranslations;
-        break;
+        messages = ruTranslations
+        break
       case 'pt':
-        messages = ptTranslations;
-        break;
+        messages = ptTranslations
+        break
       case 'ko':
-        messages = koTranslations;
-        break;
+        messages = koTranslations
+        break
       case 'ja':
-        messages = jaTranslations;
-        break;
+        messages = jaTranslations
+        break
       case 'it':
-        messages = itTranslations;
-        break;
+        messages = itTranslations
+        break
       case 'de':
-        messages = deTranslations;
-        break;
+        messages = deTranslations
+        break
       case 'fr':
-        messages = frTranslations;
-        break;
+        messages = frTranslations
+        break
       case 'zh':
-        messages = zhTranslations;
-        break;
+        messages = zhTranslations
+        break
       default:
-        messages = enTranslations;
-        break;
+        messages = enTranslations
+        break
     }
-    this.setState({ language, messages });
+    this.setState({ language, messages })
   }
 
   toggleChangeLanguage(newlang) {
-    this.setMessages(newlang);
-    localStorage.setItem('dbdaolang', newlang);
-    // mr.documentReady(jQuery); //eslint-disable-line
-    // mr.windowLoad(jQuery); //eslint-disable-line
+    this.setMessages(newlang)
+    localStorage.setItem('dbdaolang', newlang)
   }
 
   longPoller() {
     setTimeout(() => {
       this.instantiateContract(true).then(() => {
         if (this.polling) {
-          this.longPoller();
+          this.longPoller()
         }
-      });
-    }, 10000);
+      })
+    }, 10000)
   }
 
   componentWillUnmount() {
-    this.polling = false;
+    this.polling = false
   }
 
   async instantiateContract(update = false) {
     try {
-      const { sale, MAX_ETH, MAX_ETH_OVER } = this.state;
-      const DeployedSale = await sale.deployed();
+      const { sale } = this.state
+      const DeployedSale = await sale.deployed()
 
-      const totalCollected = await DeployedSale.totalCollected();
-      const eth = totalCollected.toNumber() / 10 ** 18;
-      let totalSupply = MAX_ETH;
-
-      if (eth >= MAX_ETH) {
-        totalSupply = MAX_ETH_OVER;
+      const totalIssued = await DeployedSale.totalIssued()
+      const totalIssuedEarlySale = await DeployedSale.totalIssuedEarlySale()
+      let ethprice
+      try {
+        const response = await fetch(
+          'https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD'
+        )
+        const json = await response.json()
+        ethprice = json.USD
+      } catch (error) {
+        console.log(error)
+        ethprice = 700
       }
 
+      let total = totalIssued.plus(totalIssuedEarlySale).div(10 ** 18)
+      let totalUSD = totalIssued
+        .div(6000)
+        .plus(totalIssuedEarlySale.div(6000))
+        .times(ethprice)
+        .div(10 ** 18)
+      if (total.gte(108000000)) {
+        total = totalIssued.div(10 ** 18)
+        totalUSD = totalIssued
+          .div(6000)
+          .times(ethprice)
+          .div(10 ** 18)
+      }
+
+      const percentage = total.div(108000000).times(100)
       const newState = {
-        eth,
-        tokens: eth * 1200,
-        percentage: eth / totalSupply * 100
-      };
-      // console.log(newState);
-      this.setState(newState);
+        total: total.toFormat(0),
+        percentage: percentage.toFixed(2),
+        usd: totalUSD.toFormat(0),
+        timeLeft: moment('2018-03-26 15:59:59+01:00').diff(moment(), 'days'),
+      }
+      this.setState(newState)
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
   }
 
-  saleUpcoming = () => {
+  saleUpcoming = doneLoading => {
+    const { percentage /*timeLeft*/ } = this.state
     return (
       <div>
         <h2
           className="sale-date type--uppercase"
           style={{ fontWeight: 'bold' }}
         >
-          <FormattedMessage id="sale_title" />
+          {/*DTX PRE-SALE LIVE NOW!*/}
+          DTX PRE-SALE
         </h2>
-        {/*<p className="sale-date unmarg--bottom">
-          The date of the main token sale will be announced shortly.
+        <p className="sale-date" style={{ marginBottom: '0.5em' }}>
+          MARCH 19TH, 2018 - 4PM CET
         </p>
-    <hr />*/}
-        <hr style={{ border: 0 }} />
-        <FormattedMessage id="sale_presalestarts" />
-        <p className="sale-date">MARCH 19TH, 2018 - 4PM CET</p>
-        <FormattedMessage id="sale_salestarts" />
-        <p className="sale-date">MARCH 26TH, 2018 - 4PM CET</p>
-        <hr style={{ border: 0 }} />
+        <h3>
+          50% bonus, 10 ETH minimum
+          {/*<br />
+          Ends in {timeLeft} days*/}
+        </h3>
+        {localStorage.getItem('ref') === 'cryptoclub' && (
+          <div style={{ marginBottom: '2em' }}>
+            <span style={{ textTransform: 'uppercase' }}>
+              A special offer for our friends at the Crypto Club
+            </span>
+            <p className="sale-date">Join the private sale now!</p>
+          </div>
+        )}
+        {false &&
+          doneLoading && (
+            <ProgressBar
+              percentage={percentage}
+              label={`${percentage}% SOLD`}
+            />
+          )}
+        {false && doneLoading && this.numberTable()}
 
-        {/*<p className="sale-date unmarg--bottom">
-          The date of the main token sale will be announced shortly.
-          <br />
-          You’ll hear from us soon.
-        </p>
-    <hr />*/}
+        <FormattedMessage id="sale_salestarts" />
+        <p className="sale-date">APRIL 26TH, 2018 - 4PM CET</p>
         <div className="modal-instance">
           <a
             id="preregister_button"
             className="btn btn-lg type--uppercase btn--primary modal-trigger"
             style={{ fontSize: '18pt', fontWeight: 'bold', color: 'white' }}
           >
-            <FormattedMessage id="sale_button" />
+            {(localStorage.getItem('ref') === 'cryptoclub' ||
+              localStorage.getItem('ref') === 'mattsyndicate') && (
+              <span>Join the private sale</span>
+            )}
+            {localStorage.getItem('ref') !== 'cryptoclub' &&
+              localStorage.getItem('ref') !== 'mattsyndicate' && (
+                <span>REGISTER NOW!</span>
+              )}
           </a>
           <div style={{ marginTop: '15px' }}>
-            {/*<a
-              href="/how-to-participate.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i className="fa fa-info-circle" aria-hidden="true" />
-            </a>{' '}*/}
             <a
               href="https://t.me/databrokerdao"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ textDecoration: 'underline' }}
+              style={{
+                textDecoration: 'none',
+                fontWeight: 'bold',
+                color: '#0088cc',
+                fontSize: '1.2em',
+              }}
             >
+              <i
+                className="socicon socicon-telegram"
+                style={{
+                  color: '#0088cc',
+                }}
+              />{' '}
               Join us on Telegram
             </a>
           </div>
           <div className="modal-container">
             <div className="modal-content">
               <div className="boxed boxed--lg">
-                <RegisterForm upcoming={true} />
+                <RegisterForm upcoming={true} language={this.state.language} />
               </div>
             </div>
           </div>
         </div>
-        {/*<div style={{ marginTop: '15px' }}>
-          <p>
-            In the meanwhile we are still accepting larger volume purchases at
-            reduced rates.<br />{' '}
-            <a
-              href="mailto:hello@databrokerdao.com"
-              style={{ textDecoration: 'underline' }}
-            >
-              Get in touch to discuss.
-            </a>
-          </p>
-          </div>*/}
-      </div>
-    );
-    // OLD
-    // return (
-    //   <div>
-    //     <h2 className="sale-date">Early Token Sale starts:</h2>
-    //     <p className="sale-date unmarg--bottom">18 SEPTEMBER 2017 - 5PM CET</p>
-    //     <hr />
-    //     <h3 className="unmarg--bottom">
-    //       Register now to access the sale address before the start!
-    //     </h3>
-    //     <br />
-    //     <p className="lead">
-    //       You will also receive a unique referral link that earns you 5% of
-    //       every contribution you refer
-    //     </p>
-    //     <div className="modal-instance">
-    //       <a className="btn btn-lg type--uppercase btn--primary modal-trigger">
-    //         Register now for the early sale
-    //       </a>
-    //       <div style={{ marginTop: '15px' }}>
-    //         <a
-    //           href="/how-to-participate.pdf"
-    //           target="_blank"
-    //           rel="noopener noreferrer"
-    //         >
-    //           <i className="fa fa-info-circle" aria-hidden="true" />
-    //         </a>{' '}
-    //         <a
-    //           href="/how-to-participate.pdf"
-    //           target="_blank"
-    //           rel="noopener noreferrer"
-    //           style={{ textDecoration: 'underline' }}
-    //         >
-    //           How to participate in the early sale
-    //         </a>
-    //       </div>
-    //       <div className="modal-container">
-    //         <div className="modal-content">
-    //           <div className="boxed boxed--lg">
-    //             <RegisterForm upcoming={true} />
-    //           </div>
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </div>
-    // )
-  };
-
-  saleRunning = doneLoading => {
-    const { endFundingTime, startFundingTime } = this.state;
-    const togo = endFundingTime.diff(moment(), 'minutes');
-    const total = endFundingTime.diff(startFundingTime, 'minutes');
-    const percentage = 100 - togo / total * 100;
-    return (
-      <div>
-        <h2 className="sale-date padding-2" style={{ marginBottom: '1em' }}>
-          Join the early sale!
-        </h2>
-        {!doneLoading && (
-          <div>
-            <div className="ldr">Loading...</div>
-          </div>
-        )}
-        {doneLoading && (
-          <ProgressBar percentage={percentage} label={`${togo} minutes left`} />
-        )}
-        {doneLoading && this.numberTable()}
-        <div className="modal-instance">
-          <a
-            className="btn btn-lg type--uppercase btn--primary modal-trigger"
-            style={{ fontWeight: 'bold', fontSize: '20px' }}
-          >
-            Buy your DATA tokens now!
-          </a>
-          <div style={{ marginTop: '15px' }}>
-            <a
-              href="/how-to-participate.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i className="fa fa-info-circle" aria-hidden="true" />
-            </a>{' '}
-            <a
-              href="/how-to-participate.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ textDecoration: 'underline' }}
-            >
-              How to participate in the early sale
-            </a>
-          </div>
-          <div style={{ marginTop: '15px' }}>
-            <a
-              href="mailto:hello@databrokerdao.com"
-              style={{ textDecoration: 'underline' }}
-            >
-              Contact us for extra volume discounts.
-            </a>
-          </div>
-          <div className="modal-container">
-            <div className="modal-content">
-              <div className="boxed boxed--lg">
-                <RegisterForm />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  };
-
-  saleDone = () => {
-    // const { percentage } = this.state;
-    return (
-      <div>
-        <h2 className="sale-date">The early token sale is concluded!</h2>
-        <hr />
-        <p className="sale-date unmarg--bottom">Thank you for your support!</p>
-        <hr />
         <div style={{ marginTop: '15px' }}>
           <a
-            href="mailto:hello@databrokerdao.com"
-            style={{ textDecoration: 'underline' }}
+            href="/how-to-participate.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            We are still accepting larger volume purchases at reduced rates.<br />{' '}
-            Get in touch to discuss.
+            <i className="fa fa-info-circle" aria-hidden="true" /> How to buy
+            the DTX token
           </a>
         </div>
       </div>
-    );
-  };
+    )
+  }
 
   numberTable = () => {
-    const { tokens, eth } = this.state;
+    const { total, usd } = this.state
 
     return (
       <div>
@@ -454,7 +348,7 @@ class TokenSale extends Component {
               <tr>
                 <td style={{ textAlign: 'left' }}>Tokens sold:</td>
                 <td style={{ textAlign: 'right' }} className="type--bold">
-                  {parseInt(tokens, 10).toFixed(0)}
+                  {total}
                 </td>
               </tr>
             </tbody>
@@ -464,48 +358,48 @@ class TokenSale extends Component {
           <table>
             <tbody>
               <tr>
-                <td style={{ textAlign: 'left' }}>ETH collected:</td>
+                <td style={{ textAlign: 'left' }}>USD:</td>
                 <td style={{ textAlign: 'right' }} className="type--bold">
-                  Ξ {parseInt(eth, 10).toFixed(0)}
+                  ${usd}
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
-    );
-  };
+    )
+  }
 
   render() {
-    const { tokens, eth, percentage } = this.state;
-    const { language, messages } = this.state;
+    const { percentage } = this.state
+    const { language, messages } = this.state
 
-    let upcoming = process.env.REACT_APP_SALE_UPCOMING === 'true';
-    let done = process.env.REACT_APP_SALE_DONE === 'true';
-    let active = process.env.REACT_APP_SALE_ACTIVE === 'true';
-
-    // if (startFundingTime && endFundingTime) {
-    //   upcoming = startFundingTime.isAfter(moment());
-    //   active =
-    //     startFundingTime.isBefore(moment()) && endFundingTime.isAfter(moment());
-    //   done = endFundingTime.isBefore(moment());
-    // }
-
-    const doneLoading = percentage >= 0 && eth >= 0 && tokens >= 0;
-
-    // setTimeout(() => window.modals(jQuery, window, document), 1000); //eslint-disable-line
+    const doneLoading = percentage >= 0
 
     return (
       <IntlProvider key={language} locale={language} messages={messages}>
-        <div>
+        <div style={{ position: 'relative' }}>
+          <div
+            style={{
+              position: 'absolute',
+              display: 'block',
+              width: '100%',
+              height: '100%', // don't ask
+              top: 0,
+              right: 0,
+              bottom: 0,
+              left: 0,
+              background:
+                'linear-gradient(to right, #EB274C, #7E347E, #2E3192)',
+              zIndex: '-1',
+            }}
+            // id="canvas-basic"
+          />
           <div className="nav-container">
-            <div
-              className="bar bar--md visible-xs bar--mobile-sticky"
-              data-scroll-class="250px:pos-fixed"
-            >
+            <div className="bar bar--md visible-xs">
               <div className="container">
                 <div className="row">
-                  <div className="col-xs-3 col-sm-2">
+                  <div className="col-xs-8 col-sm-2">
                     <a href="/">
                       <img
                         className="logo logo-dark"
@@ -519,7 +413,7 @@ class TokenSale extends Component {
                       />
                     </a>
                   </div>
-                  <div className="col-xs-9 col-sm-10 text-right">
+                  <div className="col-xs-4 col-sm-10 text-right">
                     <a
                       href="#"
                       className="hamburger-toggle"
@@ -533,12 +427,11 @@ class TokenSale extends Component {
             </div>
             <nav
               id="menu1"
-              className="bar bar--md bar-1 bar--absolute bar--transparent pos-vertical-align-columns"
-              data-scroll-class="250px:pos-fixed"
+              className="bar bar--md bar-1 bar--absolute bar--transparent pos-vertical-align-columns hidden-xs"
             >
               <div className="container">
                 <div className="row">
-                  <div className="col-md-3 col-sm-2 hidden-xs">
+                  <div className="col-md-3 col-sm-4 hidden-xs">
                     <div className="bar__module">
                       <a href="/">
                         <img
@@ -555,10 +448,10 @@ class TokenSale extends Component {
                     </div>
                   </div>
                   <div
-                    className="col-md-9 col-sm-12 text-right text-left-xs text-left-sm"
+                    className="col-md-9 col-sm-8 text-right text-left-xs text-left-sm"
                     style={{ marginTop: '10px' }}
                   >
-                    <div className="bar__module">
+                    <div className="bar__module col-sm-7">
                       <ul className="menu-horizontal text-left">
                         <li>
                           <a
@@ -590,7 +483,10 @@ class TokenSale extends Component {
                         </li>
                       </ul>
                     </div>
-                    {/* <div className="bar__module" style={{ marginLeft: '5px' }}>
+                    <div
+                      className="bar__module col-sm-2"
+                      style={{ marginLeft: '5px' }}
+                    >
                       <div className="dropdown">
                         <span className="dropdown__trigger type--uppercase">
                           {languages[language]}{' '}
@@ -691,8 +587,11 @@ class TokenSale extends Component {
                           </div>
                         </div>
                       </div>
-                                  </div>*/}
-                    <div className="bar__module" style={{ marginLeft: '5px' }}>
+                    </div>
+                    <div
+                      className="bar__module col-sm-2"
+                      style={{ marginLeft: '5px' }}
+                    >
                       <a
                         className="btn btn--sm btn--secondary type--uppercase"
                         href="https://beta.databrokerdao.com/"
@@ -714,7 +613,7 @@ class TokenSale extends Component {
               className="cover imagebg"
               data-gradient-bg="#EB274C,#7E347E,#2E3192"
             >
-              <div className="background-image-holder">
+              <div className="background-image-holder low-opacity">
                 <img alt="background" src={WorldSVG} />
               </div>
               <div className="container" style={{ marginTop: '20px' }}>
@@ -722,51 +621,41 @@ class TokenSale extends Component {
                   <div className="col-md-5 col-sm-5 col-xs-12">
                     <div className="header-intro">
                       <h1 style={{ lineHeight: '40pt' }}>
-                        <FormattedMessage id="splash_globalmarket" />
-                        <br /> <FormattedMessage id="splash_forlocaldata" />
+                        <FormattedMessage
+                          id="splash_globalmarket"
+                          defaultMessage=" "
+                        />
+                        <br />{' '}
+                        <FormattedMessage
+                          id="splash_forlocaldata"
+                          defaultMessage=" "
+                        />
                       </h1>
                       <p
                         style={{
                           fontSize: '13pt',
                           lineHeight: '22pt',
-                          marginTop: '10px'
+                          marginTop: '10px',
                         }}
                       >
                         <b style={{ fontWeight: 'bold' }}>
-                          <FormattedMessage id="splash_boldintro" />
+                          <FormattedMessage
+                            id="splash_boldintro"
+                            defaultMessage=" "
+                          />
                         </b>{' '}
-                        <FormattedMessage id="splash_intro" />
-                      </p>
-                      <div className="modal-instance header-video block">
-                        <div
-                          className="video-play-icon video-play-icon--xs modal-trigger bg--primary"
-                          data-modal-index="0"
+                        <FormattedMessage
+                          id="splash_intro"
+                          defaultMessage=" "
                         />
-                        <span>
-                          <strong>
-                            <FormattedMessage id="splash_videolink" />
-                          </strong>
-                        </span>
-                        <div className="modal-container">
-                          <div
-                            className="modal-content bg-dark"
-                            data-width="55%"
-                            data-height="60%"
-                          >
-                            <iframe
-                              title="DataBrokerDAO movie"
-                              data-src="https://www.youtube.com/embed/hZLr5O7y71c?autoplay=1&amp;rel=0"
-                              allowFullScreen="allowfullscreen"
-                            />
-                          </div>
-                        </div>
-                      </div>
+                      </p>
+
                       <div
                         className="col-md-12"
                         style={{
                           marginBottom: '10px',
                           paddingRight: '5px',
-                          paddingLeft: '5px'
+                          paddingLeft: '5px',
                         }}
                       >
                         <a
@@ -776,14 +665,14 @@ class TokenSale extends Component {
                           style={{
                             width: '100%',
                             color: 'black',
-                            fontWeight: 'bold'
+                            fontWeight: 'bold',
                           }}
                         >
                           <FormattedMessage
                             id="splash_readwhitepaper"
                             style={{
                               color: 'black',
-                              fontWeight: 'bold'
+                              fontWeight: 'bold',
                             }}
                           />
                         </a>
@@ -793,7 +682,7 @@ class TokenSale extends Component {
                         style={{
                           marginBottom: '10px',
                           paddingRight: '5px',
-                          paddingLeft: '5px'
+                          paddingLeft: '5px',
                         }}
                       >
                         <a
@@ -803,14 +692,122 @@ class TokenSale extends Component {
                           style={{
                             width: '100%',
                             color: 'black',
-                            fontWeight: 'bold'
+                            fontWeight: 'bold',
                           }}
                         >
                           <FormattedMessage
                             id="splash_readonepaper"
                             style={{
                               color: 'black',
-                              fontWeight: 'bold'
+                              fontWeight: 'bold',
+                            }}
+                          />
+                        </a>
+                      </div>
+                      <div
+                        className="col-xs-3"
+                        style={{
+                          marginBottom: '10px',
+                          paddingRight: '5px',
+                          paddingLeft: '5px',
+                          textAlign: 'center',
+                        }}
+                      >
+                        <a
+                          href="https://www.trackico.io/ico/databrokerdao/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          title="DatabrokerDAO on TrackICO"
+                        >
+                          <img
+                            border="0"
+                            src="https://www.trackico.io/widget/square/databrokerdao/90.png"
+                            alt="DatabrokerDAO TrackICO rating"
+                            style={{
+                              borderRadius: '5px',
+                              width: '100%',
+                              maxWidth: '100px',
+                            }}
+                          />
+                        </a>
+                      </div>
+                      <div
+                        className="col-xs-3"
+                        style={{
+                          marginBottom: '10px',
+                          paddingRight: '5px',
+                          paddingLeft: '5px',
+                          textAlign: 'center',
+                        }}
+                      >
+                        <a
+                          href="https://icobench.com/ico/databrokerdao"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          title="DatabrokerDAO on ICObench"
+                        >
+                          <img
+                            border="0"
+                            src="https://icobench.com/rated/databrokerdao?shape=square&size=s"
+                            alt="DatabrokerDAO ICO rating"
+                            style={{
+                              borderRadius: '5px',
+                              width: '100%',
+                              maxWidth: '100px',
+                            }}
+                          />
+                        </a>
+                      </div>
+                      <div
+                        className="col-xs-3"
+                        style={{
+                          marginBottom: '10px',
+                          paddingRight: '5px',
+                          paddingLeft: '5px',
+                          textAlign: 'center',
+                        }}
+                      >
+                        <a
+                          href="https://icomarks.com/ico/databrokerdao"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          title="DatabrokerDAO"
+                        >
+                          <img
+                            border="0"
+                            src="https://icomarks.com/widget/d/databrokerdao/square.svg"
+                            alt="DatabrokerDAO ICO rating"
+                            style={{
+                              borderRadius: '5px',
+                              width: '100%',
+                              maxWidth: '100px',
+                            }}
+                          />
+                        </a>
+                      </div>
+                      <div
+                        className="col-xs-3"
+                        style={{
+                          marginBottom: '10px',
+                          paddingRight: '5px',
+                          paddingLeft: '5px',
+                          textAlign: 'center',
+                        }}
+                      >
+                        <a
+                          href="https://icoholder.com/en/databrokerdao-3028"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          title="DatabrokerDAO"
+                        >
+                          <img
+                            border="0"
+                            src="https://icoholder.com/en/big-green/3028.widget.svg?width=100"
+                            alt="DatabrokerDAO ICO rating"
+                            style={{
+                              borderRadius: '5px',
+                              width: '100%',
+                              maxWidth: '100px',
                             }}
                           />
                         </a>
@@ -822,9 +819,7 @@ class TokenSale extends Component {
                       className="boxed boxed--lg border--round box-shadow-wide bg--white token-sale"
                       style={{ marginTop: 0 }}
                     >
-                      {doneLoading && upcoming && this.saleUpcoming()}
-                      {active && this.saleRunning(doneLoading)}
-                      {doneLoading && done && this.saleDone()}
+                      {this.saleUpcoming(doneLoading)}
                     </div>
                   </div>
                 </div>
@@ -941,8 +936,8 @@ class TokenSale extends Component {
           </div>
         </div>
       </IntlProvider>
-    );
+    )
   }
 }
 
-export default TokenSale;
+export default TokenSale

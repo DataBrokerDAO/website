@@ -1,29 +1,27 @@
-import React, { Component } from 'react';
-import { Form, Field, reduxForm } from 'redux-form';
-import { isValidAddress } from 'ethereumjs-util';
-import axios from 'axios';
-import SuccessResponse from './SuccessResponse';
-import ErrorResponse from './ErrorResponse';
-import DocumentResponse from './DocumentResponse';
+import React, { Component } from 'react'
+import { Form, Field, reduxForm } from 'redux-form'
+import { isValidAddress } from 'ethereumjs-util'
+import axios from 'axios'
+import SuccessResponse from './SuccessResponse'
+import ErrorResponse from './ErrorResponse'
+import DocumentResponse from './DocumentResponse'
 // import { IntercomAPI } from 'react-intercom';
-import { FormattedMessage, injectIntl } from 'react-intl';
+import { FormattedMessage, injectIntl } from 'react-intl'
+import { KYC_RESULTS } from '../utils/constants'
 
 class RegisterForm extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       formSubmitted: false,
-      uuid: null
-    };
+      uuid: null,
+    }
   }
 
   componentDidMount() {
-    window.checkboxes(jQuery); //eslint-disable-line
-
-    // Load Intercom.
-    // IntercomAPI('boot', {
-    //   app_id: 'abc12345'
-    // });
+    setTimeout(() => {
+      mr.documentReady(jQuery) //eslint-disable-line
+    }, 250)
   }
 
   _submit = values => {
@@ -38,47 +36,66 @@ class RegisterForm extends Component {
         {
           ...values,
           agree: true,
+          language: this.props.language || 'en',
           source: localStorage.getItem('code') || 'none',
           ref: localStorage.getItem('ref') || 'none',
           dfp: localStorage.getItem('dfp') || 'none',
           dft: 'AU',
-          referrer: localStorage.getItem('referrer') || 'none'
+          referrer: localStorage.getItem('referrer') || 'none',
         },
         {
           auth: {
             username:
               'sahCa8aiieD7ke9ovu3zeDieEitaza9uxuW6op2SSa0tohQubuiqu8uTtaiy8Aiw',
             password:
-              'xaf6MeofRae1aiQuuLoz2EemAa0aiw7oLie1sheeaiS3ceo7chi4aiQuieGuo7ve'
-          }
+              'xaf6MeofRae1aiQuuLoz2EemAa0aiw7oLie1sheeaiS3ceo7chi4aiQuieGuo7ve',
+          },
         }
       )
       .then(response => {
-        console.log(response.data);
+        if (!response) return
+        const {
+          result,
+          kyc,
+          uuid = false,
+          address = false,
+          initialData: extraInitialData = false,
+          bitcoin = {},
+        } = response.data
+
+        const extra = result === KYC_RESULTS.MANUAL_REVIEW
+        const { receivingAddress: btcAddress = 'invalid address' } = bitcoin
+
         this.setState({
           formSubmitted: true,
-          error: response.data.failure || false,
+          error: result === KYC_RESULTS.ERROR,
           errorReason:
-            (response.data.response.ednaScoreCard &&
-              response.data.response.ednaScoreCard.er) ||
-            false,
-          address: response.data.address || false,
-          extra: response.data.extra || false,
-          extraInitialData: response.data.initialData || false,
-          uuid: response.data.uuid || false
-        });
+            (kyc && kyc.ednaScoreCard && kyc.ednaScoreCard.er) || false,
+          address: address,
+          extra,
+          extraInitialData: { ...extraInitialData, uuid },
+          uuid,
+          btcAddress,
+        })
+        return true
       })
       .catch(error => {
-        console.log(error);
-      });
-  };
+        console.log(error)
+        this.setState({
+          formSubmitted: true,
+          error,
+          extra: false,
+          errorReason: error.message,
+        })
+      })
+  }
 
   _renderTextField = ({
     input,
     label,
     helptext,
     type,
-    meta: { touched, error, warning }
+    meta: { touched, error, warning },
   }) => (
     <div
       className={`form-group ${touched &&
@@ -91,14 +108,14 @@ class RegisterForm extends Component {
         {touched && ((error && error) || (warning && warning))}
       </div>
     </div>
-  );
+  )
 
   _renderSelectField = ({
     input,
     label,
     helptext,
     type,
-    meta: { touched, error, warning }
+    meta: { touched, error, warning },
   }) => (
     <div
       className={`form-group ${touched &&
@@ -367,10 +384,10 @@ class RegisterForm extends Component {
         {touched && ((error && error) || (warning && warning))}
       </div>
     </div>
-  );
+  )
 
   render() {
-    const { handleSubmit, submitting, pristine, upcoming } = this.props;
+    const { handleSubmit, submitting, pristine, upcoming } = this.props
     const {
       uuid,
       formSubmitted,
@@ -378,18 +395,23 @@ class RegisterForm extends Component {
       address,
       extra,
       extraInitialData,
-      errorReason
-    } = this.state;
+      errorReason,
+    } = this.state
 
     return (
       <div>
         {!formSubmitted && (
           <div>
-            <h2>
-              <FormattedMessage id="form_title" />
+            {/*<h2>
+              {localStorage.getItem('ref') === 'cryptoclub' && (
+                <span>Join the private sale for Crypto Club members</span>
+              )}
+              {localStorage.getItem('ref') !== 'cryptoclub' && (
+                <FormattedMessage id="form_title" />
+              )}
             </h2>
             <hr className="short" />
-            {/*<div>
+            <div>
               <a
                 href="/how-to-participate.pdf"
                 target="_blank"
@@ -417,8 +439,9 @@ class RegisterForm extends Component {
                   name="firstName"
                   required
                   label={this.props.intl.formatMessage({
-                    id: 'form_firstname'
+                    id: 'form_firstname',
                   })}
+                  autocomplete="given-name"
                   type="text"
                   placeholder="Satoshi"
                   className="validate-required"
@@ -430,8 +453,9 @@ class RegisterForm extends Component {
                   name="lastName"
                   required
                   label={this.props.intl.formatMessage({
-                    id: 'form_lastname'
+                    id: 'form_lastname',
                   })}
+                  autocomplete="family-name"
                   type="text"
                   placeholder="Nakamoto"
                   className="validate-required"
@@ -443,8 +467,9 @@ class RegisterForm extends Component {
                   name="email"
                   required
                   label={this.props.intl.formatMessage({
-                    id: 'form_email'
+                    id: 'form_email',
                   })}
+                  autocomplete="email"
                   type="email"
                   placeholder="satoshi@nakamoto.com"
                   className="validate-required"
@@ -456,8 +481,9 @@ class RegisterForm extends Component {
                   name="addressLine1"
                   required
                   label={this.props.intl.formatMessage({
-                    id: 'form_address'
+                    id: 'form_address',
                   })}
+                  autocomplete="address-line1"
                   type="text"
                   className="validate-required"
                 />
@@ -468,8 +494,9 @@ class RegisterForm extends Component {
                   name="zipcode"
                   required
                   label={this.props.intl.formatMessage({
-                    id: 'form_address'
+                    id: 'form_zipcode',
                   })}
+                  autocomplete="postal-code"
                   type="text"
                   className="validate-required"
                 />
@@ -480,8 +507,9 @@ class RegisterForm extends Component {
                   name="city"
                   required
                   label={this.props.intl.formatMessage({
-                    id: 'form_city'
+                    id: 'form_city',
                   })}
+                  autocomplete="address-level2"
                   type="text"
                   className="validate-required"
                 />
@@ -492,8 +520,9 @@ class RegisterForm extends Component {
                   name="state"
                   required
                   label={this.props.intl.formatMessage({
-                    id: 'form_state'
+                    id: 'form_state',
                   })}
+                  autocomplete="address-level1"
                   type="text"
                 />
               </div>
@@ -503,8 +532,9 @@ class RegisterForm extends Component {
                   name="country"
                   required
                   label={this.props.intl.formatMessage({
-                    id: 'form_country'
+                    id: 'form_country',
                   })}
+                  autocomplete="country-name"
                   type="text"
                   className="validate-required"
                 />
@@ -515,28 +545,13 @@ class RegisterForm extends Component {
                   component={this._renderTextField}
                   name="ethereumAddress"
                   required
-                  label={this.props.intl.formatMessage({
-                    id: 'form_ethereumaddress'
-                  })}
+                  label="Your Ethereum address (will receive the tokens)"
                   type="text"
                   placeholder="0x52b8398551bb1d0bdc022355897508f658ad42f8"
                   className="validate-required"
                 />
               </div>
               <div className="col-sm-12">
-                <Field
-                  component={this._renderTextField}
-                  name="estimatedContribution"
-                  required
-                  label={this.props.intl.formatMessage({
-                    id: 'form_estimatedcontribution'
-                  })}
-                  type="number"
-                  placeholder="100"
-                  className="validate-required"
-                />
-              </div>
-              {/*<div className="col-sm-12">
                 <div className="input-checkbox">
                   <Field
                     component="input"
@@ -546,13 +561,13 @@ class RegisterForm extends Component {
                   />
                   <label htmlFor="agree" />
                 </div>
-                {/*<span>
-                  I have downloaded, read, understood and agree to the{' '}
+                <span>
+                  I have read, understood &amp; agree to the{' '}
                   <a href="/termsandconditions.pdf" target="_blank">
-                    terms and conditions
+                    terms &amp; conditions
                   </a>
                 </span>
-              </div>*/}
+              </div>
               <div className="col-sm-12">
                 <div className="form-group">
                   <button
@@ -571,26 +586,31 @@ class RegisterForm extends Component {
           </div>
         )}
         {formSubmitted &&
+          !error &&
           address !== false && (
             <SuccessResponse
               address={address}
               uuid={uuid}
               upcoming={upcoming}
+              btcAddress={this.state.btcAddress}
             />
           )}
         {formSubmitted &&
           error !== false && <ErrorResponse error={errorReason} />}
         {formSubmitted &&
           extra !== false && (
-            <DocumentResponse extraInitialData={extraInitialData} />
+            <DocumentResponse
+              extraInitialData={extraInitialData}
+              language={this.props.language}
+            />
           )}
       </div>
-    );
+    )
   }
 }
 
 const validate = values => {
-  const errors = {};
+  const errors = {}
   const requiredFields = [
     'firstName',
     'lastName',
@@ -600,21 +620,21 @@ const validate = values => {
     'city',
     'country',
     'ethereumAddress',
-    'estimatedContribution'
-  ];
+    'agree',
+  ]
   requiredFields.forEach(field => {
     if (!values[field]) {
-      errors[field] = `this is a required field`;
+      errors[field] = `this is a required field`
     }
-  });
+  })
   if (!isValidAddress(values['ethereumAddress'])) {
     errors[
       'ethereumAddress'
-    ] = `this does not appear to be a valid ethereum address`;
+    ] = `this does not appear to be a valid ethereum address`
   }
-  return errors;
-};
+  return errors
+}
 
 export default injectIntl(
   reduxForm({ form: 'registration', validate })(RegisterForm)
-);
+)

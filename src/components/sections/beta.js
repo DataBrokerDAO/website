@@ -1,6 +1,6 @@
-import React, { PureComponent } from 'react';
-import WorldSVG from '../../assets/world.svg';
-import { FormattedMessage } from 'react-intl';
+import React, { PureComponent } from 'react'
+import WorldSVG from '../../assets/world.svg'
+import { FormattedMessage } from 'react-intl'
 
 class BetaSection extends PureComponent {
   render() {
@@ -10,7 +10,7 @@ class BetaSection extends PureComponent {
         className="cover feature-large imagebg"
         data-gradient-bg="#EB274C,#7E347E,#2E3192"
       >
-        <div className="background-image-holder">
+        <div className="background-image-holder low-opacity">
           <img alt="background" src={WorldSVG} />
         </div>
         <div className="container">
@@ -50,8 +50,8 @@ class BetaSection extends PureComponent {
           </div>
         </div>
       </section>
-    );
+    )
   }
 }
 
-export default BetaSection;
+export default BetaSection

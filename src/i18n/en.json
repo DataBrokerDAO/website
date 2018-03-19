@@ -40,7 +40,7 @@
   "challenge_intro":
     "Unlocking the potential & monetization of IoT sensor data",
   "challenge_text":
-    " Individuals, companies, researchers & governments are spending hundreds of billions each year on buying and maintaining IoT sensors. The growth of the investment and applications in IoT is truly staggering, and yet, all data captured by these devices is locked up in silos and walled gardens.",
+    "Individuals, companies, researchers & governments are spending hundreds of billions each year on buying and maintaining IoT sensors. The growth of the investment and applications in IoT is truly staggering, and yet, all data captured by these devices is locked up in silos and walled gardens. On its path from sensor to silo, all this data flows over gateway operators like telecom companies, networks and even the control panels of the sensor manufacturers. These sensor owners usually have a two year business case for their placement and the data they generate. The primary market for these sensors is expected to reach 1.2 trillion USD in 2019, and estimating that at least 10% of the data generated is sought for others (1-3 times), the value of data locked away will reach 120 billion next year!",
   "cta": "Preregister now for the DTX token sale",
   "video_title": "Databroker DAO in 30 seconds",
   "events_title": "Events",
@@ -59,7 +59,7 @@
   "jobs_title": "Jobs",
   "jobs_subtitle": "DataBroker DAO is growing",
   "jobs_intro":
-    "And you can be part of its decentralised future. We are looking for motivated and experienced team members that can think outside of the box.",
+    "And you can be part of its decentralized future. We are looking for motivated and experienced team members that can think outside of the box.",
   "jobs_title_two": "We're always looking for talent",
   "jobs_text_two":
     "Got what it takes to work with us? Great! Send us a link to your resumé or portfolio to become part of our talent pool. We always have limited intern positions throughout the year, connect with us via hello@databrokerdao.com to see what's possible.",
@@ -81,7 +81,7 @@
   "splash_boldintro":
     "DataBroker DAO is the first marketplace to sell & buy sensor data.",
   "splash_intro":
-    "As a decentralised marketplace for IoT sensor data using Blockchain technology, Databroker DAO enables sensor owners to turn generated data into revenue streams. This will open up a wealth of opportunities for various industries. Data will be used and become more effective.",
+    "As a decentralized marketplace for IoT sensor data using Blockchain technology, Databroker DAO enables sensor owners to turn generated data into revenue streams. This will open up a wealth of opportunities for various industries. Data will be used and become more effective.",
   "splash_videolink": "DataBroker DAO in 30 seconds",
   "splash_readwhitepaper": "Read the whitepaper",
   "splash_readonepaper": "Read the onepager",
@@ -139,10 +139,10 @@
     "The presale phase of this token sale event starts on March 5th, 2018 at 4PM CET. During this presale a 50% token bonus applies (6000 DTX/ETH) and the minimum purchase amount during this period is 10 ETH.",
   "roadmap_tokensale": "TOKEN SALE",
   "roadmap_tokensale_text":
-    "The main sale will start March 26th, 2018 at 4PM CET. The sale will run for 4 week. The first day a 10% bonus will be awarded.",
+    "The main sale will start April 26th, 2018 at 4PM CET. The sale will run for 4 week. The first day a 10% bonus will be awarded.",
   "roadmap_trading": "TRADING OPENS",
   "roadmap_trading_text":
-    "The tokens will not be tradeable until 1 week after the sale ends (April 30th, 2018). At this point in time we have a commitment to list the DTX token on Chankura.com at that time and are identifying one or two more exchanges to list it on, by that time",
+    "The tokens will not be tradeable until 1 week after the sale ends (May 30th, 2018). At this point in time we have a commitment to list the DTX token on Chankura.com at that time and are identifying one or two more exchanges to list it on, by that time",
   "roadmap_mainnet": "MAINNET RELEASE",
   "roadmap_mainnet_text":
     "With the availability and the ability to trade the DTX token, the platform can move to the mainnet.",

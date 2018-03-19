@@ -1,12 +1,12 @@
-import React, { PureComponent } from 'react';
-import { FormattedMessage } from 'react-intl';
-import LogoBrusselsSmartCity from '../../assets/alliance/Logo_BrusselsSmartCity.png';
-import LogoYuktix from '../../assets/alliance/logo_Yuktix.png';
-import LogoDesideDatum from '../../assets/alliance/logo_desideDatum.png';
-import LogoIquadrat from '../../assets/alliance/logo_iquadrat.png';
-import LogoSkylark from '../../assets/alliance/logo_Skylark.png';
-import LogoTechnilog from '../../assets/alliance/Logo_Technilog.png';
-import LogoIdentitymindglobal from '../../assets/alliance/logo_identitymindglobal.png';
+import React, { PureComponent } from 'react'
+import { FormattedMessage } from 'react-intl'
+import LogoBrusselsSmartCity from '../../assets/alliance/Logo_BrusselsSmartCity.png'
+import LogoYuktix from '../../assets/alliance/logo_Yuktix.png'
+import LogoDesideDatum from '../../assets/alliance/logo_desideDatum.png'
+import LogoIquadrat from '../../assets/alliance/logo_iquadrat.png'
+import LogoSkylark from '../../assets/alliance/logo_Skylark.png'
+import LogoTechnilog from '../../assets/alliance/Logo_Technilog.png'
+import LogoIdentitymindglobal from '../../assets/alliance/logo_identitymindglobal.png'
 
 class AllianceSection extends PureComponent {
   render() {
@@ -97,8 +97,8 @@ class AllianceSection extends PureComponent {
           </div>
         </div>
       </section>
-    );
+    )
   }
 }
 
-export default AllianceSection;
+export default AllianceSection

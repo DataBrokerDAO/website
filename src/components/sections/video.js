@@ -1,10 +1,14 @@
-import React, { PureComponent } from 'react';
-import { FormattedMessage } from 'react-intl';
+import React, { PureComponent } from 'react'
+import { FormattedMessage } from 'react-intl'
 
 class VideoSection extends PureComponent {
   render() {
     return (
-      <section id="databroker" className="feature-large switchable space--sm">
+      <section
+        id="databroker"
+        className="feature-large switchable space--sm"
+        style={{ backgroundColor: 'white' }}
+      >
         <div className="container">
           <div className="row align-center">
             <div className="col-md-5  col-sm-6">
@@ -17,27 +21,29 @@ class VideoSection extends PureComponent {
               </p>
             </div>
             <div className="col-md-6 col-sm-6 col-md-offset-1">
-              <div className="video-cover border--round box-shadow-wide">
+              <div
+                className="video-cover border--round"
+                style={{ background: 'white' }}
+              >
                 <div className="background-image-holder">
-                  <img
-                    alt="DatabrokerDAO explainer video"
-                    src="./img/video-cover2.png"
-                  />
+                  <img alt="DataBrokerDAO" src="img/video-cover3.jpg" />
                 </div>
                 <div className="video-play-icon" />
+
                 <iframe
-                  title="DataBrokerDAO video"
-                  data-src="https://www.youtube.com/embed/hZLr5O7y71c?rel=0&amp;controls=0&amp;showinfo=0&amp;autoplay=1"
-                  frameBorder="0"
-                  allowFullScreen="allowfullscreen"
+                  style={{ background: 'white' }}
+                  title="DataBrokerDAO"
+                  data-src="https://player.vimeo.com/video/260074443?autoplay=1"
+                  allowFullScreen
+                  frameBorder={0}
                 />
               </div>
             </div>
           </div>
         </div>
       </section>
-    );
+    )
   }
 }
 
-export default VideoSection;
+export default VideoSection
