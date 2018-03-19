@@ -249,8 +249,7 @@ class TokenSale extends Component {
           className="sale-date type--uppercase"
           style={{ fontWeight: 'bold' }}
         >
-          {/*DTX PRE-SALE LIVE NOW!*/}
-          DTX PRE-SALE
+          DTX PRE-SALE LIVE NOW!
         </h2>
         <p className="sale-date" style={{ marginBottom: '0.5em' }}>
           MARCH 19TH, 2018 - 4PM CET
@@ -260,14 +259,6 @@ class TokenSale extends Component {
           {/*<br />
           Ends in {timeLeft} days*/}
         </h3>
-        {localStorage.getItem('ref') === 'cryptoclub' && (
-          <div style={{ marginBottom: '2em' }}>
-            <span style={{ textTransform: 'uppercase' }}>
-              A special offer for our friends at the Crypto Club
-            </span>
-            <p className="sale-date">Join the private sale now!</p>
-          </div>
-        )}
         {false &&
           doneLoading && (
             <ProgressBar
@@ -291,7 +282,7 @@ class TokenSale extends Component {
             )}
             {localStorage.getItem('ref') !== 'cryptoclub' &&
               localStorage.getItem('ref') !== 'mattsyndicate' && (
-                <span>REGISTER NOW!</span>
+                <span>BUY NOW!</span>
               )}
           </a>
           <div style={{ marginTop: '15px' }}>

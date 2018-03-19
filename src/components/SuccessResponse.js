@@ -3,7 +3,7 @@ import { FormattedMessage, injectIntl } from 'react-intl'
 
 class SuccessResponse extends Component {
   render() {
-    const { /*address,*/ uuid /*btcAddress*/ } = this.props
+    const { address, uuid /*btcAddress*/ } = this.props
     fbq('track', 'CompleteRegistration') // eslint-disable-line
     window.ga('send', {
       hitType: 'event',
@@ -18,73 +18,46 @@ class SuccessResponse extends Component {
     return (
       <div>
         <h2>
-          {(localStorage.getItem('ref') === 'cryptoclub' ||
-            localStorage.getItem('ref') === 'mattsyndicate') && (
-            <span>You have qualified for the private sale!</span>
-          )}
-          {localStorage.getItem('ref') !== 'cryptoclub' &&
-            localStorage.getItem('ref') !== 'mattsyndicate' && (
-              <span>You have completed the KYC procedure successfully!</span>
-            )}
+          <span>You have completed the KYC procedure successfully!</span>
         </h2>
         <hr className="short" />
-        {localStorage.getItem('ref') === 'cryptoclub' && (
+        <div>
           <div>
             <div className="form-group" style={{ marginTop: '1em' }}>
               <label className="type--uppercase ">
-                Deposit wallet for the Crypto Club private sale
+                Buy tokens by sending ETH to the following address
               </label>
               <input
                 className="text-center"
                 type="text"
-                value="0xcfd029fb115855622a2e0252db5e6fd98174bc2b"
+                value={`${address}`}
                 style={{ fontSize: '16px' }}
                 readOnly
               />
             </div>
-          </div>
-        )}
-        <p className="lead">
-          <FormattedMessage id="form_success_upcoming_thanks" />
-        </p>
-        {/*localStorage.getItem('ref') !== 'cryptoclub' && (
-          <div>
-            <div>
-              <div className="form-group" style={{ marginTop: '1em' }}>
-                <label className="type--uppercase ">
-                  Buy tokens by sending ETH to the following address
-                </label>
-                <input
-                  className="text-center"
-                  type="text"
-                  value={`${address}`}
-                  style={{ fontSize: '16px' }}
-                  readOnly
-                />
-              </div>
-              <div className="form-group">
-                <label className="type--uppercase ">
-                  <FormattedMessage id="form_success_gas" />
-                </label>
-                <input
-                  className="text-center"
-                  type="text"
-                  value="200000"
-                  style={{ fontSize: '16px' }}
-                  readOnly
-                />
-              </div>
-              <div className="form-group">
-                <label className="type--uppercase ">Minimum amount</label>
-                <input
-                  className="text-center"
-                  type="text"
-                  value="10 ETH"
-                  style={{ fontSize: '16px' }}
-                  readOnly
-                />
-              </div>
-              {/*
+            <div className="form-group">
+              <label className="type--uppercase ">
+                <FormattedMessage id="form_success_gas" />
+              </label>
+              <input
+                className="text-center"
+                type="text"
+                value="200000"
+                style={{ fontSize: '16px' }}
+                readOnly
+              />
+            </div>
+            <div className="form-group">
+              <label className="type--uppercase ">Minimum amount</label>
+              <input
+                className="text-center"
+                type="text"
+                value="10 ETH"
+                style={{ fontSize: '16px' }}
+                readOnly
+              />
+            </div>
+            {/*
               <hr />
               <div className="form-group" style={{ marginTop: '1em' }}>
                 <label className="type--uppercase ">
@@ -107,10 +80,10 @@ class SuccessResponse extends Component {
                   style={{ fontSize: '16px' }}
                   readOnly
                 />
-              </div>}
-            </div>
+              </div>*/}
           </div>
-            )*/}
+        </div>
+
         <hr className="short" />
         {localStorage.getItem('ref') !== 'cryptoclub' &&
           localStorage.getItem('ref') !== 'mattsyndicate' && (
