@@ -43,9 +43,6 @@ class AllianceSection extends PureComponent {
           </div>
           <div className="row align-center" style={{ marginTop: '50px' }}>
             <div className="col-sm-1" />
-            <div className="col-sm-2 zooming-logo">
-              <img src={LogoSigfox} alt="Sigfox" />
-            </div>
             {/*<div className="col-sm-2 modal-instance zooming-logo">
               <a className="modal-trigger" style={{ cursor: 'pointer' }}>
                 <img alt="Senthus" src={LogoBrusselsSmartCity} />
@@ -80,13 +77,16 @@ class AllianceSection extends PureComponent {
               </div>
             </div>
             <div className="col-sm-2 zooming-logo">
-              <img src={LogoDesideDatum} alt="desideDatum" />
+              <img src={LogoEsoptra} alt="Esoptra" />
             </div>
             <div className="col-sm-2 zooming-logo">
-              <img src={LogoIquadrat} alt="Iquadrat" />
+              <img src={LogoDigitaltown} alt="Digital Town" />
             </div>
             <div className="col-sm-2 zooming-logo">
-              <img src={LogoSkylark} alt="Skylark" />
+              <img src={LogoThingsplay} alt="Thingplay" />
+            </div>
+            <div className="col-sm-2 zooming-logo">
+              <img src={LogoDspvalley} alt="DSP Valley" />
             </div>
             <div className="col-sm-1" />
           </div>
@@ -112,19 +112,19 @@ class AllianceSection extends PureComponent {
           <div className="row align-center">
             <div className="col-sm-1" />
             <div className="col-sm-2 zooming-logo">
-              <img src={LogoEsoptra} alt="Esoptra" />
+              <img src={LogoDesideDatum} alt="desideDatum" />
             </div>
             <div className="col-sm-2 zooming-logo">
-              <img src={LogoDigitaltown} alt="Digital Town" />
+              <img src={LogoIquadrat} alt="Iquadrat" />
             </div>
             <div className="col-sm-2 zooming-logo">
-              <img src={LogoDspvalley} alt="DSP Valley" />
+              <img src={LogoSigfox} alt="Sigfox" />
             </div>
             <div className="col-sm-2 zooming-logo">
               <img src={LogoSket} alt="Sket" />
             </div>
             <div className="col-sm-2 zooming-logo">
-              <img src={LogoThingsplay} alt="Thingplay" />
+              <img src={LogoSkylark} alt="Skylark" />
             </div>
             <div className="col-sm-1" />
           </div>
