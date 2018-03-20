@@ -5,6 +5,7 @@
   * MultiSigWallet: 0xa24aca345b50ed1fa00782eb1119d22c5e8930a4
   * DataBrokerDaoToken: 0x16cde414ffe9fe5ab34af0fe0870b449605c09ae
   * EarlyTokenSale: 0x25f1f05341f79c84b2c9af9e591d77243f633179
+  
 
 # Main net
 
