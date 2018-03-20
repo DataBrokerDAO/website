@@ -1,7 +1,8 @@
 import React, { PureComponent } from 'react'
 import { FormattedMessage } from 'react-intl'
-import LogoBrusselsSmartCity from '../../assets/alliance/Logo_BrusselsSmartCity.png'
+// import LogoBrusselsSmartCity from '../../assets/alliance/Logo_BrusselsSmartCity.png'
 import LogoYuktix from '../../assets/alliance/logo_Yuktix.png'
+import LogoSigfox from '../../assets/alliance/logo_sigfox.png'
 import LogoDesideDatum from '../../assets/alliance/logo_desideDatum.png'
 import LogoIquadrat from '../../assets/alliance/logo_iquadrat.png'
 import LogoSkylark from '../../assets/alliance/logo_Skylark.png'
@@ -42,7 +43,10 @@ class AllianceSection extends PureComponent {
           </div>
           <div className="row align-center" style={{ marginTop: '50px' }}>
             <div className="col-sm-1" />
-            <div className="col-sm-2 modal-instance zooming-logo">
+            <div className="col-sm-2 zooming-logo">
+              <img src={LogoSigfox} alt="Sigfox" />
+            </div>
+            {/*<div className="col-sm-2 modal-instance zooming-logo">
               <a className="modal-trigger" style={{ cursor: 'pointer' }}>
                 <img alt="Senthus" src={LogoBrusselsSmartCity} />
               </a>
@@ -54,7 +58,7 @@ class AllianceSection extends PureComponent {
                   </div>
                 </div>
               </div>
-            </div>
+    </div>*/}
             <div className="col-sm-2 modal-instance zooming-logo">
               <a className="modal-trigger" style={{ cursor: 'pointer' }}>
                 <img alt="Yuktix" src={LogoYuktix} />

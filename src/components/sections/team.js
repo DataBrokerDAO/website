@@ -817,6 +817,7 @@ class TeamSection extends PureComponent {
             </div>
 
             <div className="row align-center" style={{ marginTop: '50px' }}>
+              <div className="col-sm-2" />
               <div className="col-sm-3 zooming-logo">
                 <a
                   style={{ cursor: 'pointer' }}
@@ -856,7 +857,8 @@ class TeamSection extends PureComponent {
                   />
                 </a>
               </div>
-              <div className="col-sm-3 zooming-logo">
+              <div className="col-sm-1" />
+              {/*<div className="col-sm-3 zooming-logo">
                 <a
                   style={{ cursor: 'pointer' }}
                   target="_blank"
@@ -868,7 +870,7 @@ class TeamSection extends PureComponent {
                     src="./img/Logos partners/Sigfox_Logo.png"
                   />
                 </a>
-              </div>
+    </div>*/}
             </div>
           </div>
         </section>
