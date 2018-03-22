@@ -25,23 +25,49 @@ class VideoSection extends PureComponent {
                 className="video-cover border--round"
                 style={{ background: 'white' }}
               >
-                <div className="background-image-holder">
+                {/*<div className="background-image-holder">
                   <img alt="DataBrokerDAO" src="img/video-cover3.jpg" />
                 </div>
-                <div className="video-play-icon" />
+    <div className="video-play-icon" />*/}
 
-                <iframe
+                <Video />
+
+                {/*<iframe
                   style={{ background: 'white' }}
                   title="DataBrokerDAO"
                   data-src="https://player.vimeo.com/video/260074443?autoplay=1"
                   allowFullScreen
                   frameBorder={0}
-                />
+                />*/}
               </div>
             </div>
           </div>
         </div>
       </section>
+    )
+  }
+}
+
+class Video extends React.Component {
+  componentWillMount() {
+    const script1 = document.createElement('script')
+    const script2 = document.createElement('script')
+
+    script1.src = 'https://fast.wistia.com/embed/medias/videolink.jsonp'
+    script1.async = true
+
+    script2.src = 'https://fast.wistia.com/assets/external/E-v1.js'
+    script2.async = true
+
+    document.body.appendChild(script1)
+    document.body.appendChild(script2)
+  }
+
+  render() {
+    return (
+      <div>
+        <div className="wistia_embed wistia_async_rx3mgu8hb2 videoFoam=true playerColor=ff4f4f" />
+      </div>
     )
   }
 }
