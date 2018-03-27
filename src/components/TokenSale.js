@@ -251,11 +251,8 @@ class TokenSale extends Component {
         >
           DTX PRE-SALE LIVE NOW!
         </h2>
-        <p className="sale-date" style={{ marginBottom: '0.5em' }}>
-          MARCH 19TH, 2018 - 4PM CET
-        </p>
         <h3>
-          50% bonus, 10 ETH minimum
+          50% bonus, 10 ETH minimum, fiat price guaranteed!
           {/*<br />
           Ends in {timeLeft} days*/}
         </h3>
