@@ -267,23 +267,28 @@ class TokenSale extends Component {
             />
           )}
         {false && doneLoading && this.numberTable()}
-
-        <FormattedMessage id="sale_salestarts" />
-        <p className="sale-date">APRIL 26TH, 2018 - 4PM CET</p>
         <div className="modal-instance">
           <a
             id="preregister_button"
             className="btn btn-lg type--uppercase btn--primary modal-trigger"
-            style={{ fontSize: '18pt', fontWeight: 'bold', color: 'white' }}
+            style={{
+              fontSize: '18pt',
+              fontWeight: 'bold',
+              color: 'white',
+              marginBottom: '15px',
+            }}
           >
-            {(localStorage.getItem('ref') === 'cryptoclub' ||
-              localStorage.getItem('ref') === 'mattsyndicate') && (
-              <span>Join the private sale</span>
-            )}
-            {localStorage.getItem('ref') !== 'cryptoclub' &&
-              localStorage.getItem('ref') !== 'mattsyndicate' && (
-                <span>BUY NOW!</span>
-              )}
+            <span>Join the pre-sale now!</span>
+          </a>
+          <hr />
+          <FormattedMessage id="sale_salestarts" />
+          <p className="sale-date">APRIL 26TH, 2018 - 4PM CET</p>
+          <a
+            id="register_button"
+            className="btn type--uppercase btn--secondary modal-trigger"
+            style={{ fontSize: '14pt', fontWeight: 'bold', color: 'white' }}
+          >
+            <span>Register for the public sale</span>
           </a>
           <div style={{ marginTop: '15px' }}>
             <a
