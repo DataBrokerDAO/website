@@ -252,7 +252,7 @@ class TokenSale extends Component {
           DTX PRE-SALE LIVE NOW!
         </h2>
         <h3>
-          50% bonus, 10 ETH minimum, fiat price guaranteed!
+          50% bonus, 10 ETH minimum,<br />fiat price guaranteed!
           {/*<br />
           Ends in {timeLeft} days*/}
         </h3>
