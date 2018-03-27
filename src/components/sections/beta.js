@@ -31,7 +31,7 @@ class BetaSection extends PureComponent {
               </p>
               <a
                 className="btn btn-lg btn--primary"
-                href="https://beta.databrokerdao.com"
+                href="https://dapp.databrokerdao.com"
                 target="_blank"
                 rel="noopener noreferrer"
               >

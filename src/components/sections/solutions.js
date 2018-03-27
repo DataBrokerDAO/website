@@ -66,8 +66,8 @@ class SolutionSection extends PureComponent {
                 <p>
                   Since the{' '}
                   <strong>
-                    gateway operator is already set up to deal with the data
-                    their clients generate
+                    gateway operator is already set up to deal with the data its
+                    clients generate
                   </strong>, routing purchased data streams to a location on the
                   internet is a straightforward extension.
                 </p>

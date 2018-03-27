@@ -585,7 +585,7 @@ class TokenSale extends Component {
                     >
                       <a
                         className="btn btn--sm btn--secondary type--uppercase"
-                        href="https://beta.databrokerdao.com/"
+                        href="https://dapp.databrokerdao.com/"
                         target="_blank"
                         rel="noopener noreferrer"
                       >

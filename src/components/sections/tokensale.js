@@ -159,10 +159,10 @@ class TokenSaleSection extends PureComponent {
                         <td className="type--bold">
                           -{' '}
                           <a
-                            href="https://chankura.com/"
+                            href="https://coinfalcon.com/?ref=CFJSEHBJCACT                            "
                             style={{ color: '#666' }}
                           >
-                            Chankura.com
+                            CoinFalcon
                           </a>
                           <br />
                           - ...
