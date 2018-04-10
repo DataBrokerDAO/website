@@ -17,6 +17,7 @@ import EventsSection from './sections/events'
 import AllianceSection from './sections/alliance'
 import BenefitsSection from './sections/benefits'
 import BetaSection from './sections/beta'
+import StakingSection from './sections/staking'
 import { IntlProvider, addLocaleData, FormattedMessage } from 'react-intl'
 import en from 'react-intl/locale-data/en'
 import ar from 'react-intl/locale-data/ar'
@@ -911,6 +912,7 @@ class TokenSale extends Component {
             <CTASection />
             <SolutionSection />
             <BetaSection />
+            <StakingSection/>
             <BenefitsSection />
             <CTASection />
             <AllianceSection />
