@@ -18,10 +18,16 @@ import LogoIkusi from '../../assets/alliance/logo_ikusi.png'
 import LogoThingsplay from '../../assets/alliance/logo_thingsplay.png'
 import LogoBreezometer from '../../assets/alliance/logo_breezometer.png'
 import LogoArinti from '../../assets/alliance/logo_arinti.png'
-import LogoAioti from '../../assets/alliance/logo_aioti.png'
+// import LogoAioti from '../../assets/alliance/logo_aioti.png'
 import LogoAllthingstalk from '../../assets/alliance/logo_allthingstalk.png'
 import LogoCityseeders from '../../assets/alliance/logo_cityseeders.png'
 import LogoIntellegant from '../../assets/alliance/logo_intellegant.png'
+import LogoActility from '../../assets/alliance/logo_actility.png'
+import LogoLumo from '../../assets/alliance/logo_lumo.png'
+import LogoOption from '../../assets/alliance/logo_option.png'
+import LogoTurck from '../../assets/alliance/logo_turck.png'
+import LogoVerses from '../../assets/alliance/logo_verses.png'
+import LogoXterconnect from '../../assets/alliance/logo_xterconnect.png'
 
 class AllianceSection extends PureComponent {
   render() {
@@ -149,13 +155,27 @@ class AllianceSection extends PureComponent {
           </div>
           <div className="row align-center">
             <div className="col-sm-1" />
-            <div className="col-sm-2" />
-            <div className="col-sm-2" />
             <div className="col-sm-2 zooming-logo">
-              <img src={LogoAioti} alt="AIOTI" />
+              <img src={LogoActility} alt="Actility" />
             </div>
-            <div className="col-sm-2" />
-            <div className="col-sm-2" />
+
+            <div className="col-sm-2 zooming-logo">
+              <img src={LogoTurck} alt="Turck" />
+            </div>
+            <div className="col-sm-2 zooming-logo">
+              <img src={LogoVerses} alt="Verses" />
+            </div>
+            <div className="col-sm-2 zooming-logo">
+              <img src={LogoOption} alt="Option" />
+            </div>
+            <div className="col-sm-2 zooming-logo">
+              <img src={LogoXterconnect} alt="XterConnect" />
+            </div>
+          </div>
+          <div className="row align-center">
+            <div className="col-sm-2 zooming-logo">
+              <img src={LogoLumo} alt="Lumo" />
+            </div>
           </div>
           <div className="row align-center" style={{ marginTop: '50px' }}>
             <a
