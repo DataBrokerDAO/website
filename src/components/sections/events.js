@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import { FormattedMessage } from 'react-intl'
 
-const events = [
+const pastEvents = [
   {
     date: 'March 8',
     title: 'FINTECH Belgium - MeetUp on ICOs',
@@ -32,6 +32,25 @@ const events = [
     title: 'Sido - The IoT Showroom',
     location: 'Lyon, France',
   },
+]
+
+const events = [
+  {
+    date: 'April 9-11',
+    title: 'AIM Startup',
+    location: 'Dubai, UAE',
+  },
+  {
+    date: 'April 15-16',
+    title: 'Seamless Middle East',
+    location: 'Dubai, UAE',
+  },
+  {
+    date: 'April 16-17',
+    title: 'World Blockchain Forum',
+    location: 'Dubai, UAE',
+  },
+
   {
     date: 'April 17-19',
     title: 'EventHorizon',
@@ -48,9 +67,59 @@ const events = [
     location: 'Dubai, UAE',
   },
   {
+    date: 'May 2-5',
+    title: 'AND& Festival',
+    location: 'Louvain, Belgium',
+  },
+  {
+    date: 'May 14-16',
+    title: 'Consensus',
+    location: 'New York City, USA',
+  },
+  {
+    date: 'May 15-18',
+    title: 'Go Global',
+    location: 'Singapore',
+  },
+  {
+    date: 'May 15-16',
+    title: 'Tech in Asia',
+    location: 'Singapore',
+  },
+  {
+    date: 'May 24-25',
+    title: 'Latitude 59',
+    location: 'Tallinn, Estiona',
+  },
+  {
     date: 'June 11-14',
     title: 'MoneyConf',
     location: 'Dublin, Ireland',
+  },
+  {
+    date: 'June 12-14',
+    title: 'TechXLR8 London',
+    location: 'London',
+  },
+  {
+    date: 'June 26-27',
+    title: 'WEBIT Blockchain Summit',
+    location: 'Sofia, Bulgary',
+  },
+  {
+    date: 'June 20-21',
+    title: 'Tech Open Air',
+    location: 'Berlin',
+  },
+  {
+    date: 'July 9-13',
+    title: 'Rise conference',
+    location: 'Hong Kong, China',
+  },
+  {
+    date: 'October 22-25',
+    title: 'SIBOS',
+    location: 'Sydney, Australia',
   },
 ]
 
@@ -113,7 +182,17 @@ class EventsSection extends PureComponent {
           </div>
 
           <div className="row" style={{ margin: '30px 0' }}>
-            <div className="col-sm-4">
+            {pastEvents.map((event, index) => (
+              <div key={index} className="col-sm-4">
+                <div className="event feature feature-1 boxed boxed--border">
+                  <p className="color--primary">{event.date}</p>
+                  <h4>{event.title}</h4>
+                  <p>{event.location}</p>
+                </div>
+              </div>
+            ))}
+
+            {/*<div className="col-sm-4">
               <div
                 className="event feature feature-1 boxed boxed--border"
                 onClick={() =>
@@ -204,7 +283,7 @@ class EventsSection extends PureComponent {
                 <h4>Wanxiang Blockchain Labs</h4>
                 <p>Shanghai</p>
               </div>
-            </div>
+              </div>*/}
           </div>
         </div>
       </section>
