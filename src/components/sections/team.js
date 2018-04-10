@@ -872,6 +872,50 @@ class TeamSection extends PureComponent {
                 </a>
     </div>*/}
             </div>
+
+            <div className="row align-center" style={{ marginTop: '50px' }}>
+              <div className="col-sm-2" />
+              <div className="col-sm-3 zooming-logo">
+                <a
+                  style={{ cursor: 'pointer' }}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="http://bitcoinprbuzz.com/"
+                >
+                  <img
+                    alt="BitCoinPRBuzz"
+                    src="./img/Logos partners/logo-bitcoinprbuzz.png"
+                  />
+                </a>
+              </div>
+              <div className="col-sm-3 zooming-logo">
+                <a
+                  style={{ cursor: 'pointer' }}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://www.polymath.network/"
+                >
+                  <img
+                    alt="Polymath"
+                    src="./img/Logos partners/logo-polymath.png"
+                  />
+                </a>
+              </div>
+              <div className="col-sm-3 zooming-logo">
+                <a
+                  style={{ cursor: 'pointer' }}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://www.renownedandco.com/"
+                >
+                  <img
+                    alt="Renowned & Co"
+                    src="./img/Logos partners/logo-renowned.png"
+                  />
+                </a>
+              </div>
+              <div className="col-sm-1" />
+            </div>
           </div>
         </section>
       </div>
