@@ -234,6 +234,15 @@ class TeamSection extends PureComponent {
                             <i className="color--primary fa fa-linkedin fa-2x" />
                           </a>
                         </div>
+                        <div className="card__action">
+                          <a
+                            href="https://twitter.com/FrankVanGee"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <i className="color--primary fa fa-twitter fa-2x" />
+                          </a>
+                        </div>
                       </div>
                     </div>
 
@@ -250,9 +259,9 @@ class TeamSection extends PureComponent {
                             <p>
                               As a marketing and communication professional with
                               almost 20 years experience in advertising,
-                              publishing, sales, automotive and ICT, Frank
+                              publishing, sales, automotive, FMCG and ICT, Frank
                               worked on both agency and advertising site before
-                              getting on-board at SettleMint.
+                              getting on-board at DataBroker DAO.
                             </p>
                           </div>
                         </div>
