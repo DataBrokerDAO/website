@@ -25,7 +25,7 @@ import LogoIntellegant from '../../assets/alliance/logo_intellegant.png'
 import LogoActility from '../../assets/alliance/logo_actility.png'
 import LogoLumo from '../../assets/alliance/logo_lumo.png'
 import LogoOption from '../../assets/alliance/logo_option.png'
-import LogoTurck from '../../assets/alliance/logo_turck.png'
+// import LogoTurck from '../../assets/alliance/logo_turck.png'
 import LogoVerses from '../../assets/alliance/logo_verses.png'
 import LogoXterconnect from '../../assets/alliance/logo_xterconnect.png'
 
@@ -159,8 +159,11 @@ class AllianceSection extends PureComponent {
               <img src={LogoActility} alt="Actility" />
             </div>
 
-            <div className="col-sm-2 zooming-logo">
+            {/*<div className="col-sm-2 zooming-logo">
               <img src={LogoTurck} alt="Turck" />
+  </div>*/}
+            <div className="col-sm-2 zooming-logo">
+              <img src={LogoLumo} alt="Lumo" />
             </div>
             <div className="col-sm-2 zooming-logo">
               <img src={LogoVerses} alt="Verses" />
@@ -170,11 +173,6 @@ class AllianceSection extends PureComponent {
             </div>
             <div className="col-sm-2 zooming-logo">
               <img src={LogoXterconnect} alt="XterConnect" />
-            </div>
-          </div>
-          <div className="row align-center">
-            <div className="col-sm-2 zooming-logo">
-              <img src={LogoLumo} alt="Lumo" />
             </div>
           </div>
           <div className="row align-center" style={{ marginTop: '50px' }}>
