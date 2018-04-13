@@ -9,21 +9,21 @@ import LogoSkylark from '../../assets/alliance/logo_Skylark.png'
 import LogoTechnilog from '../../assets/alliance/Logo_Technilog.png'
 import LogoIdentitymindglobal from '../../assets/alliance/logo_identitymindglobal.png'
 import LogoPanasonic from '../../assets/alliance/logo_panasonic.png'
-import LogoSket from '../../assets/alliance/logo_sket.png'
+// import LogoSket from '../../assets/alliance/logo_sket.png'
 import LogoApinf from '../../assets/alliance/logo_apinf.png'
 import LogoEsoptra from '../../assets/alliance/logo_esoptra.png'
 import LogoDigitaltown from '../../assets/alliance/logo_digitaltown.png'
 // import LogoDspvalley from '../../assets/alliance/logo_dspvalley.png'
-import LogoIkusi from '../../assets/alliance/logo_ikusi.png'
+// import LogoIkusi from '../../assets/alliance/logo_ikusi.png'
 import LogoThingsplay from '../../assets/alliance/logo_thingsplay.png'
 // import LogoBreezometer from '../../assets/alliance/logo_breezometer.png'
 // import LogoArinti from '../../assets/alliance/logo_arinti.png'
 // import LogoAioti from '../../assets/alliance/logo_aioti.png'
 import LogoAllthingstalk from '../../assets/alliance/logo_allthingstalk.png'
-import LogoCityseeders from '../../assets/alliance/logo_cityseeders.png'
+// import LogoCityseeders from '../../assets/alliance/logo_cityseeders.png'
 // import LogoIntellegant from '../../assets/alliance/logo_intellegant.png'
 // import LogoActility from '../../assets/alliance/logo_actility.png'
-// import LogoLumo from '../../assets/alliance/logo_lumo.png'
+import LogoLumo from '../../assets/alliance/logo_lumo.png'
 import LogoOption from '../../assets/alliance/logo_option.png'
 // import LogoTurck from '../../assets/alliance/logo_turck.png'
 import LogoVerses from '../../assets/alliance/logo_verses.png'
@@ -97,9 +97,6 @@ class AllianceSection extends PureComponent {
             <div className="col-sm-2 zooming-logo">
               <img src={LogoVerses} alt="Verses" />
             </div>
-            {/*<div className="col-sm-2 zooming-logo">
-              <img src={LogoDspvalley} alt="DSP Valley" />
-  </div>*/}
             <div className="col-sm-1" />
           </div>
           <div className="row align-center">
@@ -114,64 +111,63 @@ class AllianceSection extends PureComponent {
               <img src={LogoPanasonic} alt="Panasonic" />
             </div>
             <div className="col-sm-2 zooming-logo">
-              <img src={LogoIkusi} alt="Ikusi" />
+              <img src={LogoApinf} alt="APINF" />
             </div>
             <div className="col-sm-2 zooming-logo">
-              <img src={LogoApinf} alt="APINF" />
+              <img src={LogoAllthingstalk} alt="All Things Talk" />
             </div>
             <div className="col-sm-1" />
           </div>
           <div className="row align-center">
-            <div className="col-sm-1" />
+            <div className="col-sm-2" />
             <div className="col-sm-2 zooming-logo">
               <img src={LogoDesideDatum} alt="desideDatum" />
             </div>
             <div className="col-sm-2 zooming-logo">
               <img src={LogoIquadrat} alt="Iquadrat" />
             </div>
-            {/*<div className="col-sm-2 zooming-logo">
-              <img src={LogoSigfox} alt="Sigfox" />
-  </div>*/}
-            <div className="col-sm-2 zooming-logo">
-              <img src={LogoSket} alt="Sket" />
-            </div>
             <div className="col-sm-2 zooming-logo">
               <img src={LogoSkylark} alt="Skylark" />
             </div>
             <div className="col-sm-2 zooming-logo">
-              <img src={LogoCityseeders} alt="City Seeders" />
+              <img src={LogoLumo} alt="Lumo" />
             </div>
-            <div className="col-sm-1" />
           </div>
-          <div className="row align-center">
-            {/*<div className="col-sm-2 zooming-logo">
+
+          {/*<div className="col-sm-2 zooming-logo">
+              <img src={LogoDspvalley} alt="DSP Valley" />
+  </div>*/}
+          {/*<div className="col-sm-2 zooming-logo">
+              <img src={LogoIkusi} alt="Ikusi" />
+</div>*/}
+          {/*<div className="col-sm-2 zooming-logo">
+              <img src={LogoSigfox} alt="Sigfox" />
+  </div>*/}
+          {/*<div className="col-sm-2 zooming-logo">
+              <img src={LogoSket} alt="Sket" />
+</div>*/}
+          {/*<div className="col-sm-2 zooming-logo">
+              <img src={LogoCityseeders} alt="City Seeders" />
+</div>*/}
+          {/*<div className="col-sm-2 zooming-logo">
               <img src={LogoBreezometer} alt="Breezometer" />
 </div>*/}
-            {/*<div className="col-sm-2 zooming-logo">
+          {/*<div className="col-sm-2 zooming-logo">
               <img src={LogoArinti} alt="Arinti" />
 </div>*/}
-            {/*<div className="col-sm-2 zooming-logo">
+          {/*<div className="col-sm-2 zooming-logo">
               <img src={LogoIntellegant} alt="Intellegant" />
 </div>*/}
-            <div className="col-sm-2 zooming-logo">
-              <img src={LogoAllthingstalk} alt="All Things Talk" />
-            </div>
-          </div>
-          <div className="row align-center">
-            {/*<div className="col-sm-2 zooming-logo">
+          {/*<div className="col-sm-2 zooming-logo">
               <img src={LogoActility} alt="Actility" />
 </div>*/}
 
-            {/*<div className="col-sm-2 zooming-logo">
+          {/*<div className="col-sm-2 zooming-logo">
               <img src={LogoTurck} alt="Turck" />
   </div>*/}
-            {/*<div className="col-sm-2 zooming-logo">
-              <img src={LogoLumo} alt="Lumo" />
-</div>*/}
-            {/*<div className="col-sm-2 zooming-logo">
+          {/*<div className="col-sm-2 zooming-logo">
               <img src={LogoXterconnect} alt="XterConnect" />
 </div>*/}
-          </div>
           <div className="row align-center" style={{ marginTop: '50px' }}>
             <a
               id="join-alliance-btn"
