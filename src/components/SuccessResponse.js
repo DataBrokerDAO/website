@@ -5,6 +5,7 @@ class SuccessResponse extends Component {
   render() {
     const { address, uuid /*btcAddress*/ } = this.props
     fbq('track', 'CompleteRegistration') // eslint-disable-line
+    twttr.conversion.trackPid('nzbus', { tw_sale_amount: 0, tw_order_quantity: 0 }); // eslint-disable-line
     window.ga('send', {
       hitType: 'event',
       eventCategory: 'Funnel',
