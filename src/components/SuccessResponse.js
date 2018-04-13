@@ -17,8 +17,6 @@ class SuccessResponse extends Component {
 
     return (
       <div>
-      <img height="1" width="1" style={display: "none"} alt="" src="https://analytics.twitter.com/i/adsct?txn_id=nzbus&p_id=Twitter&tw_sale_amount=0&tw_order_quantity=0" />
-      <img height="1" width="1" style={display: "none"} alt="" src="//t.co/i/adsct?txn_id=nzbus&p_id=Twitter&tw_sale_amount=0&tw_order_quantity=0" />
         <h2>
           <span>You have completed the KYC procedure successfully!</span>
         </h2>
