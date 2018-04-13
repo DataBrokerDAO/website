@@ -528,7 +528,7 @@ class TeamSection extends PureComponent {
                     </div>
                   </div>
                   <div className="col-xs-6 col-sm-3 masonry__item modal-instance">
-                    <div className="card card-2 text-center">
+                    {/*<div className="card card-2 text-center">
                       <div className="card__top modal-trigger">
                         <img
                           alt="Mago"
@@ -572,8 +572,8 @@ class TeamSection extends PureComponent {
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </div>
+    </div>*/}
+    </div>
                   <TeamCard
                     firstName="Astrid"
                     lastName="Janssens"
