@@ -468,7 +468,7 @@ class AllianceSection extends PureComponent {
               <div className="modal-container">
                 <div className="modal-content">
                   <div className="boxed boxed--border">
-                    <h2>Iungo</h2>
+                    <h2>IUNGO</h2>
                     <p>
                       IUNGO Network is part of a movement that wants to build
                       the foundations of a new, decentralized internet by
