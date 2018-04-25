@@ -83,58 +83,413 @@ class AllianceSection extends PureComponent {
                 </div>
               </div>
             </div>
-            <div className="col-sm-2 zooming-logo">
-              <img src={LogoEsoptra} alt="Esoptra" />
+            <div className="col-sm-2 modal-instance zooming-logo">
+              <a className="modal-trigger" style={{ cursor: 'pointer' }}>
+                <img src={LogoEsoptra} alt="Esoptra" />
+              </a>
+              <div className="modal-container">
+                <div className="modal-content">
+                  <div className="boxed boxed--border">
+                    <h2>Esoptra</h2>
+                    <p>
+                      Belgium-based software company Esoptra delivers customized
+                      information access and integration solutions as a service.
+                      Their innovative IPaaS platform uses so called ‘pluglits’
+                      to provide a new array of data access and migration
+                      services. These pluglits are tiny data connectors
+                      ‘scraping’ data from its sources, only when the
+                      destination (data) file gets consulted. Thus eliminating
+                      the need for intermediate storage and useless data
+                      migration. At a fraction of the usual cost, deployed in
+                      hours or days instead of weeks or months, deployed on
+                      premise or in any cloud, and rendered on any mobile or
+                      desktop device. By joining the DataBroker DAO alliance,
+                      Esoptra gets access to a blockchain based layer to
+                      monetize their services.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="col-sm-2 zooming-logo">
-              <img src={LogoDigitaltown} alt="Digital Town" />
+            <div className="col-sm-2 modal-instance zooming-logo">
+              <a className="modal-trigger" style={{ cursor: 'pointer' }}>
+                <img src={LogoDigitaltown} alt="Digital Town" />
+              </a>
+              <div className="modal-container">
+                <div className="modal-content">
+                  <div className="boxed boxed--border">
+                    <h2>Digital Town</h2>
+                    <p>
+                      DigitalTown helps people search, connect and buy local in
+                      over 22,000 cities globally. Their innovative search
+                      technology is branded with the identity of each city. They
+                      create discoverable online communities where residents and
+                      visitors take part in local economic success, and they do
+                      this on a global scale. They work with city stakeholders,
+                      provide local merchants a free online store front, and
+                      share in the success with the citizens directly, all to
+                      keep funds where they belong - local. They make civic
+                      pride a call to action and inspire people to co-create
+                      solutions together in communities across the globe.
+                      DigitalTown's CityShare platform offers residents the
+                      chance to own a stake in a city's success, through digital
+                      shares in their local community. All while giving
+                      stakeholders a passionate community in which to engage.
+                      The shares rise in value with demand, and demand is tied
+                      to active local support.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="col-sm-2 zooming-logo">
-              <img src={LogoThingsplay} alt="Thingplay" />
+            <div className="col-sm-2 modal-instance zooming-logo">
+              <a className="modal-trigger" style={{ cursor: 'pointer' }}>
+                <img src={LogoThingsplay} alt="Thingplay" />
+              </a>
+              <div className="modal-container">
+                <div className="modal-content">
+                  <div className="boxed boxed--border">
+                    <h2>ThingsPlay</h2>
+                    <p>
+                      Thingsplay is a start-up company created in July 2014 with
+                      the aim to make agile and innovative technological tools
+                      available to industries in the context of the Internet of
+                      Things. From data acquisition to integration in your
+                      applications, Thingsplay manages, transports, secures and
+                      processes all your industrial data, offering solutions for
+                      industries, public buildings as well as homes and enabling
+                      track & trace solutions to be made available to business
+                      companies. After a few years in research and development,
+                      Thingsplay has developed technological solutions and a
+                      connected devices computer management platform, based on
+                      ‘real-time’ technologies and ‘big data’ databases. This
+                      management platform integrates all monitoring and
+                      management tools to your connected devices.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="col-sm-2 zooming-logo">
-              <img src={LogoOption} alt="Option" />
+            <div className="col-sm-2 modal-instance zooming-logo">
+              <a className="modal-trigger" style={{ cursor: 'pointer' }}>
+                <img src={LogoOption} alt="Option" />
+              </a>
+              <div className="modal-container">
+                <div className="modal-content">
+                  <div className="boxed boxed--border">
+                    <h2>Option</h2>
+                    <p>
+                      Option, headquartered in Leuven, Belgium is a publicly
+                      quoted tech company that specializes in wireless solutions
+                      enabling Machine to Machine communication. With over 30
+                      years of experience and many industry firsts, the company
+                      offers efficient, reliable and secure solutions across a
+                      variety of industries and applications. Recently the
+                      company shifted focus from mobile and wireless chipsets to
+                      devices to support communication between IoT sensors and
+                      the internet. CloudGate, their complete machine to machine
+                      communication platform, allows anyone to deploy IoT sensor
+                      arrays in any environment, anywhere in the world.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="col-sm-2 zooming-logo">
-              <img src={LogoVerses} alt="Verses" />
+            <div className="col-sm-2 modal-instance zooming-logo">
+              <a className="modal-trigger" style={{ cursor: 'pointer' }}>
+                <img src={LogoVerses} alt="Verses" />
+              </a>
+              <div className="modal-container">
+                <div className="modal-content">
+                  <div className="boxed boxed--border">
+                    <h2>VERSES</h2>
+                    <p>
+                      VERSES is an integrated blockchain-based virtual commerce
+                      (vCommerce) enablement platform, built on highly scalable,
+                      secure and robust blockchain and smart contract
+                      technologies that manage the interaction policies by and
+                      between virtual entities, elements, fiat and crypto
+                      currencies and transactions within virtual immersive
+                      experiences. VERSES’ mission is to empower designers,
+                      developers, organizations and users to create, monetize
+                      and experience the most dynamic, interactive and
+                      meaningful immersive experiences imaginable. They
+                      developed a whole new protocol to bring global positioning
+                      and assets ‘location’ to blockchain, and they are a few
+                      steps ahead of the pack when it comes to artificial
+                      components used in gaming and industrial environments.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
             <div className="col-sm-1" />
           </div>
           <div className="row align-center">
             <div className="col-sm-1" />
-            <div className="col-sm-2 zooming-logo">
-              <img src={LogoTechnilog} alt="Technilog" />
+            <div className="col-sm-2 modal-instance zooming-logo">
+              <a className="modal-trigger" style={{ cursor: 'pointer' }}>
+                <img src={LogoTechnilog} alt="Technilog" />
+              </a>
+              <div className="modal-container">
+                <div className="modal-content">
+                  <div className="boxed boxed--border">
+                    <h2>Technilog</h2>
+                    <p>
+                      French software publisher Technilog focuses on the
+                      collection of IoT and industrial automation data. Their
+                      cloud platform unifies, reproduces and distributes raw or
+                      enhanced data coming from all kinds of sensors connected
+                      to the LoRa and/or Sigfox operators (temperature,
+                      humidity, soil acidification, noise pollution, energy
+                      consumption index, geolocation, …) to other cloud
+                      platforms and industry-specific applications. The company
+                      wants to offer its products and technologies in various
+                      forms: unlimited licence, SaaS, middleware and on-board
+                      software, to serve and accompany its customers through
+                      whatever strategic choices they make. “We specialize in
+                      harnessing connected industrial objects to provide users
+                      with the right data, in the right format, at the right
+                      time and for the right purpose”, says Jean-François
+                      Ducourtioux, director of Operations at Technilog.
+                      “DataBroker DAO enables us to value the collected raw and
+                      enhanced data and to make them accessible to user
+                      communities.”
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="col-sm-2 zooming-logo">
-              <img src={LogoIdentitymindglobal} alt="IdentityMind Global" />
+            <div className="col-sm-2 modal-instance zooming-logo">
+              <a className="modal-trigger" style={{ cursor: 'pointer' }}>
+                <img src={LogoIdentitymindglobal} alt="IdentityMind Global" />
+              </a>
+              <div className="modal-container">
+                <div className="modal-content">
+                  <div className="boxed boxed--border">
+                    <h2>Identity Mind</h2>
+                    <p>
+                      IdentityMind provides a cloud-based risk management and
+                      compliance automation platform that adapts to the needs of
+                      your business. Delivering real-time access to a global
+                      database with hundreds of millions of trusted identities
+                      and offering a comprehensive and fully integrated
+                      ecosystem of 20 plus partners who provide data, services
+                      and technology. The company’s mission is concise:
+                      construct electronic identities and infuse integrity back
+                      into the global market of digital commerce. Thus helping
+                      retailers, financial institutions and virtual currency
+                      businesses to mitigate risks and comply with federal and
+                      state regulations.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="col-sm-2 zooming-logo">
-              <img src={LogoPanasonic} alt="Panasonic" />
+            <div className="col-sm-2 modal-instance zooming-logo">
+              <a className="modal-trigger" style={{ cursor: 'pointer' }}>
+                <img src={LogoPanasonic} alt="Panasonic" />
+              </a>
+              <div className="modal-container">
+                <div className="modal-content">
+                  <div className="boxed boxed--border">
+                    <h2>Panasonic</h2>
+                    <p>
+                      Panasonic Corporation is a Japanese multinational
+                      electronics corporation, headquartered in Osaka, Japan.
+                      The company was founded in 1918, 100 years ago, and has
+                      since grown to become one of the largest Japanese
+                      electronics producers, employing over 250,000 people
+                      worldwide. Panasonic has put forward the brand slogan “A
+                      Better Life, A Better World” to embody its founding
+                      management philosophy “to contribute to the progress and
+                      development of society through its business activities”.
+                      Guided by this slogan, the company is endeavoring to offer
+                      “A Better Life, A Better World” to each and every customer
+                      around the world across its four core business areas:
+                      Consumer Electronics, Housing, Automotive and B2B.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="col-sm-2 zooming-logo">
-              <img src={LogoApinf} alt="APINF" />
+            <div className="col-sm-2 modal-instance zooming-logo">
+              <a className="modal-trigger" style={{ cursor: 'pointer' }}>
+                <img src={LogoApinf} alt="APINF" />
+              </a>
+              <div className="modal-container">
+                <div className="modal-content">
+                  <div className="boxed boxed--border">
+                    <h2>APInf</h2>
+                    <p>
+                      APIs are the building blocks of digitalization and have
+                      become increasingly important over time. That is why
+                      APInf, based in Tampere, Finland, has come up with a
+                      comprehensive, yet easy to use API management tool,
+                      providing a simplified workflow for API owners for API
+                      management tasks and serving as a self-service tool for
+                      API consumers for discovering APIs. The APInf platform is
+                      scalable, flexible, auditable, features analytics tracking
+                      and emphasizes a better developer experience.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="col-sm-2 zooming-logo">
-              <img src={LogoAllthingstalk} alt="All Things Talk" />
+            <div className="col-sm-2 modal-instance zooming-logo">
+              <a className="modal-trigger" style={{ cursor: 'pointer' }}>
+                <img src={LogoAllthingstalk} alt="All Things Talk" />
+              </a>
+              <div className="modal-container">
+                <div className="modal-content">
+                  <div className="boxed boxed--border">
+                    <h2>AllThingsTalk</h2>
+                    <p>
+                      AllThingsTalk, headquartered in Ghent, provides a
+                      ‘middleware’ platform that allows customers to aggregate
+                      and process their IoT data. But the AllThingsTalk cloud is
+                      more than just an IoT platform. It's an end-to-end
+                      solution connecting any hardware or software platform,
+                      allowing you to connect your devices – existing integrated
+                      sensors or new ones – with web services, let them interact
+                      using when-then rules, and store as well as visualize data
+                      using mobile or web dashboards.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
             <div className="col-sm-1" />
           </div>
           <div className="row align-center">
             <div className="col-sm-1" />
-            <div className="col-sm-2 zooming-logo">
-              <img src={LogoDesideDatum} alt="desideDatum" />
+            <div className="col-sm-2 modal-instance zooming-logo">
+              <a className="modal-trigger" style={{ cursor: 'pointer' }}>
+                <img src={LogoDesideDatum} alt="desideDatum" />
+              </a>
+              <div className="modal-container">
+                <div className="modal-content">
+                  <div className="boxed boxed--border">
+                    <h2>DesideDatum</h2>
+                    <p>
+                      desideDatum, with offices in Barcelona and Madrid,
+                      provides technology consulting services in the field of
+                      opening data and organizations, helping them to meet their
+                      transparency objectives and encouraging citizen
+                      participation. They want to be promoters and transformers
+                      of a new use of the data culture, offering society the
+                      necessary tools and knowledge to generate economic,
+                      technological, social, political and cultural wealth,
+                      through the opening of data.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="col-sm-2 zooming-logo">
-              <img src={LogoIquadrat} alt="Iquadrat" />
+            <div className="col-sm-2 modal-instance zooming-logo">
+              <a className="modal-trigger" style={{ cursor: 'pointer' }}>
+                <img src={LogoIquadrat} alt="Iquadrat" />
+              </a>
+              <div className="modal-container">
+                <div className="modal-content">
+                  <div className="boxed boxed--border">
+                    <h2>Iquadrat</h2>
+                    <p>
+                      Since 1997, Barcelona-based iquadrat develops global
+                      internet and telecommunications solutions and services for
+                      companies and institutions that use ICT in commercial,
+                      marketing, management and business communication areas.
+                      Corporate websites, blogs, e-mail services, portals,
+                      newsletters, e-commerce, intranet, extranet, online
+                      catalogues, SEO, social marketing, custom applications,
+                      hosting, maintenance, accessibility, compatibility … you
+                      name it, iquadrat provides it.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="col-sm-2 zooming-logo">
-              <img src={LogoSkylark} alt="Skylark" />
+            <div className="col-sm-2 modal-instance zooming-logo">
+              <a className="modal-trigger" style={{ cursor: 'pointer' }}>
+                <img src={LogoSkylark} alt="Skylark" />
+              </a>
+              <div className="modal-container">
+                <div className="modal-content">
+                  <div className="boxed boxed--border">
+                    <h2>Skylark</h2>
+                    <p>
+                      Skylark, with offices in India and Singapore, is a leading
+                      IT service provider that strives to transform its clients’
+                      businesses through innovative and advanced technology
+                      solutions. The company was founded in 1993, and has since
+                      performed more than 2,000 successful installations with
+                      over 300 clients. Leveraging their partnerships with
+                      leading service providers, they offer value-added
+                      solutions in managed services, networking, IT security,
+                      blockchain and the cloud. Their unique approach to
+                      ‘choosing the right technology’ and their ability to solve
+                      complex infrastructure challenges help their clients to
+                      maximize their IT investments and to create a competitive
+                      advantage through organizational agility and a lower total
+                      cost of design.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="col-sm-2 zooming-logo">
-              <img src={LogoLumo} alt="Lumo" />
+            <div className="col-sm-2 modal-instance zooming-logo">
+              <a className="modal-trigger" style={{ cursor: 'pointer' }}>
+                <img src={LogoLumo} alt="Lumo" />
+              </a>
+              <div className="modal-container">
+                <div className="modal-content">
+                  <div className="boxed boxed--border">
+                    <h2>Lumo Labs</h2>
+                    <p>
+                      LUMO labs, active in Eindhoven (The Netherlands) and Los
+                      Angeles (USA), is a 2-year venture builder program for
+                      emerging technology start-ups providing seed capital and
+                      hands-on support. LUMO labs’ mission is to facilitate a
+                      vibrant ecosystem and stimulate cross-pollination between
+                      its start-ups. Their focus markets are big data/deep
+                      learning, AI, VR/AR/MR, blockchain and robotics/IoT
+                      (including smart mobility). LUMO labs’ unique process
+                      shortens the time-to-market as well as the time-to-(follow
+                      up)funding.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="col-sm-2 zooming-logo">
-              <img src={LogoIungoo} alt="Iungoo" />
+            <div className="col-sm-2 modal-instance zooming-logo">
+              <a className="modal-trigger" style={{ cursor: 'pointer' }}>
+                <img src={LogoIungoo} alt="Iungoo" />
+              </a>
+              <div className="modal-container">
+                <div className="modal-content">
+                  <div className="boxed boxed--border">
+                    <h2>Iungo</h2>
+                    <p>
+                      IUNGO Network is part of a movement that wants to build
+                      the foundations of a new, decentralized internet by
+                      creating the world’s first truly global WiFi network.
+                      IUNGO Network believes that internet access is a basic
+                      human right and will empower consumers in both emerging
+                      and developed markets while providing monetization
+                      opportunities to individuals and to businesses of all
+                      sizes. “We are delighted to have taken a strategic
+                      decision to join the DataBroker DAO Alliance and to have
+                      access to their emerging data marketplace”, says IUNGO CEO
+                      Ricardas Bernotavicius. “This provides an additional
+                      potential future monetization option for IUNGO business
+                      customers and consumers. Additionally, there are strong
+                      future synergies from a technical perspective that can
+                      benefit both projects as we execute along our respective
+                      roadmaps.”
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
