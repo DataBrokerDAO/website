@@ -28,6 +28,7 @@ import LogoOption from '../../assets/alliance/logo_option.png'
 // import LogoTurck from '../../assets/alliance/logo_turck.png'
 import LogoVerses from '../../assets/alliance/logo_verses.png'
 // import LogoXterconnect from '../../assets/alliance/logo_xterconnect.png'
+import LogoIungoo from '../../assets/alliance/logo_iungoo.png'
 
 class AllianceSection extends PureComponent {
   render() {
@@ -119,7 +120,7 @@ class AllianceSection extends PureComponent {
             <div className="col-sm-1" />
           </div>
           <div className="row align-center">
-            <div className="col-sm-2" />
+            <div className="col-sm-1" />
             <div className="col-sm-2 zooming-logo">
               <img src={LogoDesideDatum} alt="desideDatum" />
             </div>
@@ -131,6 +132,9 @@ class AllianceSection extends PureComponent {
             </div>
             <div className="col-sm-2 zooming-logo">
               <img src={LogoLumo} alt="Lumo" />
+            </div>
+            <div className="col-sm-2 zooming-logo">
+              <img src={LogoIungoo} alt="Iungoo" />
             </div>
           </div>
 
