@@ -19,7 +19,7 @@ export const getWeb3 = new Promise(function(resolve, reject) {
 
   //   console.log('Injected web3 detected.');
 
-  //   resolve(results);
+  //   resolve(dresults);
   // } else {
   //   // Fallback to localhost if no web3 injection.
   var provider = new Web3.providers.HttpProvider(
