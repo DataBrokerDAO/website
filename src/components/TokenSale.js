@@ -252,7 +252,7 @@ class TokenSale extends Component {
         >
           DTX PUBLIC SALE LIVE NOW!
         </h2>
-        <h3>10% bonus during day 1, ending in {timeLeft} hours</h3>
+        <h3>10% bonus during day 1!</h3>
         {doneLoading && (
           <ProgressBar percentage={percentage} label={`${percentage}% SOLD`} />
         )}
