@@ -250,7 +250,7 @@ class TokenSale extends Component {
           className="sale-date type--uppercase"
           style={{ fontWeight: 'bold' }}
         >
-          DTX PUBLIC-SALE LIVE NOW!
+          DTX PUBLIC SALE LIVE NOW!
         </h2>
         <h3>10% bonus during day 1, ending in {timeLeft} hours</h3>
         {doneLoading && (
