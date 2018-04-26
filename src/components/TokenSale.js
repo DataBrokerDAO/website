@@ -217,7 +217,7 @@ class TokenSale extends Component {
 
       let total = totalIssued.plus(totalIssuedEarlySale).div(10 ** 18)
       let totalUSD = totalIssued
-        .div(6000)
+        .div(4000)
         .plus(totalIssuedEarlySale.div(6000))
         .times(ethprice)
         .div(10 ** 18)
@@ -234,7 +234,7 @@ class TokenSale extends Component {
         total: total.toFormat(0),
         percentage: percentage.toFixed(2),
         usd: totalUSD.toFormat(0),
-        timeLeft: moment('2018-03-26 15:59:59+01:00').diff(moment(), 'days'),
+        timeLeft: moment().diff(moment('2018-03-27 15:59:59+01:00'), 'days'),
       }
       this.setState(newState)
     } catch (error) {
@@ -243,28 +243,20 @@ class TokenSale extends Component {
   }
 
   saleUpcoming = doneLoading => {
-    const { percentage /*timeLeft*/ } = this.state
+    const { percentage, timeLeft } = this.state
     return (
       <div>
         <h2
           className="sale-date type--uppercase"
           style={{ fontWeight: 'bold' }}
         >
-          DTX PRE-SALE LIVE NOW!
+          DTX PUBLIC-SALE LIVE NOW!
         </h2>
-        <h3>
-          50% bonus, 10 ETH minimum,<br />fiat price guaranteed!
-          {/*<br />
-          Ends in {timeLeft} days*/}
-        </h3>
-        {false &&
-          doneLoading && (
-            <ProgressBar
-              percentage={percentage}
-              label={`${percentage}% SOLD`}
-            />
-          )}
-        {false && doneLoading && this.numberTable()}
+        <h3>10% bonus during day 1, ending in {timeLeft} hours</h3>
+        {doneLoading && (
+          <ProgressBar percentage={percentage} label={`${percentage}% SOLD`} />
+        )}
+        {doneLoading && this.numberTable()}
         <div className="modal-instance">
           <a
             id="preregister_button"
@@ -276,18 +268,9 @@ class TokenSale extends Component {
               marginBottom: '15px',
             }}
           >
-            <span>Join the pre-sale now!</span>
+            <span>BUY DTX RIGHT NOW!</span>
           </a>
-          <hr />
-          <FormattedMessage id="sale_salestarts" />
-          <p className="sale-date">APRIL 26TH, 2018 - 4PM CET</p>
-          <a
-            id="register_button"
-            className="btn type--uppercase btn--secondary modal-trigger"
-            style={{ fontSize: '14pt', fontWeight: 'bold', color: 'white' }}
-          >
-            <span>Register for the public sale</span>
-          </a>
+
           <div style={{ marginTop: '15px' }}>
             <a
               href="https://t.me/databrokerdao"
@@ -912,7 +895,7 @@ class TokenSale extends Component {
             <CTASection />
             <SolutionSection />
             <BetaSection />
-            <StakingSection/>
+            <StakingSection />
             <BenefitsSection />
             <CTASection />
             <AllianceSection />
