@@ -243,7 +243,7 @@ class TokenSale extends Component {
   }
 
   saleUpcoming = doneLoading => {
-    const { percentage, timeLeft } = this.state
+    const { percentage /*, timeLeft*/ } = this.state
     return (
       <div>
         <h2
