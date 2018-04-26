@@ -47,6 +47,7 @@ class SuccessResponse extends Component {
                 readOnly
               />
             </div>
+            {/*
             <div className="form-group">
               <label className="type--uppercase ">Minimum amount</label>
               <input
@@ -57,7 +58,7 @@ class SuccessResponse extends Component {
                 readOnly
               />
             </div>
-            {/*
+
               <hr />
               <div className="form-group" style={{ marginTop: '1em' }}>
                 <label className="type--uppercase ">
