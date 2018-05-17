@@ -229,12 +229,21 @@ class TokenSale extends Component {
           .div(10 ** 18)
       }
 
-      const percentage = total.div(108000000).times(100)
+      // OLD percentage: the percentage of tokens sold
+      // const percentage = total.div(108000000).times(100)
+
+      const endTime = moment('2018-05-24')
+      const startTime = moment('2018-04-26')
+      const totalTime = endTime.diff(startTime, 'days')
+      const timeLeft = endTime.diff(moment(), 'days')
+      const percentage = (1 - timeLeft / totalTime) * 100
+
       const newState = {
         total: total.toFormat(0),
-        percentage: percentage.toFixed(2),
         usd: totalUSD.toFormat(0),
-        timeLeft: moment().diff(moment('2018-03-27 15:59:59+01:00'), 'days'),
+        percentage,
+        timeLeft,
+        // timeLeft: moment().diff(moment('2018-03-27 15:59:59+01:00'), 'days'),
       }
       this.setState(newState)
     } catch (error) {
@@ -243,7 +252,7 @@ class TokenSale extends Component {
   }
 
   saleUpcoming = doneLoading => {
-    const { percentage /*, timeLeft*/ } = this.state
+    const { percentage, timeLeft } = this.state
     return (
       <div>
         <h2
@@ -253,7 +262,10 @@ class TokenSale extends Component {
           DTX PUBLIC SALE LIVE NOW!
         </h2>
         {doneLoading && (
-          <ProgressBar percentage={percentage} label={`${percentage}% SOLD`} />
+          <ProgressBar
+            percentage={percentage}
+            label={`${timeLeft} DAY${timeLeft > 1 ? 'S' : ''} LEFT`}
+          />
         )}
         {doneLoading && this.numberTable()}
         <div className="modal-instance">
