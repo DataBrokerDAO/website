@@ -232,7 +232,7 @@ class TokenSale extends Component {
       // OLD percentage: the percentage of tokens sold
       // const percentage = total.div(108000000).times(100)
 
-      const endTime = moment('2018-05-24')
+      const endTime = moment('2018-05-26')
       const startTime = moment('2018-04-26')
       const totalTime = endTime.diff(startTime, 'days')
       const timeLeft = endTime.diff(moment(), 'days')
