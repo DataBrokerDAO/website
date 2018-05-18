@@ -608,8 +608,7 @@ class TeamSection extends PureComponent {
                     lastName="El Awad"
                     jobTitle="Blockchain Consultant"
                     jobDescription="People management experience, synthesizing conflicting information quickly, and pivoting with new learnings. 12 years across multiple industries and cross functional experience in the technology deployment and commercialization for MENA, focused on (blockchain, fintech, smart cities) and consultative & strategic commercial growth."
-                  linkedIn=""*/}
-                  />
+                  linkedIn="" />*/}
                 </div>
               </div>
             </div>
