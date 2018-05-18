@@ -3,65 +3,6 @@ import { FormattedMessage } from 'react-intl'
 
 const pastEvents = [
   {
-    date: 'March 8',
-    title: 'FINTECH Belgium - MeetUp on ICOs',
-    location: 'Brussels, Belgium',
-  },
-  {
-    date: 'March 13',
-    title: 'Blockchain Summit Belgium',
-    location: 'Ghent, Belgium',
-  },
-  {
-    date: 'March 21-23',
-    title: 'Go Global Mission Kenya',
-    location: 'Kenya',
-  },
-  {
-    date: 'March 28-29',
-    title: 'STEP Money',
-    location: 'Dubai, UAE',
-  },
-  {
-    date: 'March 26-28',
-    title: 'KNOW Identity Conference',
-    location: 'Washington, USA',
-  },
-  {
-    date: 'April 4-5',
-    title: 'Sido - The IoT Showroom',
-    location: 'Lyon, France',
-  },
-]
-
-const events = [
-  {
-    date: 'April 9-11',
-    title: 'AIM Startup',
-    location: 'Dubai, UAE',
-  },
-  {
-    date: 'April 15-16',
-    title: 'Seamless Middle East',
-    location: 'Dubai, UAE',
-  },
-  {
-    date: 'April 16-17',
-    title: 'World Blockchain Forum',
-    location: 'Dubai, UAE',
-  },
-
-  {
-    date: 'April 17-19',
-    title: 'EventHorizon',
-    location: 'Berlin, Germany',
-  },
-  {
-    date: 'April 19',
-    title: 'Zero-In',
-    location: 'Amsterdam, Netherlands',
-  },
-  {
     date: 'May 2-3',
     title: 'Future Blockchain Summit',
     location: 'Dubai, UAE',
@@ -72,24 +13,42 @@ const events = [
     location: 'Louvain, Belgium',
   },
   {
+    date: 'May 8-10',
+    title: 'World Tokenomic Forum',
+    location: 'Cayman Islands',
+  },
+  {
+    date: 'May 9',
+    title: 'NYC VCs, Angels & ICOs',
+    location: 'New York City, USA',
+  },
+  {
+    date: 'May 11-12',
+    title: 'Ethereal Summit',
+    location: 'New York City, USA',
+  },
+  {
     date: 'May 14-16',
     title: 'Consensus',
     location: 'New York City, USA',
   },
+]
+
+const events = [
   {
-    date: 'May 15-18',
-    title: 'Go Global',
-    location: 'Singapore',
-  },
-  {
-    date: 'May 15-16',
-    title: 'Tech in Asia',
-    location: 'Singapore',
+    date: 'May 24-25',
+    title: 'The Next Web Conference',
+    location: 'Amsterdam, the Netherlands',
   },
   {
     date: 'May 24-25',
     title: 'Latitude 59',
     location: 'Tallinn, Estiona',
+  },
+  {
+    date: 'June 6',
+    title: 'OT Smart Cities Convention Europe',
+    location: 'Antwerp, Belgium',
   },
   {
     date: 'June 11-14',
@@ -152,7 +111,7 @@ class EventsSection extends PureComponent {
               </div>
             ))}
 
-            <div className="col-sm-4">
+            {/*<div className="col-sm-4">
               <div className="event feature feature-1 boxed boxed--border">
                 <h4>
                   <FormattedMessage id="events_webinar" />
@@ -167,7 +126,7 @@ class EventsSection extends PureComponent {
                   </span>
                 </a>
               </div>
-            </div>
+          </div>*/}
           </div>
 
           <div className="row" style={{ marginBottom: '30px' }}>

@@ -389,7 +389,7 @@ class TeamSection extends PureComponent {
                       </div>
                       <div className="card__body modal-trigger">
                         <h4 className="color--primary">Tom De Block</h4>
-                        <span className="type--fade">Blockchain Architect</span>
+                        <span className="type--fade">Solution Architect</span>
                       </div>
                       <div className="card__bottom text-center">
                         <div className="card__action">
@@ -573,7 +573,7 @@ class TeamSection extends PureComponent {
                         </div>
                       </div>
     </div>*/}
-    </div>
+                  </div>
                   <TeamCard
                     firstName="Astrid"
                     lastName="Janssens"
@@ -581,14 +581,14 @@ class TeamSection extends PureComponent {
                     jobDescription="Always seeking to find the best administrative solution and on a mission to get things organised. Passionate problem solver and always willing to lend a hand or give support."
                     linkedIn="https://www.linkedin.com/in/astrid-janssens-6599b29/"
                   />
-                  <TeamCard
+                  {/*<TeamCard
                     firstName="Rutger"
                     lastName="Bevers"
                     jobTitle="Full Stack Engineer"
                     jobDescription="Rutger is passionate about building digital products that are deeply innovative and benefit society."
                     linkedIn="https://www.linkedin.com/in/rutgerbevers/"
-                    imgUrl="./img/rodgerbeavers.png" /* hehehehehe -- a last wave from hilke :-) */
-                  />
+                    imgUrl="./img/rodgerbeavers.png" /* hehehehehe -- a last wave from hilke :-)
+                  />*/}
                   <TeamCard
                     firstName="Charles"
                     lastName="de Bergeyck"
