@@ -55,9 +55,18 @@
         localStorage.setItem('dfp', JSON.stringify(error));
       }
     }
+    function dfpCallback(error, json) {
+      if (error == null) {
+        localStorage.setItem('dfp', JSON.stringify(json));
+      } else {
+        localStorage.setItem('dfp', JSON.stringify(error));
+      }
+    }
+    function dfpTechnologyIndicator(dfptValue) {
+      localStorage.setItem('dft', dfptValue);
+    }
   </script>
-  <script id="augur.js" async src="https://cdn.augur.io/augur.min.js" data-e2ee="1" data-fastcallback="augurFastCallback" data-cb="augurModernCallback"
-    data-warpspeed="truk" data-schema="v4" data-noci="1" data-nopi="1" data-silent="1"></script>
+  <script type="text/javascript" src="//cdn1.identitymind.com/dfp-wrapper/d.js"></script>
 
   <!-- Reddit Conversion Pixel -->
   <script>
