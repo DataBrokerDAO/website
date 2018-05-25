@@ -120,7 +120,9 @@ class TokenSale extends Component {
       language = 'en'
     }
     this.setMessages(language)
+  }
 
+  componentWillUpdate() {
     setTimeout(() => {
       mr.documentReady(jQuery) //eslint-disable-line
     }, 250)
