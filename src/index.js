@@ -1,6 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 // import registerServiceWorker from './registerServiceWorker';
+import './assets/css/stack-interface.css'
+import './assets/css/socicon.css'
+import './assets/css/lightbox.min.css'
+import './assets/css/flickity.css'
+import './assets/css/iconsmind.css'
+import './assets/css/jquery.steps.css'
+import './assets/css/theme-red.css'
+import './assets/css/custom.css'
+
 import createStore from './utils/create-store'
 import createHistory from 'history/createBrowserHistory'
 import { Provider } from 'react-redux'

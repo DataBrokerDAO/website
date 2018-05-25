@@ -12,6 +12,8 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const paths = require('./paths');
 const getClientEnvironment = require('./env');
 
+const ConcatPlugin = require('webpack-concat-plugin')
+
 // Webpack uses `publicPath` to determine where the app is being served from.
 // It requires a trailing slash, or the file assets will get an incorrect path.
 const publicPath = paths.servedPath;
@@ -114,6 +116,7 @@ module.exports = {
       // It's important to do this before Babel processes the JS.
       {
         test: /\.(js|jsx)$/,
+        exclude: /public\/js/,
         enforce: 'pre',
         use: [
           {
@@ -305,6 +308,14 @@ module.exports = {
     // You can remove this if you don't use Moment.js:
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     new webpack.optimize.ModuleConcatenationPlugin(),
+    new ConcatPlugin({
+      uglify: true,
+      sourceMap: true,
+      name: 'vendor',
+      outputPath: './static/js',
+      fileName: '[name].[hash:8].js',
+      filesToConcat: paths.vendorFiles,
+    }),
   ],
   // Some libraries import Node modules but don't use them in the browser.
   // Tell Webpack to provide empty mocks for them so importing them works.

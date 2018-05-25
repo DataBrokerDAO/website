@@ -77,6 +77,23 @@ module.exports = {
     /ipfs-unixfs/,
     /tr46/,
     /webidl-conversions/,
-    /whatwg-url/
-  ]
+    /whatwg-url/,
+  ],
+  vendorFiles: (publicPath => [
+    'flickity.min.js',
+    'easypiechart.min.js',
+    'parallax.js',
+    'typed.min.js',
+    'datepicker.js',
+    'isotope.min.js',
+    'ytplayer.min.js',
+    'lightbox.min.js',
+    'granim.min.js',
+    'jquery.steps.min.js',
+    'countdown.min.js',
+    'twitterfetcher.min.js',
+    'spectragram.min.js',
+    'smooth-scroll.min.js',
+    'scripts.js',
+  ].map(fileName => `${publicPath}/js/${fileName}`))(resolveApp('public')),
 };
