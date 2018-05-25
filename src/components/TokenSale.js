@@ -46,6 +46,7 @@ import zhTranslations from '../i18n/zh.json'
 import { setTimeout } from 'timers'
 import TokenSaleSection from '../components/sections/tokensale'
 import RoadmapSection from '../components/sections/roadmap'
+import { RingLoader } from 'react-spinners'
 
 const languages = {
   en: 'English',
@@ -263,13 +264,35 @@ class TokenSale extends Component {
         >
           DTX PUBLIC SALE LIVE NOW!
         </h2>
-        {doneLoading && (
-          <ProgressBar
-            percentage={percentage}
-            label={`${timeLeft} DAY${timeLeft > 1 ? 'S' : ''} LEFT`}
-          />
-        )}
+        <div style={{
+          minHeight: '200px',
+        }}
+        >
+          {
+            !doneLoading && (<div style={{
+              margin: 'auto',
+              height: '100px',
+              width: '100px',
+              padding: '50px 0',
+            }}>
+              <RingLoader
+                color={'#E53368'}
+                loading={!doneLoading}
+                size={100}
+              />
+            </div>)
+          }
+
+          {doneLoading && (
+            <ProgressBar
+              percentage={percentage}
+              label={`${timeLeft} DAY${timeLeft > 1 ? 'S' : ''} LEFT`}
+            />
+          )}
+        </div>
+        <div style={{minHeight: '78px'}}>
         {doneLoading && this.numberTable()}
+        </div>
         <div className="modal-instance">
           <a
             id="preregister_button"
