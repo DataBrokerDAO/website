@@ -70,7 +70,7 @@ class TokenSale extends Component {
     }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     if (process.env.REACT_APP_SALE_ACTIVE === 'true') {
       getWeb3
         .then(results => {
@@ -120,9 +120,7 @@ class TokenSale extends Component {
       language = 'en'
     }
     this.setMessages(language)
-  }
 
-  componentDidMount() {
     setTimeout(() => {
       mr.documentReady(jQuery) //eslint-disable-line
     }, 250)
@@ -229,17 +227,19 @@ class TokenSale extends Component {
           .div(10 ** 18)
       }
 
+      const totalPhase2 = total.mul(2)
+
       // OLD percentage: the percentage of tokens sold
       // const percentage = total.div(108000000).times(100)
 
-      const endTime = moment('2018-05-26')
+      const endTime = moment('2018-06-30')
       const startTime = moment('2018-04-26')
       const totalTime = endTime.diff(startTime, 'days')
       const timeLeft = endTime.diff(moment(), 'days')
       const percentage = (1 - timeLeft / totalTime) * 100
 
       const newState = {
-        total: total.toFormat(0),
+        total: totalPhase2.toFormat(0),
         usd: totalUSD.toFormat(0),
         percentage,
         timeLeft,
