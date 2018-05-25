@@ -89,6 +89,7 @@
     "uglify-es": "^3.3.9",
     "url-loader": "^1.0.1",
     "webpack": "^3.10.0",
+    "webpack-bundle-analyzer": "^2.13.1",
     "webpack-dev-server": "2.11.1",
     "webpack-manifest-plugin": "^2.0.3",
     "whatwg-fetch": "2.0.3"
@@ -98,6 +99,7 @@
     "start-js": "node scripts/start.js",
     "start": "npm-run-all -p watch-css start-js",
     "build": "npm run build-css && node scripts/build.js",
+    "analyze": "node scripts/analyze.js",
     "pretest": "npm run lint",
     "test": "node scripts/test.js --env=jsdom --coverage --collectCoverageFrom='src/**/*.{js,jsx}'",
     "build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
