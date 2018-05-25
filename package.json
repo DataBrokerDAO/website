@@ -8,6 +8,7 @@
   "dependencies": {
     "autotrack": "^2.4.1",
     "axios": "^0.18.0",
+    "bignumber.js": "^7.2.1",
     "ethereumjs-util": "^5.2.0",
     "firebase": "^5.0.4",
     "granim": "^1.1.0",
