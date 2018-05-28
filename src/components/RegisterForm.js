@@ -40,7 +40,7 @@ class RegisterForm extends Component {
           source: localStorage.getItem('code') || 'none',
           ref: localStorage.getItem('ref') || 'none',
           dfp: localStorage.getItem('dfp') || 'none',
-          dft: 'AU',
+          dft: localStorage.getItem('dft') || 'AU',
           referrer: localStorage.getItem('referrer') || 'none',
         },
         {

@@ -39,7 +39,7 @@ class TokenSaleSection extends PureComponent {
                         <td valign="top" className="force-black">
                           <FormattedMessage id="tokensale_rate" />:
                         </td>
-                        <td className="type--bold">1ETH = 4000 DTX</td>
+                        <td className="type--bold">8000 DTX / ETH</td>
                       </tr>
                     </tbody>
                   </table>
@@ -51,13 +51,13 @@ class TokenSaleSection extends PureComponent {
                         <td valign="top" className="force-black">
                           <FormattedMessage id="tokensale_end" />:
                         </td>
-                        <td className="type--bold">May 26th, 2018 4PM CET</td>
+                        <td className="type--bold">June 30th, 2018 4PM CET</td>
                       </tr>
                       <tr>
                         <td valign="top" className="force-black">
-                          <FormattedMessage id="tokensale_bonus" />:
+                          <span>Lock-up:</span>
                         </td>
-                        <td className="type--bold">Day 1: 10% bonus</td>
+                        <td className="type--bold">4000 DTX / ETH</td>
                       </tr>
                     </tbody>
                   </table>
@@ -81,7 +81,7 @@ class TokenSaleSection extends PureComponent {
                         <td valign="top" className="force-black">
                           <FormattedMessage id="tokensale_start" />:
                         </td>
-                        <td className="type--bold">May 30th, 2018</td>
+                        <td className="type--bold">July 7th, 2018</td>
                       </tr>
                     </tbody>
                   </table>
