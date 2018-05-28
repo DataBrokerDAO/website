@@ -1,23 +1,10 @@
 import React, { Component } from 'react'
 import { getWeb3 } from '../utils/getWeb3'
 import ProgressBar from './ProgressBar'
-import moment from 'moment'
-import RegisterForm from './RegisterForm'
+import RegisterForm from './LazyRegisterForm'
 import WorldSVG from '../assets/world.svg'
 import VideoSection from './sections/video'
-import ChallengeSection from './sections/challenge'
-import JobsSection from './sections/jobs'
-import ChannelsSection from './sections/channels'
-import Footer from './sections/footer'
-import CTASection from './sections/cta'
-import SolutionSection from './sections/solutions'
-import TeamSection from './sections/team'
-import PressSection from './sections/press'
-import EventsSection from './sections/events'
-import AllianceSection from './sections/alliance'
-import BenefitsSection from './sections/benefits'
-import BetaSection from './sections/beta'
-import StakingSection from './sections/staking'
+
 import { IntlProvider, addLocaleData, FormattedMessage } from 'react-intl'
 import en from 'react-intl/locale-data/en'
 import ar from 'react-intl/locale-data/ar'
@@ -44,9 +31,10 @@ import deTranslations from '../i18n/de.json'
 import frTranslations from '../i18n/fr.json'
 import zhTranslations from '../i18n/zh.json'
 import { setTimeout } from 'timers'
-import TokenSaleSection from '../components/sections/tokensale'
-import RoadmapSection from '../components/sections/roadmap'
-import { RingLoader } from 'react-spinners'
+import RingLoader from 'react-spinners/dist/spinners/RingLoader'
+import MidSection from './MidSection'
+import BottomSection from './BottomSection'
+import LazyLoad from 'react-lazyload'
 
 const languages = {
   en: 'English',
@@ -66,14 +54,33 @@ const languages = {
 class TokenSale extends Component {
   constructor(props) {
     super(props)
+    this.language = 'en' // default
     this.state = {
       web3: null,
     }
   }
+  componentWillMount() {
+    addLocaleData([
+      ...en,
+      ...ar,
+      ...tr,
+      ...es,
+      ...ru,
+      ...pt,
+      ...ko,
+      ...ja,
+      ...it,
+      ...de,
+      ...fr,
+      ...zh,
+    ])
+
+    this.setMessages(this.language)
+  }
 
   componentDidMount() {
     if (process.env.REACT_APP_SALE_ACTIVE === 'true') {
-      getWeb3
+      getWeb3()
         .then(results => {
           this.setState({
             ...results,
@@ -93,21 +100,7 @@ class TokenSale extends Component {
           console.log('Error finding web3.', e)
         })
     }
-    addLocaleData([
-      ...en,
-      ...ar,
-      ...tr,
-      ...es,
-      ...ru,
-      ...pt,
-      ...ko,
-      ...ja,
-      ...it,
-      ...de,
-      ...fr,
-      ...zh,
-    ])
-    let language = 'en'
+
     if (!localStorage.getItem('dbdaolang')) {
       const language =
         (navigator.languages && navigator.languages[0]) ||
@@ -116,11 +109,12 @@ class TokenSale extends Component {
       let languageWithoutRegionCode = language.toLowerCase().split(/[_-]+/)[0]
       localStorage.setItem('dbdaolang', languageWithoutRegionCode)
     }
-    language = localStorage.getItem('dbdaolang')
-    if (!Object.keys(languages).includes(language)) {
-      language = 'en'
+    const language = localStorage.getItem('dbdaolang')
+    if (Object.keys(languages).includes(language)) {
+      this.language = language
     }
-    this.setMessages(language)
+
+    this.setMessages(this.language)
   }
 
   componentWillUpdate() {
@@ -199,6 +193,7 @@ class TokenSale extends Component {
 
   async instantiateContract(update = false) {
     try {
+      const momentPromise = import('moment');
       const { sale } = this.state
       const DeployedSale = await sale.deployed()
 
@@ -234,7 +229,7 @@ class TokenSale extends Component {
 
       // OLD percentage: the percentage of tokens sold
       // const percentage = total.div(108000000).times(100)
-
+      const moment = await momentPromise;
       const endTime = moment('2018-06-30')
       const startTime = moment('2018-04-26')
       const totalTime = endTime.diff(startTime, 'days')
@@ -925,28 +920,13 @@ class TokenSale extends Component {
                 </div>
               </div>
             </section>
-            <VideoSection />
-            <TokenSaleSection />
-            <ChallengeSection />
-            <CTASection />
-            <SolutionSection />
-            <BetaSection />
-            <StakingSection />
-            <BenefitsSection />
-            <CTASection />
-            <AllianceSection />
-            <CTASection />
-            <RoadmapSection />
-            <CTASection />
-            <EventsSection />
-            <CTASection />
-            <PressSection />
-            <CTASection />
-            <TeamSection />
-            <CTASection />
-            <JobsSection />
-            <ChannelsSection />
-            <Footer />
+            <VideoSection/>
+            <LazyLoad height={300} offset={200} once>
+              <MidSection/>
+            </LazyLoad>
+            <LazyLoad height={300} offset={300} once>
+              <BottomSection/>
+            </LazyLoad>
           </div>
         </div>
       </IntlProvider>
