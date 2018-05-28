@@ -1,4 +1,4 @@
-export const getWeb3 = new Promise(async function(resolve, reject) {
+export const getWeb3 = () => new Promise(async function(resolve, reject) {
   const [Web3, contract, saleJSON] = await Promise.all([
     import(/* webpackChunkName: 'contract' */ 'web3'),
     import(/* webpackChunkName: 'contract' */ 'truffle-contract'),
