@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 // import registerServiceWorker from './registerServiceWorker';
+import 'bootstrap/dist/css/bootstrap.css'
 import './assets/css/stack-interface.css'
 import './assets/css/socicon.css'
 import './assets/css/lightbox.min.css'
@@ -81,53 +82,14 @@ localStorage.setItem('referrer', document.referrer)
 // Render Setup
 // ========================================================
 
-if (!window.intl) {
-  require.ensure(
-    [
-      'intl',
-      'intl/locale-data/jsonp/en.js',
-      'intl/locale-data/jsonp/ar.js',
-      'intl/locale-data/jsonp/tr.js',
-      'intl/locale-data/jsonp/es.js',
-      'intl/locale-data/jsonp/ru.js',
-      'intl/locale-data/jsonp/pt.js',
-      'intl/locale-data/jsonp/ko.js',
-      'intl/locale-data/jsonp/ja.js',
-      'intl/locale-data/jsonp/it.js',
-      'intl/locale-data/jsonp/de.js',
-      'intl/locale-data/jsonp/fr.js',
-      'intl/locale-data/jsonp/zh.js',
-    ],
-    require => {
-      require('intl')
-      require('intl/locale-data/jsonp/en.js')
-      require('intl/locale-data/jsonp/ar.js')
-      require('intl/locale-data/jsonp/tr.js')
-      require('intl/locale-data/jsonp/es.js')
-      require('intl/locale-data/jsonp/ru.js')
-      require('intl/locale-data/jsonp/pt.js')
-      require('intl/locale-data/jsonp/ko.js')
-      require('intl/locale-data/jsonp/ja.js')
-      require('intl/locale-data/jsonp/it.js')
-      require('intl/locale-data/jsonp/de.js')
-      require('intl/locale-data/jsonp/fr.js')
-      require('intl/locale-data/jsonp/zh.js')
-      ReactDOM.render(
-        <Provider store={store}>
-          <TokenSale />
-        </Provider>,
-        document.getElementById('root')
-      )
-    }
-  )
-} else {
-  ReactDOM.render(
-    <Provider store={store}>
-      <TokenSale />
-    </Provider>,
-    document.getElementById('root')
-  )
-}
+// TODO-alon: wrap with console.log
+const renderMethod = module.hot ? ReactDOM.render : ReactDOM.hydrate
+renderMethod(
+  <Provider store={store}>
+    <TokenSale/>
+  </Provider>,
+  document.getElementById('root'),
+)
 
 //registerServiceWorker();
 
