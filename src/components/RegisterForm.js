@@ -402,33 +402,6 @@ class RegisterForm extends Component {
       <div>
         {!formSubmitted && (
           <div>
-            {/*<h2>
-              {localStorage.getItem('ref') === 'cryptoclub' && (
-                <span>Join the private sale for Crypto Club members</span>
-              )}
-              {localStorage.getItem('ref') !== 'cryptoclub' && (
-                <FormattedMessage id="form_title" />
-              )}
-            </h2>
-            <hr className="short" />
-            <div>
-              <a
-                href="/how-to-participate.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <i className="fa fa-info-circle" aria-hidden="true" />
-              </a>{' '}
-              {/*<a
-                href="/how-to-participate.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ textDecoration: 'underline' }}
-              >
-                How to participate in the Early Token Sale
-              </a>
-            </div>
-              */}
             <Form
               onSubmit={handleSubmit(this._submit)}
               style={{ marginTop: '1em' }}
