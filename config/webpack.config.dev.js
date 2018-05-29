@@ -113,7 +113,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         enforce: 'pre',
-        exclude: /public\/js/,
+        exclude: /\/vendor\/.*\.js/,
         use: [
           {
             options: {
@@ -205,7 +205,7 @@ module.exports = {
             options: {
               name: 'static/media/[name].[hash:8].[ext]',
             },
-          },
+          }
         ],
       },
       // ** STOP ** Are you adding a new loader?
@@ -245,13 +245,6 @@ module.exports = {
     // https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
     // You can remove this if you don't use Moment.js:
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
-    new ConcatPlugin({
-      uglify: false,
-      sourceMap: false,
-      name: 'vendor',
-      fileName: '[name].[hash:8].js',
-      filesToConcat: paths.vendorFiles,
-    }),
   ],
   // Some libraries import Node modules but don't use them in the browser.
   // Tell Webpack to provide empty mocks for them so importing them works.
@@ -268,4 +261,9 @@ module.exports = {
   performance: {
     hints: false,
   },
+  externals: {
+    // require("jquery") is external and available
+    //  on the global var jQuery
+    "jquery": "jQuery"
+  }
 }
