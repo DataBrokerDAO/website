@@ -11,6 +11,8 @@ import ProgressBar from './ProgressBar'
 
 import RegisterForm from './LazyRegisterForm'
 import WorldSVG from '../assets/world.svg'
+import WidgetSVG from '../assets/3028.widget.svg'
+import TelegramLogo from '../assets/telegram.png'
 import VideoSection from './sections/video'
 import MidSection from './MidSection'
 import BottomSection from './BottomSection'
@@ -98,7 +100,6 @@ class TokenSale extends Component {
   }
 
   refershExternalScripts() {
-
     this.loadFromCdnOnce()
 
     this.jqueryPromise.then((jquery) => {
@@ -280,6 +281,7 @@ saleUpcoming = doneLoading => {
       </div>
       <div className="modal-instance">
         <a
+          name="preregister_button"
           onMouseEnter={this.enableRegisteration.bind(this)}
           onClick={this.enableRegisteration.bind(this)}
           id="preregister_button"
@@ -287,7 +289,7 @@ saleUpcoming = doneLoading => {
           style={{
             fontSize: '18pt',
             fontWeight: 'bold',
-            color: 'white',
+            color: '#77A356',
             marginBottom: '15px',
           }}
         >
@@ -296,6 +298,7 @@ saleUpcoming = doneLoading => {
 
         <div style={{ marginTop: '15px' }}>
           <a
+            name="databrokerdao"
             href="https://t.me/databrokerdao"
             target="_blank"
             rel="noopener noreferrer"
@@ -306,12 +309,12 @@ saleUpcoming = doneLoading => {
               fontSize: '1.2em',
             }}
           >
-            <i
-              className="socicon socicon-telegram"
-              style={{
-                color: '#0088cc',
-              }}
-            />{' '}
+            <img style={{
+              height: '35px',
+              width: '35px',
+              position: 'relative',
+              top: '-2px'
+            }} src={TelegramLogo} alt="TelegramLogo"/>
             Join us on Telegram
           </a>
         </div>
@@ -325,6 +328,7 @@ saleUpcoming = doneLoading => {
       </div>
       <div style={{ marginTop: '15px' }}>
         <a
+          name="participate"
           href="/how-to-participate.pdf"
           target="_blank"
           rel="noopener noreferrer"
@@ -400,7 +404,7 @@ render() {
             <div className="container">
               <div className="row">
                 <div className="col-xs-8 col-sm-2">
-                  <a href="/">
+                  <a  name="logo" href="/">
                     <img
                       className="logo logo-dark"
                       alt="logo"
@@ -415,11 +419,12 @@ render() {
                 </div>
                 <div className="col-xs-4 col-sm-10 text-right">
                   <a
+                    name="hamburger"
                     href="#"
                     className="hamburger-toggle"
                     data-toggle-class="#menu1;hidden-xs"
                   >
-                    <i className="icon icon--sm stack-interface stack-menu" />
+                    <i className="icon icon--sm stack-interface stack-menu" title="hamburger" />
                   </a>
                 </div>
               </div>
@@ -433,7 +438,7 @@ render() {
               <div className="row">
                 <div className="col-md-3 col-sm-4 hidden-xs">
                   <div className="bar__module">
-                    <a href="/">
+                    <a  name="logo-dark" href="/">
                       <img
                         className="logo logo-dark"
                         alt="logo"
@@ -455,6 +460,7 @@ render() {
                     <ul className="menu-horizontal text-left">
                       <li>
                         <a
+                          name="WHITEPAPER_DataBrokerDAO"
                           href={`/whitepaper/WHITEPAPER_DataBrokerDAO_${language}.pdf`}
                           target="_blank"
                           rel="noopener noreferrer"
@@ -463,17 +469,18 @@ render() {
                         </a>
                       </li>
                       <li>
-                        <a href="#alliance">
+                        <a name="alliance" href="#alliance">
                           <FormattedMessage id="navigation_alliance" />
                         </a>
                       </li>
                       <li>
-                        <a href="#team">
+                        <a name="team" href="#team">
                           <FormattedMessage id="navigation_team" />
                         </a>
                       </li>
                       <li>
                         <a
+                          name="medium"
                           href="https://medium.com/DataBrokerDAO"
                           target="_blank"
                           rel="noopener noreferrer"
@@ -593,6 +600,7 @@ render() {
                     style={{ marginLeft: '5px' }}
                   >
                     <a
+                      name="dapp"
                       className="btn btn--sm btn--secondary type--uppercase"
                       href="https://dapp.databrokerdao.com/"
                       target="_blank"
@@ -659,6 +667,7 @@ render() {
                       }}
                     >
                       <a
+                        name="WHITEPAPER_DataBrokerDAO"
                         href={`/whitepaper/WHITEPAPER_DataBrokerDAO_${language}.pdf`}
                         className="btn btn-lg btn--secondary force-black"
                         target="_blank"
@@ -686,6 +695,7 @@ render() {
                       }}
                     >
                       <a
+                        name="whitepaper"
                         href={`/whitepaper/ONEPAGER_DataBrokerDAO_${language}.pdf`}
                         className="btn btn-lg btn--secondary force-black"
                         target="_blank"
@@ -714,6 +724,7 @@ render() {
                       }}
                     >
                       <a
+                        name="trackico"
                         href="https://www.trackico.io/ico/databrokerdao/"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -741,6 +752,7 @@ render() {
                       }}
                     >
                       <a
+                        name="databroker12"
                         href="https://icobench.com/ico/databrokerdao"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -768,6 +780,7 @@ render() {
                       }}
                     >
                       <a
+                        name="DAO"
                         href="https://icomarks.com/ico/databrokerdao"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -795,6 +808,7 @@ render() {
                       }}
                     >
                       <a
+                        name="DAO3028"
                         href="https://icoholder.com/en/databrokerdao-3028"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -802,7 +816,7 @@ render() {
                       >
                         <img
                           border="0"
-                          src="https://icoholder.com/en/big-green/3028.widget.svg?width=100"
+                          src={WidgetSVG}
                           alt="DatabrokerDAO ICO rating"
                           style={{
                             borderRadius: '5px',
@@ -830,81 +844,89 @@ render() {
                   <div className="channels">
                       <span>
                         <a
+                          name="telegram"
                           style={{ textDecoration: 'none' }}
                           href="https://t.me/databrokerdao"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          <i className="fa fa-telegram fa-2x" />
+                          <i className="fa fa-telegram fa-2x" title="telegram" />
                         </a>
                       </span>
                     <span>
                         <a
+                          name="facebook"
                           style={{ textDecoration: 'none' }}
                           href="https://www.facebook.com/DataBrokerDAO/"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          <i className="fa fa-facebook fa-2x" />
+                          <i className="fa fa-facebook fa-2x" title="facebook"/>
                         </a>
                       </span>
                     <span>
                         <a
+                          name="twitter"
                           style={{ textDecoration: 'none' }}
                           href="https://twitter.com/DataBrokerDAO"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          <i className="fa fa-twitter fa-2x" />
+                          <i className="fa fa-twitter fa-2x" title="twitter"/>
                         </a>
                       </span>
                     <span>
                         <a
+                          name="medium"
                           style={{ textDecoration: 'none' }}
                           href="https://medium.com/DataBrokerDAO"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          <i className="fa fa-medium fa-2x" />
+                          <i className="fa fa-medium fa-2x" title="meduim"/>
                         </a>
                       </span>
                     <span>
                         <a
+                          name="youtube"
                           href="https://www.youtube.com/channel/UCUmxSlaliIuF0Z3yNw8y_uA"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          <i className="fa fa-youtube fa-2x" />
+                          <i className="fa fa-youtube fa-2x" title="youtube"/>
                         </a>
                       </span>
                     <span>
                         <a
+                          name="btc"
                           style={{ textDecoration: 'none' }}
                           href="https://bitcointalk.org/index.php?topic=2113309.0"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          <i className="fa fa-btc fa-2x" />
+                          <i className="fa fa-btc fa-2x" title="btc" title="btc"/>
                         </a>
                       </span>
                     <span>
                         <a
+                          name="github"
                           style={{ textDecoration: 'none' }}
                           href="https://github.com/DataBrokerDAO"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          <i className="fa fa-github fa-2x" />
+                          <i className="fa fa-github fa-2x" title="github"/>
                         </a>
                       </span>
                     <span>
                         <a
+                          name="reddit"
                           style={{ textDecoration: 'none' }}
                           href="https://www.reddit.com/r/DatabrokerDAO/"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          <i className="fa fa-reddit fa-2x" />
+                          <i className="fa fa-reddit fa-2x" title="reddit"/>
                         </a>
                       </span>
                   </div>
