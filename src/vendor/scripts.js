@@ -1,3 +1,4 @@
+
 var mr = (function($, window, document) {
   'use strict'
 
@@ -3310,7 +3311,7 @@ mr = (function(mr, $, window, document) {
 })(mr, jQuery, window, document)
 
 //////////////// Wizard
-mr = (function(mr, $, window, document) {
+window.mr = (function(mr, $, window, document) {
   'use strict'
 
   var documentReady = function($) {

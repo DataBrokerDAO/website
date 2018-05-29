@@ -1,20 +1,22 @@
 import React from 'react'
 import { asyncReactor } from 'async-reactor'
 
+import SectionLoader from './SectionLoader'
+
 const Lazy = async (props) => {
   const { ['default']: RegisterForm } =
     await import(/* webpackChunkName: 'lazy.forms' */ './RegisterForm')
 
 
   return (
-    <RegisterForm upcoming={true} language={'en'}/>
+    <RegisterForm {...props}/>
   )
 }
 
 
 function Loader() {
   return (
-    <span></span>
+    <SectionLoader/>
   )
 }
 

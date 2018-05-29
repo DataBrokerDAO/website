@@ -10,5 +10,7 @@ critical.generate({
   dest: 'index.html',
   css,
   width: 1300,
-  height: 900
+  height: 900,
+  minify: true,
+  ignore: [/url\(/,'@font-face',/print/]
 });

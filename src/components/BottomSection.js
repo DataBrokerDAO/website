@@ -2,7 +2,6 @@ import React from 'react'
 import { asyncReactor } from 'async-reactor'
 import SectionLoader from './SectionLoader'
 
-
 const Lazy = async () => {
   const modules = await Promise.all([
     import(/* webpackChunkName: 'lazy.btm' */ './sections/jobs'),

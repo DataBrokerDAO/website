@@ -1,5 +1,8 @@
 import React, { PureComponent } from 'react'
 // import { FormattedMessage } from 'react-intl'
+import LazyLoad from 'react-lazyload'
+
+import { Video } from './video'
 
 class StakingSection extends PureComponent {
   render() {
@@ -26,15 +29,15 @@ class StakingSection extends PureComponent {
             <div className="col-md-6 col-sm-6 col-md-offset-1">
               <div
                 className="video-cover border--round"
-                style={{ background: 'white' }}
+                style={{ background: 'white', height: '300px' }}
               >
                 {/*<div className="background-image-holder">
                   <img alt="DataBrokerDAO" src="img/video-cover3.jpg" />
                 </div>
     <div className="video-play-icon" />*/}
-
-                <Video />
-
+                <LazyLoad height={300} offset={30}>
+                  <Video id="ihihcv188i"/>
+                </LazyLoad>
                 {/*<iframe
                   style={{ background: 'white' }}
                   title="DataBrokerDAO"
@@ -47,30 +50,6 @@ class StakingSection extends PureComponent {
           </div>
         </div>
       </section>
-    )
-  }
-}
-
-class Video extends React.Component {
-  componentWillMount() {
-    const script1 = document.createElement('script')
-    const script2 = document.createElement('script')
-
-    script1.src = 'https://fast.wistia.com/embed/medias/videolink.jsonp'
-    script1.async = true
-
-    script2.src = 'https://fast.wistia.com/assets/external/E-v1.js'
-    script2.async = true
-
-    document.body.appendChild(script1)
-    document.body.appendChild(script2)
-  }
-
-  render() {
-    return (
-      <div>
-        <div className="wistia_embed wistia_async_ihihcv188i videoFoam=true playerColor=ff4f4f" />
-      </div>
     )
   }
 }

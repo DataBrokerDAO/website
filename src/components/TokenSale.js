@@ -1,40 +1,21 @@
 import React, { Component } from 'react'
+import LazyLoad from 'react-lazyload'
+import { setTimeout } from 'timers'
+import RingLoader from 'react-spinners/dist/spinners/RingLoader'
+import { IntlProvider, addLocaleData, FormattedMessage } from 'react-intl'
+import loadScript from 'load-script'
+
 import { getWeb3 } from '../utils/getWeb3'
+import vendor from '../vendor'
 import ProgressBar from './ProgressBar'
+
 import RegisterForm from './LazyRegisterForm'
 import WorldSVG from '../assets/world.svg'
 import VideoSection from './sections/video'
-
-import { IntlProvider, addLocaleData, FormattedMessage } from 'react-intl'
-import en from 'react-intl/locale-data/en'
-import ar from 'react-intl/locale-data/ar'
-import tr from 'react-intl/locale-data/tr'
-import es from 'react-intl/locale-data/es'
-import ru from 'react-intl/locale-data/ru'
-import pt from 'react-intl/locale-data/pt'
-import ko from 'react-intl/locale-data/ko'
-import ja from 'react-intl/locale-data/ja'
-import it from 'react-intl/locale-data/it'
-import de from 'react-intl/locale-data/de'
-import fr from 'react-intl/locale-data/fr'
-import zh from 'react-intl/locale-data/zh'
-import enTranslations from '../i18n/en.json'
-import arTranslations from '../i18n/ar.json'
-import trTranslations from '../i18n/tr.json'
-import esTranslations from '../i18n/es.json'
-import ruTranslations from '../i18n/ru.json'
-import ptTranslations from '../i18n/pt.json'
-import koTranslations from '../i18n/ko.json'
-import jaTranslations from '../i18n/ja.json'
-import itTranslations from '../i18n/it.json'
-import deTranslations from '../i18n/de.json'
-import frTranslations from '../i18n/fr.json'
-import zhTranslations from '../i18n/zh.json'
-import { setTimeout } from 'timers'
-import RingLoader from 'react-spinners/dist/spinners/RingLoader'
 import MidSection from './MidSection'
 import BottomSection from './BottomSection'
-import LazyLoad from 'react-lazyload'
+import { getIntl } from './intl'
+import enTranslations from '../i18n/en.json'
 
 const languages = {
   en: 'English',
@@ -55,26 +36,13 @@ class TokenSale extends Component {
   constructor(props) {
     super(props)
     this.language = 'en' // default
+    this.enTranslations = enTranslations
     this.state = {
       web3: null,
     }
   }
-  componentWillMount() {
-    addLocaleData([
-      ...en,
-      ...ar,
-      ...tr,
-      ...es,
-      ...ru,
-      ...pt,
-      ...ko,
-      ...ja,
-      ...it,
-      ...de,
-      ...fr,
-      ...zh,
-    ])
 
+  componentWillMount() {
     this.setMessages(this.language)
   }
 
@@ -117,58 +85,74 @@ class TokenSale extends Component {
     this.setMessages(this.language)
   }
 
+  loadFromCdnOnce() {
+    if (this.cdnLoadinitiated) return
+    this.cdnLoadinitiated = true
+    this.jqueryPromise = new Promise((resolve, reject) => {
+      loadScript(process.env.REACT_APP_JQUERY_CDN, (err) => {
+        if (err) reject(err)
+
+        resolve(window.$)
+      })
+    })
+  }
+
+  refershExternalScripts() {
+
+    this.loadFromCdnOnce()
+
+    this.jqueryPromise.then((jquery) => {
+      vendor.load()
+        .then(() => {
+          setTimeout(() => {
+            mr.documentReady(jquery) //eslint-disable-line
+          }, 250)
+        })
+    })
+  }
+
   componentWillUpdate() {
-    setTimeout(() => {
-      mr.documentReady(jQuery) //eslint-disable-line
-    }, 250)
+    this.refershExternalScripts()
   }
 
   componentDidUpdate() {
-    setTimeout(() => {
-      mr.documentReady(jQuery) //eslint-disable-line
-    }, 250)
+    this.refershExternalScripts()
   }
 
-  setMessages(language) {
+  async getTranslations() {
+    if (this.translationsReady) return
+
+    const translations = await getIntl()
+    Object.assign(this, translations)
+    const { en, ar, tr, es, ru, pt, ko, ja, it, de, fr, zh } = translations
+    addLocaleData([
+      ...en,
+      ...ar,
+      ...tr,
+      ...es,
+      ...ru,
+      ...pt,
+      ...ko,
+      ...ja,
+      ...it,
+      ...de,
+      ...fr,
+      ...zh,
+    ])
+
+    this.translationsReady = true
+  }
+
+  async setMessages(language = 'en') {
     let messages
-    switch (language) {
-      case 'ar':
-        messages = arTranslations
-        break
-      case 'tr':
-        messages = trTranslations
-        break
-      case 'es':
-        messages = esTranslations
-        break
-      case 'ru':
-        messages = ruTranslations
-        break
-      case 'pt':
-        messages = ptTranslations
-        break
-      case 'ko':
-        messages = koTranslations
-        break
-      case 'ja':
-        messages = jaTranslations
-        break
-      case 'it':
-        messages = itTranslations
-        break
-      case 'de':
-        messages = deTranslations
-        break
-      case 'fr':
-        messages = frTranslations
-        break
-      case 'zh':
-        messages = zhTranslations
-        break
-      default:
-        messages = enTranslations
-        break
+
+    if (language !== 'en') {
+      const translations = await this.getTranslations()
+      Object.assign(this, translations)
     }
+
+    messages = this[`${language}Translations`]
+
     this.setState({ language, messages })
   }
 
@@ -193,7 +177,7 @@ class TokenSale extends Component {
 
   async instantiateContract(update = false) {
     try {
-      const momentPromise = import('moment');
+      const momentPromise = import('moment')
       const { sale } = this.state
       const DeployedSale = await sale.deployed()
 
@@ -202,7 +186,7 @@ class TokenSale extends Component {
       let ethprice
       try {
         const response = await fetch(
-          'https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD'
+          'https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD',
         )
         const json = await response.json()
         ethprice = json.USD
@@ -229,7 +213,7 @@ class TokenSale extends Component {
 
       // OLD percentage: the percentage of tokens sold
       // const percentage = total.div(108000000).times(100)
-      const moment = await momentPromise;
+      const moment = await momentPromise
       const endTime = moment('2018-06-30')
       const startTime = moment('2018-04-26')
       const totalTime = endTime.diff(startTime, 'days')
@@ -249,165 +233,206 @@ class TokenSale extends Component {
     }
   }
 
-  saleUpcoming = doneLoading => {
-    const { percentage, timeLeft } = this.state
-    return (
-      <div>
-        <h2
-          className="sale-date type--uppercase"
-          style={{ fontWeight: 'bold' }}
-        >
-          DTX PUBLIC SALE LIVE NOW!
-        </h2>
-        <div style={{
-          minHeight: '200px',
-        }}
-        >
-          {
-            !doneLoading && (<div style={{
-              margin: 'auto',
-              height: '100px',
-              width: '100px',
-              padding: '50px 0',
-            }}>
-              <RingLoader
-                color={'#E53368'}
-                loading={!doneLoading}
-                size={100}
-              />
-            </div>)
-          }
+  enableRegisteration() {
+    this.setState(() => ({
+      registrationEnabled: true,
+    }))
+  }
 
-          {doneLoading && (
-            <ProgressBar
-              percentage={percentage}
-              label={`${timeLeft} DAY${timeLeft > 1 ? 'S' : ''} LEFT`}
+saleUpcoming = doneLoading => {
+  const { percentage, timeLeft } = this.state
+  return (
+    <div>
+      <h2
+        className="sale-date type--uppercase"
+        style={{ fontWeight: 'bold' }}
+      >
+        DTX PUBLIC SALE LIVE NOW!
+      </h2>
+      <div style={{
+        minHeight: '200px',
+      }}
+      >
+        {
+          !doneLoading && (<div style={{
+            margin: 'auto',
+            height: '100px',
+            width: '100px',
+            padding: '50px 0',
+          }}>
+            <RingLoader
+              color={'#E53368'}
+              loading={!doneLoading}
+              size={100}
             />
-          )}
-        </div>
-        <div style={{minHeight: '78px'}}>
+          </div>)
+        }
+
+        {doneLoading && (
+          <ProgressBar
+            percentage={percentage}
+            label={`${timeLeft} DAY${timeLeft > 1 ? 'S' : ''} LEFT`}
+          />
+        )}
+      </div>
+      <div style={{minHeight: '78px'}}>
         {doneLoading && this.numberTable()}
-        </div>
-        <div className="modal-instance">
+      </div>
+      <div className="modal-instance">
+        <a
+          onMouseEnter={this.enableRegisteration.bind(this)}
+          onClick={this.enableRegisteration.bind(this)}
+          id="preregister_button"
+          className="btn btn-lg type--uppercase btn--primary modal-trigger"
+          style={{
+            fontSize: '18pt',
+            fontWeight: 'bold',
+            color: 'white',
+            marginBottom: '15px',
+          }}
+        >
+          <span>BUY DTX RIGHT NOW!</span>
+        </a>
+
+        <div style={{ marginTop: '15px' }}>
           <a
-            id="preregister_button"
-            className="btn btn-lg type--uppercase btn--primary modal-trigger"
+            href="https://t.me/databrokerdao"
+            target="_blank"
+            rel="noopener noreferrer"
             style={{
-              fontSize: '18pt',
+              textDecoration: 'none',
               fontWeight: 'bold',
-              color: 'white',
-              marginBottom: '15px',
+              color: '#0088cc',
+              fontSize: '1.2em',
             }}
           >
-            <span>BUY DTX RIGHT NOW!</span>
-          </a>
-
-          <div style={{ marginTop: '15px' }}>
-            <a
-              href="https://t.me/databrokerdao"
-              target="_blank"
-              rel="noopener noreferrer"
+            <i
+              className="socicon socicon-telegram"
               style={{
-                textDecoration: 'none',
-                fontWeight: 'bold',
                 color: '#0088cc',
-                fontSize: '1.2em',
               }}
-            >
-              <i
-                className="socicon socicon-telegram"
-                style={{
-                  color: '#0088cc',
-                }}
-              />{' '}
-              Join us on Telegram
-            </a>
-          </div>
-          <div className="modal-container">
-            <div className="modal-content">
-              <div className="boxed boxed--lg">
-                <RegisterForm upcoming={true} language={this.state.language} />
-              </div>
+            />{' '}
+            Join us on Telegram
+          </a>
+        </div>
+        <div className="modal-container">
+          <div className="modal-content">
+            <div className="boxed boxed--lg">
+              { this.state.registrationEnabled && <RegisterForm upcoming={true} language={this.state.language}/> }
             </div>
           </div>
         </div>
-        <div style={{ marginTop: '15px' }}>
-          <a
-            href="/how-to-participate.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
+      </div>
+      <div style={{ marginTop: '15px' }}>
+        <a
+          href="/how-to-participate.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i className="fa fa-info-circle" aria-hidden="true" /> How to buy
+          the DTX token
+        </a>
+      </div>
+    </div>
+  )
+}
+
+numberTable = () => {
+  const { total, usd } = this.state
+
+  return (
+    <div>
+      <div className="col-sm-6 padding-0">
+        <table>
+          <tbody>
+          <tr>
+            <td style={{ textAlign: 'left' }}>Tokens sold:</td>
+            <td style={{ textAlign: 'right' }} className="type--bold">
+              {total}
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div className="col-sm-6 padding-only-left">
+        <table>
+          <tbody>
+          <tr>
+            <td style={{ textAlign: 'left' }}>USD:</td>
+            <td style={{ textAlign: 'right' }} className="type--bold">
+              ${usd}
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  )
+}
+
+render() {
+  const { percentage } = this.state
+  const { language, messages } = this.state
+
+  const doneLoading = percentage >= 0
+
+  return (
+    <IntlProvider key={language} locale={language} messages={messages}>
+      <div style={{ position: 'relative' }}>
+        <div
+          style={{
+            position: 'absolute',
+            display: 'block',
+            width: '100%',
+            height: '100%', // don't ask
+            top: 0,
+            right: 0,
+            bottom: 0,
+            left: 0,
+            background:
+              'linear-gradient(to right, #EB274C, #7E347E, #2E3192)',
+            zIndex: '-1',
+          }}
+          // id="canvas-basic"
+        />
+        <div className="nav-container">
+          <div className="bar bar--md visible-xs">
+            <div className="container">
+              <div className="row">
+                <div className="col-xs-8 col-sm-2">
+                  <a href="/">
+                    <img
+                      className="logo logo-dark"
+                      alt="logo"
+                      src="./img/gradient-logo.svg"
+                    />
+                    <img
+                      className="logo logo-light"
+                      alt="logo"
+                      src="./img/white-logo.svg"
+                    />
+                  </a>
+                </div>
+                <div className="col-xs-4 col-sm-10 text-right">
+                  <a
+                    href="#"
+                    className="hamburger-toggle"
+                    data-toggle-class="#menu1;hidden-xs"
+                  >
+                    <i className="icon icon--sm stack-interface stack-menu" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <nav
+            id="menu1"
+            className="bar bar--md bar-1 bar--absolute bar--transparent pos-vertical-align-columns hidden-xs"
           >
-            <i className="fa fa-info-circle" aria-hidden="true" /> How to buy
-            the DTX token
-          </a>
-        </div>
-      </div>
-    )
-  }
-
-  numberTable = () => {
-    const { total, usd } = this.state
-
-    return (
-      <div>
-        <div className="col-sm-6 padding-0">
-          <table>
-            <tbody>
-              <tr>
-                <td style={{ textAlign: 'left' }}>Tokens sold:</td>
-                <td style={{ textAlign: 'right' }} className="type--bold">
-                  {total}
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div className="col-sm-6 padding-only-left">
-          <table>
-            <tbody>
-              <tr>
-                <td style={{ textAlign: 'left' }}>USD:</td>
-                <td style={{ textAlign: 'right' }} className="type--bold">
-                  ${usd}
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    )
-  }
-
-  render() {
-    const { percentage } = this.state
-    const { language, messages } = this.state
-
-    const doneLoading = percentage >= 0
-
-    return (
-      <IntlProvider key={language} locale={language} messages={messages}>
-        <div style={{ position: 'relative' }}>
-          <div
-            style={{
-              position: 'absolute',
-              display: 'block',
-              width: '100%',
-              height: '100%', // don't ask
-              top: 0,
-              right: 0,
-              bottom: 0,
-              left: 0,
-              background:
-                'linear-gradient(to right, #EB274C, #7E347E, #2E3192)',
-              zIndex: '-1',
-            }}
-            // id="canvas-basic"
-          />
-          <div className="nav-container">
-            <div className="bar bar--md visible-xs">
-              <div className="container">
-                <div className="row">
-                  <div className="col-xs-8 col-sm-2">
+            <div className="container">
+              <div className="row">
+                <div className="col-md-3 col-sm-4 hidden-xs">
+                  <div className="bar__module">
                     <a href="/">
                       <img
                         className="logo logo-dark"
@@ -421,421 +446,388 @@ class TokenSale extends Component {
                       />
                     </a>
                   </div>
-                  <div className="col-xs-4 col-sm-10 text-right">
-                    <a
-                      href="#"
-                      className="hamburger-toggle"
-                      data-toggle-class="#menu1;hidden-xs"
-                    >
-                      <i className="icon icon--sm stack-interface stack-menu" />
-                    </a>
-                  </div>
                 </div>
-              </div>
-            </div>
-            <nav
-              id="menu1"
-              className="bar bar--md bar-1 bar--absolute bar--transparent pos-vertical-align-columns hidden-xs"
-            >
-              <div className="container">
-                <div className="row">
-                  <div className="col-md-3 col-sm-4 hidden-xs">
-                    <div className="bar__module">
-                      <a href="/">
-                        <img
-                          className="logo logo-dark"
-                          alt="logo"
-                          src="./img/gradient-logo.svg"
-                        />
-                        <img
-                          className="logo logo-light"
-                          alt="logo"
-                          src="./img/white-logo.svg"
-                        />
-                      </a>
-                    </div>
+                <div
+                  className="col-md-9 col-sm-8 text-right text-left-xs text-left-sm"
+                  style={{ marginTop: '10px' }}
+                >
+                  <div className="bar__module col-sm-7">
+                    <ul className="menu-horizontal text-left">
+                      <li>
+                        <a
+                          href={`/whitepaper/WHITEPAPER_DataBrokerDAO_${language}.pdf`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <FormattedMessage id="navigation_whitepaper" />
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#alliance">
+                          <FormattedMessage id="navigation_alliance" />
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#team">
+                          <FormattedMessage id="navigation_team" />
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="https://medium.com/DataBrokerDAO"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <FormattedMessage id="navigation_updates" />
+                        </a>
+                      </li>
+                    </ul>
                   </div>
                   <div
-                    className="col-md-9 col-sm-8 text-right text-left-xs text-left-sm"
-                    style={{ marginTop: '10px' }}
+                    className="bar__module col-sm-2"
+                    style={{ marginLeft: '5px' }}
                   >
-                    <div className="bar__module col-sm-7">
-                      <ul className="menu-horizontal text-left">
-                        <li>
-                          <a
-                            href={`/whitepaper/WHITEPAPER_DataBrokerDAO_${language}.pdf`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <FormattedMessage id="navigation_whitepaper" />
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#alliance">
-                            <FormattedMessage id="navigation_alliance" />
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#team">
-                            <FormattedMessage id="navigation_team" />
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="https://medium.com/DataBrokerDAO"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <FormattedMessage id="navigation_updates" />
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                    <div
-                      className="bar__module col-sm-2"
-                      style={{ marginLeft: '5px' }}
-                    >
-                      <div className="dropdown">
+                    <div className="dropdown">
                         <span className="dropdown__trigger type--uppercase">
                           {languages[language]}{' '}
                           <i className="fa fa-angle-down" />
                         </span>
-                        <div className="dropdown__container text-left">
-                          <div className="container">
-                            <div className="row">
-                              <div className="col-sm-2 col-md-2 dropdown__content">
-                                <ul className="menu-vertical">
-                                  <li
-                                    onClick={() =>
-                                      this.toggleChangeLanguage('en')
-                                    }
-                                  >
-                                    English
-                                  </li>
-                                  <li
-                                    onClick={() =>
-                                      this.toggleChangeLanguage('ar')
-                                    }
-                                  >
-                                    عربى
-                                  </li>
-                                  <li
-                                    onClick={() =>
-                                      this.toggleChangeLanguage('tr')
-                                    }
-                                  >
-                                    Türk
-                                  </li>
-                                  <li
-                                    onClick={() =>
-                                      this.toggleChangeLanguage('es')
-                                    }
-                                  >
-                                    Español
-                                  </li>
-                                  <li
-                                    onClick={() =>
-                                      this.toggleChangeLanguage('ru')
-                                    }
-                                  >
-                                    русский
-                                  </li>
-                                  <li
-                                    onClick={() =>
-                                      this.toggleChangeLanguage('pt')
-                                    }
-                                  >
-                                    Português
-                                  </li>
-                                  <li
-                                    onClick={() =>
-                                      this.toggleChangeLanguage('ko')
-                                    }
-                                  >
-                                    한국어
-                                  </li>
-                                  <li
-                                    onClick={() =>
-                                      this.toggleChangeLanguage('ja')
-                                    }
-                                  >
-                                    日本語
-                                  </li>
-                                  <li
-                                    onClick={() =>
-                                      this.toggleChangeLanguage('it')
-                                    }
-                                  >
-                                    italiano
-                                  </li>
-                                  <li
-                                    onClick={() =>
-                                      this.toggleChangeLanguage('de')
-                                    }
-                                  >
-                                    Deutsche
-                                  </li>
-                                  <li
-                                    onClick={() =>
-                                      this.toggleChangeLanguage('fr')
-                                    }
-                                  >
-                                    français
-                                  </li>
-                                  <li
-                                    onClick={() =>
-                                      this.toggleChangeLanguage('zh')
-                                    }
-                                  >
-                                    中文
-                                  </li>
-                                </ul>
-                              </div>
+                      <div className="dropdown__container text-left">
+                        <div className="container">
+                          <div className="row">
+                            <div className="col-sm-2 col-md-2 dropdown__content">
+                              <ul className="menu-vertical">
+                                <li
+                                  onClick={() =>
+                                    this.toggleChangeLanguage('en')
+                                  }
+                                >
+                                  English
+                                </li>
+                                <li
+                                  onClick={() =>
+                                    this.toggleChangeLanguage('ar')
+                                  }
+                                >
+                                  عربى
+                                </li>
+                                <li
+                                  onClick={() =>
+                                    this.toggleChangeLanguage('tr')
+                                  }
+                                >
+                                  Türk
+                                </li>
+                                <li
+                                  onClick={() =>
+                                    this.toggleChangeLanguage('es')
+                                  }
+                                >
+                                  Español
+                                </li>
+                                <li
+                                  onClick={() =>
+                                    this.toggleChangeLanguage('ru')
+                                  }
+                                >
+                                  русский
+                                </li>
+                                <li
+                                  onClick={() =>
+                                    this.toggleChangeLanguage('pt')
+                                  }
+                                >
+                                  Português
+                                </li>
+                                <li
+                                  onClick={() =>
+                                    this.toggleChangeLanguage('ko')
+                                  }
+                                >
+                                  한국어
+                                </li>
+                                <li
+                                  onClick={() =>
+                                    this.toggleChangeLanguage('ja')
+                                  }
+                                >
+                                  日本語
+                                </li>
+                                <li
+                                  onClick={() =>
+                                    this.toggleChangeLanguage('it')
+                                  }
+                                >
+                                  italiano
+                                </li>
+                                <li
+                                  onClick={() =>
+                                    this.toggleChangeLanguage('de')
+                                  }
+                                >
+                                  Deutsche
+                                </li>
+                                <li
+                                  onClick={() =>
+                                    this.toggleChangeLanguage('fr')
+                                  }
+                                >
+                                  français
+                                </li>
+                                <li
+                                  onClick={() =>
+                                    this.toggleChangeLanguage('zh')
+                                  }
+                                >
+                                  中文
+                                </li>
+                              </ul>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div
-                      className="bar__module col-sm-2"
-                      style={{ marginLeft: '5px' }}
+                  </div>
+                  <div
+                    className="bar__module col-sm-2"
+                    style={{ marginLeft: '5px' }}
+                  >
+                    <a
+                      className="btn btn--sm btn--secondary type--uppercase"
+                      href="https://dapp.databrokerdao.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
-                      <a
-                        className="btn btn--sm btn--secondary type--uppercase"
-                        href="https://dapp.databrokerdao.com/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
                         <span className="btn__text" style={{ color: '#333' }}>
                           <FormattedMessage id="navigation_beta" />
                         </span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+        <div className="main-container">
+          <section
+            className="cover imagebg"
+            data-gradient-bg="#EB274C,#7E347E,#2E3192"
+          >
+            <div className="background-image-holder low-opacity">
+              <img alt="background" src={WorldSVG} />
+            </div>
+            <div className="container" style={{ marginTop: '20px' }}>
+              <div className="row">
+                <div className="col-md-5 col-sm-5 col-xs-12">
+                  <div className="header-intro">
+                    <h1 style={{ lineHeight: '40pt' }}>
+                      <FormattedMessage
+                        id="splash_globalmarket"
+                        defaultMessage=" "
+                      />
+                      <br />{' '}
+                      <FormattedMessage
+                        id="splash_forlocaldata"
+                        defaultMessage=" "
+                      />
+                    </h1>
+                    <p
+                      style={{
+                        fontSize: '13pt',
+                        lineHeight: '22pt',
+                        marginTop: '10px',
+                      }}
+                    >
+                      <b style={{ fontWeight: 'bold' }}>
+                        <FormattedMessage
+                          id="splash_boldintro"
+                          defaultMessage=" "
+                        />
+                      </b>{' '}
+                      <FormattedMessage
+                        id="splash_intro"
+                        defaultMessage=" "
+                      />
+                    </p>
+
+                    <div
+                      className="col-md-12"
+                      style={{
+                        marginBottom: '10px',
+                        paddingRight: '5px',
+                        paddingLeft: '5px',
+                      }}
+                    >
+                      <a
+                        href={`/whitepaper/WHITEPAPER_DataBrokerDAO_${language}.pdf`}
+                        className="btn btn-lg btn--secondary force-black"
+                        target="_blank"
+                        style={{
+                          width: '100%',
+                          color: 'black',
+                          fontWeight: 'bold',
+                        }}
+                      >
+                        <FormattedMessage
+                          id="splash_readwhitepaper"
+                          style={{
+                            color: 'black',
+                            fontWeight: 'bold',
+                          }}
+                        />
+                      </a>
+                    </div>
+                    <div
+                      className="col-md-12"
+                      style={{
+                        marginBottom: '10px',
+                        paddingRight: '5px',
+                        paddingLeft: '5px',
+                      }}
+                    >
+                      <a
+                        href={`/whitepaper/ONEPAGER_DataBrokerDAO_${language}.pdf`}
+                        className="btn btn-lg btn--secondary force-black"
+                        target="_blank"
+                        style={{
+                          width: '100%',
+                          color: 'black',
+                          fontWeight: 'bold',
+                        }}
+                      >
+                        <FormattedMessage
+                          id="splash_readonepaper"
+                          style={{
+                            color: 'black',
+                            fontWeight: 'bold',
+                          }}
+                        />
+                      </a>
+                    </div>
+                    <div
+                      className="col-xs-3"
+                      style={{
+                        marginBottom: '10px',
+                        paddingRight: '5px',
+                        paddingLeft: '5px',
+                        textAlign: 'center',
+                      }}
+                    >
+                      <a
+                        href="https://www.trackico.io/ico/databrokerdao/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="DatabrokerDAO on TrackICO"
+                      >
+                        <img
+                          border="0"
+                          src="https://www.trackico.io/widget/square/databrokerdao/90.png"
+                          alt="DatabrokerDAO TrackICO rating"
+                          style={{
+                            borderRadius: '5px',
+                            width: '100%',
+                            maxWidth: '100px',
+                          }}
+                        />
+                      </a>
+                    </div>
+                    <div
+                      className="col-xs-3"
+                      style={{
+                        marginBottom: '10px',
+                        paddingRight: '5px',
+                        paddingLeft: '5px',
+                        textAlign: 'center',
+                      }}
+                    >
+                      <a
+                        href="https://icobench.com/ico/databrokerdao"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="DatabrokerDAO on ICObench"
+                      >
+                        <img
+                          border="0"
+                          src="https://icobench.com/rated/databrokerdao?shape=square&size=s"
+                          alt="DatabrokerDAO ICO rating"
+                          style={{
+                            borderRadius: '5px',
+                            width: '100%',
+                            maxWidth: '100px',
+                          }}
+                        />
+                      </a>
+                    </div>
+                    <div
+                      className="col-xs-3"
+                      style={{
+                        marginBottom: '10px',
+                        paddingRight: '5px',
+                        paddingLeft: '5px',
+                        textAlign: 'center',
+                      }}
+                    >
+                      <a
+                        href="https://icomarks.com/ico/databrokerdao"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="DatabrokerDAO"
+                      >
+                        <img
+                          border="0"
+                          src="https://icomarks.com/widget/d/databrokerdao/square.svg"
+                          alt="DatabrokerDAO ICO rating"
+                          style={{
+                            borderRadius: '5px',
+                            width: '100%',
+                            maxWidth: '100px',
+                          }}
+                        />
+                      </a>
+                    </div>
+                    <div
+                      className="col-xs-3"
+                      style={{
+                        marginBottom: '10px',
+                        paddingRight: '5px',
+                        paddingLeft: '5px',
+                        textAlign: 'center',
+                      }}
+                    >
+                      <a
+                        href="https://icoholder.com/en/databrokerdao-3028"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="DatabrokerDAO"
+                      >
+                        <img
+                          border="0"
+                          src="https://icoholder.com/en/big-green/3028.widget.svg?width=100"
+                          alt="DatabrokerDAO ICO rating"
+                          style={{
+                            borderRadius: '5px',
+                            width: '100%',
+                            maxWidth: '100px',
+                          }}
+                        />
                       </a>
                     </div>
                   </div>
                 </div>
-              </div>
-            </nav>
-          </div>
-          <div className="main-container">
-            <section
-              className="cover imagebg"
-              data-gradient-bg="#EB274C,#7E347E,#2E3192"
-            >
-              <div className="background-image-holder low-opacity">
-                <img alt="background" src={WorldSVG} />
-              </div>
-              <div className="container" style={{ marginTop: '20px' }}>
-                <div className="row">
-                  <div className="col-md-5 col-sm-5 col-xs-12">
-                    <div className="header-intro">
-                      <h1 style={{ lineHeight: '40pt' }}>
-                        <FormattedMessage
-                          id="splash_globalmarket"
-                          defaultMessage=" "
-                        />
-                        <br />{' '}
-                        <FormattedMessage
-                          id="splash_forlocaldata"
-                          defaultMessage=" "
-                        />
-                      </h1>
-                      <p
-                        style={{
-                          fontSize: '13pt',
-                          lineHeight: '22pt',
-                          marginTop: '10px',
-                        }}
-                      >
-                        <b style={{ fontWeight: 'bold' }}>
-                          <FormattedMessage
-                            id="splash_boldintro"
-                            defaultMessage=" "
-                          />
-                        </b>{' '}
-                        <FormattedMessage
-                          id="splash_intro"
-                          defaultMessage=" "
-                        />
-                      </p>
-
-                      <div
-                        className="col-md-12"
-                        style={{
-                          marginBottom: '10px',
-                          paddingRight: '5px',
-                          paddingLeft: '5px',
-                        }}
-                      >
-                        <a
-                          href={`/whitepaper/WHITEPAPER_DataBrokerDAO_${language}.pdf`}
-                          className="btn btn-lg btn--secondary force-black"
-                          target="_blank"
-                          style={{
-                            width: '100%',
-                            color: 'black',
-                            fontWeight: 'bold',
-                          }}
-                        >
-                          <FormattedMessage
-                            id="splash_readwhitepaper"
-                            style={{
-                              color: 'black',
-                              fontWeight: 'bold',
-                            }}
-                          />
-                        </a>
-                      </div>
-                      <div
-                        className="col-md-12"
-                        style={{
-                          marginBottom: '10px',
-                          paddingRight: '5px',
-                          paddingLeft: '5px',
-                        }}
-                      >
-                        <a
-                          href={`/whitepaper/ONEPAGER_DataBrokerDAO_${language}.pdf`}
-                          className="btn btn-lg btn--secondary force-black"
-                          target="_blank"
-                          style={{
-                            width: '100%',
-                            color: 'black',
-                            fontWeight: 'bold',
-                          }}
-                        >
-                          <FormattedMessage
-                            id="splash_readonepaper"
-                            style={{
-                              color: 'black',
-                              fontWeight: 'bold',
-                            }}
-                          />
-                        </a>
-                      </div>
-                      <div
-                        className="col-xs-3"
-                        style={{
-                          marginBottom: '10px',
-                          paddingRight: '5px',
-                          paddingLeft: '5px',
-                          textAlign: 'center',
-                        }}
-                      >
-                        <a
-                          href="https://www.trackico.io/ico/databrokerdao/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          title="DatabrokerDAO on TrackICO"
-                        >
-                          <img
-                            border="0"
-                            src="https://www.trackico.io/widget/square/databrokerdao/90.png"
-                            alt="DatabrokerDAO TrackICO rating"
-                            style={{
-                              borderRadius: '5px',
-                              width: '100%',
-                              maxWidth: '100px',
-                            }}
-                          />
-                        </a>
-                      </div>
-                      <div
-                        className="col-xs-3"
-                        style={{
-                          marginBottom: '10px',
-                          paddingRight: '5px',
-                          paddingLeft: '5px',
-                          textAlign: 'center',
-                        }}
-                      >
-                        <a
-                          href="https://icobench.com/ico/databrokerdao"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          title="DatabrokerDAO on ICObench"
-                        >
-                          <img
-                            border="0"
-                            src="https://icobench.com/rated/databrokerdao?shape=square&size=s"
-                            alt="DatabrokerDAO ICO rating"
-                            style={{
-                              borderRadius: '5px',
-                              width: '100%',
-                              maxWidth: '100px',
-                            }}
-                          />
-                        </a>
-                      </div>
-                      <div
-                        className="col-xs-3"
-                        style={{
-                          marginBottom: '10px',
-                          paddingRight: '5px',
-                          paddingLeft: '5px',
-                          textAlign: 'center',
-                        }}
-                      >
-                        <a
-                          href="https://icomarks.com/ico/databrokerdao"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          title="DatabrokerDAO"
-                        >
-                          <img
-                            border="0"
-                            src="https://icomarks.com/widget/d/databrokerdao/square.svg"
-                            alt="DatabrokerDAO ICO rating"
-                            style={{
-                              borderRadius: '5px',
-                              width: '100%',
-                              maxWidth: '100px',
-                            }}
-                          />
-                        </a>
-                      </div>
-                      <div
-                        className="col-xs-3"
-                        style={{
-                          marginBottom: '10px',
-                          paddingRight: '5px',
-                          paddingLeft: '5px',
-                          textAlign: 'center',
-                        }}
-                      >
-                        <a
-                          href="https://icoholder.com/en/databrokerdao-3028"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          title="DatabrokerDAO"
-                        >
-                          <img
-                            border="0"
-                            src="https://icoholder.com/en/big-green/3028.widget.svg?width=100"
-                            alt="DatabrokerDAO ICO rating"
-                            style={{
-                              borderRadius: '5px',
-                              width: '100%',
-                              maxWidth: '100px',
-                            }}
-                          />
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-md-6 col-sm-7 col-xs-12 text-center col-md-offset-1">
-                    <div
-                      className="boxed boxed--lg border--round box-shadow-wide bg--white token-sale"
-                      style={{ marginTop: 0 }}
-                    >
-                      {this.saleUpcoming(doneLoading)}
-                    </div>
+                <div className="col-md-6 col-sm-7 col-xs-12 text-center col-md-offset-1">
+                  <div
+                    className="boxed boxed--lg border--round box-shadow-wide bg--white token-sale"
+                    style={{ marginTop: 0 }}
+                  >
+                    {this.saleUpcoming(doneLoading)}
                   </div>
                 </div>
               </div>
-              <div className="container pos-absolute pos-bottom">
-                <div className="row">
-                  <div className="col-sm-12 text-center">
-                    <div className="channels">
+            </div>
+            <div className="container pos-absolute pos-bottom">
+              <div className="row">
+                <div className="col-sm-12 text-center">
+                  <div className="channels">
                       <span>
                         <a
                           style={{ textDecoration: 'none' }}
@@ -846,7 +838,7 @@ class TokenSale extends Component {
                           <i className="fa fa-telegram fa-2x" />
                         </a>
                       </span>
-                      <span>
+                    <span>
                         <a
                           style={{ textDecoration: 'none' }}
                           href="https://www.facebook.com/DataBrokerDAO/"
@@ -856,7 +848,7 @@ class TokenSale extends Component {
                           <i className="fa fa-facebook fa-2x" />
                         </a>
                       </span>
-                      <span>
+                    <span>
                         <a
                           style={{ textDecoration: 'none' }}
                           href="https://twitter.com/DataBrokerDAO"
@@ -866,7 +858,7 @@ class TokenSale extends Component {
                           <i className="fa fa-twitter fa-2x" />
                         </a>
                       </span>
-                      <span>
+                    <span>
                         <a
                           style={{ textDecoration: 'none' }}
                           href="https://medium.com/DataBrokerDAO"
@@ -876,7 +868,7 @@ class TokenSale extends Component {
                           <i className="fa fa-medium fa-2x" />
                         </a>
                       </span>
-                      <span>
+                    <span>
                         <a
                           href="https://www.youtube.com/channel/UCUmxSlaliIuF0Z3yNw8y_uA"
                           target="_blank"
@@ -885,7 +877,7 @@ class TokenSale extends Component {
                           <i className="fa fa-youtube fa-2x" />
                         </a>
                       </span>
-                      <span>
+                    <span>
                         <a
                           style={{ textDecoration: 'none' }}
                           href="https://bitcointalk.org/index.php?topic=2113309.0"
@@ -895,7 +887,7 @@ class TokenSale extends Component {
                           <i className="fa fa-btc fa-2x" />
                         </a>
                       </span>
-                      <span>
+                    <span>
                         <a
                           style={{ textDecoration: 'none' }}
                           href="https://github.com/DataBrokerDAO"
@@ -905,7 +897,7 @@ class TokenSale extends Component {
                           <i className="fa fa-github fa-2x" />
                         </a>
                       </span>
-                      <span>
+                    <span>
                         <a
                           style={{ textDecoration: 'none' }}
                           href="https://www.reddit.com/r/DatabrokerDAO/"
@@ -915,23 +907,23 @@ class TokenSale extends Component {
                           <i className="fa fa-reddit fa-2x" />
                         </a>
                       </span>
-                    </div>
                   </div>
                 </div>
               </div>
-            </section>
-            <VideoSection/>
-            <LazyLoad height={300} offset={200} once>
-              <MidSection/>
-            </LazyLoad>
-            <LazyLoad height={300} offset={300} once>
-              <BottomSection/>
-            </LazyLoad>
-          </div>
+            </div>
+          </section>
+          <VideoSection/>
+          <LazyLoad height={300} offset={200} once>
+            <MidSection/>
+          </LazyLoad>
+          <LazyLoad height={300} offset={300} once>
+            <BottomSection/>
+          </LazyLoad>
         </div>
-      </IntlProvider>
-    )
-  }
+      </div>
+    </IntlProvider>
+  )
+}
 }
 
 export default TokenSale
