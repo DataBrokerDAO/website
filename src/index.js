@@ -1,6 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-// import registerServiceWorker from './registerServiceWorker';
+import registerServiceWorker from './registerServiceWorker';
+import createHistory from 'history/createBrowserHistory'
+
 import 'bootstrap/dist/css/bootstrap.css'
 import './assets/css/lightbox.min.css'
 import './assets/css/flickity.css'
@@ -9,13 +11,17 @@ import './assets/css/theme-red.css'
 import './assets/css/custom.css'
 
 import createStore from './utils/create-store'
-import createHistory from 'history/createBrowserHistory'
 import { Provider } from 'react-redux'
 import TokenSale from './components/TokenSale'
 // import { URL } from 'whatwg-url';
 
+import loadScript from 'load-script'
 // activate raven
-import './utils/raven'
+loadScript('https://cdn.ravenjs.com/3.22.1/raven.min.js', (err) => {
+  if (err) console.log('Can`t load raven from cdn.')
+
+  import('./utils/raven')
+})
 
 // ========================================================
 // Store Instantiation
@@ -88,7 +94,7 @@ renderMethod(
   document.getElementById('root'),
 )
 
-//registerServiceWorker();
+registerServiceWorker();
 
 // if ('serviceWorker' in navigator) {
 //   navigator.serviceWorker.ready.then(registration => {
