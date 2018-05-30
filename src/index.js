@@ -4,6 +4,7 @@ import registerServiceWorker from './registerServiceWorker'
 import createHistory from 'history/createBrowserHistory'
 
 import 'bootstrap/dist/css/bootstrap.css'
+import './assets/css/stack-interface.css'
 import './assets/css/lightbox.min.css'
 import './assets/css/flickity.css'
 import './assets/css/jquery.steps.css'
