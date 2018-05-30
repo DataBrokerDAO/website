@@ -290,6 +290,9 @@ module.exports = {
         }
         console.log(message);
       },
+      staticFileGlobs: ['./public/**/*'],
+      mergeStaticsConfig: true,
+      stripPrefix: './public',
       minify: true,
       // For unknown URLs, fallback to the index page
       navigateFallback: publicUrl + '/index.html',
