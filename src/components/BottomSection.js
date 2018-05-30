@@ -30,31 +30,27 @@ const Lazy = async () => {
 
   return (
     <div>
-      <BenefitsSection/>
-      <CTASection/>
-      <AllianceSection/>
-      <CTASection/>
-      <RoadmapSection/>
-      <CTASection/>
-      <EventsSection/>
-      <CTASection/>
-      <PressSection/>
-      <CTASection/>
-      <TeamSection/>
-      <CTASection/>
-      <JobsSection/>
-      <ChannelsSection/>
-      <Footer/>
+      <BenefitsSection />
+      <CTASection />
+      <AllianceSection />
+      <CTASection />
+      <RoadmapSection />
+      <CTASection />
+      <EventsSection />
+      <CTASection />
+      <PressSection />
+      <CTASection />
+      <TeamSection />
+      <CTASection />
+      <JobsSection />
+      <ChannelsSection />
+      <Footer />
     </div>
   )
 }
 
-
 function Loader() {
-  return (
-    <SectionLoader />
-  )
+  return <SectionLoader />
 }
-
 
 export default asyncReactor(Lazy, Loader)

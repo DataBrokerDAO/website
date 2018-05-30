@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import registerServiceWorker from './registerServiceWorker';
+import registerServiceWorker from './registerServiceWorker'
 import createHistory from 'history/createBrowserHistory'
 
 import 'bootstrap/dist/css/bootstrap.css'
@@ -17,7 +17,7 @@ import TokenSale from './components/TokenSale'
 
 import loadScript from 'load-script'
 // activate raven
-loadScript('https://cdn.ravenjs.com/3.22.1/raven.min.js', (err) => {
+loadScript('https://cdn.ravenjs.com/3.22.1/raven.min.js', err => {
   if (err) console.log('Can`t load raven from cdn.')
 
   import('./utils/raven')
@@ -85,16 +85,15 @@ localStorage.setItem('referrer', document.referrer)
 // Render Setup
 // ========================================================
 
-// TODO-alon: wrap with console.log
 const renderMethod = module.hot ? ReactDOM.render : ReactDOM.hydrate
 renderMethod(
   <Provider store={store}>
-    <TokenSale/>
+    <TokenSale />
   </Provider>,
-  document.getElementById('root'),
+  document.getElementById('root')
 )
 
-registerServiceWorker();
+registerServiceWorker()
 
 // if ('serviceWorker' in navigator) {
 //   navigator.serviceWorker.ready.then(registration => {

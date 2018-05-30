@@ -1,4 +1,6 @@
 import { combineReducers } from 'redux'
+
+// include only reducer in the main bundle
 import formReducer from 'redux-form/es/reducer'
 import { routerReducer } from 'react-router-redux'
 

@@ -36,7 +36,7 @@ class StakingSection extends PureComponent {
                 </div>
     <div className="video-play-icon" />*/}
                 <LazyLoad height={300} offset={30}>
-                  <Video id="ihihcv188i"/>
+                  <Video id="ihihcv188i" />
                 </LazyLoad>
                 {/*<iframe
                   style={{ background: 'white' }}

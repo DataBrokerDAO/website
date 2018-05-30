@@ -2090,6 +2090,7 @@ mr = (function(mr, $, window, document) {
         eventLabel: 'PreSale',
       })
 
+      // let the event bubble up after register click (to load lazy form module)
       if (e.target.id === 'preregister_button') return true;
 
       return false

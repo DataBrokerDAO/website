@@ -64,7 +64,11 @@ class AllianceSection extends PureComponent {
               </div>
     </div>*/}
             <div className="col-sm-2 modal-instance zooming-logo">
-              <a name="Yuktix" className="modal-trigger" style={{ cursor: 'pointer' }}>
+              <a
+                name="Yuktix"
+                className="modal-trigger"
+                style={{ cursor: 'pointer' }}
+              >
                 <img alt="Yuktix" src={LogoYuktix} />
               </a>
               <div className="modal-container">
@@ -84,7 +88,11 @@ class AllianceSection extends PureComponent {
               </div>
             </div>
             <div className="col-sm-2 modal-instance zooming-logo">
-              <a name="LogoEsoptra" className="modal-trigger" style={{ cursor: 'pointer' }}>
+              <a
+                name="LogoEsoptra"
+                className="modal-trigger"
+                style={{ cursor: 'pointer' }}
+              >
                 <img src={LogoEsoptra} alt="Esoptra" />
               </a>
               <div className="modal-container">
@@ -112,7 +120,11 @@ class AllianceSection extends PureComponent {
               </div>
             </div>
             <div className="col-sm-2 modal-instance zooming-logo">
-              <a name="DigitalTown" className="modal-trigger" style={{ cursor: 'pointer' }}>
+              <a
+                name="DigitalTown"
+                className="modal-trigger"
+                style={{ cursor: 'pointer' }}
+              >
                 <img src={LogoDigitaltown} alt="Digital Town" />
               </a>
               <div className="modal-container">
@@ -143,7 +155,11 @@ class AllianceSection extends PureComponent {
               </div>
             </div>
             <div className="col-sm-2 modal-instance zooming-logo">
-              <a name="Thingplay" className="modal-trigger" style={{ cursor: 'pointer' }}>
+              <a
+                name="Thingplay"
+                className="modal-trigger"
+                style={{ cursor: 'pointer' }}
+              >
                 <img src={LogoThingsplay} alt="Thingplay" />
               </a>
               <div className="modal-container">
@@ -171,7 +187,11 @@ class AllianceSection extends PureComponent {
               </div>
             </div>
             <div className="col-sm-2 modal-instance zooming-logo">
-              <a name="Option" className="modal-trigger" style={{ cursor: 'pointer' }}>
+              <a
+                name="Option"
+                className="modal-trigger"
+                style={{ cursor: 'pointer' }}
+              >
                 <img src={LogoOption} alt="Option" />
               </a>
               <div className="modal-container">
@@ -196,7 +216,11 @@ class AllianceSection extends PureComponent {
               </div>
             </div>
             <div className="col-sm-2 modal-instance zooming-logo">
-              <a name="Verses" className="modal-trigger" style={{ cursor: 'pointer' }}>
+              <a
+                name="Verses"
+                className="modal-trigger"
+                style={{ cursor: 'pointer' }}
+              >
                 <img src={LogoVerses} alt="Verses" />
               </a>
               <div className="modal-container">
@@ -228,7 +252,11 @@ class AllianceSection extends PureComponent {
           <div className="row align-center">
             <div className="col-sm-1" />
             <div className="col-sm-2 modal-instance zooming-logo">
-              <a name="Technilog" className="modal-trigger" style={{ cursor: 'pointer' }}>
+              <a
+                name="Technilog"
+                className="modal-trigger"
+                style={{ cursor: 'pointer' }}
+              >
                 <img src={LogoTechnilog} alt="Technilog" />
               </a>
               <div className="modal-container">
@@ -261,7 +289,11 @@ class AllianceSection extends PureComponent {
               </div>
             </div>
             <div className="col-sm-2 modal-instance zooming-logo">
-              <a name="IdentityMind" className="modal-trigger" style={{ cursor: 'pointer' }}>
+              <a
+                name="IdentityMind"
+                className="modal-trigger"
+                style={{ cursor: 'pointer' }}
+              >
                 <img src={LogoIdentitymindglobal} alt="IdentityMind Global" />
               </a>
               <div className="modal-container">
@@ -287,7 +319,11 @@ class AllianceSection extends PureComponent {
               </div>
             </div>
             <div className="col-sm-2 modal-instance zooming-logo">
-              <a name="Panasonic" className="modal-trigger" style={{ cursor: 'pointer' }}>
+              <a
+                name="Panasonic"
+                className="modal-trigger"
+                style={{ cursor: 'pointer' }}
+              >
                 <img src={LogoPanasonic} alt="Panasonic" />
               </a>
               <div className="modal-container">
@@ -314,7 +350,11 @@ class AllianceSection extends PureComponent {
               </div>
             </div>
             <div className="col-sm-2 modal-instance zooming-logo">
-              <a name="APINF" className="modal-trigger" style={{ cursor: 'pointer' }}>
+              <a
+                name="APINF"
+                className="modal-trigger"
+                style={{ cursor: 'pointer' }}
+              >
                 <img src={LogoApinf} alt="APINF" />
               </a>
               <div className="modal-container">
@@ -337,7 +377,11 @@ class AllianceSection extends PureComponent {
               </div>
             </div>
             <div className="col-sm-2 modal-instance zooming-logo">
-              <a name="All Things Talk" className="modal-trigger" style={{ cursor: 'pointer' }}>
+              <a
+                name="All Things Talk"
+                className="modal-trigger"
+                style={{ cursor: 'pointer' }}
+              >
                 <img src={LogoAllthingstalk} alt="All Things Talk" />
               </a>
               <div className="modal-container">
@@ -364,7 +408,11 @@ class AllianceSection extends PureComponent {
           <div className="row align-center">
             <div className="col-sm-1" />
             <div className="col-sm-2 modal-instance zooming-logo">
-              <a name="desideDatum" className="modal-trigger" style={{ cursor: 'pointer' }}>
+              <a
+                name="desideDatum"
+                className="modal-trigger"
+                style={{ cursor: 'pointer' }}
+              >
                 <img src={LogoDesideDatum} alt="desideDatum" />
               </a>
               <div className="modal-container">
@@ -387,7 +435,11 @@ class AllianceSection extends PureComponent {
               </div>
             </div>
             <div className="col-sm-2 modal-instance zooming-logo">
-              <a name="Iquadrat" className="modal-trigger" style={{ cursor: 'pointer' }}>
+              <a
+                name="Iquadrat"
+                className="modal-trigger"
+                style={{ cursor: 'pointer' }}
+              >
                 <img src={LogoIquadrat} alt="Iquadrat" />
               </a>
               <div className="modal-container">
@@ -410,7 +462,11 @@ class AllianceSection extends PureComponent {
               </div>
             </div>
             <div className="col-sm-2 modal-instance zooming-logo">
-              <a name="Skylark" className="modal-trigger" style={{ cursor: 'pointer' }}>
+              <a
+                name="Skylark"
+                className="modal-trigger"
+                style={{ cursor: 'pointer' }}
+              >
                 <img src={LogoSkylark} alt="Skylark" />
               </a>
               <div className="modal-container">
@@ -438,7 +494,11 @@ class AllianceSection extends PureComponent {
               </div>
             </div>
             <div className="col-sm-2 modal-instance zooming-logo">
-              <a name="Lumo" className="modal-trigger" style={{ cursor: 'pointer' }}>
+              <a
+                name="Lumo"
+                className="modal-trigger"
+                style={{ cursor: 'pointer' }}
+              >
                 <img src={LogoLumo} alt="Lumo" />
               </a>
               <div className="modal-container">
@@ -462,7 +522,11 @@ class AllianceSection extends PureComponent {
               </div>
             </div>
             <div className="col-sm-2 modal-instance zooming-logo">
-              <a name="Iungoo" className="modal-trigger" style={{ cursor: 'pointer' }}>
+              <a
+                name="Iungoo"
+                className="modal-trigger"
+                style={{ cursor: 'pointer' }}
+              >
                 <img src={LogoIungoo} alt="Iungoo" />
               </a>
               <div className="modal-container">

@@ -29,11 +29,11 @@ export const getIntl = () => {
     import(/* webpackChunkName: 'lazy.intl' */ '../i18n/zh.json'),
   ])
 
-  return Promise
-    .all([reactIntlLocalePromises, translationPromises])
-    .then(([reactIntlLocale, translation]) => {
+  return Promise.all([reactIntlLocalePromises, translationPromises]).then(
+    ([reactIntlLocale, translation]) => {
       const [en, ar, tr, es, ru, pt, ko, ja, it, de, fr, zh] = reactIntlLocale
-      const [enTranslations,
+      const [
+        enTranslations,
         arTranslations,
         trTranslations,
         esTranslations,
@@ -48,7 +48,18 @@ export const getIntl = () => {
       ] = translation
 
       return {
-        en, ar, tr, es, ru, pt, ko, ja, it, de, fr, zh,
+        en,
+        ar,
+        tr,
+        es,
+        ru,
+        pt,
+        ko,
+        ja,
+        it,
+        de,
+        fr,
+        zh,
         enTranslations,
         arTranslations,
         trTranslations,
@@ -62,5 +73,6 @@ export const getIntl = () => {
         frTranslations,
         zhTranslations,
       }
-    })
+    }
+  )
 }

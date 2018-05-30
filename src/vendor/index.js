@@ -1,4 +1,3 @@
-
 export default {
   load: () => Promise.all([
     import (/* webpackChunkName: 'lazy.vendor' */ 'script-loader!./flickity.min.js'),
@@ -18,6 +17,3 @@ export default {
     import (/* webpackChunkName: 'lazy.vendor' */ 'script-loader!./scripts.js'),
   ]),
 }
-
-
-

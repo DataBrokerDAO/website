@@ -77,6 +77,6 @@ module.exports = {
     /ipfs-unixfs/,
     /tr46/,
     /webidl-conversions/,
-    /whatwg-url/,
-  ],
+    /whatwg-url/
+  ]
 };

@@ -22,21 +22,18 @@ const Lazy = async () => {
 
   return (
     <div>
-      <TokenSaleSection/>
-      <ChallengeSection/>
-      <CTASection/>
-      <SolutionSection/>
-      <BetaSection/>
-      <StakingSection/>
+      <TokenSaleSection />
+      <ChallengeSection />
+      <CTASection />
+      <SolutionSection />
+      <BetaSection />
+      <StakingSection />
     </div>
   )
 }
 
-
 function Loader() {
-  return (
-    <SectionLoader />
-  )
+  return <SectionLoader />
 }
 
 export default asyncReactor(Lazy, Loader)

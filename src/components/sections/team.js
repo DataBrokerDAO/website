@@ -5,7 +5,12 @@ import { FormattedMessage } from 'react-intl'
 const LinkedInAction = ({ url }) => {
   return (
     <div className="card__action">
-      <a  name="fa-linkedin" href={url} target="_blank" rel="noopener noreferrer">
+      <a
+        name="fa-linkedin"
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <i className="color--primary fa fa-linkedin fa-2x" title="linkedin" />
       </a>
     </div>
