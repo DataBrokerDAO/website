@@ -11,7 +11,7 @@ class SuccessResponse extends Component {
       eventAction: 'Success',
       eventLabel: 'PreSale',
     })
-    gtag('event', 'conversion', {
+    gtag('event', 'conversion', {  // eslint-disable-line
       send_to: 'AW-871172050/4K_ACMTF5H4Q0o-0nwM',
     })
 

@@ -1,51 +1,23 @@
 import React, { Component } from 'react'
-import { getWeb3 } from '../utils/getWeb3'
-import ProgressBar from './ProgressBar'
-import moment from 'moment'
-import RegisterForm from './RegisterForm'
-import WorldSVG from '../assets/world.svg'
-import VideoSection from './sections/video'
-import ChallengeSection from './sections/challenge'
-import JobsSection from './sections/jobs'
-import ChannelsSection from './sections/channels'
-import Footer from './sections/footer'
-import CTASection from './sections/cta'
-import SolutionSection from './sections/solutions'
-import TeamSection from './sections/team'
-import PressSection from './sections/press'
-import EventsSection from './sections/events'
-import AllianceSection from './sections/alliance'
-import BenefitsSection from './sections/benefits'
-import BetaSection from './sections/beta'
-import StakingSection from './sections/staking'
-import { IntlProvider, addLocaleData, FormattedMessage } from 'react-intl'
-import en from 'react-intl/locale-data/en'
-import ar from 'react-intl/locale-data/ar'
-import tr from 'react-intl/locale-data/tr'
-import es from 'react-intl/locale-data/es'
-import ru from 'react-intl/locale-data/ru'
-import pt from 'react-intl/locale-data/pt'
-import ko from 'react-intl/locale-data/ko'
-import ja from 'react-intl/locale-data/ja'
-import it from 'react-intl/locale-data/it'
-import de from 'react-intl/locale-data/de'
-import fr from 'react-intl/locale-data/fr'
-import zh from 'react-intl/locale-data/zh'
-import enTranslations from '../i18n/en.json'
-import arTranslations from '../i18n/ar.json'
-import trTranslations from '../i18n/tr.json'
-import esTranslations from '../i18n/es.json'
-import ruTranslations from '../i18n/ru.json'
-import ptTranslations from '../i18n/pt.json'
-import koTranslations from '../i18n/ko.json'
-import jaTranslations from '../i18n/ja.json'
-import itTranslations from '../i18n/it.json'
-import deTranslations from '../i18n/de.json'
-import frTranslations from '../i18n/fr.json'
-import zhTranslations from '../i18n/zh.json'
+import LazyLoad from 'react-lazyload'
 import { setTimeout } from 'timers'
-import TokenSaleSection from '../components/sections/tokensale'
-import RoadmapSection from '../components/sections/roadmap'
+import RingLoader from 'react-spinners/dist/spinners/RingLoader'
+import { IntlProvider, addLocaleData, FormattedMessage } from 'react-intl'
+import loadScript from 'load-script'
+
+import { getWeb3 } from '../utils/getWeb3'
+import vendor from '../vendor'
+import ProgressBar from './ProgressBar'
+
+import RegisterForm from './LazyRegisterForm'
+import WorldSVG from '../assets/world.svg'
+import WidgetSVG from '../assets/3028.widget.svg'
+import TelegramLogo from '../assets/telegram.png'
+import VideoSection from './sections/video'
+import MidSection from './MidSection'
+import BottomSection from './BottomSection'
+import { getIntl } from './intl'
+import enTranslations from '../i18n/en.json'
 
 const languages = {
   en: 'English',
@@ -65,14 +37,20 @@ const languages = {
 class TokenSale extends Component {
   constructor(props) {
     super(props)
+    this.language = 'en' // default
+    this.enTranslations = enTranslations
     this.state = {
       web3: null,
     }
   }
 
+  componentWillMount() {
+    this.setMessages(this.language)
+  }
+
   componentDidMount() {
     if (process.env.REACT_APP_SALE_ACTIVE === 'true') {
-      getWeb3
+      getWeb3()
         .then(results => {
           this.setState({
             ...results,
@@ -92,6 +70,61 @@ class TokenSale extends Component {
           console.log('Error finding web3.', e)
         })
     }
+
+    if (!localStorage.getItem('dbdaolang')) {
+      const language =
+        (navigator.languages && navigator.languages[0]) ||
+        navigator.language ||
+        navigator.userLanguage
+      let languageWithoutRegionCode = language.toLowerCase().split(/[_-]+/)[0]
+      localStorage.setItem('dbdaolang', languageWithoutRegionCode)
+    }
+    const language = localStorage.getItem('dbdaolang')
+    if (Object.keys(languages).includes(language)) {
+      this.language = language
+    }
+
+    this.setMessages(this.language)
+  }
+
+  loadFromCdnOnce() {
+    if (this.cdnLoadinitiated) return
+    this.cdnLoadinitiated = true
+    this.jqueryPromise = new Promise((resolve, reject) => {
+      loadScript(process.env.REACT_APP_JQUERY_CDN, err => {
+        if (err) reject(err)
+
+        resolve(window.$)
+      })
+    })
+  }
+
+  refershExternalScripts() {
+    this.loadFromCdnOnce()
+
+    this.jqueryPromise.then(jquery => {
+      vendor.load().then(() => {
+        setTimeout(() => {
+            mr.documentReady(jquery) //eslint-disable-line
+        }, 250)
+      })
+    })
+  }
+
+  componentWillUpdate() {
+    this.refershExternalScripts()
+  }
+
+  componentDidUpdate() {
+    this.refershExternalScripts()
+  }
+
+  async getTranslations() {
+    if (this.translationsReady) return
+
+    const translations = await getIntl()
+    Object.assign(this, translations)
+    const { en, ar, tr, es, ru, pt, ko, ja, it, de, fr, zh } = translations
     addLocaleData([
       ...en,
       ...ar,
@@ -106,74 +139,20 @@ class TokenSale extends Component {
       ...fr,
       ...zh,
     ])
-    let language = 'en'
-    if (!localStorage.getItem('dbdaolang')) {
-      const language =
-        (navigator.languages && navigator.languages[0]) ||
-        navigator.language ||
-        navigator.userLanguage
-      let languageWithoutRegionCode = language.toLowerCase().split(/[_-]+/)[0]
-      localStorage.setItem('dbdaolang', languageWithoutRegionCode)
-    }
-    language = localStorage.getItem('dbdaolang')
-    if (!Object.keys(languages).includes(language)) {
-      language = 'en'
-    }
-    this.setMessages(language)
+
+    this.translationsReady = true
   }
 
-  componentWillUpdate() {
-    setTimeout(() => {
-      mr.documentReady(jQuery) //eslint-disable-line
-    }, 250)
-  }
-
-  componentDidUpdate() {
-    setTimeout(() => {
-      mr.documentReady(jQuery) //eslint-disable-line
-    }, 250)
-  }
-
-  setMessages(language) {
+  async setMessages(language = 'en') {
     let messages
-    switch (language) {
-      case 'ar':
-        messages = arTranslations
-        break
-      case 'tr':
-        messages = trTranslations
-        break
-      case 'es':
-        messages = esTranslations
-        break
-      case 'ru':
-        messages = ruTranslations
-        break
-      case 'pt':
-        messages = ptTranslations
-        break
-      case 'ko':
-        messages = koTranslations
-        break
-      case 'ja':
-        messages = jaTranslations
-        break
-      case 'it':
-        messages = itTranslations
-        break
-      case 'de':
-        messages = deTranslations
-        break
-      case 'fr':
-        messages = frTranslations
-        break
-      case 'zh':
-        messages = zhTranslations
-        break
-      default:
-        messages = enTranslations
-        break
+
+    if (language !== 'en') {
+      const translations = await this.getTranslations()
+      Object.assign(this, translations)
     }
+
+    messages = this[`${language}Translations`]
+
     this.setState({ language, messages })
   }
 
@@ -198,6 +177,7 @@ class TokenSale extends Component {
 
   async instantiateContract(update = false) {
     try {
+      const momentPromise = import('moment')
       const { sale } = this.state
       const DeployedSale = await sale.deployed()
 
@@ -233,7 +213,7 @@ class TokenSale extends Component {
 
       // OLD percentage: the percentage of tokens sold
       // const percentage = total.div(108000000).times(100)
-
+      const moment = await momentPromise
       const endTime = moment('2018-06-30')
       const startTime = moment('2018-04-26')
       const totalTime = endTime.diff(startTime, 'days')
@@ -253,6 +233,12 @@ class TokenSale extends Component {
     }
   }
 
+  enableRegisteration() {
+    this.setState(() => ({
+      registrationEnabled: true,
+    }))
+  }
+
   saleUpcoming = doneLoading => {
     const { percentage, timeLeft } = this.state
     return (
@@ -263,21 +249,45 @@ class TokenSale extends Component {
         >
           DTX PUBLIC SALE LIVE NOW!
         </h2>
-        {doneLoading && (
-          <ProgressBar
-            percentage={percentage}
-            label={`${timeLeft} DAY${timeLeft > 1 ? 'S' : ''} LEFT`}
-          />
-        )}
-        {doneLoading && this.numberTable()}
+        <div
+          style={{
+            minHeight: '200px',
+          }}
+        >
+          {!doneLoading && (
+            <div
+              style={{
+                margin: 'auto',
+                height: '100px',
+                width: '100px',
+                padding: '50px 0',
+              }}
+            >
+              <RingLoader color={'#E53368'} loading={!doneLoading} size={100} />
+            </div>
+          )}
+
+          {doneLoading && (
+            <ProgressBar
+              percentage={percentage}
+              label={`${timeLeft} DAY${timeLeft > 1 ? 'S' : ''} LEFT`}
+            />
+          )}
+        </div>
+        <div style={{ minHeight: '78px' }}>
+          {doneLoading && this.numberTable()}
+        </div>
         <div className="modal-instance">
           <a
+            name="preregister_button"
+            onMouseEnter={this.enableRegisteration.bind(this)}
+            onClick={this.enableRegisteration.bind(this)}
             id="preregister_button"
             className="btn btn-lg type--uppercase btn--primary modal-trigger"
             style={{
               fontSize: '18pt',
               fontWeight: 'bold',
-              color: 'white',
+              color: '#77A356',
               marginBottom: '15px',
             }}
           >
@@ -286,6 +296,7 @@ class TokenSale extends Component {
 
           <div style={{ marginTop: '15px' }}>
             <a
+              name="databrokerdao"
               href="https://t.me/databrokerdao"
               target="_blank"
               rel="noopener noreferrer"
@@ -296,25 +307,35 @@ class TokenSale extends Component {
                 fontSize: '1.2em',
               }}
             >
-              <i
-                className="socicon socicon-telegram"
+              <img
                 style={{
-                  color: '#0088cc',
+                  height: '35px',
+                  width: '35px',
+                  position: 'relative',
+                  top: '-2px',
                 }}
-              />{' '}
+                src={TelegramLogo}
+                alt="TelegramLogo"
+              />
               Join us on Telegram
             </a>
           </div>
           <div className="modal-container">
             <div className="modal-content">
               <div className="boxed boxed--lg">
-                <RegisterForm upcoming={true} language={this.state.language} />
+                {this.state.registrationEnabled && (
+                  <RegisterForm
+                    upcoming={true}
+                    language={this.state.language}
+                  />
+                )}
               </div>
             </div>
           </div>
         </div>
         <div style={{ marginTop: '15px' }}>
           <a
+            name="participate"
             href="/how-to-participate.pdf"
             target="_blank"
             rel="noopener noreferrer"
@@ -390,7 +411,7 @@ class TokenSale extends Component {
               <div className="container">
                 <div className="row">
                   <div className="col-xs-8 col-sm-2">
-                    <a href="/">
+                    <a name="logo" href="/">
                       <img
                         className="logo logo-dark"
                         alt="logo"
@@ -405,11 +426,15 @@ class TokenSale extends Component {
                   </div>
                   <div className="col-xs-4 col-sm-10 text-right">
                     <a
+                      name="hamburger"
                       href="#"
                       className="hamburger-toggle"
                       data-toggle-class="#menu1;hidden-xs"
                     >
-                      <i className="icon icon--sm stack-interface stack-menu" />
+                      <i
+                        className="icon icon--sm stack-interface stack-menu"
+                        title="hamburger"
+                      />
                     </a>
                   </div>
                 </div>
@@ -423,7 +448,7 @@ class TokenSale extends Component {
                 <div className="row">
                   <div className="col-md-3 col-sm-4 hidden-xs">
                     <div className="bar__module">
-                      <a href="/">
+                      <a name="logo-dark" href="/">
                         <img
                           className="logo logo-dark"
                           alt="logo"
@@ -445,6 +470,7 @@ class TokenSale extends Component {
                       <ul className="menu-horizontal text-left">
                         <li>
                           <a
+                            name="WHITEPAPER_DataBrokerDAO"
                             href={`/whitepaper/WHITEPAPER_DataBrokerDAO_${language}.pdf`}
                             target="_blank"
                             rel="noopener noreferrer"
@@ -453,17 +479,18 @@ class TokenSale extends Component {
                           </a>
                         </li>
                         <li>
-                          <a href="#alliance">
+                          <a name="alliance" href="#alliance">
                             <FormattedMessage id="navigation_alliance" />
                           </a>
                         </li>
                         <li>
-                          <a href="#team">
+                          <a name="team" href="#team">
                             <FormattedMessage id="navigation_team" />
                           </a>
                         </li>
                         <li>
                           <a
+                            name="medium"
                             href="https://medium.com/DataBrokerDAO"
                             target="_blank"
                             rel="noopener noreferrer"
@@ -583,6 +610,7 @@ class TokenSale extends Component {
                       style={{ marginLeft: '5px' }}
                     >
                       <a
+                        name="dapp"
                         className="btn btn--sm btn--secondary type--uppercase"
                         href="https://dapp.databrokerdao.com/"
                         target="_blank"
@@ -649,6 +677,7 @@ class TokenSale extends Component {
                         }}
                       >
                         <a
+                          name="WHITEPAPER_DataBrokerDAO"
                           href={`/whitepaper/WHITEPAPER_DataBrokerDAO_${language}.pdf`}
                           className="btn btn-lg btn--secondary force-black"
                           target="_blank"
@@ -676,6 +705,7 @@ class TokenSale extends Component {
                         }}
                       >
                         <a
+                          name="whitepaper"
                           href={`/whitepaper/ONEPAGER_DataBrokerDAO_${language}.pdf`}
                           className="btn btn-lg btn--secondary force-black"
                           target="_blank"
@@ -704,6 +734,7 @@ class TokenSale extends Component {
                         }}
                       >
                         <a
+                          name="trackico"
                           href="https://www.trackico.io/ico/databrokerdao/"
                           target="_blank"
                           rel="noopener noreferrer"
@@ -731,6 +762,7 @@ class TokenSale extends Component {
                         }}
                       >
                         <a
+                          name="databroker12"
                           href="https://icobench.com/ico/databrokerdao"
                           target="_blank"
                           rel="noopener noreferrer"
@@ -758,6 +790,7 @@ class TokenSale extends Component {
                         }}
                       >
                         <a
+                          name="DAO"
                           href="https://icomarks.com/ico/databrokerdao"
                           target="_blank"
                           rel="noopener noreferrer"
@@ -785,6 +818,7 @@ class TokenSale extends Component {
                         }}
                       >
                         <a
+                          name="DAO3028"
                           href="https://icoholder.com/en/databrokerdao-3028"
                           target="_blank"
                           rel="noopener noreferrer"
@@ -792,7 +826,7 @@ class TokenSale extends Component {
                         >
                           <img
                             border="0"
-                            src="https://icoholder.com/en/big-green/3028.widget.svg?width=100"
+                            src={WidgetSVG}
                             alt="DatabrokerDAO ICO rating"
                             style={{
                               borderRadius: '5px',
@@ -820,81 +854,99 @@ class TokenSale extends Component {
                     <div className="channels">
                       <span>
                         <a
+                          name="telegram"
                           style={{ textDecoration: 'none' }}
                           href="https://t.me/databrokerdao"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          <i className="fa fa-telegram fa-2x" />
+                          <i
+                            className="fa fa-telegram fa-2x"
+                            title="telegram"
+                          />
                         </a>
                       </span>
                       <span>
                         <a
+                          name="facebook"
                           style={{ textDecoration: 'none' }}
                           href="https://www.facebook.com/DataBrokerDAO/"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          <i className="fa fa-facebook fa-2x" />
+                          <i
+                            className="fa fa-facebook fa-2x"
+                            title="facebook"
+                          />
                         </a>
                       </span>
                       <span>
                         <a
+                          name="twitter"
                           style={{ textDecoration: 'none' }}
                           href="https://twitter.com/DataBrokerDAO"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          <i className="fa fa-twitter fa-2x" />
+                          <i className="fa fa-twitter fa-2x" title="twitter" />
                         </a>
                       </span>
                       <span>
                         <a
+                          name="medium"
                           style={{ textDecoration: 'none' }}
                           href="https://medium.com/DataBrokerDAO"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          <i className="fa fa-medium fa-2x" />
+                          <i className="fa fa-medium fa-2x" title="meduim" />
                         </a>
                       </span>
                       <span>
                         <a
+                          name="youtube"
                           href="https://www.youtube.com/channel/UCUmxSlaliIuF0Z3yNw8y_uA"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          <i className="fa fa-youtube fa-2x" />
+                          <i className="fa fa-youtube fa-2x" title="youtube" />
                         </a>
                       </span>
                       <span>
                         <a
+                          name="btc"
                           style={{ textDecoration: 'none' }}
                           href="https://bitcointalk.org/index.php?topic=2113309.0"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          <i className="fa fa-btc fa-2x" />
+                          <i
+                            className="fa fa-btc fa-2x"
+                            title="btc"
+                            title="btc"
+                          />
                         </a>
                       </span>
                       <span>
                         <a
+                          name="github"
                           style={{ textDecoration: 'none' }}
                           href="https://github.com/DataBrokerDAO"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          <i className="fa fa-github fa-2x" />
+                          <i className="fa fa-github fa-2x" title="github" />
                         </a>
                       </span>
                       <span>
                         <a
+                          name="reddit"
                           style={{ textDecoration: 'none' }}
                           href="https://www.reddit.com/r/DatabrokerDAO/"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          <i className="fa fa-reddit fa-2x" />
+                          <i className="fa fa-reddit fa-2x" title="reddit" />
                         </a>
                       </span>
                     </div>
@@ -903,27 +955,12 @@ class TokenSale extends Component {
               </div>
             </section>
             <VideoSection />
-            <TokenSaleSection />
-            <ChallengeSection />
-            <CTASection />
-            <SolutionSection />
-            <BetaSection />
-            <StakingSection />
-            <BenefitsSection />
-            <CTASection />
-            <AllianceSection />
-            <CTASection />
-            <RoadmapSection />
-            <CTASection />
-            <EventsSection />
-            <CTASection />
-            <PressSection />
-            <CTASection />
-            <TeamSection />
-            <CTASection />
-            <JobsSection />
-            <ChannelsSection />
-            <Footer />
+            <LazyLoad height={300} offset={200} once>
+              <MidSection />
+            </LazyLoad>
+            <LazyLoad height={300} offset={300} once>
+              <BottomSection />
+            </LazyLoad>
           </div>
         </div>
       </IntlProvider>

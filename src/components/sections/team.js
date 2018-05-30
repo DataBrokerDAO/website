@@ -5,8 +5,13 @@ import { FormattedMessage } from 'react-intl'
 const LinkedInAction = ({ url }) => {
   return (
     <div className="card__action">
-      <a href={url} target="_blank" rel="noopener noreferrer">
-        <i className="color--primary fa fa-linkedin fa-2x" />
+      <a
+        name="fa-linkedin"
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <i className="color--primary fa fa-linkedin fa-2x" title="linkedin" />
       </a>
     </div>
   )
@@ -103,6 +108,7 @@ class TeamSection extends PureComponent {
                       <div className="card__bottom text-center">
                         <div className="card__action">
                           <a
+                            name="mattvanniekerk"
                             href="https://www.linkedin.com/in/mattvanniekerk/"
                             target="_blank"
                             rel="noopener noreferrer"
@@ -112,6 +118,7 @@ class TeamSection extends PureComponent {
                         </div>
                         <div className="card__action">
                           <a
+                            name="matt_vn"
                             href="https://twitter.com/matt_vn"
                             target="_blank"
                             rel="noopener noreferrer"
@@ -164,6 +171,7 @@ class TeamSection extends PureComponent {
                       <div className="card__bottom text-center">
                         <div className="card__action">
                           <a
+                            name="roderik"
                             href="https://www.linkedin.com/in/roderik/"
                             target="_blank"
                             rel="noopener noreferrer"
@@ -173,6 +181,7 @@ class TeamSection extends PureComponent {
                         </div>
                         <div className="card__action">
                           <a
+                            name="r0derik"
                             href="https://twitter.com/r0derik"
                             target="_blank"
                             rel="noopener noreferrer"
@@ -227,6 +236,7 @@ class TeamSection extends PureComponent {
                       <div className="card__bottom text-center">
                         <div className="card__action">
                           <a
+                            name="frankvangeertuyden"
                             href="https://www.linkedin.com/in/frankvangeertuyden/"
                             target="_blank"
                             rel="noopener noreferrer"
@@ -236,6 +246,7 @@ class TeamSection extends PureComponent {
                         </div>
                         <div className="card__action">
                           <a
+                            name="FrankVanGee"
                             href="https://twitter.com/FrankVanGee"
                             target="_blank"
                             rel="noopener noreferrer"
@@ -284,6 +295,7 @@ class TeamSection extends PureComponent {
                       <div className="card__bottom text-center">
                         <div className="card__action">
                           <a
+                            name="elsmeyvaert"
                             href="https://www.linkedin.com/in/elsmeyvaert"
                             target="_blank"
                             rel="noopener noreferrer"
@@ -293,6 +305,7 @@ class TeamSection extends PureComponent {
                         </div>
                         <div className="card__action">
                           <a
+                            name="els_meyvaert"
                             href="https://twitter.com/els_meyvaert"
                             target="_blank"
                             rel="noopener noreferrer"
@@ -339,6 +352,7 @@ class TeamSection extends PureComponent {
                       <div className="card__bottom text-center">
                         <div className="card__action">
                           <a
+                            name="cassandrevandeputte"
                             href="https://www.linkedin.com/in/cassandrevandeputte/"
                             target="_blank"
                             rel="noopener noreferrer"
@@ -348,6 +362,7 @@ class TeamSection extends PureComponent {
                         </div>
                         <div className="card__action">
                           <a
+                            name="cassvdp"
                             href="https://twitter.com/cassvdp"
                             target="_blank"
                             rel="noopener noreferrer"
@@ -394,6 +409,7 @@ class TeamSection extends PureComponent {
                       <div className="card__bottom text-center">
                         <div className="card__action">
                           <a
+                            name="navigio"
                             href="https://www.linkedin.com/in/navigio/"
                             target="_blank"
                             rel="noopener noreferrer"
@@ -441,6 +457,7 @@ class TeamSection extends PureComponent {
                       <div className="card__bottom text-center">
                         <div className="card__action">
                           <a
+                            name="silkevdb"
                             href="https://www.linkedin.com/in/silkevdb/"
                             target="_blank"
                             rel="noopener noreferrer"
@@ -491,6 +508,7 @@ class TeamSection extends PureComponent {
                       <div className="card__bottom text-center">
                         <div className="card__action">
                           <a
+                            name="veronicamurguia"
                             href="https://www.linkedin.com/in/veronicamurguia/"
                             target="_blank"
                             rel="noopener noreferrer"
@@ -638,6 +656,7 @@ class TeamSection extends PureComponent {
                       <div className="card__bottom text-center">
                         <div className="card__action">
                           <a
+                            name="jonathanjohnson3"
                             href="https://www.linkedin.com/in/jonathanjohnson3/"
                             target="_blank"
                             rel="noopener noreferrer"
@@ -647,6 +666,7 @@ class TeamSection extends PureComponent {
                         </div>
                         <div className="card__action">
                           <a
+                            name="jjohnsonnow"
                             href="https://twitter.com/jjohnsonnow/"
                             target="_blank"
                             rel="noopener noreferrer"
@@ -688,6 +708,7 @@ class TeamSection extends PureComponent {
                       <div className="card__bottom text-center">
                         <div className="card__action">
                           <a
+                            name="expathos"
                             href="https://www.linkedin.com/in/expathos/"
                             target="_blank"
                             rel="noopener noreferrer"
@@ -697,6 +718,7 @@ class TeamSection extends PureComponent {
                         </div>
                         <div className="card__action">
                           <a
+                            name="expathos"
                             href="https://twitter.com/expathos"
                             target="_blank"
                             rel="noopener noreferrer"
@@ -743,6 +765,7 @@ class TeamSection extends PureComponent {
                       <div className="card__bottom text-center">
                         <div className="card__action">
                           <a
+                            name="OverstockCEO"
                             href="https://twitter.com/OverstockCEO"
                             target="_blank"
                             rel="noopener noreferrer"
@@ -784,6 +807,7 @@ class TeamSection extends PureComponent {
                       <div className="card__bottom text-center">
                         <div className="card__action">
                           <a
+                            name="julienmarlair"
                             href="https://www.linkedin.com/in/julienmarlair/"
                             target="_blank"
                             rel="noopener noreferrer"
@@ -793,6 +817,7 @@ class TeamSection extends PureComponent {
                         </div>
                         <div className="card__action">
                           <a
+                            name="jmarlair"
                             href="https://twitter.com/jmarlair/"
                             target="_blank"
                             rel="noopener noreferrer"
@@ -835,6 +860,7 @@ class TeamSection extends PureComponent {
               <div className="col-sm-2" />
               <div className="col-sm-3 zooming-logo">
                 <a
+                  name="settlemint"
                   style={{ cursor: 'pointer' }}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -848,6 +874,7 @@ class TeamSection extends PureComponent {
               </div>
               <div className="col-sm-3 zooming-logo">
                 <a
+                  name="amazix"
                   style={{ cursor: 'pointer' }}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -861,6 +888,7 @@ class TeamSection extends PureComponent {
               </div>
               <div className="col-sm-3 zooming-logo">
                 <a
+                  name="entethalliance"
                   style={{ cursor: 'pointer' }}
                   target="_blank"
                   rel="noopener noreferrer"

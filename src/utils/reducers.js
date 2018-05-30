@@ -1,5 +1,7 @@
 import { combineReducers } from 'redux'
-import { reducer as formReducer } from 'redux-form'
+
+// include only reducer in the main bundle
+import formReducer from 'redux-form/es/reducer'
 import { routerReducer } from 'react-router-redux'
 
 const makeRootReducer = () => {

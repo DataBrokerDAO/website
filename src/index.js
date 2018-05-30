@@ -1,14 +1,28 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-// import registerServiceWorker from './registerServiceWorker';
-import createStore from './utils/create-store'
+import registerServiceWorker from './registerServiceWorker'
 import createHistory from 'history/createBrowserHistory'
+
+import 'bootstrap/dist/css/bootstrap.css'
+import './assets/css/stack-interface.css'
+import './assets/css/lightbox.min.css'
+import './assets/css/flickity.css'
+import './assets/css/jquery.steps.css'
+import './assets/css/theme-red.css'
+import './assets/css/custom.css'
+
+import createStore from './utils/create-store'
 import { Provider } from 'react-redux'
 import TokenSale from './components/TokenSale'
 // import { URL } from 'whatwg-url';
 
+import loadScript from 'load-script'
 // activate raven
-import './utils/raven'
+loadScript('https://cdn.ravenjs.com/3.22.1/raven.min.js', err => {
+  if (err) console.log('Can`t load raven from cdn.')
+
+  import('./utils/raven')
+})
 
 // ========================================================
 // Store Instantiation
@@ -72,55 +86,15 @@ localStorage.setItem('referrer', document.referrer)
 // Render Setup
 // ========================================================
 
-if (!window.intl) {
-  require.ensure(
-    [
-      'intl',
-      'intl/locale-data/jsonp/en.js',
-      'intl/locale-data/jsonp/ar.js',
-      'intl/locale-data/jsonp/tr.js',
-      'intl/locale-data/jsonp/es.js',
-      'intl/locale-data/jsonp/ru.js',
-      'intl/locale-data/jsonp/pt.js',
-      'intl/locale-data/jsonp/ko.js',
-      'intl/locale-data/jsonp/ja.js',
-      'intl/locale-data/jsonp/it.js',
-      'intl/locale-data/jsonp/de.js',
-      'intl/locale-data/jsonp/fr.js',
-      'intl/locale-data/jsonp/zh.js',
-    ],
-    require => {
-      require('intl')
-      require('intl/locale-data/jsonp/en.js')
-      require('intl/locale-data/jsonp/ar.js')
-      require('intl/locale-data/jsonp/tr.js')
-      require('intl/locale-data/jsonp/es.js')
-      require('intl/locale-data/jsonp/ru.js')
-      require('intl/locale-data/jsonp/pt.js')
-      require('intl/locale-data/jsonp/ko.js')
-      require('intl/locale-data/jsonp/ja.js')
-      require('intl/locale-data/jsonp/it.js')
-      require('intl/locale-data/jsonp/de.js')
-      require('intl/locale-data/jsonp/fr.js')
-      require('intl/locale-data/jsonp/zh.js')
-      ReactDOM.render(
-        <Provider store={store}>
-          <TokenSale />
-        </Provider>,
-        document.getElementById('root')
-      )
-    }
-  )
-} else {
-  ReactDOM.render(
-    <Provider store={store}>
-      <TokenSale />
-    </Provider>,
-    document.getElementById('root')
-  )
-}
+const renderMethod = module.hot ? ReactDOM.render : ReactDOM.hydrate
+renderMethod(
+  <Provider store={store}>
+    <TokenSale />
+  </Provider>,
+  document.getElementById('root')
+)
 
-//registerServiceWorker();
+registerServiceWorker()
 
 // if ('serviceWorker' in navigator) {
 //   navigator.serviceWorker.ready.then(registration => {

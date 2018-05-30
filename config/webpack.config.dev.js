@@ -110,6 +110,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         enforce: 'pre',
+        exclude: /\/vendor\/.*\.js/,
         use: [
           {
             options: {
@@ -256,5 +257,10 @@ module.exports = {
   // cumbersome.
   performance: {
     hints: false
+  },
+  externals: {
+    // require("jquery") is external and available
+    //  on the global var jQuery
+    "jquery": "jQuery"
   }
-};
+}
