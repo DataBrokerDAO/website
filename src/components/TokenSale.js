@@ -8,6 +8,7 @@ import loadScript from 'load-script'
 import { getWeb3 } from '../utils/getWeb3'
 import vendor from '../vendor'
 import ProgressBar from './ProgressBar'
+import GoToButton from './GoToButton'
 
 import RegisterForm from './LazyRegisterForm'
 import WorldSVG from '../assets/world.svg'
@@ -478,15 +479,24 @@ class TokenSale extends Component {
                             <FormattedMessage id="navigation_whitepaper" />
                           </a>
                         </li>
-                        <li>
-                          <a name="alliance" href="#alliance">
-                            <FormattedMessage id="navigation_alliance" />
-                          </a>
+                        <li
+                          style={{ minWidth: '65px' }}
+                          onClick={() =>
+                            this.setState({ forceLazyContent: true })
+                          }
+                        >
+                          <GoToButton
+                            name="alliance"
+                            id="navigation_alliance"
+                          />
                         </li>
-                        <li>
-                          <a name="team" href="#team">
-                            <FormattedMessage id="navigation_team" />
-                          </a>
+                        <li
+                          style={{ minWidth: '37px' }}
+                          onClick={() =>
+                            this.setState({ forceLazyContent: true })
+                          }
+                        >
+                          <GoToButton name="team" id="navigation_team" />
                         </li>
                         <li>
                           <a
@@ -920,11 +930,7 @@ class TokenSale extends Component {
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          <i
-                            className="fa fa-btc fa-2x"
-                            title="btc"
-                            title="btc"
-                          />
+                          <i className="fa fa-btc fa-2x" title="btc" />
                         </a>
                       </span>
                       <span>
@@ -955,12 +961,21 @@ class TokenSale extends Component {
               </div>
             </section>
             <VideoSection />
-            <LazyLoad height={300} offset={200} once>
-              <MidSection />
-            </LazyLoad>
-            <LazyLoad height={300} offset={300} once>
-              <BottomSection />
-            </LazyLoad>
+            {this.state.forceLazyContent ? (
+              <React.Fragment>
+                <MidSection />
+                <BottomSection />
+              </React.Fragment>
+            ) : (
+              <React.Fragment>
+                <LazyLoad height={300} offset={200} once>
+                  <MidSection />
+                </LazyLoad>
+                <LazyLoad height={300} offset={300} once>
+                  <BottomSection />
+                </LazyLoad>
+              </React.Fragment>
+            )}
           </div>
         </div>
       </IntlProvider>
