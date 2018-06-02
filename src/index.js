@@ -11,7 +11,7 @@ import './assets/css/jquery.steps.css'
 import './assets/css/theme-red.css'
 import './assets/css/custom.css'
 
-import createStore from './utils/create-store'
+import createStore from './store/create-store'
 import { Provider } from 'react-redux'
 import TokenSale from './components/TokenSale'
 // import { URL } from 'whatwg-url';

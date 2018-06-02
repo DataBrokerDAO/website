@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { asyncReactor } from 'async-reactor'
+import { connect } from 'react-redux'
+
 import SectionLoader from './SectionLoader'
+import { MIDDLE_CONTENT_MOUNTED } from '../store/actions'
 
 const Lazy = async () => {
   const modules = await Promise.all([
@@ -19,17 +22,28 @@ const Lazy = async () => {
     StakingSection,
     TokenSaleSection,
   ] = modules.map(module => module.default)
+  const MiddleSection = class extends Component {
+    componentDidMount() {
+      this.props.dispatch({
+        type: MIDDLE_CONTENT_MOUNTED,
+      })
+    }
 
-  return (
-    <div>
-      <TokenSaleSection />
-      <ChallengeSection />
-      <CTASection />
-      <SolutionSection />
-      <BetaSection />
-      <StakingSection />
-    </div>
-  )
+    render() {
+      return (
+        <React.Fragment>
+          <TokenSaleSection />
+          <ChallengeSection />
+          <CTASection />
+          <SolutionSection />
+          <BetaSection />
+          <StakingSection />
+        </React.Fragment>
+      )
+    }
+  }
+
+  return connect()(MiddleSection)
 }
 
 function Loader() {
