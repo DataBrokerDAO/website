@@ -621,6 +621,13 @@ class TeamSection extends PureComponent {
                     jobDescription="Passionate coder, with an emphasis on queueing, caching and performance of distributed systems"
                     linkedIn="https://www.linkedin.com/in/peterjanbrone/"
                   />
+                  <TeamCard
+                    firstName="Bart"
+                    lastName="Bettens"
+                    jobTitle="Copywriter"
+                    jobDescription="After several years in the media, working for a newspaper and various magazines, Bart decided in 2016 that it was time to start working for himself. Now he’s part-time copywriter, part-time translator and part-time editor, but 100% dedicated to his job at DataBroker DAO."
+                    linkedIn="https://www.linkedin.com/in/bart-bettens-056a015/"
+                  />
                   {/*<TeamCard
                     firstName="Ridah"
                     lastName="El Awad"
