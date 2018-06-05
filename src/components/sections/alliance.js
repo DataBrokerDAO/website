@@ -22,7 +22,7 @@ import LogoThingsplay from '../../assets/alliance/logo_thingsplay.png'
 import LogoAllthingstalk from '../../assets/alliance/logo_allthingstalk.png'
 // import LogoCityseeders from '../../assets/alliance/logo_cityseeders.png'
 // import LogoIntellegant from '../../assets/alliance/logo_intellegant.png'
-// import LogoActility from '../../assets/alliance/logo_actility.png'
+import LogoActility from '../../assets/alliance/logo_actility.png'
 import LogoLumo from '../../assets/alliance/logo_lumo.png'
 import LogoOption from '../../assets/alliance/logo_option.png'
 // import LogoTurck from '../../assets/alliance/logo_turck.png'
@@ -550,6 +550,36 @@ class AllianceSection extends PureComponent {
                       future synergies from a technical perspective that can
                       benefit both projects as we execute along our respective
                       roadmaps.”
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="row align-center">
+            <div className="col-sm-5" />
+            <div className="col-sm-2 modal-instance zooming-logo">
+              <a
+                name="Actility"
+                className="modal-trigger"
+                style={{ cursor: 'pointer' }}
+              >
+                <img src={LogoActility} alt="Actility" />
+              </a>
+              <div className="modal-container">
+                <div className="modal-content">
+                  <div className="boxed boxed--border">
+                    <h2>Actility</h2>
+                    <p>
+                      Actility is at the forefront of the Internet of Things,
+                      connecting the industrial IoT on a global scale by
+                      combining in-depth industry knowledge, a world-leading IoT
+                      technology platform and a fast-growing network of partners
+                      to help companies make their business more efficient and
+                      more sustainable. Customers all around the world are using
+                      ThingPark, Actility’s carrier-grade solution, to manage
+                      their IoT networks.
                     </p>
                   </div>
                 </div>
