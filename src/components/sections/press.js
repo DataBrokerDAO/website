@@ -259,6 +259,17 @@ class PressSection extends PureComponent {
                 <img alt="Jinse" src="./img/Logos media/logo-jinse.png" />
               </a>
             </div>
+            <div className="col-sm-2 zooming-logo">
+              <a
+                style={{ cursor: 'pointer' }}
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://hacked.com/ico-analysis-databroker-dao/
+                "
+              >
+                <img alt="Hacked" src="./img/Logos media/logo-hacked.png" />
+              </a>
+            </div>
             <div className="col-sm-1" />
           </div>
 
