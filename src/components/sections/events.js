@@ -32,9 +32,6 @@ const pastEvents = [
     title: 'Consensus',
     location: 'New York City, USA',
   },
-]
-
-const events = [
   {
     date: 'May 24-25',
     title: 'The Next Web Conference',
@@ -45,9 +42,12 @@ const events = [
     title: 'Latitude 59',
     location: 'Tallinn, Estiona',
   },
+]
+
+const events = [
   {
     date: 'June 6',
-    title: 'OT Smart Cities Convention Europe',
+    title: 'IoT Smart Cities Convention Europe',
     location: 'Antwerp, Belgium',
   },
   {
@@ -79,6 +79,11 @@ const events = [
     date: 'October 22-25',
     title: 'SIBOS',
     location: 'Sydney, Australia',
+  },
+  {
+    date: 'November 13-15',
+    title: 'Smart Cities Expo',
+    location: 'Barcelona, Spain',
   },
 ]
 
