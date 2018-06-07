@@ -270,6 +270,16 @@ class PressSection extends PureComponent {
                 <img alt="Hacked" src="./img/Logos media/logo-hacked.png" />
               </a>
             </div>
+            <div className="col-sm-2 zooming-logo">
+              <a
+                style={{ cursor: 'pointer' }}
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.inc.com/darren-heitner/the-internet-of-things-doesnt-have-to-be-confusing-heres-how-your-business-can-get-in-on-600-billion-market.html"
+              >
+                <img alt="Inc." src="./img/Logos media/logo_inc.png" />
+              </a>
+            </div>
             <div className="col-sm-1" />
           </div>
 
