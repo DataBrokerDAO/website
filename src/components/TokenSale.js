@@ -106,7 +106,7 @@ class TokenSale extends Component {
     this.jqueryPromise.then(jquery => {
       vendor.load().then(() => {
         setTimeout(() => {
-            mr.documentReady(jquery) //eslint-disable-line
+          mr.documentReady(jquery) //eslint-disable-line
         }, 250)
       })
     })
@@ -186,14 +186,19 @@ class TokenSale extends Component {
       const totalIssuedEarlySale = await DeployedSale.totalIssuedEarlySale()
       let ethprice
       try {
-        const response = await fetch(
-          'https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD'
-        )
+        const response = await Promise.race([
+          fetch(
+            'https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD'
+          ),
+          new Promise((_, reject) =>
+            setTimeout(() => reject(new Error('timeout')), 500)
+          ),
+        ])
         const json = await response.json()
         ethprice = json.USD
       } catch (error) {
         console.log(error)
-        ethprice = 700
+        ethprice = 500
       }
 
       let total = totalIssued.plus(totalIssuedEarlySale).div(10 ** 18)
