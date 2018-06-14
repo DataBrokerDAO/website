@@ -23,7 +23,7 @@ class PressSection extends PureComponent {
             </div>
           </div>
           <div className="row align-center" style={{ marginTop: '50px' }}>
-            <div className="col-sm-2 zooming-logo">
+            {/*<div className="col-sm-2 zooming-logo">
               <a
                 style={{ cursor: 'pointer' }}
                 target="_blank"
@@ -35,7 +35,7 @@ class PressSection extends PureComponent {
                   src="./img/Logos media/logo-BlockchainNews.png"
                 />
               </a>
-            </div>
+            </div> */}
             <div className="col-sm-2 zooming-logo">
               <a
                 style={{ cursor: 'pointer' }}
@@ -194,7 +194,7 @@ class PressSection extends PureComponent {
           </div>
 
           <div className="row align-center">
-            <div className="col-sm-1" />
+            {/* <div className="col-sm-1" /> */}
             <div className="col-sm-2 zooming-logo">
               <a
                 style={{ cursor: 'pointer' }}
@@ -259,6 +259,7 @@ class PressSection extends PureComponent {
                 <img alt="Jinse" src="./img/Logos media/logo-jinse.png" />
               </a>
             </div>
+
             <div className="col-sm-2 zooming-logo">
               <a
                 style={{ cursor: 'pointer' }}
@@ -270,6 +271,8 @@ class PressSection extends PureComponent {
                 <img alt="Hacked" src="./img/Logos media/logo-hacked.png" />
               </a>
             </div>
+          </div>
+          <div className="row align-center">
             <div className="col-sm-2 zooming-logo">
               <a
                 style={{ cursor: 'pointer' }}
@@ -278,6 +281,29 @@ class PressSection extends PureComponent {
                 href="https://www.inc.com/darren-heitner/the-internet-of-things-doesnt-have-to-be-confusing-heres-how-your-business-can-get-in-on-600-billion-market.html"
               >
                 <img alt="Inc." src="./img/Logos media/logo_inc.png" />
+              </a>
+            </div>
+            <div className="col-sm-2 zooming-logo">
+              <a
+                style={{ cursor: 'pointer' }}
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.momenta.partners/edge/unlocking-the-value-of-sensor-data-through-the-marketplace-part-1"
+              >
+                <img
+                  alt="Momenta"
+                  src="./img/Logos media/logo-momenta_transp.png"
+                />
+              </a>
+            </div>
+            <div className="col-sm-2 zooming-logo">
+              <a
+                style={{ cursor: 'pointer' }}
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://goo.gl/JFp1GW"
+              >
+                <img alt="ePRNews" src="./img/Logos media/logo-ePRNews.png" />
               </a>
             </div>
             <div className="col-sm-1" />

@@ -628,6 +628,13 @@ class TeamSection extends PureComponent {
                     jobDescription="After several years in the media, working for a newspaper and various magazines, Bart decided in 2016 that it was time to start working for himself. Now he’s part-time copywriter, part-time translator and part-time editor, but 100% dedicated to his job at DataBroker DAO."
                     linkedIn="https://www.linkedin.com/in/bart-bettens-056a015/"
                   />
+                  <TeamCard
+                    firstName="Sebastian"
+                    lastName="Wijkhuizen"
+                    jobTitle="Blockchain Developer"
+                    jobDescription="Sebastian started his career as equities and derivatives trader, became passionate about technology and ventured into the world of software development. Over the years, he has acquired experience in the development of trading algorithms, web and mobile applications, AI-powered chatbots, before joining the SettleMint developer team."
+                    linkedIn="https://www.linkedin.com/in/sebastianwijkhuizen/"
+                  />
                   {/*<TeamCard
                     firstName="Ridah"
                     lastName="El Awad"
