@@ -665,7 +665,7 @@ class AllianceSection extends PureComponent {
                 className="modal-trigger"
                 style={{ cursor: 'pointer' }}
               >
-                <img src={Logodigitalworx} alt="Digital Town" />
+                <img src={Logodigitalworx} alt="Digitalworx" />
               </a>
               <div className="modal-container">
                 <div className="modal-content">
