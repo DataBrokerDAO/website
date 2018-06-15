@@ -138,7 +138,7 @@ class PressSection extends PureComponent {
                 <img alt="NewsBTC" src="./img/Logos media/logo_newsBTC.png" />
               </a>
             </div>
-            <div className="col-sm-2 zooming-logo">
+            {/* <div className="col-sm-2 zooming-logo">
               <a
                 style={{ cursor: 'pointer' }}
                 target="_blank"
@@ -150,7 +150,7 @@ class PressSection extends PureComponent {
                   src="./img/Logos media/logo-BlockchainNews.png"
                 />
               </a>
-            </div>
+            </div> */}
 
             <div className="col-sm-2 zooming-logo">
               <a
@@ -280,6 +280,31 @@ class PressSection extends PureComponent {
                 <img alt="Inc." src="./img/Logos media/logo_inc.png" />
               </a>
             </div>
+
+            <div className="col-sm-2 zooming-logo">
+              <a
+                style={{ cursor: 'pointer' }}
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.momenta.partners/edge/unlocking-the-value-of-sensor-data-through-the-marketplace-part-1"
+              >
+                <img
+                  alt="Momenta"
+                  src="./img/Logos media/logo-momenta_transp.png"
+                />
+              </a>
+            </div>
+            <div className="col-sm-2 zooming-logo">
+              <a
+                style={{ cursor: 'pointer' }}
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://goo.gl/JFp1GW"
+              >
+                <img alt="ePRNews" src="./img/Logos media/logo-ePRNews.png" />
+              </a>
+            </div>
+
             <div className="col-sm-1" />
           </div>
 
