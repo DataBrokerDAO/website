@@ -406,10 +406,7 @@ class AllianceSection extends PureComponent {
                 </div>
               </div>
             </div>
-            <div className="col-sm-1" />
-          </div>
-          <div className="row align-center">
-            <div className="col-sm-1" />
+
             <div className="col-sm-2 modal-instance zooming-logo">
               <a
                 name="desideDatum"
@@ -437,6 +434,10 @@ class AllianceSection extends PureComponent {
                 </div>
               </div>
             </div>
+          </div>
+          <div className="row align-center">
+            <div className="col-sm-1" />
+
             <div className="col-sm-2 modal-instance zooming-logo">
               <a
                 name="Iquadrat"
@@ -524,6 +525,7 @@ class AllianceSection extends PureComponent {
                 </div>
               </div>
             </div>
+
             <div className="col-sm-2 modal-instance zooming-logo">
               <a
                 name="Iungoo"
@@ -558,10 +560,7 @@ class AllianceSection extends PureComponent {
                 </div>
               </div>
             </div>
-          </div>
 
-          <div className="row align-center">
-            <div className="col-sm-5" />
             <div className="col-sm-2 modal-instance zooming-logo">
               <a
                 name="Actility"
@@ -588,100 +587,102 @@ class AllianceSection extends PureComponent {
                 </div>
               </div>
             </div>
-          </div>
 
-          <div className="col-sm-2 modal-instance zooming-logo">
-            <a
-              name="Reekoh_logo"
-              className="modal-trigger"
-              style={{ cursor: 'pointer' }}
-            >
-              <img src={LogoReekoh} alt="Digital Town" />
-            </a>
-            <div className="modal-container">
-              <div className="modal-content">
-                <div className="boxed boxed--border">
-                  <h2>Reekoh</h2>
-                  <p>
-                    Purpose-built for the Internet of Things, Reekoh is an
-                    integration fabric that brings together all your IoT
-                    devices, networks, data and enterprise systems. Fast to set
-                    up and agile to work with, it’s a highly scalable platform
-                    that securely ingests, messages and delivers data between
-                    devices and applications. Their IoT Fabric is helping
-                    enterprises to rapidly take control of their fragmented IoT
-                    solutions, unlock the full value of their data, and build
-                    capability for the future, whilst their Dashboard Studio
-                    allows you to create fast, shareable dashboards to get a
-                    visual handle on your IoT and open data.
-                  </p>
+            <div className="col-sm-2 modal-instance zooming-logo">
+              <a
+                name="Reekoh_logo"
+                className="modal-trigger"
+                style={{ cursor: 'pointer' }}
+              >
+                <img src={LogoReekoh} alt="Digital Town" />
+              </a>
+              <div className="modal-container">
+                <div className="modal-content">
+                  <div className="boxed boxed--border">
+                    <h2>Reekoh</h2>
+                    <p>
+                      Purpose-built for the Internet of Things, Reekoh is an
+                      integration fabric that brings together all your IoT
+                      devices, networks, data and enterprise systems. Fast to
+                      set up and agile to work with, it’s a highly scalable
+                      platform that securely ingests, messages and delivers data
+                      between devices and applications. Their IoT Fabric is
+                      helping enterprises to rapidly take control of their
+                      fragmented IoT solutions, unlock the full value of their
+                      data, and build capability for the future, whilst their
+                      Dashboard Studio allows you to create fast, shareable
+                      dashboards to get a visual handle on your IoT and open
+                      data.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <div className="col-sm-1" />
+          <div className="col-sm-1" />
 
-        <div className="row align-center">
-          <div className="col-sm-5" />
+          <div className="row align-center">
+            <div className="col-sm-5" />
 
-          {/* <div className="col-sm-1" /> */}
+            {/* <div className="col-sm-1" /> */}
 
-          <div className="col-sm-2 modal-instance zooming-logo">
-            <a
-              name="Aerodyne"
-              className="modal-trigger"
-              style={{ cursor: 'pointer' }}
-            >
-              <img src={Logoaerodyne} alt="Digital Town" />
-            </a>
-            <div className="modal-container">
-              <div className="modal-content">
-                <div className="boxed boxed--border">
-                  <h2>Aerodyne</h2>
-                  <p>
-                    Aerodyne is a drone-based managed solutions provider with
-                    offices in Australia, Malaysia, Singapore, Brunei, USA, UAE,
-                    Saudi Arabia, Indonesia, Denmark and the United Kingdom,
-                    boasting an industry-leading number of 35,000 flight
-                    operations and more than 100,000 infrastructure assets
-                    inspected in 2017. Aerodyne’s unique DaaS model
-                    (Drone-as-a-Service) has numerous benefits for companies
-                    that would like to start working with drones, but don’t want
-                    to have anything to do with all the hassle that comes with
-                    it. In combination with a user-friendly SaaS solution, these
-                    cost-effective aerial capabilities can be a game changer for
-                    companies active in areas like mining, agriculture,
-                    surveillance and environmental management.
-                  </p>
+            <div className="col-sm-2 modal-instance zooming-logo">
+              <a
+                name="Aerodyne"
+                className="modal-trigger"
+                style={{ cursor: 'pointer' }}
+              >
+                <img src={Logoaerodyne} alt="Digital Town" />
+              </a>
+              <div className="modal-container">
+                <div className="modal-content">
+                  <div className="boxed boxed--border">
+                    <h2>Aerodyne</h2>
+                    <p>
+                      Aerodyne is a drone-based managed solutions provider with
+                      offices in Australia, Malaysia, Singapore, Brunei, USA,
+                      UAE, Saudi Arabia, Indonesia, Denmark and the United
+                      Kingdom, boasting an industry-leading number of 35,000
+                      flight operations and more than 100,000 infrastructure
+                      assets inspected in 2017. Aerodyne’s unique DaaS model
+                      (Drone-as-a-Service) has numerous benefits for companies
+                      that would like to start working with drones, but don’t
+                      want to have anything to do with all the hassle that comes
+                      with it. In combination with a user-friendly SaaS
+                      solution, these cost-effective aerial capabilities can be
+                      a game changer for companies active in areas like mining,
+                      agriculture, surveillance and environmental management.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div className="col-sm-2 modal-instance zooming-logo">
-            <a
-              name="Digitalworx"
-              className="modal-trigger"
-              style={{ cursor: 'pointer' }}
-            >
-              <img src={Logodigitalworx} alt="Digital Town" />
-            </a>
-            <div className="modal-container">
-              <div className="modal-content">
-                <div className="boxed boxed--border">
-                  <h2>Digitalworx</h2>
-                  <p>
-                    Digitalworx, based in Stuttgart, rightly calls itself a
-                    ‘software developer for a connected world’, creating all
-                    kinds of innovative digital products for industry, medical
-                    applications and trade. They develop apps for iOS, Android
-                    and Smart Watches, use Beacons to connect smartphones and
-                    the Internet of Things and create space for new application
-                    worlds and business processes for the IoT. And as one of the
-                    pioneers of Internet 4.0 they lead clients to the next step
-                    of digital evolution.
-                  </p>
+
+            <div className="col-sm-2 modal-instance zooming-logo">
+              <a
+                name="Digitalworx"
+                className="modal-trigger"
+                style={{ cursor: 'pointer' }}
+              >
+                <img src={Logodigitalworx} alt="Digital Town" />
+              </a>
+              <div className="modal-container">
+                <div className="modal-content">
+                  <div className="boxed boxed--border">
+                    <h2>Digitalworx</h2>
+                    <p>
+                      Digitalworx, based in Stuttgart, rightly calls itself a
+                      ‘software developer for a connected world’, creating all
+                      kinds of innovative digital products for industry, medical
+                      applications and trade. They develop apps for iOS, Android
+                      and Smart Watches, use Beacons to connect smartphones and
+                      the Internet of Things and create space for new
+                      application worlds and business processes for the IoT. And
+                      as one of the pioneers of Internet 4.0 they lead clients
+                      to the next step of digital evolution.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
