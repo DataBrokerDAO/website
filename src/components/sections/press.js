@@ -23,7 +23,7 @@ class PressSection extends PureComponent {
             </div>
           </div>
           <div className="row align-center" style={{ marginTop: '50px' }}>
-            <div className="col-sm-2 zooming-logo">
+            {/*<div className="col-sm-2 zooming-logo">
               <a
                 style={{ cursor: 'pointer' }}
                 target="_blank"
@@ -35,7 +35,7 @@ class PressSection extends PureComponent {
                   src="./img/Logos media/logo-BlockchainNews.png"
                 />
               </a>
-            </div>
+            </div> */}
             <div className="col-sm-2 zooming-logo">
               <a
                 style={{ cursor: 'pointer' }}
@@ -138,7 +138,7 @@ class PressSection extends PureComponent {
                 <img alt="NewsBTC" src="./img/Logos media/logo_newsBTC.png" />
               </a>
             </div>
-            {/* <div className="col-sm-2 zooming-logo">
+            <div className="col-sm-2 zooming-logo">
               <a
                 style={{ cursor: 'pointer' }}
                 target="_blank"
@@ -150,7 +150,7 @@ class PressSection extends PureComponent {
                   src="./img/Logos media/logo-BlockchainNews.png"
                 />
               </a>
-            </div> */}
+            </div>
 
             <div className="col-sm-2 zooming-logo">
               <a
@@ -194,7 +194,7 @@ class PressSection extends PureComponent {
           </div>
 
           <div className="row align-center">
-            <div className="col-sm-1" />
+            {/* <div className="col-sm-1" /> */}
             <div className="col-sm-2 zooming-logo">
               <a
                 style={{ cursor: 'pointer' }}
@@ -259,6 +259,7 @@ class PressSection extends PureComponent {
                 <img alt="Jinse" src="./img/Logos media/logo-jinse.png" />
               </a>
             </div>
+
             <div className="col-sm-2 zooming-logo">
               <a
                 style={{ cursor: 'pointer' }}
@@ -270,6 +271,8 @@ class PressSection extends PureComponent {
                 <img alt="Hacked" src="./img/Logos media/logo-hacked.png" />
               </a>
             </div>
+          </div>
+          <div className="row align-center">
             <div className="col-sm-2 zooming-logo">
               <a
                 style={{ cursor: 'pointer' }}
@@ -280,7 +283,6 @@ class PressSection extends PureComponent {
                 <img alt="Inc." src="./img/Logos media/logo_inc.png" />
               </a>
             </div>
-
             <div className="col-sm-2 zooming-logo">
               <a
                 style={{ cursor: 'pointer' }}
@@ -304,7 +306,6 @@ class PressSection extends PureComponent {
                 <img alt="ePRNews" src="./img/Logos media/logo-ePRNews.png" />
               </a>
             </div>
-
             <div className="col-sm-1" />
           </div>
 
