@@ -42,15 +42,13 @@ const pastEvents = [
     title: 'Latitude 59',
     location: 'Tallinn, Estiona',
   },
-]
-
-const events = [
   {
     date: 'June 6',
     title: 'IoT Smart Cities Convention Europe',
     location: 'Antwerp, Belgium',
   },
   {
+    /*{
     date: 'June 11-14',
     title: 'MoneyConf',
     location: 'Dublin, Ireland',
@@ -59,6 +57,34 @@ const events = [
     date: 'June 12-14',
     title: 'TechXLR8 London',
     location: 'London',
+  },*/
+    date: 'June 12-13',
+    title: 'Meet ups & IC Cafe blockchain event',
+    location: 'Shanghai 上海, China',
+  },
+  {
+    date: 'June 14',
+    title: 'Blockchain Technology Conference & Oversees Blockchain Exchange Conference',
+    location: 'Hangzhou 杭, China',
+  },
+]
+
+const events = [
+  {
+    date: 'June 15',
+    title: 'Offshore Blockchain and Internet of Things Project Roadshow',
+    location: 'Guangzhou 广州, China',
+  },
+
+  {
+    date: 'June 16-17',
+    title: 'Meet-ups',
+    location: 'Shenzhen 深圳, China',
+  },
+  {
+    date: 'June 18-21',
+    title: 'Meet-ups',
+    location: 'Beijing 北京, China',
   },
   {
     date: 'June 26-27',
@@ -70,6 +96,31 @@ const events = [
     title: 'Tech Open Air',
     location: 'Berlin',
   },
+  // {
+  //   date: 'June 6',
+  //   title: 'IoT Smart Cities Convention Europe',
+  //   location: 'Antwerp, Belgium',
+  // },
+  // {
+  //   date: 'June 11-14',
+  //   title: 'MoneyConf',
+  //   location: 'Dublin, Ireland',
+  // },
+  // {
+  //   date: 'June 12-14',
+  //   title: 'TechXLR8 London',
+  //   location: 'London',
+  // },
+  // {
+  //   date: 'June 26-27',
+  //   title: 'WEBIT Blockchain Summit',
+  //   location: 'Sofia, Bulgary',
+  // },
+  // {
+  //   date: 'June 20-21',
+  //   title: 'Tech Open Air',
+  //   location: 'Berlin',
+  // },
   {
     date: 'July 9-13',
     title: 'Rise conference',
