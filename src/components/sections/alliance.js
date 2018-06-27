@@ -52,7 +52,6 @@ class AllianceSection extends PureComponent {
             </div>
           </div>
           <div className="row align-center" style={{ marginTop: '50px' }}>
-            <div className="col-sm-1" />
             {/*<div className="col-sm-2 modal-instance zooming-logo">
               <a className="modal-trigger" style={{ cursor: 'pointer' }}>
                 <img alt="Senthus" src={LogoBrusselsSmartCity} />
@@ -250,10 +249,8 @@ class AllianceSection extends PureComponent {
                 </div>
               </div>
             </div>
-            <div className="col-sm-1" />
           </div>
           <div className="row align-center">
-            <div className="col-sm-1" />
             <div className="col-sm-2 modal-instance zooming-logo">
               <a
                 name="Technilog"
@@ -436,7 +433,6 @@ class AllianceSection extends PureComponent {
             </div>
           </div>
           <div className="row align-center">
-            <div className="col-sm-1" />
 
             <div className="col-sm-2 modal-instance zooming-logo">
               <a
@@ -620,12 +616,8 @@ class AllianceSection extends PureComponent {
             </div>
           </div>
 
-          <div className="col-sm-1" />
-
           <div className="row align-center">
-            <div className="col-sm-5" />
-
-            {/* <div className="col-sm-1" /> */}
+            <div className="col-sm-4" />
 
             <div className="col-sm-2 modal-instance zooming-logo">
               <a
