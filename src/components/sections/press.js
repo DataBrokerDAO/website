@@ -316,6 +316,20 @@ class PressSection extends PureComponent {
                 style={{ cursor: 'pointer' }}
                 target="_blank"
                 rel="noopener noreferrer"
+                href="https://www.tijd.be/dossier/blockchain/leuvenaars-halen-virtuele-miljoenen-op-voor-handel-in-sensordata/10012926.html"
+              >
+                <img
+                  alt="detijd"
+                  src="./img/Logos media/detijdlogo.png"
+                />
+              </a>
+            </div>   
+
+            <div className="col-sm-2 zooming-logo">
+              <a
+                style={{ cursor: 'pointer' }}
+                target="_blank"
+                rel="noopener noreferrer"
                 href="https://goo.gl/e1Bpa3"
               >
                 <img
@@ -335,7 +349,67 @@ class PressSection extends PureComponent {
                 <img alt="ePRNews" src="./img/Logos media/logo-ePRNews.png" />
               </a>
             </div>
-            <div className="col-sm-1" />
+          </div>
+
+          <div className="row align-center">
+            <div className="col-sm-2 zooming-logo"></div>
+            <div className="col-sm-2 zooming-logo">
+              <a
+                style={{ cursor: 'pointer' }}
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://cryptoworldbynca.wordpress.com/2018/06/18/databroker-dao-distrupts-1-2-trillion-us-dollar-market/"
+              >
+                <img
+                  alt="Iceoexpert"
+                  src="./img/Logos media/icoexpertslogo.png"
+                />
+              </a>
+            </div>
+
+            <div className="col-sm-2 zooming-logo">
+              <a
+                style={{ cursor: 'pointer' }}
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://bitcoinprbuzz.com/databroker-dao-announced-chinese/"
+              >
+                <img
+                  alt="bitcoinprbuzz"
+                  src="./img/Logos media/bitcoinprbuzzlogo.jpg"
+                />
+              </a>
+            </div>
+            
+            <div className="col-sm-2 zooming-logo">
+              <a
+                style={{ cursor: 'pointer' }}
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://goo.gl/e1Bpa3"
+              >
+                <img
+                  alt="criptonotcias"
+                  src="./img/Logos media/criptonotciaslogo.png"
+                />
+              </a>
+            </div>   
+
+            <div className="col-sm-2 zooming-logo">
+              <a
+                style={{ cursor: 'pointer' }}
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://eprnews.com/databroker-dao-announced-chinese-roadshow-dates-doubles-token-sale-rewards-until-june-30th-348157/"
+              >
+                <img
+                  alt="ePRNews"
+                  src="./img/Logos media/logo-ePRNews.png"
+                />
+              </a>
+            </div>   
+
+            <div className="col-sm-2 zooming-logo"></div>
           </div>
 
           <div className="row align-center" style={{ marginTop: '50px' }}>
