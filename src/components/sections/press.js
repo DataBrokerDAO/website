@@ -386,11 +386,11 @@ class PressSection extends PureComponent {
                 style={{ cursor: 'pointer' }}
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://goo.gl/e1Bpa3"
+                href="https://www.techbullion.com/interview-with-matthew-van-niekerk-founder-of-databroker-dao-on-databroker-dao-token-sale/"
               >
                 <img
-                  alt="criptonotcias"
-                  src="./img/Logos media/criptonotciaslogo.png"
+                  alt="techbullion"
+                  src="./img/Logos media/TechBullionLogo-3.png"
                 />
               </a>
             </div>   
