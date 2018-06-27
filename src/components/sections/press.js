@@ -296,6 +296,35 @@ class PressSection extends PureComponent {
                 />
               </a>
             </div>
+
+            <div className="col-sm-2 zooming-logo">
+              <a
+                style={{ cursor: 'pointer' }}
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.reuters.com/brandfeatures/venture-capital/article?id=32112"
+              >
+                <img
+                  alt="reuters"
+                  src="./img/Logos media/Reuterslogo.png"
+                />
+              </a>
+            </div>
+            
+            <div className="col-sm-2 zooming-logo">
+              <a
+                style={{ cursor: 'pointer' }}
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://goo.gl/e1Bpa3"
+              >
+                <img
+                  alt="criptonotcias"
+                  src="./img/Logos media/criptonotciaslogo.png"
+                />
+              </a>
+            </div>   
+
             <div className="col-sm-2 zooming-logo">
               <a
                 style={{ cursor: 'pointer' }}
