@@ -2,26 +2,27 @@ import React, { PureComponent } from 'react'
 import { FormattedMessage } from 'react-intl'
 
 const pastEvents = [
-  {
-    date: 'May 2-3',
-    title: 'Future Blockchain Summit',
-    location: 'Dubai, UAE',
-  },
-  {
-    date: 'May 2-5',
-    title: 'AND& Festival',
-    location: 'Louvain, Belgium',
-  },
-  {
-    date: 'May 8-10',
-    title: 'World Tokenomic Forum',
-    location: 'Cayman Islands',
-  },
-  {
-    date: 'May 9',
-    title: 'NYC VCs, Angels & ICOs',
-    location: 'New York City, USA',
-  },
+  // {
+  //   date: 'May 2-3',
+  //   title: 'Future Blockchain Summit',
+  //   location: 'Dubai, UAE',
+  // },
+  // {
+  //   date: 'May 2-5',
+  //   title: 'AND& Festival',
+  //   location: 'Louvain, Belgium',
+  // },
+  // {
+  //   date: 'May 8-10',
+  //   title: 'World Tokenomic Forum',
+  //   location: 'Cayman Islands',
+  // },
+  // {
+  //   date: 'May 9',
+  //   title: 'NYC VCs, Angels & ICOs',
+  //   location: 'New York City, USA',
+  // },
+  
   {
     date: 'May 11-12',
     title: 'Ethereal Summit',
@@ -48,6 +49,32 @@ const pastEvents = [
     location: 'Antwerp, Belgium',
   },
   {
+    date: 'June 15',
+    title: 'Offshore Blockchain and Internet of Things Project Roadshow',
+    location: 'Guangzhou 广州, China',
+  },
+
+  {
+    date: 'June 16-17',
+    title: 'Meet-ups',
+    location: 'Shenzhen 深圳, China',
+  },
+  {
+    date: 'June 18-21',
+    title: 'Meet-ups',
+    location: 'Beijing 北京, China',
+  },
+  {
+    date: 'June 20-21',
+    title: 'Tech Open Air',
+    location: 'Berlin',
+  },
+  {
+    date: 'June 26-27',
+    title: 'WEBIT Blockchain Summit',
+    location: 'Sofia, Bulgary',
+  },
+  {
     /*{
     date: 'June 11-14',
     title: 'MoneyConf',
@@ -70,32 +97,8 @@ const pastEvents = [
 ]
 
 const events = [
-  {
-    date: 'June 15',
-    title: 'Offshore Blockchain and Internet of Things Project Roadshow',
-    location: 'Guangzhou 广州, China',
-  },
-
-  {
-    date: 'June 16-17',
-    title: 'Meet-ups',
-    location: 'Shenzhen 深圳, China',
-  },
-  {
-    date: 'June 18-21',
-    title: 'Meet-ups',
-    location: 'Beijing 北京, China',
-  },
-  {
-    date: 'June 26-27',
-    title: 'WEBIT Blockchain Summit',
-    location: 'Sofia, Bulgary',
-  },
-  {
-    date: 'June 20-21',
-    title: 'Tech Open Air',
-    location: 'Berlin',
-  },
+  
+  
   // {
   //   date: 'June 6',
   //   title: 'IoT Smart Cities Convention Europe',
