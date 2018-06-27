@@ -22,6 +22,7 @@ const TeamCard = ({
   lastName,
   jobTitle,
   jobDescription,
+  jobRegion = '',
   linkedIn,
   imgUrl,
 }) => {
@@ -40,6 +41,7 @@ const TeamCard = ({
         <div className="card__body modal-trigger">
           <h4 className="color--primary">{fullName}</h4>
           <span className="type--fade">{jobTitle}</span>
+          <div className="type--fade">{jobRegion}</div>
         </div>
         <div className="card__bottom text-center">
           {linkedIn && <LinkedInAction url={linkedIn} />}
@@ -223,7 +225,7 @@ class TeamSection extends PureComponent {
                       <div className="card__top modal-trigger">
                         <img
                           alt="Frank"
-                          src="./img/frank.jpg"
+                          src="./img/frankk.jpg"
                           style={{ filter: 'grayscale(100%)' }}
                         />
                       </div>
@@ -638,7 +640,8 @@ class TeamSection extends PureComponent {
                   <TeamCard
                     firstName="Frank"
                     lastName="Segers"
-                    jobTitle="Head of Sales EUROPE and APAC"
+                    jobTitle="Head Of Sales"
+                    jobRegion="EUROPE and APAC"
                     jobDescription="Seasoned sales leader with 25+ years experience in boosting sales of disruptive technologies on the global markets. Worked in senior management positions for American and European based technology companies such as Transmode Systems, TE Connectivity (CommScope) and Spike Broadband Systems. Energetic and sales oriented entrepreneur, strong networker, polyglot, MSc in Electro-mechanical engineering Mechatronics from University of Leuven and MBA from University of Louvain-la-Neuve."
                     linkedIn="https://www.linkedin.com/in/frank-segers-6a30ba30"
                   />
