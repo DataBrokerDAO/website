@@ -49,6 +49,26 @@ const pastEvents = [
     location: 'Antwerp, Belgium',
   },
   {
+    /*{
+    date: 'June 11-14',
+    title: 'MoneyConf',
+    location: 'Dublin, Ireland',
+  },
+  {
+    date: 'June 12-14',
+    title: 'TechXLR8 London',
+    location: 'London',
+  },*/
+    date: 'June 12-13',
+    title: 'Meet ups & IC Cafe blockchain event',
+    location: 'Shanghai 上海, China',
+  },
+  {
+    date: 'June 14',
+    title: 'Blockchain Technology Conference & Oversees Blockchain Exchange Conference',
+    location: 'Hangzhou 杭, China',
+  },
+  {
     date: 'June 15',
     title: 'Offshore Blockchain and Internet of Things Project Roadshow',
     location: 'Guangzhou 广州, China',
@@ -74,26 +94,7 @@ const pastEvents = [
     title: 'WEBIT Blockchain Summit',
     location: 'Sofia, Bulgary',
   },
-  {
-    /*{
-    date: 'June 11-14',
-    title: 'MoneyConf',
-    location: 'Dublin, Ireland',
-  },
-  {
-    date: 'June 12-14',
-    title: 'TechXLR8 London',
-    location: 'London',
-  },*/
-    date: 'June 12-13',
-    title: 'Meet ups & IC Cafe blockchain event',
-    location: 'Shanghai 上海, China',
-  },
-  {
-    date: 'June 14',
-    title: 'Blockchain Technology Conference & Oversees Blockchain Exchange Conference',
-    location: 'Hangzhou 杭, China',
-  },
+  
 ]
 
 const events = [
