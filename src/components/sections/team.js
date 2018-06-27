@@ -635,6 +635,13 @@ class TeamSection extends PureComponent {
                     jobDescription="Sebastian started his career as equities and derivatives trader, became passionate about technology and ventured into the world of software development. Over the years, he has acquired experience in the development of trading algorithms, web and mobile applications, AI-powered chatbots, before joining the SettleMint developer team."
                     linkedIn="https://www.linkedin.com/in/sebastianwijkhuizen/"
                   />
+                  <TeamCard
+                    firstName="Frank"
+                    lastName="Segers"
+                    jobTitle="Head of Sales EUROPE and APAC"
+                    jobDescription="Seasoned sales leader with 25+ years experience in boosting sales of disruptive technologies on the global markets. Worked in senior management positions for American and European based technology companies such as Transmode Systems, TE Connectivity (CommScope) and Spike Broadband Systems. Energetic and sales oriented entrepreneur, strong networker, polyglot, MSc in Electro-mechanical engineering Mechatronics from University of Leuven and MBA from University of Louvain-la-Neuve."
+                    linkedIn="https://www.linkedin.com/in/frank-segers-6a30ba30"
+                  />
 
                   {/*<TeamCard
                     firstName="Ridah"
