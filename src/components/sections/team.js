@@ -894,7 +894,7 @@ class TeamSection extends PureComponent {
                         <div className="card__action">
                           <a
                             name="OverstockCEO"
-                            href="https://twitter.com/OverstockCEO"
+                            href="https://twitter.com/"
                             target="_blank"
                             rel="noopener noreferrer"
                           >
