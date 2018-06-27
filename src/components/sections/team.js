@@ -816,6 +816,12 @@ class TeamSection extends PureComponent {
                     </div>
                   </div>
 
+
+                  
+
+
+
+
                   <div className="col-xs-6 col-sm-3 masonry__item modal-instance">
                     <div className="card card-2 text-center">
                       <div className="card__top modal-trigger">
@@ -870,6 +876,52 @@ class TeamSection extends PureComponent {
                       </div>
                     </div>
                   </div>
+
+                  <div className="col-xs-6 col-sm-3 masonry__item modal-instance">
+                    <div className="card card-2 text-center">
+                      <div className="card__top modal-trigger">
+                        <img
+                          alt="Yehoshua"
+                          src="./img/Yehoshua.jpg"
+                          style={{ filter: 'grayscale(100%)' }}
+                        />
+                      </div>
+                      <div className="card__body modal-trigger">
+                        <h4 className="color--primary">Yehoshua Westover</h4>
+                        <span className="type--fade">Advisor</span>
+                      </div>
+                      <div className="card__bottom text-center">
+                        <div className="card__action">
+                          <a
+                            name="OverstockCEO"
+                            href="https://twitter.com/OverstockCEO"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <i className="color--primary fa fa-twitter fa-2x" />
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="modal-container">
+                      <div className="modal-content">
+                        <div className="boxed card card-1">
+                          <div className="card__body">
+                            <h4 className="color--primary">Yehoshua Westover</h4>
+                            <span className="type--fade">Advisor</span>
+                          </div>
+                          <div className="card__bottom">
+                            <p>China Strategist and Venture Capitalist; Chairman, October Investment Management; Co-founder, 1st Prestige Wealth Management; COO, China Israel Science and Technology Innovation Center</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+
+
                 </div>
               </div>
             </div>
