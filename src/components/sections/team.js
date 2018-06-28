@@ -676,7 +676,7 @@ class TeamSection extends PureComponent {
                       </div>
                       <div className="card__body modal-trigger">
                         <h4 className="color--primary">Jonathan Johnson</h4>
-                        <span className="type--fade">Advisor</span>
+                        <span className="type--fade"><FormattedMessage id="jonathan_title" /></span>
                       </div>
                       <div className="card__bottom text-center">
                         <div className="card__action">
@@ -707,7 +707,7 @@ class TeamSection extends PureComponent {
                         <div className="boxed card card-1">
                           <div className="card__body">
                             <h4 className="color--primary">Jonathan Johnson</h4>
-                            <span className="type--fade">Advisor</span>
+                            <span className="type--fade"><FormattedMessage id="jonathan_title" /></span>
                           </div>
                           <div className="card__bottom">
                             <p>President, Medici Ventures, Inc.</p>
@@ -728,7 +728,7 @@ class TeamSection extends PureComponent {
                       </div>
                       <div className="card__body modal-trigger">
                         <h4 className="color--primary">Richard Kastelein</h4>
-                        <span className="type--fade">Advisor</span>
+                        <span className="type--fade"><FormattedMessage id="richard_title" /></span>
                       </div>
                       <div className="card__bottom text-center">
                         <div className="card__action">
@@ -785,7 +785,7 @@ class TeamSection extends PureComponent {
                       </div>
                       <div className="card__body modal-trigger">
                         <h4 className="color--primary">Patrick Byrne</h4>
-                        <span className="type--fade">Advisor</span>
+                        <span className="type--fade"><FormattedMessage id="patrick_title" /></span>
                       </div>
                       <div className="card__bottom text-center">
                         <div className="card__action">
