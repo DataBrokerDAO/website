@@ -2,41 +2,41 @@ import React, { PureComponent } from 'react'
 import { FormattedMessage } from 'react-intl'
 
 const pastEvents = [
-  {
-    date: 'May 2-3',
-    title: 'Future Blockchain Summit',
-    location: 'Dubai, UAE',
-  },
-  {
-    date: 'May 2-5',
-    title: 'AND& Festival',
-    location: 'Louvain, Belgium',
-  },
-  {
-    date: 'May 8-10',
-    title: 'World Tokenomic Forum',
-    location: 'Cayman Islands',
-  },
-  {
-    date: 'May 9',
-    title: 'NYC VCs, Angels & ICOs',
-    location: 'New York City, USA',
-  },
-  {
-    date: 'May 11-12',
-    title: 'Ethereal Summit',
-    location: 'New York City, USA',
-  },
-  {
-    date: 'May 14-16',
-    title: 'Consensus',
-    location: 'New York City, USA',
-  },
-  {
-    date: 'May 24-25',
-    title: 'The Next Web Conference',
-    location: 'Amsterdam, the Netherlands',
-  },
+  // {
+  //   date: 'May 2-3',
+  //   title: 'Future Blockchain Summit',
+  //   location: 'Dubai, UAE',
+  // },
+  // {
+  //   date: 'May 2-5',
+  //   title: 'AND& Festival',
+  //   location: 'Louvain, Belgium',
+  // },
+  // {
+  //   date: 'May 8-10',
+  //   title: 'World Tokenomic Forum',
+  //   location: 'Cayman Islands',
+  // },
+  // {
+  //   date: 'May 9',
+  //   title: 'NYC VCs, Angels & ICOs',
+  //   location: 'New York City, USA',
+  // },
+  // {
+  //   date: 'May 11-12',
+  //   title: 'Ethereal Summit',
+  //   location: 'New York City, USA',
+  // },
+  // {
+  //   date: 'May 14-16',
+  //   title: 'Consensus',
+  //   location: 'New York City, USA',
+  // },
+  // {
+  //   date: 'May 24-25',
+  //   title: 'The Next Web Conference',
+  //   location: 'Amsterdam, the Netherlands',
+  // },
   {
     date: 'May 24-25',
     title: 'Latitude 59',
@@ -67,9 +67,6 @@ const pastEvents = [
     title: 'Blockchain Technology Conference & Oversees Blockchain Exchange Conference',
     location: 'Hangzhou 杭, China',
   },
-]
-
-const events = [
   {
     date: 'June 15',
     title: 'Offshore Blockchain and Internet of Things Project Roadshow',
@@ -87,15 +84,20 @@ const events = [
     location: 'Beijing 北京, China',
   },
   {
-    date: 'June 26-27',
-    title: 'WEBIT Blockchain Summit',
-    location: 'Sofia, Bulgary',
-  },
-  {
     date: 'June 20-21',
     title: 'Tech Open Air',
     location: 'Berlin',
   },
+  {
+    date: 'June 26-27',
+    title: 'WEBIT Blockchain Summit',
+    location: 'Sofia, Bulgary',
+  },
+]
+
+const events = [
+  
+  
   // {
   //   date: 'June 6',
   //   title: 'IoT Smart Cities Convention Europe',
