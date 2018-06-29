@@ -710,7 +710,7 @@ class TeamSection extends PureComponent {
                             <span className="type--fade">Advisor</span>
                           </div>
                           <div className="card__bottom">
-                            <p>President, Medici Ventures, Inc.</p>
+                            <p> <FormattedMessage id="johnatan_title" /> , Medici Ventures, Inc.</p>
                           </div>
                         </div>
                       </div>
@@ -761,12 +761,12 @@ class TeamSection extends PureComponent {
                             <h4 className="color--primary">
                               Richard Kastelein
                             </h4>
-                            <span className="type--fade">Advisor</span>
+                            <span className="type--fade">  Advisor</span>
                           </div>
                           <div className="card__bottom">
                             <p>
-                              Blockchain News Publisher Partner Cryptoassets
-                              Design Group
+                            <FormattedMessage id="richard_title" />
+                              
                             </p>
                           </div>
                         </div>
@@ -868,8 +868,8 @@ class TeamSection extends PureComponent {
                           </div>
                           <div className="card__bottom">
                             <p>
-                              Business Development and Innovation manager at
-                              Proximus
+                            <FormattedMessage id="julien_title" />
+                              
                             </p>
                           </div>
                         </div>
@@ -909,10 +909,13 @@ class TeamSection extends PureComponent {
                         <div className="boxed card card-1">
                           <div className="card__body">
                             <h4 className="color--primary">Yehoshua Westover</h4>
-                            <span className="type--fade">Advisor</span>
+                            <span className="type--fade"> Advisor
+                             </span>
                           </div>
                           <div className="card__bottom">
-                            <p>China Strategist and Venture Capitalist; Chairman, October Investment Management; Co-founder, 1st Prestige Wealth Management; COO, China Israel Science and Technology Innovation Center</p>
+                            <p>
+                            <FormattedMessage id="yehoshua_title" />
+                            </p>
                           </div>
                         </div>
                       </div>
