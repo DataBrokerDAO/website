@@ -816,12 +816,6 @@ class TeamSection extends PureComponent {
                     </div>
                   </div>
 
-
-                  
-
-
-
-
                   <div className="col-xs-6 col-sm-3 masonry__item modal-instance">
                     <div className="card card-2 text-center">
                       <div className="card__top modal-trigger">
@@ -908,20 +902,23 @@ class TeamSection extends PureComponent {
                       <div className="modal-content">
                         <div className="boxed card card-1">
                           <div className="card__body">
-                            <h4 className="color--primary">Yehoshua Westover</h4>
+                            <h4 className="color--primary">
+                              Yehoshua Westover
+                            </h4>
                             <span className="type--fade">Advisor</span>
                           </div>
                           <div className="card__bottom">
-                            <p>China Strategist and Venture Capitalist; Chairman, October Investment Management; Co-founder, 1st Prestige Wealth Management; COO, China Israel Science and Technology Innovation Center</p>
+                            <p>
+                              China Strategist and Venture Capitalist; Chairman,
+                              October Investment Management; Co-founder, 1st
+                              Prestige Wealth Management; COO, China Israel
+                              Science and Technology Innovation Center
+                            </p>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-
-
-
-
                 </div>
               </div>
             </div>

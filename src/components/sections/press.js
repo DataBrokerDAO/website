@@ -304,13 +304,10 @@ class PressSection extends PureComponent {
                 rel="noopener noreferrer"
                 href="https://www.reuters.com/brandfeatures/venture-capital/article?id=32112"
               >
-                <img
-                  alt="reuters"
-                  src="./img/Logos media/Reuterslogo.png"
-                />
+                <img alt="reuters" src="./img/Logos media/Reuterslogo.png" />
               </a>
             </div>
-            
+
             <div className="col-sm-2 zooming-logo">
               <a
                 style={{ cursor: 'pointer' }}
@@ -318,12 +315,9 @@ class PressSection extends PureComponent {
                 rel="noopener noreferrer"
                 href="https://www.tijd.be/dossier/blockchain/leuvenaars-halen-virtuele-miljoenen-op-voor-handel-in-sensordata/10012926.html"
               >
-                <img
-                  alt="detijd"
-                  src="./img/Logos media/detijdlogo.png"
-                />
+                <img alt="detijd" src="./img/Logos media/detijdlogo.png" />
               </a>
-            </div>   
+            </div>
 
             <div className="col-sm-2 zooming-logo">
               <a
@@ -337,7 +331,7 @@ class PressSection extends PureComponent {
                   src="./img/Logos media/criptonotciaslogo.png"
                 />
               </a>
-            </div>   
+            </div>
 
             <div className="col-sm-2 zooming-logo">
               <a
@@ -352,7 +346,7 @@ class PressSection extends PureComponent {
           </div>
 
           <div className="row align-center">
-            <div className="col-sm-2 zooming-logo"></div>
+            <div className="col-sm-2 zooming-logo" />
             <div className="col-sm-2 zooming-logo">
               <a
                 style={{ cursor: 'pointer' }}
@@ -380,7 +374,7 @@ class PressSection extends PureComponent {
                 />
               </a>
             </div>
-            
+
             <div className="col-sm-2 zooming-logo">
               <a
                 style={{ cursor: 'pointer' }}
@@ -393,7 +387,7 @@ class PressSection extends PureComponent {
                   src="./img/Logos media/TechBullionLogo-3.png"
                 />
               </a>
-            </div>   
+            </div>
 
             <div className="col-sm-2 zooming-logo">
               <a
@@ -402,14 +396,11 @@ class PressSection extends PureComponent {
                 rel="noopener noreferrer"
                 href="https://eprnews.com/databroker-dao-announced-chinese-roadshow-dates-doubles-token-sale-rewards-until-june-30th-348157/"
               >
-                <img
-                  alt="ePRNews"
-                  src="./img/Logos media/logo-ePRNews.png"
-                />
+                <img alt="ePRNews" src="./img/Logos media/logo-ePRNews.png" />
               </a>
-            </div>   
+            </div>
 
-            <div className="col-sm-2 zooming-logo"></div>
+            <div className="col-sm-2 zooming-logo" />
           </div>
 
           <div className="row align-center" style={{ marginTop: '50px' }}>

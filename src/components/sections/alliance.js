@@ -433,7 +433,6 @@ class AllianceSection extends PureComponent {
             </div>
           </div>
           <div className="row align-center">
-
             <div className="col-sm-2 modal-instance zooming-logo">
               <a
                 name="Iquadrat"

@@ -51,7 +51,7 @@ class VideoSection extends PureComponent {
 }
 
 export class Video extends React.Component {
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     if (typeof document !== 'undefined') {
       const script1 = document.createElement('script')
       const script2 = document.createElement('script')

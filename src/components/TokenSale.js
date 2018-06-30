@@ -1,16 +1,16 @@
 import React, { Component } from 'react'
 import LazyLoad from 'react-lazyload'
 import { setTimeout } from 'timers'
-import RingLoader from 'react-spinners/dist/spinners/RingLoader'
+// import RingLoader from 'react-spinners/dist/spinners/RingLoader'
 import { IntlProvider, addLocaleData, FormattedMessage } from 'react-intl'
 import loadScript from 'load-script'
 
 import { getWeb3 } from '../utils/getWeb3'
 import vendor from '../vendor'
-import ProgressBar from './ProgressBar'
+// import ProgressBar from './ProgressBar'
 import GoToButton from './GoToButton'
 
-import RegisterForm from './LazyRegisterForm'
+// import RegisterForm from './LazyRegisterForm'
 import WorldSVG from '../assets/world.svg'
 import WidgetSVG from '../assets/3028.widget.svg'
 import TelegramLogo from '../assets/telegram.png'
@@ -42,10 +42,11 @@ class TokenSale extends Component {
     this.enTranslations = enTranslations
     this.state = {
       web3: null,
+      total: 'Loading...',
     }
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.setMessages(this.language)
   }
 
@@ -112,7 +113,7 @@ class TokenSale extends Component {
     })
   }
 
-  componentWillUpdate() {
+  UNSAFE_componentWillUpdate() {
     this.refershExternalScripts()
   }
 
@@ -178,59 +179,27 @@ class TokenSale extends Component {
 
   async instantiateContract(update = false) {
     try {
-      const momentPromise = import('moment')
+      // const momentPromise = import('moment')
       const { sale } = this.state
       const DeployedSale = await sale.deployed()
-
       const totalIssued = await DeployedSale.totalIssued()
       const totalIssuedEarlySale = await DeployedSale.totalIssuedEarlySale()
-      let ethprice
-      try {
-        const response = await Promise.race([
-          fetch(
-            'https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD'
-          ),
-          new Promise((_, reject) =>
-            setTimeout(() => reject(new Error('timeout')), 500)
-          ),
-        ])
-        const json = await response.json()
-        ethprice = json.USD
-      } catch (error) {
-        console.log(error)
-        ethprice = 500
-      }
-
+      // let ethprice
       let total = totalIssued.plus(totalIssuedEarlySale).div(10 ** 18)
-      let totalUSD = totalIssued
-        .div(4000)
-        .plus(totalIssuedEarlySale.div(6000))
-        .times(ethprice)
-        .div(10 ** 18)
-      if (total.gte(108000000)) {
-        total = totalIssued.div(10 ** 18)
-        totalUSD = totalIssued
-          .div(6000)
-          .times(ethprice)
-          .div(10 ** 18)
-      }
-
-      const totalPhase2 = total.mul(2)
 
       // OLD percentage: the percentage of tokens sold
       // const percentage = total.div(108000000).times(100)
-      const moment = await momentPromise
-      const endTime = moment('2018-06-30')
-      const startTime = moment('2018-04-26')
-      const totalTime = endTime.diff(startTime, 'days')
-      const timeLeft = endTime.diff(moment(), 'days')
-      const percentage = (1 - timeLeft / totalTime) * 100
+      // const moment = await momentPromise
+      // const endTime = moment('2018-06-30')
+      // const startTime = moment('2018-04-26')
+      // const totalTime = endTime.diff(startTime, 'days')
+      // const timeLeft = endTime.diff(moment(), 'days')
+      // const percentage = (1 - timeLeft / totalTime) * 100
 
       const newState = {
-        total: totalPhase2.toFormat(0),
-        usd: totalUSD.toFormat(0),
-        percentage,
-        timeLeft,
+        total: total.toFormat(0),
+        // percentage,
+        // timeLeft,
         // timeLeft: moment().diff(moment('2018-03-27 15:59:59+01:00'), 'days'),
       }
       this.setState(newState)
@@ -246,60 +215,17 @@ class TokenSale extends Component {
   }
 
   saleUpcoming = doneLoading => {
-    const { percentage, timeLeft } = this.state
+    // const { percentage, timeLeft } = this.state
     return (
       <div>
         <h2
           className="sale-date type--uppercase"
           style={{ fontWeight: 'bold' }}
         >
-          DTX PUBLIC SALE LIVE NOW!
+          DTX SALE NOW CLOSED<br />Thanks for your support!
         </h2>
-        <div
-          style={{
-            minHeight: '200px',
-          }}
-        >
-          {!doneLoading && (
-            <div
-              style={{
-                margin: 'auto',
-                height: '100px',
-                width: '100px',
-                padding: '50px 0',
-              }}
-            >
-              <RingLoader color={'#E53368'} loading={!doneLoading} size={100} />
-            </div>
-          )}
-
-          {doneLoading && (
-            <ProgressBar
-              percentage={percentage}
-              label={`${timeLeft} DAY${timeLeft > 1 ? 'S' : ''} LEFT`}
-            />
-          )}
-        </div>
-        <div style={{ minHeight: '78px' }}>
-          {doneLoading && this.numberTable()}
-        </div>
+        <div style={{ minHeight: '78px' }}>{this.numberTable()}</div>
         <div className="modal-instance">
-          <a
-            name="preregister_button"
-            onMouseEnter={this.enableRegisteration.bind(this)}
-            onClick={this.enableRegisteration.bind(this)}
-            id="preregister_button"
-            className="btn btn-lg type--uppercase btn--primary modal-trigger"
-            style={{
-              fontSize: '18pt',
-              fontWeight: 'bold',
-              color: '#77A356',
-              marginBottom: '15px',
-            }}
-          >
-            <span>BUY DTX RIGHT NOW!</span>
-          </a>
-
           <div style={{ marginTop: '15px' }}>
             <a
               name="databrokerdao"
@@ -326,28 +252,16 @@ class TokenSale extends Component {
               Join us on Telegram
             </a>
           </div>
-          <div className="modal-container">
-            <div className="modal-content">
-              <div className="boxed boxed--lg">
-                {this.state.registrationEnabled && (
-                  <RegisterForm
-                    upcoming={true}
-                    language={this.state.language}
-                  />
-                )}
-              </div>
-            </div>
-          </div>
         </div>
         <div style={{ marginTop: '15px' }}>
           <a
             name="participate"
-            href="/how-to-participate.pdf"
+            href="https://medium.com/databrokerdao/dtx-token-sale-ended-databroker-dao-going-live-soon-9703bb57d7cb"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <i className="fa fa-info-circle" aria-hidden="true" /> How to buy
-            the DTX token
+            <i className="fa fa-info-circle" aria-hidden="true" />&nbsp;Read
+            what's next
           </a>
         </div>
       </div>
@@ -355,29 +269,37 @@ class TokenSale extends Component {
   }
 
   numberTable = () => {
-    const { total, usd } = this.state
+    const { total } = this.state
 
     return (
       <div>
-        <div className="col-sm-6 padding-0">
+        <div className="col-sm-offset-1 col-sm-10 padding-0">
           <table>
             <tbody>
               <tr>
-                <td style={{ textAlign: 'left' }}>Tokens sold:</td>
+                <td style={{ textAlign: 'left' }}>Circulating supply:</td>
                 <td style={{ textAlign: 'right' }} className="type--bold">
                   {total}
                 </td>
               </tr>
-            </tbody>
-          </table>
-        </div>
-        <div className="col-sm-6 padding-only-left">
-          <table>
-            <tbody>
               <tr>
-                <td style={{ textAlign: 'left' }}>USD:</td>
+                <td style={{ textAlign: 'left' }}>Symbol:</td>
                 <td style={{ textAlign: 'right' }} className="type--bold">
-                  ${usd}
+                  DTX
+                </td>
+              </tr>
+              <tr>
+                <td style={{ textAlign: 'left' }}>Address:</td>
+                <td style={{ textAlign: 'right' }} className="type--bold">
+                  <a href="https://etherscan.io/token/0x765f0c16d1ddc279295c1a7c24b0883f62d33f75">
+                    Link to Etherscan
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td style={{ textAlign: 'left' }}>Decimals:</td>
+                <td style={{ textAlign: 'right' }} className="type--bold">
+                  18
                 </td>
               </tr>
             </tbody>

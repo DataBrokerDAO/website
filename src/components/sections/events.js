@@ -64,7 +64,8 @@ const pastEvents = [
   },
   {
     date: 'June 14',
-    title: 'Blockchain Technology Conference & Oversees Blockchain Exchange Conference',
+    title:
+      'Blockchain Technology Conference & Oversees Blockchain Exchange Conference',
     location: 'Hangzhou 杭, China',
   },
   {
@@ -96,8 +97,6 @@ const pastEvents = [
 ]
 
 const events = [
-  
-  
   // {
   //   date: 'June 6',
   //   title: 'IoT Smart Cities Convention Europe',

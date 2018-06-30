@@ -15,59 +15,6 @@ class TokenSaleSection extends PureComponent {
         </div>
         <div className="container">
           <div className="row">
-            <div className="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 text-center">
-              <h2>
-                <FormattedMessage id="tokensale_title" />
-              </h2>
-            </div>
-            <div className="col-sm-12 col-md-10 col-md-offset-1">
-              <div className="boxed boxed--lg box-shadow-wide bg--secondary token-box">
-                <h3 className="force-black type--bold unmarg--bottom">
-                  <FormattedMessage id="tokensale_sale" />
-                </h3>
-                <hr className="short" />
-                <div className="col-sm-6 padding-0">
-                  <table>
-                    <tbody>
-                      <tr>
-                        <td valign="top" className="force-black">
-                          <FormattedMessage id="tokensale_start" />:
-                        </td>
-                        <td className="type--bold">April 26th, 2018 4PM CET</td>
-                      </tr>
-                      <tr>
-                        <td valign="top" className="force-black">
-                          <FormattedMessage id="tokensale_rate" />:
-                        </td>
-                        <td className="type--bold">8000 DTX / ETH</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-                <div className="col-sm-6 padding-only-left">
-                  <table>
-                    <tbody>
-                      <tr>
-                        <td valign="top" className="force-black">
-                          <FormattedMessage id="tokensale_end" />:
-                        </td>
-                        <td className="type--bold">June 30th, 2018 4PM CET</td>
-                      </tr>
-                      <tr>
-                        <td valign="top" className="force-black">
-                          <span>Lock-up:</span>
-                        </td>
-                        <td className="type--bold">4000 DTX / ETH</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-                <hr className="short" />
-                <p style={{ color: '333' }} className="force-black">
-                  <FormattedMessage id="tokensale_referral" />
-                </p>
-              </div>
-            </div>
             <div className="col-sm-12 col-md-10 col-md-offset-1">
               <div className="boxed boxed--lg box-shadow-wide bg--secondary token-box">
                 <h3 className="force-black type--bold unmarg--bottom">
