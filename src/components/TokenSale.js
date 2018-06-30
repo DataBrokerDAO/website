@@ -185,7 +185,10 @@ class TokenSale extends Component {
       const totalIssued = await DeployedSale.totalIssued()
       const totalIssuedEarlySale = await DeployedSale.totalIssuedEarlySale()
       // let ethprice
-      let total = totalIssued.plus(totalIssuedEarlySale).div(10 ** 18)
+      let total = totalIssued
+        .plus(totalIssuedEarlySale)
+        .div(10 ** 18)
+        .mul(2)
 
       // OLD percentage: the percentage of tokens sold
       // const percentage = total.div(108000000).times(100)
@@ -300,6 +303,12 @@ class TokenSale extends Component {
                 <td style={{ textAlign: 'left' }}>Decimals:</td>
                 <td style={{ textAlign: 'right' }} className="type--bold">
                   18
+                </td>
+              </tr>
+              <tr>
+                <td style={{ textAlign: 'left' }}>Price:</td>
+                <td style={{ textAlign: 'right' }} className="type--bold">
+                  8000 DTX/ETH
                 </td>
               </tr>
             </tbody>
