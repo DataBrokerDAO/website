@@ -43,7 +43,7 @@ class TokenSale extends Component {
     this.state = {
       web3: null,
       total: 'Loading...',
-      totallocked: 'Loading...'
+      totallocked: 'Loading...',
     }
   }
 
@@ -185,16 +185,14 @@ class TokenSale extends Component {
       const DeployedSale = await sale.deployed()
       const totalIssued = await DeployedSale.totalIssued()
       const totalIssuedEarlySale = await DeployedSale.totalIssuedEarlySale()
-      const totalVested = await DeployedSale.totalVested()
-      const lockedTokens = await DeployedSale.lockedTokens()
-      
+      // const totalVested = await DeployedSale.totalVested()
+      // const lockedTokens = await DeployedSale.lockedTokens()
+
       // let ethprice
-      let total = totalIssued
-        .plus(totalIssuedEarlySale)
-        .div(10 ** 18)
+      let total = totalIssued.plus(totalIssuedEarlySale).div(10 ** 18)
       //  .mul(2)
-      
-      let totallocked = totalVested.div(10 ** 18)
+
+      let totallocked = 40359224.63341 + 1666000 + 1666000 + 2750000
 
       // OLD percentage: the percentage of tokens sold
       // const percentage = total.div(108000000).times(100)
@@ -207,7 +205,7 @@ class TokenSale extends Component {
 
       const newState = {
         total: total.toFormat(0),
-        totallocked: totallocked.toFormat(0)
+        totallocked: Math.round(totallocked),
         // percentage,
         // timeLeft,
         // timeLeft: moment().diff(moment('2018-03-27 15:59:59+01:00'), 'days'),
@@ -279,7 +277,7 @@ class TokenSale extends Component {
   }
 
   numberTable = () => {
-    const { total,totallocked } = this.state
+    const { total } = this.state
 
     return (
       <div>
@@ -290,12 +288,6 @@ class TokenSale extends Component {
                 <td style={{ textAlign: 'left' }}>Circulating supply:</td>
                 <td style={{ textAlign: 'right' }} className="type--bold">
                   {total}
-                </td>
-              </tr>
-              <tr>
-                <td style={{ textAlign: 'left' }}>Locked tokens:</td>
-                <td style={{ textAlign: 'right' }} className="type--bold">
-                  {totallocked}
                 </td>
               </tr>
               <tr>
