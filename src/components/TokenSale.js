@@ -293,7 +293,7 @@ class TokenSale extends Component {
                 </td>
               </tr>
               <tr>
-                <td style={{ textAlign: 'left' }}>Vested tokens:</td>
+                <td style={{ textAlign: 'left' }}>Locked tokens:</td>
                 <td style={{ textAlign: 'right' }} className="type--bold">
                   {totallocked}
                 </td>
