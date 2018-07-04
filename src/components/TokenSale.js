@@ -194,7 +194,7 @@ class TokenSale extends Component {
         .div(10 ** 18)
       //  .mul(2)
       
-      let totallocked = totalVested.plus(lockedTokens).div(10 ** 18)
+      let totallocked = totalVested.div(10 ** 18)
 
       // OLD percentage: the percentage of tokens sold
       // const percentage = total.div(108000000).times(100)
