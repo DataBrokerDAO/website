@@ -43,6 +43,7 @@ class TokenSale extends Component {
     this.state = {
       web3: null,
       total: 'Loading...',
+      totallocked: 'Loading...'
     }
   }
 
@@ -185,13 +186,15 @@ class TokenSale extends Component {
       const totalIssued = await DeployedSale.totalIssued()
       const totalIssuedEarlySale = await DeployedSale.totalIssuedEarlySale()
       const totalVested = await DeployedSale.totalVested()
-
+      const lockedTokens = await DeployedSale.lockedTokens()
+      
       // let ethprice
       let total = totalIssued
         .plus(totalIssuedEarlySale)
-        .plus(totalVested)      
         .div(10 ** 18)
       //  .mul(2)
+      
+      let totallocked = totalVested.plus(lockedTokens).div(10 ** 18)
 
       // OLD percentage: the percentage of tokens sold
       // const percentage = total.div(108000000).times(100)
@@ -204,6 +207,7 @@ class TokenSale extends Component {
 
       const newState = {
         total: total.toFormat(0),
+        totallocked: locked.toFormat(0)
         // percentage,
         // timeLeft,
         // timeLeft: moment().diff(moment('2018-03-27 15:59:59+01:00'), 'days'),
