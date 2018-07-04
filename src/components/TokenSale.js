@@ -207,7 +207,7 @@ class TokenSale extends Component {
 
       const newState = {
         total: total.toFormat(0),
-        totallocked: locked.toFormat(0)
+        totallocked: totallocked.toFormat(0)
         // percentage,
         // timeLeft,
         // timeLeft: moment().diff(moment('2018-03-27 15:59:59+01:00'), 'days'),
