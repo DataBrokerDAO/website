@@ -184,11 +184,14 @@ class TokenSale extends Component {
       const DeployedSale = await sale.deployed()
       const totalIssued = await DeployedSale.totalIssued()
       const totalIssuedEarlySale = await DeployedSale.totalIssuedEarlySale()
+      const totalVested = await DeployedSale.totalVested()
+
       // let ethprice
       let total = totalIssued
         .plus(totalIssuedEarlySale)
+        .plus(totalVested)      
         .div(10 ** 18)
-        .mul(2)
+      //  .mul(2)
 
       // OLD percentage: the percentage of tokens sold
       // const percentage = total.div(108000000).times(100)
