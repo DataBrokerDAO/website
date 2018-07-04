@@ -279,7 +279,7 @@ class TokenSale extends Component {
   }
 
   numberTable = () => {
-    const { total } = this.state
+    const { total,totallocked } = this.state
 
     return (
       <div>
@@ -290,6 +290,12 @@ class TokenSale extends Component {
                 <td style={{ textAlign: 'left' }}>Circulating supply:</td>
                 <td style={{ textAlign: 'right' }} className="type--bold">
                   {total}
+                </td>
+              </tr>
+              <tr>
+                <td style={{ textAlign: 'left' }}>Vested tokens:</td>
+                <td style={{ textAlign: 'right' }} className="type--bold">
+                  {totallocked}
                 </td>
               </tr>
               <tr>
