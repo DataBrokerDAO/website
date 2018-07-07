@@ -1,0 +1,32 @@
+language: node_js
+
+addons:
+  apt:
+    packages:
+      - docker-ce
+
+cache:
+  directories:
+    - node_modules
+    - ~/.npm
+
+notifications:
+  slack:
+    rooms:
+      - settlemint:5QuOPa3Z4kJbfbNIgei0asur#mint
+
+node_js:
+  - '8'
+
+before_install:
+  - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" > .npmrc
+  - npm install -g npm@5
+
+deploy:
+  - provider: script
+    skip_cleanup: true
+    script:
+      - bash ./scripts/deploy.sh
+    on:
+      all_branches: true
+      repo: databrokerdao/website
