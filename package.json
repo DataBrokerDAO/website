@@ -1,6 +1,6 @@
 {
   "name": "crowdsale-website",
-  "version": "0.1.0",
+  "version": "0.0.0-development",
   "private": true,
   "engines": {
     "node": "8.x"
@@ -102,7 +102,9 @@
     "webpack-concat-plugin": "^2.4.2",
     "webpack-dev-server": "2.11.1",
     "webpack-manifest-plugin": "^2.0.3",
-    "whatwg-fetch": "2.0.3"
+    "whatwg-fetch": "2.0.3",
+    "travis-deploy-once": "^5.0.1",
+    "semantic-release": "^15.6.3"
   },
   "scripts": {
     "lint": "eslint src",
@@ -115,7 +117,9 @@
     "test": "node scripts/test.js --env=jsdom --coverage --collectCoverageFrom='src/**/*.{js,jsx}'",
     "build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
-    "contracts": "rm -Rf src/contracts && cp -R ../dtx-crowdsale-contracts/build/contracts src/"
+    "contracts": "rm -Rf src/contracts && cp -R ../dtx-crowdsale-contracts/build/contracts src/",
+    "travis-deploy-once": "travis-deploy-once",
+    "semantic-release": "semantic-release"
   },
   "proxy": {
     "/api": {
@@ -187,5 +191,9 @@
     "plugins": [
       "prettier"
     ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DataBrokerDAO/website.git"
   }
 }
