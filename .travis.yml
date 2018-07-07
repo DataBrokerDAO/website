@@ -32,4 +32,4 @@ deploy:
       - bash ./scripts/deploy.sh
     on:
       all_branches: true
-      repo: databrokerdao/website
+      repo: DataBrokerDAO/website
