@@ -5,11 +5,6 @@ services:
 
 language: node_js
 
-cache:
-  directories:
-    - node_modules
-    - ~/.npm
-
 notifications:
   slack:
     rooms:
