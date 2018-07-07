@@ -1,9 +1,9 @@
-language: node_js
+sudo: required
 
-addons:
-  apt:
-    packages:
-      - docker-ce
+services:
+  - docker
+
+language: node_js
 
 cache:
   directories:
