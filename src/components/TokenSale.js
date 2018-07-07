@@ -311,9 +311,15 @@ class TokenSale extends Component {
                 </td>
               </tr>
               <tr>
-                <td style={{ textAlign: 'left' }}>Price:</td>
+                <td style={{ textAlign: 'left' }}>Trading on:</td>
                 <td style={{ textAlign: 'right' }} className="type--bold">
-                  8000 DTX/ETH
+                  <a href="https://coinfalcon.com/?ref=CFJSEHBJCACT">
+                    CoinFalcon
+                  </a>
+                  <br />
+                  <a href="https://bitforex.com/trade/spotTrading?commodityCode=DTX&currencyCode=USDT">
+                    BitForex
+                  </a>
                 </td>
               </tr>
             </tbody>
