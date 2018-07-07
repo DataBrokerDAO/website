@@ -16,11 +16,14 @@ notifications:
       - settlemint:5QuOPa3Z4kJbfbNIgei0asur#mint
 
 node_js:
-  - '8'
+  - '9'
 
 before_install:
   - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" > .npmrc
-  - npm install -g npm@5
+
+script:
+  - npm run build
+  # - npm run test
 
 deploy:
   - provider: script
