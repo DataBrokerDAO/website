@@ -693,7 +693,7 @@ class AllianceSection extends PureComponent {
                   <div className="boxed boxed--border">
                     <h2>Rivets</h2>
                     <p>
-                      
+                    Rivetz provides the cybersecurity for the users and devices of the IoT ecosystem. We are happy to know they are on DataBroker DAO, and to know they will be part of the synergy within our Alliance members. Adding trust within the marketplace.
                     </p>
                   </div>
                 </div>

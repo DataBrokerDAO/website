@@ -37,11 +37,11 @@ const pastEvents = [
   //   title: 'The Next Web Conference',
   //   location: 'Amsterdam, the Netherlands',
   // },
-  {
-    date: 'May 24-25',
-    title: 'Latitude 59',
-    location: 'Tallinn, Estiona',
-  },
+  // {
+  //   date: 'May 24-25',
+  //   title: 'Latitude 59',
+  //   location: 'Tallinn, Estiona',
+  // },
   {
     date: 'June 6',
     title: 'IoT Smart Cities Convention Europe',
@@ -94,6 +94,11 @@ const pastEvents = [
     title: 'WEBIT Blockchain Summit',
     location: 'Sofia, Bulgary',
   },
+  {
+    date: 'July 9-13',
+    title: 'Rise conference',
+    location: 'Hong Kong, China',
+  },
 ]
 
 const events = [
@@ -122,11 +127,7 @@ const events = [
   //   title: 'Tech Open Air',
   //   location: 'Berlin',
   // },
-  {
-    date: 'July 9-13',
-    title: 'Rise conference',
-    location: 'Hong Kong, China',
-  },
+
   {
     date: 'October 22-25',
     title: 'SIBOS',
