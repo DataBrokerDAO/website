@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import WorldSVG from '../../assets/world.svg'
-import TelegramLogo from '../../assets/telegram_white.png'
+import TelegramLogo from '../../assets/telegram.png'
 
 // import { FormattedMessage } from 'react-intl'
 
@@ -23,18 +23,18 @@ class CTASection extends PureComponent {
               style={{
                 display: 'block',
                 margin: '0 auto',
-                backgroundColor: '#0088cc',
+                backgroundColor: '#fff',
                 border: 'none',
               }}
             >
               <span
                 className="btn__text type--uppercase"
-                style={{ color: 'white' }}
+                style={{ color: '#0088cc' }}
               >
                 <img
                   style={{
-                    height: '19px',
-                    width: '20px',
+                    height: '30px',
+                    width: '30px',
                     position: 'relative',
                     top: '-2px',
                     left: '-5px',
