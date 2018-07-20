@@ -1,6 +1,8 @@
 import React, { PureComponent } from 'react'
 import WorldSVG from '../../assets/world.svg'
-import { FormattedMessage } from 'react-intl'
+import TelegramLogo from '../../assets/telegram_white.png'
+
+// import { FormattedMessage } from 'react-intl'
 
 class CTASection extends PureComponent {
   render() {
@@ -18,22 +20,29 @@ class CTASection extends PureComponent {
             <a
               className="btn btn-lg btn--primary"
               href="#start"
-              style={{ display: 'block', margin: '0 auto' }}
+              style={{
+                display: 'block',
+                margin: '0 auto',
+                backgroundColor: '#0088cc',
+                border: 'none',
+              }}
             >
               <span
                 className="btn__text type--uppercase"
                 style={{ color: 'white' }}
               >
-                {localStorage.getItem('ref') === 'cryptoclub' && (
-                  <span>Join the private sale for Crypto Club members</span>
-                )}
-                {localStorage.getItem('ref') === 'mattsyndicate' && (
-                  <span>Join the private sale for MattSyndicate members</span>
-                )}
-                {localStorage.getItem('ref') !== 'cryptoclub' &&
-                  localStorage.getItem('ref') !== 'mattsyndicate' && (
-                    <FormattedMessage id="cta" />
-                  )}
+                <img
+                  style={{
+                    height: '19px',
+                    width: '20px',
+                    position: 'relative',
+                    top: '-2px',
+                    left: '-5px',
+                  }}
+                  src={TelegramLogo}
+                  alt="TelegramLogo"
+                />
+                Join us on Telegram
               </span>
             </a>
           </div>
