@@ -32,6 +32,7 @@ import LogoIungoo from '../../assets/alliance/logo_iungoo.png'
 import Logoaerodyne from '../../assets/alliance/aerodyne-logo.png'
 import Logodigitalworx from '../../assets/alliance/digitalworx.png'
 import LogoReekoh from '../../assets/alliance/Reekoh_logo.png'
+import LogoRivets from '../../assets/alliance/logo_rivets.png'
 
 class AllianceSection extends PureComponent {
   render() {
@@ -616,7 +617,7 @@ class AllianceSection extends PureComponent {
           </div>
 
           <div className="row align-center">
-            <div className="col-sm-4" />
+            <div className="col-sm-3" />
 
             <div className="col-sm-2 modal-instance zooming-logo">
               <a
@@ -677,6 +678,28 @@ class AllianceSection extends PureComponent {
                 </div>
               </div>
             </div>
+
+
+            <div className="col-sm-2 modal-instance zooming-logo">
+              <a
+                name="Rivets"
+                className="modal-trigger"
+                style={{ cursor: 'pointer' }}
+              >
+                <img src={LogoRivets} alt="Rivets" />
+              </a>
+              <div className="modal-container">
+                <div className="modal-content">
+                  <div className="boxed boxed--border">
+                    <h2>Rivets</h2>
+                    <p>
+                      
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
 
           {/*<div className="col-sm-2 zooming-logo">

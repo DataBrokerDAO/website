@@ -52,6 +52,11 @@ class TokenSale extends Component {
   }
 
   componentDidMount() {
+    const script = document.createElement('script')
+    script.src = 'https://files.coinmarketcap.com/static/widget/currency.js'
+    script.async = true
+    document.body.appendChild(script)
+
     if (process.env.REACT_APP_SALE_ACTIVE === 'true') {
       getWeb3()
         .then(results => {
@@ -232,7 +237,7 @@ class TokenSale extends Component {
         >
           DTX SALE NOW CLOSED<br />Thanks for your support!
         </h2>
-        <div style={{ minHeight: '78px' }}>{this.numberTable()}</div>
+        <div style={{ minHeight: '78px' }}>{this.DtxWidget()}</div>
         <div className="modal-instance">
           <div style={{ marginTop: '15px' }}>
             <a
@@ -273,6 +278,18 @@ class TokenSale extends Component {
           </a>
         </div>
       </div>
+    )
+  }
+
+  DtxWidget = () => {
+    return (
+      <div
+        style={{ marginTop: '5,.0px', marginBottom: '20px' }}
+        class="coinmarketcap-currency-widget"
+        data-currencyid="2913"
+        data-base="USD"
+        data-secondary="BTC"
+      />
     )
   }
 
@@ -653,34 +670,7 @@ class TokenSale extends Component {
                           />
                         </a>
                       </div>
-                      <div
-                        className="col-md-12"
-                        style={{
-                          marginBottom: '10px',
-                          paddingRight: '5px',
-                          paddingLeft: '5px',
-                        }}
-                      >
-                        <a
-                          name="whitepaper"
-                          href={`/whitepaper/ONEPAGER_DataBrokerDAO_${language}.pdf`}
-                          className="btn btn-lg btn--secondary force-black"
-                          target="_blank"
-                          style={{
-                            width: '100%',
-                            color: 'black',
-                            fontWeight: 'bold',
-                          }}
-                        >
-                          <FormattedMessage
-                            id="splash_readonepaper"
-                            style={{
-                              color: 'black',
-                              fontWeight: 'bold',
-                            }}
-                          />
-                        </a>
-                      </div>
+
                       <div
                         className="col-xs-3"
                         style={{
