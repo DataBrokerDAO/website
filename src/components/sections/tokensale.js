@@ -43,10 +43,43 @@ class TokenSaleSection extends PureComponent {
                         <td className="type--bold">
                           -{' '}
                           <a
-                            href="https://coinfalcon.com/?ref=CFJSEHBJCACT                            "
+                            href="https://coinfalcon.com/?ref=CFJSEHBJCACT"
                             style={{ color: '#666' }}
                           >
                             CoinFalcon
+                          </a>
+                          <br />
+                          -{' '}
+                          <a
+                            href="https://bitforex.com/b_DTX"
+                            style={{ color: '#666' }}
+                          >
+                            BitForex
+                          </a>
+                          <br />
+                          -{' '}
+                          <a
+                            href="https://tokenjar.io/DTX"
+                            style={{ color: '#666' }}
+                          >
+                            TokenJar
+                          </a>
+                          <br />
+                          - ...
+                        </td>
+                      </tr>
+                      <tr height="10" />
+                      <tr>
+                        <td valign="top" className="force-black">
+                          <span>Listing sites</span>:
+                        </td>
+                        <td className="type--bold">
+                          -{' '}
+                          <a
+                            href="https://coinmarketcap.com/currencies/data-exchange/"
+                            style={{ color: '#666' }}
+                          >
+                            CoinMarketCap
                           </a>
                           <br />
                           - ...

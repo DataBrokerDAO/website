@@ -693,7 +693,10 @@ class AllianceSection extends PureComponent {
                   <div className="boxed boxed--border">
                     <h2>Rivets</h2>
                     <p>
-                    Rivetz provides the cybersecurity for the users and devices of the IoT ecosystem. We are happy to know they are on DataBroker DAO, and to know they will be part of the synergy within our Alliance members. Adding trust within the marketplace.
+                    Rivetz is an industry leader in embedded, blockchain-based mobile security solutions. Their blockchain technology and their access to the existing hardware security capabilities built into millions of devices ensure the safety of digital assets and transactions. “As a cybersecurity organization we are excited to be part of the DataBroker DAO Alliance”, says Steven Sprague, founder and CEO of Rivetz. “Working together with the Alliance members, Rivetz strives to ensure the security of the entire ecosystem.”
+SenLab
+SenLab, based in Ljubljana, Slovenia, is focused on delivering cutting-edge mobile enterprise solutions which present a compelling mobile alternative to bulky and expensive monitoring and sensor solutions. Their multiple award-winning IoTool is an always-available smartphone IoT dashboard, gateway, cloud, and API for prototyping, testing, and piloting. And the company is very active in the field of crowd-sensing, involving a large, spread out group of participants who use mobile devices with the aim of receiving reliable data from the field.
+
                     </p>
                   </div>
                 </div>
