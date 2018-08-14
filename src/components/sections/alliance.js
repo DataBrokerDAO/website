@@ -33,6 +33,9 @@ import Logoaerodyne from '../../assets/alliance/aerodyne-logo.png'
 import Logodigitalworx from '../../assets/alliance/digitalworx.png'
 import LogoReekoh from '../../assets/alliance/Reekoh_logo.png'
 import LogoRivets from '../../assets/alliance/logo_rivets.png'
+import LogoEurocon from '../../assets/alliance/logo_eurocon.png'
+import LogoSenlab from '../../assets/alliance/logo_senlab.png'
+import LogoStrategicWater from '../../assets/alliance/logo_strategicwater.png'
 
 class AllianceSection extends PureComponent {
   render() {
@@ -617,8 +620,6 @@ class AllianceSection extends PureComponent {
           </div>
 
           <div className="row align-center">
-            <div className="col-sm-3" />
-
             <div className="col-sm-2 modal-instance zooming-logo">
               <a
                 name="Aerodyne"
@@ -679,6 +680,90 @@ class AllianceSection extends PureComponent {
               </div>
             </div>
 
+            <div className="col-sm-2 modal-instance zooming-logo">
+              <a
+                name="Strategic Water"
+                className="modal-trigger"
+                style={{ cursor: 'pointer' }}
+              >
+                <img src={LogoStrategicWater} alt="Strategic Water" />
+              </a>
+              <div className="modal-container">
+                <div className="modal-content">
+                  <div className="boxed boxed--border">
+                    <h2>Strategic Water</h2>
+                    <p>
+                      Strategic Water, a start-up grown out of the University of
+                      Ghent, is aimed at water technology providers, merging
+                      cutting-edge data science with water and wastewater
+                      treatment technologies in order to optimize performance
+                      and change the value proposition around data in the
+                      sector. Their mission is to use advanced data analysis and
+                      machine learning solutions to drive technology diffusion
+                      across the globe.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-sm-2 modal-instance zooming-logo">
+              <a
+                name="Senlab"
+                className="modal-trigger"
+                style={{ cursor: 'pointer' }}
+              >
+                <img src={LogoSenlab} alt="Senlad" />
+              </a>
+              <div className="modal-container">
+                <div className="modal-content">
+                  <div className="boxed boxed--border">
+                    <h2>Senlab</h2>
+                    <p>
+                      SenLab, based in Ljubljana, Slovenia, is focused on
+                      delivering cutting-edge mobile enterprise solutions which
+                      present a compelling mobile alternative to bulky and
+                      expensive monitoring and sensor solutions. Their multiple
+                      award-winning IoTool is an always-available smartphone IoT
+                      dashboard, gateway, cloud, and API for prototyping,
+                      testing, and piloting. And the company is very active in
+                      the field of crowd-sensing, involving a large, spread out
+                      group of participants who use mobile devices with the aim
+                      of receiving reliable data from the field.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-sm-2 modal-instance zooming-logo">
+              <a
+                name="Eurocon"
+                className="modal-trigger"
+                style={{ cursor: 'pointer' }}
+              >
+                <img src={LogoEurocon} alt="Eurocon" />
+              </a>
+              <div className="modal-container">
+                <div className="modal-content">
+                  <div className="boxed boxed--border">
+                    <h2>Eurocon</h2>
+                    <p>
+                      Eurocon is a privately held project management and
+                      consulting business, specialized in managing technology
+                      and business clusters, innovation centers, international
+                      pilot projects in emerging markets and advanced digital
+                      programs. Since 2011 it has been running an IoT community
+                      and a related ‘Living bits and things’ annual event,
+                      serving as a networking platform for digital technologies
+                      and as a connector for multiple industries, like smart
+                      cities, Industry 4.0, logistics and supply chain,
+                      healthcare, and well-being.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
 
             <div className="col-sm-2 modal-instance zooming-logo">
               <a
@@ -693,16 +778,31 @@ class AllianceSection extends PureComponent {
                   <div className="boxed boxed--border">
                     <h2>Rivets</h2>
                     <p>
-                    Rivetz is an industry leader in embedded, blockchain-based mobile security solutions. Their blockchain technology and their access to the existing hardware security capabilities built into millions of devices ensure the safety of digital assets and transactions. “As a cybersecurity organization we are excited to be part of the DataBroker DAO Alliance”, says Steven Sprague, founder and CEO of Rivetz. “Working together with the Alliance members, Rivetz strives to ensure the security of the entire ecosystem.”
-SenLab
-SenLab, based in Ljubljana, Slovenia, is focused on delivering cutting-edge mobile enterprise solutions which present a compelling mobile alternative to bulky and expensive monitoring and sensor solutions. Their multiple award-winning IoTool is an always-available smartphone IoT dashboard, gateway, cloud, and API for prototyping, testing, and piloting. And the company is very active in the field of crowd-sensing, involving a large, spread out group of participants who use mobile devices with the aim of receiving reliable data from the field.
-
+                      Rivetz is an industry leader in embedded, blockchain-based
+                      mobile security solutions. Their blockchain technology and
+                      their access to the existing hardware security
+                      capabilities built into millions of devices ensure the
+                      safety of digital assets and transactions. “As a
+                      cybersecurity organization we are excited to be part of
+                      the DataBroker DAO Alliance”, says Steven Sprague, founder
+                      and CEO of Rivetz. “Working together with the Alliance
+                      members, Rivetz strives to ensure the security of the
+                      entire ecosystem.” SenLab SenLab, based in Ljubljana,
+                      Slovenia, is focused on delivering cutting-edge mobile
+                      enterprise solutions which present a compelling mobile
+                      alternative to bulky and expensive monitoring and sensor
+                      solutions. Their multiple award-winning IoTool is an
+                      always-available smartphone IoT dashboard, gateway, cloud,
+                      and API for prototyping, testing, and piloting. And the
+                      company is very active in the field of crowd-sensing,
+                      involving a large, spread out group of participants who
+                      use mobile devices with the aim of receiving reliable data
+                      from the field.
                     </p>
                   </div>
                 </div>
               </div>
             </div>
-
           </div>
 
           {/*<div className="col-sm-2 zooming-logo">
